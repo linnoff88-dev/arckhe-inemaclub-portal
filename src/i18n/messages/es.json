@@ -1,0 +1,231 @@
+{
+  "langSwitcher": {
+    "label": "Idioma"
+  },
+  "header": {
+    "communityBadge": "Únete a la Comunidad",
+    "proBadge": "Suscríbete a INEMA.PRO",
+    "logo": "INEMA.CLUB Portal INEMA",
+    "tagline": "Aprende Inteligencia Artificial en la práctica: cursos, agentes, automatización y comunidad",
+    "chipVisits": "accesos",
+    "chipUnique": "visitantes únicos",
+    "chipLogged": "conectados"
+  },
+  "nav": {
+    "home": "🏠 Home",
+    "search": "🔍 Búsquedas (PT)",
+    "news": "📰 News",
+    "learnAi": "🧭 Aprender IA (PT)",
+    "beginners": "📘 Principiantes",
+    "courses": "🎓 Cursos",
+    "events": "📅 Eventos",
+    "videos": "🎬 Videos",
+    "projects": "🚀 Proyectos",
+    "telegram": "💬 Telegram",
+    "social": "📱 Social",
+    "pro": "⭐ INEMA.PRO (PT)"
+  },
+  "hero": {
+    "newsBadge": "EN VIVO",
+    "newsText": "Las noticias de IA del día, curadas",
+    "imageAlt": "INEMA.CLUB — Aprende. Practica. Evoluciona. El ecosistema para dominar la IA en la práctica.",
+    "caption": "Aprende. Practica. Evoluciona. — una base sólida de conocimiento en IA para aplicar en el trabajo, en los proyectos y en la carrera.",
+    "title": "Aprende Inteligencia Artificial en la práctica, de cero a avanzado.",
+    "body": "INEMA Club es un ecosistema de aprendizaje práctico para quienes quieren dominar la inteligencia artificial y aplicarla en el trabajo, en los proyectos y en la carrera. La idea central es simple: aprender, practicar y evolucionar con IA de forma continua.",
+    "body2": "Aquí encuentras cursos prácticos y directos al grano, proyectos reales para poner manos a la obra, rutas organizadas para cada nivel, una comunidad activa y la curaduría de las mejores herramientas. Todo orientado a construir una base sólida de conocimiento — que te vuelve más productivo, más estratégico y mejor preparado para el futuro del trabajo.",
+    "guideCta": "¿Nuevo aquí? Empieza por la guía (en portugués): cómo aprender IA desde cero →"
+  },
+  "search": {
+    "title": "¿Qué quieres aprender hoy?",
+    "body": "Busca los cursos públicos de INEMA por tema, herramienta u objetivo. Incluso sin WebMCP puedes seguir manualmente por el catálogo.",
+    "label": "Tema u objetivo",
+    "placeholder": "Ej.: WebMCP, agentes, automatización",
+    "button": "Buscar cursos",
+    "catalogNote": "El catálogo de cursos está en portugués."
+  },
+  "events": {
+    "gestao2027Alt": "Gestión de Agentes 2027 — el nuevo papel de las empresas. El mismo liderazgo, una nueva fuerza de trabajo: humanos + agentes = más valor.",
+    "agiAlt": "La AGI llegó — ya no se trata de hacerlo todo, sino de comandar agentes. La era de los superagentes ha comenzado.",
+    "content2videoAlt": "Content2Video — entra un enlace, sale un video",
+    "webmcpAlt": "WebMCP — evento INEMA",
+    "musicavideoAlt": "INEMA MUSICAVIDEO — crea canciones y videoclips a escala, de la idea al hit",
+    "destaqueAlt": "Curso INEMACCBOT con Promoavatar",
+    "eventoAlt": "Evento INEMA",
+    "musicavideoButton": "Conoce MUSICAVIDEO →",
+    "destaqueButton": "Mira el curso →",
+    "iaCultivadaAlt": "IA Cultivada — no se programa, se cultiva. El mismo liderazgo, una nueva forma de crear agentes: función, contexto, herramientas, reglas, ejemplos, memoria, evaluación, feedback.",
+    "claudeCodexAlt": "Claude → Codex: migra o quédate agnóstico. Separa el cerebro del modelo — contexto, skills y handoffs portátiles. Evento INEMA 2026.",
+    "codexClaudeAlt": "Codex + Claude — usa los dos juntos. Uno planifica, el otro desafía; las pruebas deciden. Debatir el plan, imagen, construir y revisar, computer use, meta con parada y handoff.",
+    "liveInematdsxAlt": "Hoy hay live en INEMATDSX — en vivo en YouTube (en portugués).",
+    "opus55Alt": "Guía Claude Opus 5.5 — el nuevo rey de Anthropic: más barato que Opus 5 y por delante en casi todo. −20% en precio, 89,9 en SWE-bench Pro, 1M de contexto.",
+    "rsiAlt": "El RSI llegó 2 años antes: la IA que mejora la IA. Previsto para 2028, llegó en 2026; LOOP-R en la práctica. Explora el área de estudio.",
+    "jevAlt": "JEV — decisiones de IA en la práctica. Explora el proyecto, aprende en el curso: 20 casos prácticos, 36 lecciones y 10 paquetes.",
+    "osworkAlt": "OSWork — IA como sistema de trabajo. Curso completo con ocho módulos."
+  },
+  "beginners": {
+    "title": "Ruta para Principiantes",
+    "subtitle": "Comienza tu camino con los cursos esenciales, en este orden recomendado",
+    "body": "No es una lista aleatoria: es una progresión. Empiezas aprendiendo a hablar con la IA (FEP), ves esas habilidades en acción (ATIA), construyes la base técnica de datos (FDB) y amplías hacia imágenes (Vision). Solo entonces entras en las herramientas de agente de código — Claude Code y Codex — que unen todo eso en la práctica, antes de poner un proyecto real en línea (Do Zero ao Deploy) y cerrar construyendo tu propio sistema de IA (INTELECTO). Saltarse etapas crea vacíos: los cursos siguientes presuponen la base de los anteriores.",
+    "footer": "Después de completar esta ruta, explora otros cursos según tu interés más abajo",
+    "guideButton": "📖 Mira la guía con la importancia de cada curso",
+    "ptPill": "PT",
+    "ptPillTitle": "Curso en portugués",
+    "cards": {
+      "fep": "Fundamentos de Ingeniería de Prompts",
+      "atia": "AI Tools in Action",
+      "fdb": "Fundamentos de Bases de Datos",
+      "vision": "Procesamiento de Imágenes con IA",
+      "claudeCodeBasico": "Desde Cero: Instalación, Comandos, Skills, MCP y Cowork",
+      "codexBasico": "Curso Completo de Codex CLI en 6 Rutas",
+      "zeroDeploy": "De la primera línea en la terminal a tu asistente de IA",
+      "intelecto": "De Cero a Experto en IA",
+      "ccPessoasNormais": "De cero a AI Native — segundo cerebro, subagentes y automatizaciones",
+      "osAgentes": "Construye tu OS agéntico, una capa a la vez",
+      "lives2026": "7 videos estratégicos sobre vender servicios de IA",
+      "montarNegocio": "8 clases sin programar — del primer cliente al contrato"
+    }
+  },
+  "iaZero": {
+    "title": "🌱 ¿Nunca usaste IA? Empieza por IA do Zero",
+    "subtitle": "Antes del paso 1 de la ruta: cuatro clases cortas, un kit de veinte pedidos listos y, a continuación, el FEP reescrito para 2026",
+    "body": "Nada técnico y sin instalar nada. Aprendes las tres partes de un pedido, los cuatro botones del chat, qué revisar antes de reenviar, y sales con tu propio kit de cinco pedidos completado y probado. Al terminar, el FEP 2026 muestra qué cambió en la forma de pedir ahora que la AGI llegó, y la ruta de arriba cobra sentido.",
+    "cards": {
+      "cursoTitle": "IA do Zero — el curso",
+      "cursoDesc": "4 clases de 16 a 20 min: pedir bien, usar el chat, revisar, armar tu kit",
+      "kitTitle": "IA do Zero — el kit",
+      "kitDesc": "20 pedidos listos por situación, con lo que debes ver y el error común",
+      "fepTitle": "FEP 2026",
+      "fepDesc": "La AGI llegó y el prompt casi murió: el FEP reescrito técnica por técnica (7 clases)"
+    }
+  },
+  "iaCultivada": {
+    "title": "🌱 IA Cultivada: todo lo que puedes hacer con este tema",
+    "subtitle": "La IA no se programa, se cultiva. Los ocho elementos (función, contexto, herramientas, reglas, ejemplos, memoria, evaluación, feedback) aplicados a la vida personal, a tu Jarvis y a los negocios",
+    "body": "La página explica el método con la investigación de 2025–2026 detrás. Las soluciones listas lo ponen a funcionar hoy: kits para descargar, un generador de ficha del agente, un diagnóstico de dos minutos, skills para Claude Code y Codex, y paquetes de agentes por área. Todo estático, sin registro.",
+    "cards": {
+      "videoTitle": "Video explicativo con Nei",
+      "videoDesc": "10 minutos: casa × jardín, los ocho elementos, los cuatro niveles y por qué un agente no es IA cultivada",
+      "paginaTitle": "La página del método",
+      "paginaDesc": "Concepto, los dos niveles del cultivo, los ocho elementos, el ciclo y las tres aplicaciones con planes de 30 y 90 días",
+      "kitsTitle": "Kits para descargar",
+      "kitsDesc": "Personal, Jarvis y empresa: los cinco archivos ya estructurados, con un ejemplo ficticio relleno",
+      "geradorTitle": "Generador de ficha del agente",
+      "geradorDesc": "Rellena seis campos y descarga ficha, contexto, ejemplos, scorecard y diario de fallos",
+      "diagTitle": "Diagnóstico de cultivo",
+      "diagDesc": "Ocho preguntas: tu nota, la etapa del jardín, por dónde empezar y el kit adecuado",
+      "skillsTitle": "Skills /cultivar y /revisao-semanal",
+      "skillsDesc": "Para Claude Code y Codex: el agente escribe los archivos y ejecuta el ritual de feedback cada viernes",
+      "pacotesTitle": "Paquetes de agentes por área",
+      "pacotesDesc": "Calificador de leads completo, con prompt de sistema y flujo n8n, más atención, finanzas y marketing"
+    }
+  },
+  "novidades": {
+    "title": "Últimas Novedades",
+    "more": "Ver más",
+    "less": "Ver menos",
+    "readVip": "Leer en INEMA.VIP →",
+    "openLink": "Abrir enlace →",
+    "ptNote": "Contenido en portugués."
+  },
+  "updates": {
+    "coursesTitle": "Últimas Actualizaciones de Cursos",
+    "projectsTitle": "Últimas Actualizaciones de Proyectos",
+    "typeNovo": "nuevo",
+    "typeAtualizado": "actualizado",
+    "ptNote": "Contenido en portugués."
+  },
+  "perfis": {
+    "topoAlt": "Descubre cómo usar la IA para evolucionar en tu profesión",
+    "operacionalAlt": "Profesional Operativo — más productividad con IA",
+    "empreendedorAlt": "Emprendedor Estratégico con IA",
+    "liberalAlt": "Profesional Independiente Experimentado con IA",
+    "gestorAlt": "Gestor y Líder — lidera mejor con IA"
+  },
+  "proBanner": {
+    "alt": "INEMA.PRO — La plataforma para quienes quieren usar la IA para crecer en la práctica"
+  },
+  "trails": {
+    "title": "Rutas de Aprendizaje de INEMA.PRO",
+    "subtitle": "Elige tu camino y avanza con foco — el contenido completo de cada ruta está en INEMA.PRO",
+    "ctaButton": "🧭 Accede a las rutas completas en INEMA.PRO",
+    "names": {
+      "Trilha Profissional com IA": "Ruta Profesional con IA",
+      "Trilha Vibe Code": "Ruta Vibe Code",
+      "Trilha Skills": "Ruta Skills",
+      "Arquitetura de IA": "Arquitectura de IA",
+      "Automação": "Automatización",
+      "Engenharia de Prompts": "Ingeniería de Prompts",
+      "Design & Visual": "Diseño & Visual",
+      "Robótica & Humanoides": "Robótica & Humanoides",
+      "Consultoria IA & Negócios": "Consultoría IA & Negocios",
+      "Dados & IA": "Datos & IA",
+      "Desenvolvedor IA": "Desarrollador IA",
+      "Transformação Digital": "Transformación Digital",
+      "Arquiteto de Agentes": "Arquitecto de Agentes",
+      "Vídeos, Filmes e Cinema": "Videos, Películas y Cine",
+      "Frameworks & Assistentes": "Frameworks & Asistentes",
+      "Claude Code": "Claude Code",
+      "Agentic OS": "Agentic OS",
+      "Formação Vendas com IA": "Formación Ventas con IA",
+      "Formação WebMCP": "Formación WebMCP",
+      "Codex": "Codex",
+      "Claude Cowork": "Claude Cowork",
+      "Neurociência & Futuro": "Neurociencia & Futuro",
+      "Agentes Jarvis": "Agentes Jarvis"
+    }
+  },
+  "projects": {
+    "title": "Proyectos",
+    "subtitle": "Proyectos desarrollados por INEMA — listos para descargar y usar",
+    "ctaLine": "proyectos listos para descargar y usar",
+    "ctaBody": "Aplicaciones, agentes, skills y herramientas construidos por la comunidad INEMA, con código y guía de uso.",
+    "ctaButton": "🚀 Ver los proyectos en INEMA.PRO"
+  },
+  "translated": {
+    "title": "Disponible en español",
+    "subtitle": "Cursos y proyectos de INEMA ya publicados en este idioma",
+    "empty": "Estamos traduciendo el catálogo. Los primeros cursos en este idioma aparecerán aquí en cuanto se publiquen."
+  },
+  "banners": {
+    "clubAlt": "INEMA.CLUB",
+    "teamAlt": "Crea tu equipo. Lidera el futuro."
+  },
+  "telegram": {
+    "title": "Grupos y Canales de Telegram",
+    "subtitle": "Únete a nuestra comunidad de aprendizaje",
+    "comingSoon": "Grupos en español muy pronto. Mientras tanto, entra por la comunidad INEMA.VIP.",
+    "ctaLabel": "Entrar en Telegram →"
+  },
+  "vip": {
+    "alt": "INEMA.VIP - Has sido invitado a la comunidad",
+    "title": "INEMA.VIP",
+    "description": "Un espacio de autoaprendizaje y transformación con IA y Humanoides",
+    "badge": "Regístrate →"
+  },
+  "social": {
+    "title": "Redes Sociales INEMA",
+    "subtitle": "Síguenos en las principales plataformas",
+    "comingSoon": "Perfiles en español muy pronto. Mientras tanto, sigue los perfiles principales de INEMA."
+  },
+  "coursesPage": {
+    "metaTitle": "Cursos de inteligencia artificial, agentes y automatización",
+    "metaDescription": "Catálogo público de cursos de INEMA: primero los cursos ya disponibles en español y después el catálogo completo en portugués.",
+    "ogTitle": "Cursos de INEMA",
+    "ogDescription": "Formación práctica en inteligencia artificial, agentes, automatización y desarrollo con IA.",
+    "breadcrumbLabel": "Navegación estructural",
+    "breadcrumb": "Cursos",
+    "title": "Cursos para aprender y aplicar IA en la práctica",
+    "intro": "Explora el catálogo público de INEMA. Los cursos ya traducidos al español aparecen primero; el resto del catálogo está en portugués (PT).",
+    "translatedTitle": "Disponible en español",
+    "catalogTitle": "Catálogo completo (en portugués)",
+    "searchLabel": "Buscar en el catálogo",
+    "searchPlaceholder": "Ej.: WebMCP, agentes, automatización",
+    "countOne": "curso encontrado",
+    "countMany": "cursos encontrados",
+    "empty": "Ningún curso coincide con la búsqueda. Prueba un tema más amplio.",
+    "tagsLabel": "Temas del curso"
+  },
+  "footer": {
+    "copyright": "© 2025 Portal INEMA. Todos los derechos reservados."
+  }
+}

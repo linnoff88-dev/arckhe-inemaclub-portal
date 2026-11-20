@@ -1,0 +1,16 @@
+node_modules/
+package-lock.json
+.next/
+# arquivos de env (segredos) — ignora todos
+.env*
+*.env
+!*.example
+.DS_Store
+*.log
+.vscode/
+.idea/
+.bmad-core/
+.claude/
+.vercel
+supabase/.temp/
+scripts/.chat-modelo-atual

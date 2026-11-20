@@ -1,0 +1,2733 @@
+'use client'
+
+import { useEffect, useState } from 'react'
+import { supabase } from '@/lib/supabase'
+import { platformsData, updatesData, projectUpdatesData, type Course } from '@/data/courses'
+import { novidadesData } from '@/data/novidades'
+import { coursePath } from '@/lib/site'
+import { LOCALES, LOCALE_LABEL, localeHome, coursesPath, newsUrl, INTL_LOCALE, HTML_LANG, type Locale } from '@/i18n/locales'
+import { getDictionary } from '@/i18n/dictionary'
+import { translatedFor } from '@/data/translated-courses'
+import { localizedSrc } from '@/i18n/images'
+import { localizedEventUrl } from '@/i18n/eventos'
+import feedsI18n from '@/data/feeds-i18n.json'
+
+interface VisitStats {
+  total: number
+  uniqueLogged: number
+  uniqueAnon: number
+}
+
+const communityProjects: Array<{
+  icon: string
+  name: string
+  desc: string
+  url?: string
+  badge?: string
+}> = [
+  { icon: '🎬', name: 'makeshorts', desc: 'Fábrica de shorts no Claude Code: tema, link ou clipe vira short publicado — roteiro em 3 atos (gancho, gancho secundário, 3 passos, CTA), voz local ou por API ou avatar HeyGen, b-roll real, edição 9:16 com HyperFrames, portão de QA automático (duração, formato, loudness, hashtags) e agendamento no Metricool. Roda com GPU ou numa VPS só com APIs, trocando uma linha no .env. Guia completo PT/EN/ES.', url: 'https://inematds.github.io/makeshorts/guia/', badge: 'Guia' },
+  { icon: '🥶', name: 'congelou', desc: 'Curta de 38s com efeito time freeze feito 100% pela assinatura Kling AI (CLI oficial kling): keyframe com rosto real, 4 clipes Kling 3.0 com áudio nativo encadeados pelo último quadro e montagem ffmpeg. Guia com o vídeo, prompts, scripts e como repetir com outro assunto. Em português, inglês e espanhol.', url: 'https://inematds.github.io/congelou/guia/', badge: 'Guia' },
+  { icon: '🧭', name: 'RSI Copiloto — assistente que evolui com revisão', desc: 'Sistema local para pessoas, autônomos e pequenas empresas: nove rotinas, IA com memória, tarefas, feedback e laboratório de melhoria de instruções com comparação, aprovação humana e reversão. Demonstração pública e guia PT/EN/ES.', url: 'https://inematds.github.io/rsi-copiloto/guia/', badge: 'Guia' },
+  { icon: '🧑‍✈️', name: '7pa', desc: 'Os 7 Princípios da Gestão de Agentes de IA na prática: a Ficha do Agente faz 7 perguntas simples e entrega a instrução pronta, o nível de autonomia calculado (N0–N4), 3 testes e o checklist de supervisão. Com guia explicando todo o conteúdo, galeria de 10 fichas prontas por área e a skill /ficha-agente para Claude Code (cria e audita agentes). Em português, inglês e espanhol.', url: 'https://inematds.github.io/7pa/guia/', badge: 'Guia' },
+  { icon: '🔓', name: '7pa-segredo', desc: 'O segredo dos 7 princípios da gestão de agentes de IA: 5 revelações sobre o que esses textos realmente são. É gestão de gente com outro nome, e é o que quem programa com agentes de código já faz todo dia. Em português, inglês e espanhol.', url: 'https://inematds.github.io/7pa-segredo/', badge: 'Guia' },
+  { icon: '🌀', name: 'RSI — a IA que melhora a IA', desc: 'Autoaperfeiçoamento recursivo (RSI) com pesquisa verificada: o que aconteceu em setembro de 2026 (DeepSeek DSec, Anthropic Opus 5.5, padrões da OpenAI) e o que os vídeos exageraram; como big techs, empresas e governo (incluindo o Brasil) vão usar; o LOOP-R, os 4 níveis e Human on the Loop; trilhas práticas para pessoas de negócio e de tecnologia; riscos (reward hacking, avaliação) e fontes.', url: 'https://inematds.github.io/rsi/guia/', badge: 'Guia' },
+  { icon: '🧭', name: 'Qual Modelo de IA Usar', desc: 'O modelo certo para cada tarefa: pilha atual (Claude Opus 5.5, GPT-6 Astra, Sol e Luna), regras de escolha, modelos explicados de forma simples, prompts de planejar→executar e segunda opinião, bateria de teste e rascunho de skill. Em português, inglês e espanhol.', url: 'https://inematds.github.io/modelos/guia/', badge: 'Guia' },
+  { icon: '🧠', name: 'claude-opus55', desc: 'Claude Opus 5.5: pesquisa do lançamento com gráficos de preço, benchmarks e effort × custo, as mudanças de API e o plano de atualização dos sistemas INEMA. Em português, inglês e espanhol.', url: 'https://inematds.github.io/claude-opus55/guia/', badge: 'Guia' },
+  { icon: '◐', name: 'gpt6-sol-luna', desc: 'GPT-6 Sol & Luna: pesquisa do lançamento, gráficos comparativos, calculadora de custos com cache e plano de integração nos sistemas INEMA. Fontes oficiais e exemplos de API.', url: 'https://inematds.github.io/gpt6-sol-luna/guia/', badge: 'Guia' },
+  { icon: '🚪', name: 'jev-gw', desc: 'Gateway de decisão para o Jev: porta única para toda consulta de um sistema, com teto de gasto diário, cache, registro de custo e latência por chamada e falha conservadora — Jev fora do ar ou teto estourado devolvem revisão humana em vez de quebrar quem chamou. Biblioteca Python, serviço HTTP e CLI, só biblioteca padrão.', url: 'https://inematds.github.io/jev-gw/guia/', badge: 'Guia' },
+  { icon: '🧪', name: 'jev-open', desc: 'Especialista classificador local e open-source no estilo Jev: um modelo pequeno lê cada mensagem e responde perguntas fixas com sim, não ou não dá pra saber; o código decide a fila e a dúvida vai para uma pessoa. Exemplos de atendimento de advocacia e recepção de clínica, pipeline de dados, treino e teste congelado, serviço em CPU (ONNX) com Docker e passo a passo para outros nichos. Projeto de pesquisa, com dados sintéticos.', url: 'https://inematds.github.io/jev-open/guia/', badge: 'Guia' },
+  { icon: '🖐️', name: 'holo-maos', desc: 'HOLO Mãos: controle a tela com as mãos pela webcam — belisca, arrasta, arremessa e organiza notas, sem encostar no mouse. Adaptação em português (interface, avisos e voz do assistente) do HOLO de Zubair Trabzada, com notas de exemplo do INEMA. Roda 100% na máquina: sem nuvem, sem chave de API e sem conta.', url: 'https://inematds.github.io/holo-maos/guia/', badge: 'Guia' },
+  { icon: '🗺️', name: 'expedicaosul', desc: 'Animações de trajeto de viagem com mapa satélite, o carro na rota real e diário de bordo — inclui "Hua Hum: nosso plano × nossa aventura", com mapa geral e detalhado e as fotos reais da viagem, em 9:16 e 16:9 — motor HyperFrames reutilizável e o custo real de cada vídeo feito com Claude Code', url: 'https://inematds.github.io/expedicaosul/guia/', badge: 'Guia' },
+  { icon: '▶', name: 'explicavideos', desc: 'Processo reutilizável para vídeos explicativos com avatar e voz do Nei: roteiro completo, ilustrações, legendas, verificação e publicação. Baseado nas produções Astra e OSWork Quick.', url: 'https://inematds.github.io/explicavideos/guia/', badge: 'Guia' },
+  { icon: '◈', name: 'astrabasico', desc: 'Astra Básico: três vídeos completos em português, espanhol e inglês, com avatar e voz do Nei, 22 tópicos ilustrados por idioma e legendas. Inclui guia, roteiros, prompts, skill e calculadora de tokens.', url: 'https://inematds.github.io/astrabasico/guia/', badge: 'Guia' },
+  { icon: '⚖️', name: 'jurisflow', desc: 'JurisFlow: sistema de gestão para escritório de advocacia — clientes, processos com número CNJ e fases, andamentos, atendimentos, agenda e prazos fatais, tarefas, financeiro e documentos, com assistente jurídico de IA (minuta de petição, jurisprudência, cálculo de prazo, notificação e contrato de honorários) e modo de demonstração com um clique.', url: 'https://inematds.github.io/jurisflow/guia/', badge: 'Guia' },
+  { icon: '🔬', name: 'google-rsi', desc: 'Dream-RSI: guia educativo sobre replay de experimentos, estratégias de pesquisa e autoaperfeiçoamento recursivo, com figuras originais, resultados contextualizados e plano de aprendizagem.', url: 'https://inematds.github.io/google-rsi/guia/', badge: 'Guia' },
+  { icon: '🏛️', name: 'sanmartin', desc: "Estudo de redesign do site da Municipalidad de San Martín (AR): diagnóstico do site atual, o que os melhores sites de governo fazem em 2026 (busca primeiro, navegação por tarefa, WCAG 2.2 AA) e três propostas conceituais de home (v1, v2 e v3 no estilo mesa de trabalho), em PT/EN/ES.", url: 'https://inematds.github.io/sanmartin/', badge: 'Guia' },
+  { icon: '🏔️', name: 'sanmartindelosandes', desc: "Guia de conteúdo sobre San Martín de los Andes (Neuquén, Patagônia argentina): história e povo mapuche, Lago Lácar, Parque Nacional Lanín, Cerro Chapelco, Ruta de los Siete Lagos, quando ir e como chegar.", url: 'https://inematds.github.io/sanmartindelosandes/', badge: 'Guia' },
+  { icon: '◈', name: 'laya', desc: 'Laya INEMA: triagem local em português, interface, API, CLI e avaliação com pesos reais. Recomendações com revisão humana e curso v2 separado.', url: 'https://inematds.github.io/laya/guia/', badge: 'Guia' },
+  { icon: '🇨🇳', name: 'letramento-ia-china', desc: 'Levantamento de set/2026 do que a China está fazendo em letramento em IA: planos nacionais, guias de 2025, carga horária por província, regras de uso de IA generativa na escola, universidades, professores, idosos, servidores e pequenas empresas, com leitura crítica, comparação com os EUA e lições para o Brasil.', url: 'https://inematds.github.io/letramento-ia-china/guia/', badge: 'Guia' },
+  { icon: '🇺🇸', name: 'letramento-ia-eua', desc: 'Levantamento de set/2026 do que os EUA estão fazendo em letramento em IA: decretos, verbas, o referencial oficial de competências (5 áreas, 7 princípios) e programas para escolas, trabalhadores e pequenas empresas, com leitura crítica e lições para o Brasil.', url: 'https://inematds.github.io/letramento-ia-eua/guia/', badge: 'Guia' },
+  { icon: '🧭', name: 'jev', desc: 'Jev Decision Lab: 20 casos, 18 pacotes (incluindo cruzamento de anúncios com perfis), lotes, avaliação, composição de pontuações e skill para Codex e Claude Code.', url: 'https://inematds.github.io/jev/guia/', badge: 'Guia' },
+  { icon: '✂️', name: 'visagismo-b', desc: 'Consultoria de estilo em português para barbearias: análise facial, revisão profissional, relatório e instalação em VPS.', url: 'https://inematds.github.io/visagismo-b/guia/', badge: 'Guia' },
+  { icon: '🧭', name: 'claude-session-kit', desc: 'Kit pra sessões enxutas no Claude Code: statusline com cota real (5 h, semanal geral e semanal por modelo), três skills de sessão (checkpoint, auditoria de memória e handoff) e o plano que liga tudo.', url: 'https://inematds.github.io/claude-session-kit/guia/', badge: 'Guia' },
+  { icon: '👹', name: 'SlopMonster', desc: 'Linter de texto escrito por IA: dá nota de 0 a 5, aponta vocabulário, construções, travessões, listas de três e prova inventada, e limpa o rascunho com um modelo de outra família (Claude ↔ GPT). Python puro, portão de CI pronto, skill pro Claude Code e Codex.', url: 'https://inematds.github.io/SlopMonster/guia/', badge: 'Guia' },
+  { icon: '🎬', name: 'hyperframes-student-kit', desc: 'Kit de skills em português para editar vídeo com IA no Codex e no Claude Code: transcrição por palavra, corte de silêncios e erros, planejamento de beats, 406 cards de motion graphics com HyperFrames e GSAP, reels 9:16 e guia rápido do tutorial.', url: 'https://inematds.github.io/hyperframes-student-kit/guia/', badge: 'Guia' },
+  { icon: '🧠', name: 'jarvismodelo', desc: 'JEV Reflex como base do seu próximo Jarvis: cinco decisões antes da resposta, ferramentas por rota, aprovação de ações e proteção contra repetição por requestId. Template TypeScript/Node 24 para adaptar a estudo, trabalho ou atendimento.', url: 'https://inematds.github.io/jarvismodelo/guia/', badge: 'Guia' },
+  { icon: '🤖', name: 'jarvisv7', desc: 'Assistente pessoal local com JEV Reflex, notas, memórias, Codex/Claude OAuth, OpenRouter e estúdio Kie. Agora com o prompt pack Opus 5.5 (18 prompts, do telefone ao Telegram) e a especificação do Jarvis no Telegram.', url: 'https://inematds.github.io/jarvisv7/guia/', badge: 'Guia' },
+  { icon: '🧊', name: 'astra3d', desc: 'Astra3D V2: três demonstrações completas, editor visual, biblioteca de projetos, duplicação, versões salvas e backup. Exporte sites 3D em HTML independente.', url: 'https://inematds.github.io/astra3d/guia/', badge: 'Guia' },
+  { icon: '🧭', name: 'astra3dany', desc: 'Mundo 3D de aprendizagem no browser (Babylon.js): três estações com demonstrações animadas, mascote-guia, World Tour de 1 minuto com cards sincronizados e exploração livre. Ensina três hábitos pra usar IA no dia a dia; trocar o assunto é editar um arquivo de configuração. Receita do field guide "Build a Learning World".', url: 'https://inematds.github.io/astra3dany/guia/', badge: 'Guia' },
+  { icon: '🌱', name: 'ia-do-zero', desc: 'Kit para quem nunca usou IA: os primeiros 20 pedidos prontos para colar em qualquer chat, por situação do dia a dia, com o que você deve ver na resposta, o erro comum e 10 dicas práticas.', url: 'https://inematds.github.io/ia-do-zero/guia/', badge: 'Guia' },
+  { icon: '🌱', name: 'iacultivada', desc: 'IA Cultivada — não se programa, se cultiva: os oito elementos (função, contexto, ferramentas, regras, exemplos, memória, avaliação, feedback) aplicados à vida pessoal, ao Jarvis e aos negócios, com soluções prontas: kits para baixar, skills /cultivar e /revisao-semanal, gerador de ficha do agente, diagnóstico de cultivo e pacotes de agentes por área (qualificador de leads com fluxo n8n).', url: 'https://inematds.github.io/iacultivada/', badge: 'Guia' },
+  { icon: '🎬', name: 'content2video', desc: 'Um link vira vídeo vertical editável: pesquisa, roteiro, voz pt-BR fixa, legendas, revisão no HyperFrames e render MP4 somente após aprovação.', url: 'https://inematds.github.io/content2video/guia/', badge: 'Guia' },
+  { icon: '🧰', name: 'copilot-agentes-kit', desc: 'Kit prático de Copilot + Agentes para Empresas: canvas de automação, prompts do dia a dia e de dados, instruções de agente para o Copilot Studio, fluxos do Power Automate, regra das quatro escolhas, sete conferências de governança, fichas de indicador e plano de três fases — mais verificador e teste headless para cursos INEMA v5.', url: 'https://inematds.github.io/copilot-agentes-kit/guia/', badge: 'Guia' },
+  { icon: "🧭", name: "ai-assistant-decision-kit", desc: "Kit de decisão (MIT, Mark Kashef) traduzido para pt-BR: compara assistentes de IA por modelo operacional antes da marca — entrevista, pesquisa datada, teste reversível e piloto de 7 dias.", url: "https://inematds.github.io/ai-assistant-decision-kit/guia/", badge: "Guia" },
+  { icon: '🧠', name: 'agente-claude-codex', desc: "Kit pra migrar um setup Claude Code pro Codex ou deixar o trabalho independente de modelo: auditoria somente leitura, CLAUDE.md → AGENTS.md, núcleo portátil (context/tasks/handoffs), skills canônicas via polyskill e teste de continuidade em sessão nova.", url: 'https://inematds.github.io/agente-claude-codex/guia/', badge: 'Guia' },
+  { icon: '🧭', name: 'agentes-fronteiros', desc: "Projeto de migração de agentes especializados pra um agente generalista + skills com contrato: inventário automático das skills instaladas, clusters de sobreposição, contratos com acceptance, loop de validação, wiki OKF mantida pelo agente (estilo LLM wiki) e interface kanban de migração.", url: 'https://inematds.github.io/agentes-fronteiros/guia/', badge: 'Guia' },
+  { icon: '🧭', name: 'agenteexecuta', desc: "Skill que decide entre sequência, paralelismo ou fluxo híbrido antes de criar agentes — portão de proporcionalidade, matriz de decisão com limiar…", url: 'https://inematds.github.io/agenteexecuta/guia/', badge: 'Guia' },
+  { icon: '🎬', name: 'agi-newprof', desc: "Pipeline local que transforma um vídeo do YouTube em análise + vídeo completo narrado (16:9 e 9:16) + 3 reels virais: imagens flux2-klein no inemaimg, clipes-herói na Agnes, voz inemavox, render HyperFrames e entrega no Telegram. Caso: 'GPT-6 Astra' de Nate B. Jones.", url: 'https://inematds.github.io/agi-newprof/guia/', badge: 'Guia' },
+  { icon: '🅰️', name: 'agnesfree', desc: "Guia e análise da Agnes AI (Sapiens AI): API multimodal compatível com OpenAI com texto, imagem e vídeo gratuitos — modelos, limites, planos pagos,…", url: 'https://inematds.github.io/agnesfree/guia/', badge: 'Guia' },
+  { icon: '📡', name: 'aiv2026', desc: "Playbook de 5 fases para tornar empresas encontráveis e citáveis por IAs públicas (ChatGPT, Claude, Gemini, Perplexity), com o case completo do cliente-zero INEMA.", url: 'https://inematds.github.io/aiv2026/guia/', badge: 'Guia' },
+  { icon: '🎯', name: 'anunciostop', desc: "Anúncios em vídeo com IA em quatro decisões: 4 skills pro Claude Code (espionar concorrentes, dirigir o vídeo, auditar antes de gastar, montar pra Meta), com adaptador Agnes a custo zero.", url: 'https://inematds.github.io/anunciostop/guia/', badge: 'Guia' },
+  { icon: '🎬', name: 'analisevideo', desc: "Analise visual e cinematografica de video com Gemini: camera bloco a bloco, luz e paleta, ritmo de montagem, trilha e som, grafismo e um passo a passo de como refazer — arquivado num banco local pesquisavel.", url: 'https://inematds.github.io/analisevideo/guia/', badge: 'Guia' },
+  { icon: '🧠', name: 'astra-2cerebro', desc: 'Kit gratuito que transforma o Claude Code ou o Codex em um segundo cérebro com IA: entrevista inicial, wiki interligada, auditoria com nota, rotinas e globo 3D em Markdown. Base dos irmãos cerebro-mcp, cerebro-duplo e cerebro-integra.', url: 'https://inematds.github.io/astra-2cerebro/guia/', badge: 'Guia' },
+  { icon: '🎛️', name: 'astra-effort', desc: 'Guia em português para comparar níveis de esforço do Astra: sete execuções documentadas, dez prompts, dados, planilha e testes de verificação, com os originais preservados.', url: 'https://inematds.github.io/astra-effort/guia/', badge: 'Guia' },
+  { icon: '🧹', name: 'audit-ablacaocc', desc: "Skill de diagnóstico que audita CLAUDE.md, skills e hooks do Claude Code pelo método de ablação do Boris Cherny: classifica cada instrução, propõe a versão mínima e um plano de teste A/B/C — sem alterar nenhum arquivo.", url: 'https://inematds.github.io/audit-ablacaocc/guia/', badge: 'Guia' },
+  { icon: '🎛️', name: 'bench-studio-br', desc: "Bench Studio em português: as mesmas 73 rotas em 5 provedores, com interface bilíngue pt-BR/en, quadro inicial e final como dois seletores nomeados nos modelos que aceitam keyframes, orçamento que se recusa a inventar total quando a unidade não é previsível, e acesso remoto num comando (senha antes da porta, API sempre em loopback).", url: 'https://inematds.github.io/bench-studio-br/guia/', badge: 'Guia' },
+  { icon: '🎛️', name: 'bench-studio-en', desc: "Continuação do Bench Studio com 73 rotas de imagem e vídeo em 5 provedores (fal, Kling, Agnes, kie e servidor local) atrás de um contrato só: custo em dólar, crédito ou zero conforme quem cobra, tela de configuração que nunca mostra a chave e senha opcional.", url: 'https://inematds.github.io/bench-studio-en/guia/', badge: 'Guia' },
+  { icon: '🎛️', name: 'bench-studio-public', desc: "Edição original, de um provedor só: estúdio criativo local-first para imagem, vídeo, site e PDF, com 37 rotas de modelo curadas, refino de prompt editável antes de gastar, arquivos espelhados em disco e ledger de custo — também via MCP para Claude, Codex e Cursor.", url: 'https://inematds.github.io/bench-studio-public/guia/', badge: 'Guia' },
+  { icon: '🧠', name: 'cerebro-duplo', desc: 'Um cérebro, dois agentes: use o mesmo segundo cérebro (astra-2cerebro) com Claude Code e Codex, com roteamento por perfil, paridade de manuais e skills, e registro de uso.', url: 'https://inematds.github.io/cerebro-duplo/guia/', badge: 'Guia' },
+  { icon: '🧠', name: 'cerebro-mcp', desc: 'Servidor MCP que expõe seu segundo cérebro (pasta Markdown do kit astra-2cerebro) como ferramentas para Claude Code, Codex, Claude Desktop, n8n e bots. Leitura por padrão, escrita opt-in.', url: 'https://inematds.github.io/cerebro-mcp/guia/', badge: 'Guia' },
+  { icon: '🔌', name: 'cerebro-integra', desc: 'Kit que liga o segundo cérebro (astra-2cerebro) a Telegram, site via API local, importadores JSON/CSV/pasta, n8n e voz. Node.js, zero dependências, 73 testes.', url: 'https://inematds.github.io/cerebro-integra/guia/', badge: 'Guia' },
+  { icon: '🌐', name: 'cf-dns', desc: "CLI de um arquivo em Python puro para criar, listar e apagar registros DNS no Cloudflare pela API — inclui o par CNAME + TXT que o Vercel exige para verificar um subdomínio novo.", url: 'https://inematds.github.io/cf-dns/guia/', badge: 'Guia' },
+  { icon: '🦷', name: 'criaagentes', desc: "Estudo de caso completo de um OS agêntico para a recepção de uma clínica odontológica no WhatsApp, construído camada por camada com a skill…", url: 'https://inematds.github.io/criaagentes/guia/', badge: 'Guia' },
+  { icon: '🧭', name: 'dsh-orchestrator', desc: 'Orquestrador local para executar DSH, Codex CLI e Claude Code com sessões tmux, GitHub CLI e worktrees isolados.', url: 'https://inematds.github.io/dsh-orchestrator/guia/', badge: 'Guia' },
+  { icon: '🧭', name: 'gestoria', desc: 'Laboratório de Gestão de IA com processos, cargos digitais, autonomia, decisões humanas, avaliações por versão e melhoria contínua LOOP-R. MVP com dados locais e simulações, sem conexão com modelos ou sistemas externos.', url: 'https://inematds.github.io/gestoria/guia/', badge: 'Guia' },
+  { icon: '🧠', name: 'grokky', desc: "Cockpit desktop local-first para Codex, OpenRouter e crews de IA coordenados: provedor, ferramentas e orquestração separados, com permissões e credenciais no boundary do Electron.", url: 'https://github.com/inematds/grokky', badge: 'GitHub' },
+  { icon: '🤖', name: 'inemaccbot', desc: "Bot de Telegram com fila durável em SQLite que roda skills de uma etapa e fluxos de várias fases com estado, portão humano e retomada depois de queda — domínio novo entra sem uma linha de código.", url: 'https://inematds.github.io/inemaccbot/guia/', badge: 'Guia' },
+  { icon: '⬇️', name: 'inemadlp', desc: "Downloader pessoal de vídeo e áudio que roda na sua VPS: você cola o link pelo celular, o yt-dlp baixa e devolve o arquivo, que se apaga sozinho depois de 6 horas.", url: 'https://inematds.github.io/inemadlp/guia/', badge: 'Guia' },
+  { icon: '📣', name: 'ms-v7', desc: "Social Autopilot no Claude Code: um arquivo de voz de marca + 3 comandos (post do dia, semana, reaproveitar) que pesquisam, escrevem na sua voz, geram o visual e agendam pelo provedor configurável (Metricool, Blotato ou copiar) — nada vai ao ar sem o seu sim.", url: 'https://inematds.github.io/ms-v7/guia/', badge: 'Guia' },
+  { icon: '🎵', name: 'musicaclone', desc: "CLI que clona ou cria música via Suno (API do Kie): entende o estilo do link, checa se é mesmo música e se a letra está completa, e só gera depois do seu ok — com o custo medido de verdade.", url: 'https://inematds.github.io/musicaclone/guia/', badge: 'Guia' },
+  { icon: '🎛️', name: 'maestro-roteador', desc: "Skill de Claude Code que decide qual modelo (haiku/sonnet/opus/fable) e quanto esforço (low→max) cada parte do trabalho merece antes de despachar subagentes ou workflows.", url: 'https://inematds.github.io/maestro-roteador/guia/', badge: 'Guia' },
+  { icon: '🎬', name: 'musicavideo', desc: "Uma frase vira música, capa e clipe: o plano das três partes é escrito e aprovado antes de qualquer centavo sair, com portão em cada artefato, decupagem que cobre a faixa inteira e provedores plugáveis — capa e vídeo de graça, só a música custa.", url: 'https://inematds.github.io/musicavideo/guia/', badge: 'Guia' },
+  { icon: '📺', name: 'musicavideo-pub', desc: "App Next.js que serve o acervo do musicavideo sem hospedar mídia: os clipes e as faixas vêm de um dataset público no Hugging Face (range request direto no navegador, sem proxy nem storage pago) e o texto viaja no manifesto, escrito pelo próprio pipeline. Uma página por música, com like do público voltando para o painel local.", url: 'https://inematds.github.io/musicavideo-pub/guia/', badge: 'Guia' },
+  { icon: '⚡', name: 'nvidiaapifree', desc: "Acesso gratuito a 100+ modelos NVIDIA NIM (Llama, DeepSeek, Qwen, Mistral, Vision) via API OpenAI-compatible.", url: 'https://inematds.github.io/nvidiaapifree/guia/', badge: 'Guia' },
+  { icon: '🎨', name: 'Open-Generative-AI', desc: "Plataforma open source de IA generativa: imagem, vídeo, áudio, agentes, workflows, lip sync e cinema studio — roda local ou na nuvem.", url: 'https://github.com/inematds/Open-Generative-AI', badge: 'GitHub' },
+  { icon: '✂️', name: 'otimizevideo', desc: "CLI que condensa vídeo longo (20–30 min) em ~2 min: o modelo pontua unidades numeradas da transcrição e o código converte id em tempo e corta — corte em fronteira de palavra, plano de corte editável e re-render de graça.", url: 'https://inematds.github.io/otimizevideo/guia/', badge: 'Guia' },
+  { icon: '🚪', name: 'portaflow', desc: "Máquina de vendas B2B de portas internas no WhatsApp: a IA qualifica o lead, um motor determinístico calcula o orçamento no catálogo real (o modelo nunca inventa preço) e o Pix fecha o pedido.", url: 'https://inematds.github.io/portaflow/guia/', badge: 'Guia' },
+  { icon: '🎬', name: 'promoavatar', desc: "Fluxo do inemaccbot que transforma um assunto em um reel de divulgação para cada um dos 12 públicos: o bot escreve os roteiros e PARA, você grava os avatares no HeyGen, ele monta e entrega em cada canal.", url: 'https://inematds.github.io/promoavatar/guia/', badge: 'Guia' },
+  { icon: '🎯', name: 'promoavatar3', desc: "Três vídeos por público em vez de um — alcance, autoridade e promocional como funções diferentes (36 alvos), com portão humano antes de qualquer render.", url: 'https://inematds.github.io/promoavatar3/guia/', badge: 'Guia' },
+  { icon: '⚔️', name: 'promptwargame', desc: "Prompt reutilizável (EN + PT-BR) que transforma o planejamento de um build de IA num war game: fases com suposição otimista/pessimista, modos de…", url: 'https://inematds.github.io/promptwargame/guia/', badge: 'Guia' },
+  { icon: '⛏️', name: 'prospector-agent', desc: "Esteira semi-autônoma que descobre negócios bem avaliados com site ruim, redesenha a página, publica no GitHub Pages e envia a proposta —…", url: 'https://inematds.github.io/prospector-agent/guia/', badge: 'Guia' },
+  { icon: '📅', name: 'snagtime', desc: "App de agendamento self-hosted e gratuito (MIT): disponibilidade semanal, links públicos de booking com fuso, Google Calendar, e-mails SMTP e Stripe em modo teste — demo local com SQLite sem nenhuma credencial.", url: 'https://inematds.github.io/snagtime/guia/', badge: 'Guia' },
+  { icon: '⚙️', name: 'stickshift', desc: "Câmbio de modelo e esforço para Claude Code e Codex: app de menu-bar no macOS e, na v2, painel web + chat para Linux/WSL via tmux. Fail-closed: só digita depois de provar que o agente está ocioso.", url: 'https://inematds.github.io/stickshift/guia/', badge: 'Guia' },
+  { icon: '📈', name: 'trade-com-agentes', desc: 'Estudo do método de um desafio de 7 dias em que um agente (Codex + GPT-6 Astra) operou US$ 10.000 em ações: 7 rotinas por pregão, handoff entre agentes, estrategista separado do executor (e-mail → bot → Alpaca), portões de risco afrouxados e o diário até perder para o S&P 500. Texto de estudo, não recomendação — trade é risco alto. Guia PT/EN/ES.', url: 'https://inematds.github.io/trade-com-agentes/guia/', badge: 'Guia' },
+  { icon: '🎬', name: 'ugc-seedance25', desc: 'Skill Claude Code + gerador de brief que transforma um produto nos 3 prompts (foto do produto, retrato do creator, vídeo one-take de 30 s com voz e lip-sync) da receita Seedance 2.5 UGC Ads, adaptada pra Magnific, Higgsfield e fal.ai, com 9 formatos, falas em PT-BR, gate de custo e QA em frames.', url: 'https://inematds.github.io/ugc-seedance25/guia/', badge: 'Guia' },
+  { icon: '🤝', name: 'use-both-claude-codex', desc: 'Kit aberto (MIT, Prompt Advisers) pra usar Claude e Codex juntos: 6 fluxos (um planeja e o outro critica, um constrói e o outro revisa o diff, computer use supervisionado, meta com condição de parada, handoff), prompts prontos, templates e as skills handoff/prime com instalador em modo prévia. Guia em PT/EN/ES.', url: 'https://inematds.github.io/use-both-claude-codex/guia/', badge: 'Guia' },
+  { icon: '🖱️', name: 'video-demonstrativo', desc: "Skill (Claude Code) que transforma o link de uma aplicação web num vídeo de demonstração narrado.", url: 'https://inematds.github.io/video-demonstrativo/guia/', badge: 'Guia' },
+  { icon: '🎬', name: 'video-explicativo', desc: "Skill (Claude Code) que cria vídeos explicativos completos em PT-BR (HTML→MP4 via HyperFrames) a partir de um assunto: roteiro, narração TTS local,…", url: 'https://inematds.github.io/video-explicativo/guia/', badge: 'Guia' },
+  { icon: '🌊', name: 'video-making-of-skill', desc: "Uma foto vira maquete dentro de um rig de efeitos práticos de estúdio e a simulação destrói a maquete em plano único de bastidores — receitas medidas para Kling e Agnes.", url: 'https://inematds.github.io/video-making-of-skill/guia/', badge: 'Guia' },
+  { icon: '🎬', name: 'videoanima', desc: "Pipeline que transforma uma história em decupagem cinematográfica, keyframes A/B, clipes e filme vertical narrado — provedor de imagem e de vídeo escolhível por parâmetro.", url: 'https://inematds.github.io/videoanima-skill/guia/', badge: 'Guia' },
+  { icon: '🎬', name: 'videomotival', desc: "Canal motivacional automatizado a custo zero: um tema vira história original, narração por cena (inemavox), ilustrações stick-figure consistentes (flux2-klein) e MP4 16:9 pelo FFmpeg. Interface web, CLI e skill do Claude Code.", url: 'https://inematds.github.io/videomotival/guia/', badge: 'Guia' },
+  { icon: '🛍️', name: 'videoprodutos', desc: "Pasta ou link de loja vira imagens por preset de estilo e vídeo promocional automático (16:9 e 9:16), com fila de produção e página web — 100% local (ffmpeg, sharp, rembg), LLM e imagem por IA opcionais.", url: 'https://inematds.github.io/videoprodutos/guia/', badge: 'Guia' },
+  { icon: '🎬', name: 'videosub', desc: "Estúdio local que transforma tema ou conteúdo em vídeo completo: roteiro por Codex OAuth, voz ElevenLabs, imagens e animações Agnes, legendas revisáveis e render MP4 por FFmpeg.", url: 'https://inematds.github.io/videosub/guia/', badge: 'Guia' },
+  { icon: '🏭', name: 'videoprodutor', desc: "Skill (Claude Code) que orquestra link/fonte → plano + execução de um vídeo profissional (propaganda ou explicativo), ponta a ponta.", url: 'https://inematds.github.io/videoprodutor/guia/', badge: 'Guia' },
+  { icon: '🏥', name: 'hosp360', desc: "Hosp360 (CRMHosp): base técnica inicial de um portal de autoatendimento do paciente — Next.js + NestJS + PostgreSQL + Keycloak, pronta para rodar local via Docker Compose.", url: 'https://inematds.github.io/hosp360/guia/', badge: 'Guia' },
+  { icon: '🏠', name: 'imob360', desc: "Imob360: sistema completo de gestão imobiliária para pequenas e médias imobiliárias — imóveis, CRM de leads, contratos, visitas e módulos opcionais…", url: 'https://inematds.github.io/imob360/guia/', badge: 'Guia' },
+  { icon: '🎞️', name: 'inemafilme', desc: "inemafilme: sistema que transforma um assunto ou roteiro num filme/episódio narrado, motor pixflow (parallax 2.5D determinístico), sem IA de vídeo.", url: 'https://inematds.github.io/inemafilme/guia/', badge: 'Guia' },
+  { icon: '🏗️', name: 'kit-arquiteto-agentes', desc: 'Sete modelos preenchíveis no navegador que viram a especificação de um agente de IA numa página (mapa de seis elos, pedido, cadeia, inventário de contexto, ficha de qualidade, matriz de permissões), com lacunas detectadas e prompt de ensaio simulado. Kit do curso Arquiteto de Trabalho com IA.', url: 'https://inematds.github.io/kit-arquiteto-agentes/guia/', badge: 'Guia' },
+  { icon: '🌙', name: 'kimicodecc', desc: "Skill do Claude Code que abre um terminal novo rodando o harness completo em Kimi K3 (Moonshot AI) via OpenRouter, por ~1/3 do custo, sem tocar na sessão atual nem nas configurações globais.", url: 'https://inematds.github.io/kimicodecc/guia/', badge: 'Guia' },
+  { icon: '📋', name: 'logfree', desc: "LogFree: API FastAPI + bot Telegram que indica o posto com melhor custo real por km para frotas de última milha.", url: 'https://inematds.github.io/logfree/guia/', badge: 'Guia' },
+  { icon: '🔁', name: 'loop-r', desc: "LOOP-R: framework e runner (Claude Code) que transforma um processo do negócio em loop de melhoria com IA — 9 agentes, evidência, hipótese, experimento, promoção e botão de voltar.", url: 'https://inematds.github.io/loop-r/guia/', badge: 'Guia' },
+  { icon: '🧩', name: 'my-inema', desc: "Andaime: plataforma pedagógica com IA socrática.", url: 'https://inematds.github.io/my-inema/guia/', badge: 'Guia' },
+  { icon: '🧩', name: 'n8n-maker', desc: "Sete skills que ensinam o Claude Code a desenhar, configurar, validar e depurar workflows do n8n — padrões de arquitetura, configuração de nodes, expressões, Code node em JS/Python e as ferramentas do MCP n8n-mcp.", url: 'https://inematds.github.io/n8n-maker/guia/', badge: 'Guia' },
+  { icon: '🔗', name: 'n8n-ps', desc: "Framework de skills que dá ao Claude expertise para construir, validar e implantar workflows n8n em produção, direto no Claude Code.", url: 'https://inematds.github.io/n8n-ps/guia/', badge: 'Guia' },
+  { icon: '🔮', name: 'newia-oct2026', desc: "Dossiê das 12 IAs anunciadas (como rumor) para outubro de 2026 — GPT Bel, GPT-6 Sol, Claude Fable 5.2, Opus 5.1, Grok 4.7, DeepSeek V4.1 Pro, GLM-5.5, Kimi K3.1, Qwen 4.0, Gemini 4.0, Muse Spark 1.4, MiMo-V3 — cada um comparado com a versão atual verificada da linhagem: preço, contexto, benchmarks, linha do tempo, gráficos e fontes.", url: 'https://inematds.github.io/newia-oct2026/guia/', badge: 'Guia' },
+  { icon: '🖥️', name: 'ODS', desc: "Servidor de IA privado com um comando: inferência local, chat, dashboard, voz, agentes, workflows, RAG e geração de imagem no seu próprio hardware (Linux, Windows, macOS).", url: 'https://inematds.github.io/ODS/guia/', badge: 'Guia' },
+  { icon: '👁️', name: 'occio-agentes', desc: "Occio Agentes: plataforma de orquestração de agentes de IA para pequenas e médias empresas brasileiras, inspirada no Accio Work.", url: 'https://inematds.github.io/occio-agentes/guia/', badge: 'Guia' },
+  { icon: '🎧', name: 'rAgentic-cs', desc: "Controle Claude Code e Codex remotamente pelo Telegram ou GitHub, com sessões persistentes em Docker, clone de repositórios e comandos versionados no seu próprio codebase.", url: 'https://inematds.github.io/rAgentic-cs/guia/', badge: 'Guia' },
+  { icon: '🧠', name: 'skillmanager3x', desc: "Três skills de gestão de sessão para o Claude Code (PT/EN): handoff antes do /clear, checkpoint durante o trabalho e auditoria da memória do projeto.", url: 'https://inematds.github.io/skillmanager3x/guia/', badge: 'Guia' },
+  { icon: '📣', name: 'skillmktv4', desc: "SkillMKT v4 empacota 6 skills de marketing (criativos, páginas, reels, lançamento pago, mensageria, design) em arquivos .skill prontos pra instalar e distribuir.", url: 'https://inematds.github.io/skillmktv4/guia/', badge: 'Guia' },
+  { icon: '🎞️', name: 'scroll-film-studio', desc: "Skill para criar sites cinematográficos contínuos controlados pelo scroll, com motion em código ou footage gerado.", url: 'https://inematds.github.io/scroll-film-studio/guia/', badge: 'Guia' },
+  { icon: '🎬', name: 'scrollcraft', desc: "Plugin do Claude Code (main-design) que constrói páginas scroll-driven premium — scroll vira timeline, gramáticas de página exclusivas por build, e verificação automática de contraste, motion morto e clipes travados.", url: 'https://inematds.github.io/scroll-craft/guia/', badge: 'Guia' },
+  { icon: '🏗️', name: 'vsvideo-skill', desc: "Skill que transforma uma foto de interior finalizado em vídeo time-lapse de reforma: gera o 'antes da obra' com GPT Image (mesma câmera e arquitetura) e o vídeo antes→depois com Higgsfield Seedance 2.0 Mini.", url: 'https://inematds.github.io/vsvideo-skill/guia/', badge: 'Guia' },
+  { icon: '🎥', name: 'VideosDGX2', desc: "Stack de geração de vídeo com Wan 2.2 + ComfyUI rodando local no NVIDIA DGX Spark, com interface web e fila de jobs.", url: 'https://inematds.github.io/VideosDGX2/guia/', badge: 'Guia' },
+  { icon: '💚', name: 'voucontigo', desc: "Vou Contigo: plataforma de acompanhamento e apoio à rotina de pessoas mais velhas — landing, painel de atendimentos com métricas de preço, bot WhatsApp (Evolution API) para agendar/cancelar/horários livres, lembretes e relatório automáticos, PIX Asaas, portal do familiar e gestão por Telegram (Next.js + Supabase).", url: 'https://inematds.github.io/voucontigo/guia/', badge: 'Guia' },
+  { icon: '🌐', name: 'web-AG01', desc: "Protótipo React/Vite da landing do INEMA.Club: apresentação, diagnóstico de IA (mockado) e planos, rodando 100% em modo demo, sem backend configurado.", url: 'https://inematds.github.io/web-AG01/guia/', badge: 'Guia' },
+  { icon: '🔎', name: 'webmcp-readiness', desc: 'Diagnóstico passivo de WebMCP, SEO, GEO e AEO com evidências, sugestões priorizadas e descoberta estática das quatro annotations do draft.', url: 'https://webmcp.inema.pro/', badge: 'App' },
+  { icon: '🌱', name: 'eve', desc: 'Framework filesystem-first para agentes de IA duráveis: instruções, tools, skills, canais e schedules são arquivos numa pasta — o eve compila e roda (fork/estudo do projeto da Vercel)', url: 'https://inematds.github.io/eve/guia/', badge: 'Guia' },
+  { icon: '🎬', name: 'videos-agnes', desc: 'Transforma uma história em filme animado narrado via API Agnes AI (imagens, vídeo keyframe A→B e narração local), custo US$ 0 — inclui as skills videos-agnes e imagens-agnes', url: 'https://inematds.github.io/videos-agnes/guia/', badge: 'Guia' },
+  { icon: '🎮', name: 'eai.inema.club', desc: 'Plataforma de jogos + educação (arcade, educacional, profissional) em Next.js 16', url: 'https://inematds.github.io/eai-guia/', badge: 'Guia' },
+  { icon: '🗣️', name: 'heygenmcp', desc: 'Skills de Claude Code que viram roteiro em vídeo de avatar falante no HeyGen, com custo real medido', url: 'https://inematds.github.io/heygenmcp/guia/', badge: 'Guia' },
+  { icon: '🎬', name: 'klingaimcp', desc: 'Kling AI por MCP e CLI: vídeos e imagens por comando, automação de pipeline e dublagem com voz clonada', url: 'https://inematds.github.io/klingaimcp/guia/', badge: 'Guia' },
+  { icon: '🐾', name: 'pet360', desc: 'SaaS open source e multi-tenant para clínicas vet, pet shops, hotéis e ONGs', url: 'https://inematds.github.io/pet360/', badge: 'Guia' },
+  { icon: '💄', name: 'bela360', desc: 'SaaS de gestão para salões, barbearias e clínicas de estética com WhatsApp', url: 'https://inematds.github.io/bela360/', badge: 'Guia' },
+  { icon: '📖', name: 'animabook', desc: 'Plataforma web mobile-first para criar, publicar e ler quadrinhos animados', url: 'https://inematds.github.io/animabook/', badge: 'Guia' },
+  { icon: '📕', name: 'book-genesis', desc: 'Criacao de livros com IA', url: 'https://github.com/PhilipStark/book-genesis', badge: 'GitHub' },
+  { icon: '🎤', name: 'inemavox', desc: 'Suíte de voz com IA local: dubla, transcreve, corta e baixa vídeos na GPU', url: 'https://inematds.github.io/inemavox/', badge: 'Guia' },
+  { icon: '🤖', name: 'inemaccvbot', desc: 'Bot de Telegram que vira fila de vídeos: uma instrução por linha, pesquisa web, transcrição do áudio de origem, narração em texto e entrega na pasta certa', url: 'https://inematds.github.io/inemaccvbot/guia/', badge: 'Guia' },
+  { icon: '🔑', name: 'zocomputer-dicas', desc: 'Guia + scripts prontos para acessar o Zo Computer via SSH: por que IP direto não funciona, serviço TCP (túnel), autorizar chave e subir o sshd na porta 22.', url: 'https://inematds.github.io/zocomputer-dicas/guia/', badge: 'Guia' },
+  { icon: '🎙️', name: 'dublar pro', desc: 'Pipeline de vídeo com IA: baixa, transcreve, traduz, dubla e corta vídeos', url: 'https://inematds.github.io/dublarv5/', badge: 'Guia' },
+  { icon: '🧠', name: 'intelecto', desc: 'Assistente de IA pessoal em Python: Telegram, memória SQLite, OpenRouter/Ollama', url: 'https://inematds.github.io/intelecto-guia/', badge: 'Guia' },
+  { icon: '💊', name: 'antidote', desc: 'Assistente de IA pessoal em Python, o antídoto contra frameworks inchados', url: 'https://inematds.github.io/antidote-guia/', badge: 'Guia' },
+  { icon: '🛡️', name: 'seg360', desc: 'Marketplace BR de seguros contra calamidades: risco por CEP e cotação online', url: 'https://inematds.github.io/seg360/', badge: 'Guia' },
+  { icon: '🏢', name: 'erpsb', desc: 'ERP SaaS mobile-first para MEIs e microempresas: PIX, WhatsApp e dashboard semáforo', url: 'https://inematds.github.io/ERPsb/', badge: 'Guia' },
+  { icon: '🇪🇸', name: 'hola', desc: 'Plataforma de espanhol 100% para crianças de 6 a 12 anos, alinhada à BNCC', url: 'https://inematds.github.io/hola/', badge: 'Guia' },
+  { icon: '🚚', name: 'rotaX1', desc: 'Entregas de última milha por nicho (vet), com rastreamento em tempo real e PIX', url: 'https://inematds.github.io/RotaX1/', badge: 'Guia' },
+  { icon: '🔧', name: 'rf360', desc: 'Marketplace de técnicos de eletrônica com orçamento automático via WhatsApp', url: 'https://inematds.github.io/RF360/', badge: 'Guia' },
+  { icon: '🌤️', name: 'aclima', desc: 'Dashboard realtime de chuvas e alertas com dados do INMET e notificações multicanal', url: 'https://inematds.github.io/aclima/', badge: 'Guia' },
+  { icon: '📚', name: 'eboo-maker', desc: 'Gera eBooks profissionais em PDF com capa por IA, 3 layouts e Claude Code', url: 'https://inematds.github.io/ebook-maker/', badge: 'Guia' },
+  { icon: '⚡', name: 'megaRAG', desc: 'RAG multimodal: converse com PDF, planilhas, imagens, vídeo e áudio', url: 'https://inematds.github.io/MegaRAG/', badge: 'Guia' },
+  { icon: '🍔', name: 'Restaurante Brutal', desc: 'Sistema completo para restaurante' },
+  { icon: '🏋️', name: 'inema academia', desc: 'Plataforma educacional BNCC (6º-9º ano) com gamificação, painéis e tutor IA', url: 'https://inematds.github.io/inemaacademia/', badge: 'Guia' },
+  { icon: '📱', name: 'redessociais', desc: 'Publica e agenda em 6 redes via scripts Node sobre o Postiz self-hosted', url: 'https://inematds.github.io/redessociais/', badge: 'Guia' },
+  { icon: '📲', name: 'redessociais2026', desc: 'Publisher próprio (worker TS + Supabase) p/ Instagram e TikTok, mais Chatwoot', url: 'https://inematds.github.io/redessociais2026/', badge: 'Guia' },
+  { icon: '🔍', name: 'deepsearchagent', desc: 'Agente de pesquisa profunda em Python com Tavily, reflexão e saída Markdown', url: 'https://inematds.github.io/deepsearchagent/', badge: 'Guia' },
+  { icon: '📈', name: 'timesmkt3', desc: 'Fábrica de conteúdo de marketing com agentes de IA orquestrados por bot Telegram', url: 'https://inematds.github.io/timesmkt3/', badge: 'Guia' },
+  { icon: '🎥', name: 'aisf', desc: 'Fork do SkyReels V3 com Web UI para gerar episódios de vídeo em batch', url: 'https://inematds.github.io/aisf/', badge: 'Guia' },
+  { icon: '🐟', name: 'BettaFish', desc: 'Análise de opinião pública multi-agente (fork BR/LATAM) que vira relatório', url: 'https://inematds.github.io/BettaFish/', badge: 'Guia' },
+  { icon: '🌊', name: 'MiroFish', desc: 'Motor de previsão por inteligência de enxame: simula agentes em redes sociais', url: 'https://inematds.github.io/mirofish/', badge: 'Guia' },
+  { icon: '🎬', name: 'diretor-animacao', desc: 'Imagens prontas + narração viram filme MP4 pro, sem IA de vídeo (render via pixflow)', url: 'https://inematds.github.io/diretor-animacao-guia/', badge: 'Guia' },
+  { icon: '🧪', name: 'intelecto-testes', desc: 'Agente de IA no WhatsApp via Evolution API + OpenRouter, sobe em Docker', url: 'https://inematds.github.io/intelecto-testes/', badge: 'Guia' },
+  { icon: '📚', name: 'okf', desc: 'Open Knowledge Format: formato aberto e vendor-neutral que representa conhecimento como markdown + YAML frontmatter, em bundles versionáveis em git, com agente de referência em Python e visualizador de grafo.', url: 'https://inematds.github.io/okf/guia/', badge: 'Guia' },
+  { icon: '🎨', name: 'open-design', desc: 'Alternativa open-source ao Claude Design: sua CLI de agente vira o motor de design', url: 'https://inematds.github.io/open-design/', badge: 'Guia' },  { icon: '📺', name: 'yt-pub-livesx', desc: 'Corta lives do YouTube em clips por tópico com IA e republica em outro canal', url: 'https://inematds.github.io/yt-pub-livesx/', badge: 'Guia' },  { icon: '📺', name: 'yt-pub-livesx2', desc: 'Publicador YouTube para N canais: 1 daemon, 1 banco, canais em YAML, fila de jobs com retry e aviso no Telegram (v2 do yt-pub-livesx)', url: 'https://inematds.github.io/yt-pub-livesx2/guia/', badge: 'Guia' },
+  { icon: '🎬', name: 'VideosDGX', desc: 'Docker multi-container para 4 Video LLMs (LTX-2, Wan 2.1, MAGI-1, Waver) no DGX Spark', url: 'https://inematds.github.io/VideosDGX/', badge: 'Guia' },
+  { icon: '🌌', name: 'skyreelsv3', desc: 'Fork do SkyReels V3 com Web UI: filas de episódios, talking avatar e import em batch', url: 'https://inematds.github.io/skyreelsv3/', badge: 'Guia' },
+  { icon: '🖼️', name: 'inemaimg', desc: 'Servidor local multi-modelo de imagens com hot-swap entre Qwen-Edit, FLUX.2 e ERNIE', url: 'https://inematds.github.io/inemaimg/', badge: 'Guia' },
+  { icon: '📝', name: 'mkblogs', desc: 'Publicação multi-plataforma open-source com Postiz self-hosted e APIs', url: 'https://inematds.github.io/mkblogs-guia/', badge: 'Guia' },
+  { icon: '🤖', name: 'openmuse-vs-muse', desc: 'Meta Muse × OpenMuse (CopilotKit, MIT): comparação ponto a ponto entre o agente pessoal da Meta e a alternativa open source — onde roda, navegador, memória, integrações, privacidade e custo — com cada afirmação checada em fonte primária e o passo a passo pra rodar o OpenMuse.', url: 'https://inematds.github.io/openmuse-vs-muse/guia/', badge: 'Guia' },
+  { icon: '🧬', name: 'openhuman', desc: 'Assistente de IA agêntico open-source, local-first, com 118+ integrações OAuth', url: 'https://inematds.github.io/openhuman-guia/', badge: 'Guia' },
+  { icon: '🪽', name: 'Claude OS', desc: 'Dashboard local do Claude Code + Hermes (Dream, Mission Control e assistente Hermes)', url: 'https://inematds.github.io/claude-hermes-os/', badge: 'Guia' },
+  { icon: '🎬', name: 'recursos de vídeo', desc: 'Catálogo-guia dos 44 projetos do ecossistema INEMA para gerar e processar vídeo e imagem, em 7 caminhos — com o guia de cada um e o que já foi medido em produção', url: 'https://inematds.github.io/recursos-video/', badge: 'Guia' },
+  { icon: '🧠', name: '3cerebros', desc: 'Motor de memória com 3 cérebros (Projeto/Self/Conhecimento), isolado e embutível por qualquer agente. SQLite FTS5 + política de automação.', url: 'https://inematds.github.io/3cerebros/', badge: 'Guia' },
+  { icon: '🤖', name: 'iAmasters OS', desc: 'Sistema operativo agêntico para operadores de IA — engine Sinapsis v4.5, brand context, multi-cliente, memória que evolui.', url: 'https://inematds.github.io/iamasters-os/', badge: 'Guia' },
+  { icon: '🧠', name: 'Infinite Brain OS', desc: 'Sistema operacional de conhecimento para negócios com IA: git-backed, plain-text, namespaces com promoção operada, sem lock-in.', url: 'https://inematds.github.io/infinite-brain-os/guia/', badge: 'Guia' },
+  { icon: '🎬', name: 'videoprodutor', desc: 'Orquestrador link/assunto → vídeo profissional (3 camadas): planejamento, direção+imagem, voz+render. Preset propaganda e explicativo, 16:9 e 9:16.', url: 'https://inematds.github.io/videoprodutor/', badge: 'Guia' },
+  { icon: '🎞️', name: 'mcp-video', desc: 'Servidor MCP de edição de vídeo com guardrails para agentes de IA — 119 ferramentas: FFmpeg, legendas, áudio, efeitos, HyperFrames e validação preflight.', url: 'https://inematds.github.io/mcp-video/', badge: 'Guia' },
+  { icon: '🚀', name: 'inemaupsk', desc: 'Servidor de upscaling 4x (super-resolution) com 4 modelos ESRGAN, API HTTP e UI web. Local, rápido, sem limite de chamadas.', url: 'https://inematds.github.io/inemaupsk/', badge: 'Guia' },
+  { icon: '🧾', name: 'fable51-system-prompt', desc: 'Prompt de sistema do Claude Fable 5.1: o que é oficial e o que é extração, índice do dump, análise do que mudou e fichas práticas (5 testes, escrever para o Fable, custo e esforço).', url: 'https://inematds.github.io/fable51-system-prompt/guia/', badge: 'Guia' },
+  { icon: '🎬', name: 'fontefilm', desc: 'Ferramenta de direção de cinema com IA para filmes em quadrinhos — storyboard, prompts e linguagem visual.', url: 'https://inematds.github.io/fontefilm/', badge: 'Guia' },
+  { icon: '🏠', name: 'fotos3d', desc: 'Fotos comuns de um cômodo (ou só uma descrição) viram panorâmica 360° equiretangular fiel ao imóvel, com checagem de costura, interface web com viewer e skill property-360', url: 'https://inematds.github.io/fotos3d/guia/', badge: 'Guia' },
+  { icon: '🧭', name: 'O Caminho Certo da IA', desc: 'Manifesto de qualificação real em IA: usar IA de verdade e desenvolver o que a IA não substitui, com dados verificados (Gartner, MIT, WEF)', url: 'https://inematds.github.io/caminho-certo-da-ia-guia/', badge: 'Guia' },
+  { icon: '🔬', name: 'inemathink', desc: 'Laboratório de pesquisa por trás de O Caminho Certo da IA: deep research verificado, manifesto, curso e gráficos de IA/humanoides 2019-2030', url: 'https://inematds.github.io/inemathink/', badge: 'Guia' },
+  { icon: '🧩', name: 'cerebro-inema', desc: 'Segundo cérebro de IA com 3 cérebros (Projeto, Self, Conhecimento) em PT-BR, local e privado: Obsidian + Claude Code', url: 'https://inematds.github.io/cerebro-inema/', badge: 'Guia' },
+  { icon: '👁️', name: 'claude-watch', desc: 'Skill /watch: cola uma URL ou arquivo e o Claude baixa, extrai frames por cena, transcreve e emite um report.md (auto-save no Obsidian)', url: 'https://inematds.github.io/claude-watch/', badge: 'Guia' },
+  { icon: '🌦️', name: 'clima-skill', desc: 'Skill do Claude que consulta e interpreta clima atual, previsão, qualidade do ar, UV/pólen, condições marítimas, vazão de rios e histórico via Open-Meteo — sem chave de API', url: 'https://inematds.github.io/clima-skill/guia/', badge: 'Guia' },
+  { icon: '🎛️', name: 'generator-skill', desc: 'Skill /generate em duas versões — uma que roda modelo local na GPU (custo zero) e outra 100% por API, com portão de custo, livro-caixa e o prompt guardado ao lado de cada arquivo', url: 'https://inematds.github.io/generator-skill/guia/', badge: 'Guia' },
+  { icon: '🪐', name: 'gravityclaw', desc: 'Agente Telegram com loop agêntico construído do zero — lean e seguro — com hub de recursos e gerador de prompts por features', url: 'https://inematds.github.io/gravityclaw/', badge: 'Guia' },
+  { icon: '💥', name: 'inemaref', desc: 'Fábrica de conteúdo a partir de uma referência real: foto/história → ficha de personagem → página de HQ → motion comic narrado, local e determinístico', url: 'https://inematds.github.io/inemaref/', badge: 'Guia' },
+  { icon: '🎥', name: 'mdd', desc: 'Mestre de Direção Dinâmica: transforma qualquer assunto num pacote completo de direção de vídeo pronto pra Seedance, Kling, Runway, Veo ou Luma', url: 'https://inematds.github.io/mdd/', badge: 'Guia' },
+  { icon: '📋', name: 'video-plan-editor', desc: 'Skill + pacote Python (vpe) que transforma um assunto ou link num plano de edição de vídeo estruturado e renderer-agnóstico, com render via HyperFrames', url: 'https://inematds.github.io/skill-video-plan-editor/', badge: 'Guia' },
+  { icon: '🎬', name: 'VideosAvatar', desc: 'Avatar falante no HeyGen a partir de um roteiro (9:16, 720p, voz PT-BR) entregue no bot do openpcbot — dois caminhos de crédito: API pay-as-you-go (heygen-cli) e assinatura via MCP (heygen-mcp)', url: 'https://inematds.github.io/videosavatar/', badge: 'Guia' },
+  { icon: '🏗️', name: 'inema engenharia civil', desc: 'Plataforma de agentes de IA para cálculos de engenharia civil: o agente escolhe o método normativo e o Python calcula, valida (unidades/física/NBR/equilíbrio) e gera o memorial. 18 domínios, com aviso de responsabilidade técnica (ART).', url: 'https://inematds.github.io/inemaengenhariacivil/', badge: 'Guia' },
+  { icon: '🧭', name: 'os-agentes', desc: 'Skill /os-agentes que guia uma pessoa não técnica na construção do próprio OS agêntico de 6 camadas, uma de cada vez, com memória entre sessões e auditoria por objetivo. Base do curso AIOS do INEMA.', url: 'https://inematds.github.io/os-agentes/guia/', badge: 'Guia' },
+  { icon: '🩺', name: 'Health OS', desc: 'Blueprint de um coach de saúde pessoal com IA no Telegram: Supabase próprio + WHOOP, fundamentado nos seus exames, genética e metas. Não é aconselhamento médico.', url: 'https://inematds.github.io/health-os/', badge: 'Guia' },
+  { icon: "🩺", name: "bs-benchmark", desc: "BullshitBench: benchmark que mede se LLMs detectam e apontam premissas absurdas em perguntas técnicas, com visualizador público.", url: "https://inematds.github.io/bs-benchmark/", badge: "Guia" },
+  { icon: "🎬", name: "my-inema", desc: "Andaime: plataforma pedagógica com IA socrática (livros ilustrados, tutor de matemática e filmes) para sala de aula.", url: "https://github.com/inematds/my-inema", badge: "GitHub" },
+  { icon: "🩺", name: "hosp360", desc: "CRMHosp: base técnica inicial de um módulo de autoatendimento de paciente (portal Next.js + API NestJS), em desenvolvimento.", url: "https://github.com/inematds/hosp360", badge: "GitHub" },
+  { icon: "🌐", name: "websitebuilder", desc: "Ferramenta web que gera, em 5 passos, um prompt otimizado para builders de IA (Lovable, Bolt, v0) criarem um site.", url: "https://inematds.github.io/websitebuilder/", badge: "Guia" },
+  { icon: "🤖", name: "docker-moltbot", desc: "Setup Docker pronto e reforçado em segurança para rodar o Moltbot, assistente de IA pessoal multi-canal.", url: "https://github.com/inematds/docker-moltbot", badge: "GitHub" },
+  { icon: "🤖", name: "agent-browser", desc: "CLI de automação de navegador headless para agentes de IA (Rust com fallback Node.js).", url: "https://github.com/inematds/agent-browser", badge: "GitHub" },
+  { icon: "🧩", name: "DocumentosMarcas", desc: "Coleção de skills do Claude Code para gerar e estilizar documentos (DOCX/PDF/XLSX/PPTX) com temas de marcas premium.", url: "https://github.com/inematds/DocumentosMarcas", badge: "GitHub" },
+  { icon: "💰", name: "APIPXINTER", desc: "Simulador local da API Pix do Banco Inter, com cobranças, QR Code, webhook e interface web, sem conta real.", url: "https://github.com/inematds/APIPXINTER", badge: "GitHub" },
+  { icon: "🧩", name: "formato-curso-v2", desc: "Skill/template para gerar páginas de curso INEMA.CLUB com camada de aprendizagem (progresso, dúvidas, anotações, temas) — self-contained.", url: "https://inematds.github.io/formato-curso-v2/", badge: "Guia" },
+  { icon: "🎬", name: "mkvideos", desc: "Factory de vídeos (reels/narrativos) a partir de imagens IA + motion cinematográfico via ffmpeg, com TTS e geração de imagem externos.", url: "https://github.com/inematds/mkvideos", badge: "GitHub" },
+  { icon: "🎬", name: "skillmktv4", desc: "Empacota skills de marketing (criativos, páginas, reels, lançamento, mensageria) em arquivos .skill para distribuição.", url: "https://github.com/inematds/skillmktv4", badge: "GitHub" },
+  { icon: "🤖", name: "timesmkt2", desc: "ITAGMKT — pipeline de agentes de IA para marketing digital (pesquisa, criação, vídeo, publicação multi-plataforma) via bot Telegram.", url: "https://github.com/inematds/timesmkt2", badge: "GitHub" },
+  { icon: "📊", name: "tktk-sync", desc: "Scheduler Python para sync/analyze/publish de conteúdo no TikTok, com dashboard web e configuração via planilha.", url: "https://github.com/inematds/tktk-sync", badge: "GitHub" },
+  { icon: "📦", name: "animabooksf", desc: "Plataforma web (Next.js/Vercel) para crianças criarem e lerem histórias interativas com personagens animados e cenários.", url: "https://github.com/inematds/animabooksf", badge: "GitHub" },
+  { icon: "🤖", name: "docker-clawdbot", desc: "Setup Docker com hardening de segurança para o Clawdbot (assistente de IA pessoal via Telegram, em migração para Moltbot).", url: "https://github.com/inematds/docker-clawdbot", badge: "GitHub" },
+  { icon: "📄", name: "MSFilesAStd", desc: "Scripts Python para gerar documentos Word, Excel, PowerPoint e PDF via LLM ou standalone; roda independente, requer configurar APIs.", url: "https://github.com/inematds/MSFilesAStd", badge: "GitHub" },
+  { icon: "📄", name: "ai-strategy-factory", desc: "App Flask que gera pacote de estratégia de IA (15 documentos, diagramas, apresentação) para uma empresa via APIs Perplexity e Gemini.", url: "https://github.com/inematds/ai-strategy-factory", badge: "GitHub" },
+  { icon: "🎬", name: "dublar", desc: "Sistema de dublagem automática de vídeos: transcrição (Whisper), tradução e síntese de voz (Bark/Coqui TTS), com sincronização.", url: "https://github.com/inematds/dublar", badge: "GitHub" },
+  { icon: "🎬", name: "inemafilme", desc: "Sistema de filme/episódio narrado (contrato historia + roteiro, motor pixflow, sem IA de vídeo).", url: "https://github.com/inematds/inemafilme", badge: "GitHub" },
+  { icon: "🎙️", name: "promptprof", desc: "Pipeline de prompts (KairoBoost): transforma intenção em prompt cinematográfico e gera vídeos com imagens e narração TTS.", url: "https://inematds.github.io/promptprof/", badge: "Guia" },
+  { icon: "🤖", name: "imkt4", desc: "timesmkt3: pipeline de agentes de IA (bot Telegram) que pesquisa, cria narrativa, gera imagens/vídeos e publica conteúdo de marketing.", url: "https://github.com/inematds/imkt4", badge: "GitHub" },
+  { icon: "📦", name: "hyperframes", desc: "Hyperframes Editor (Student Edition): workbench HTML+GSAP com 12 projetos de vídeo prontos para estudar, editar e re-renderizar.", url: "https://github.com/inematds/hyperframes", badge: "GitHub" },
+  { icon: "🤖", name: "claw-code", desc: "Reescrita experimental (Python/Rust) de um harness de agente estilo Claude Code, não afiliada à Anthropic.", url: "https://github.com/inematds/claw-code", badge: "GitHub" },
+  { icon: "🤖", name: "antidotex", desc: "Antidote: assistente de IA pessoal em Python (~3 mil linhas) via Telegram, roda local/Ollama, sem frameworks pesados nem Docker.", url: "https://inematds.github.io/antidotex/", badge: "Guia" },
+  { icon: "🧩", name: "skillx", desc: "Fork do repositório oficial de Skills da Anthropic — coleção de exemplos de skills para Claude (criativos, técnicos, corporativos).", url: "https://inematds.github.io/skillx/", badge: "Guia" },
+  { icon: "🤖", name: "nanobot", desc: "Nanobot: assistente de IA pessoal ultra-leve (~4 mil linhas), fork com documentação em PT-BR e guia de instalação/Docker.", url: "https://inematds.github.io/nanobot/", badge: "Guia" },
+  { icon: "📦", name: "NCIAFlux", desc: "NeuroFluxo: app web (Next.js) de organização pessoal baseado em neurociência para pessoas com TDAH.", url: "https://github.com/inematds/NCIAFlux", badge: "GitHub" },
+  { icon: "🧩", name: "MSFilesA", desc: "Skills do Claude Code para gerar documentos Word, Excel, PowerPoint e PDF automaticamente.", url: "https://github.com/inematds/MSFilesA", badge: "GitHub" },
+  { icon: "📦", name: "nm82", desc: "Sistema de gestão de convites, afiliados e códigos promocionais (padrinhos) do INEMA.VIP, em Next.js/Turborepo.", url: "https://github.com/inematds/nm82", badge: "GitHub" },
+  { icon: "📦", name: "VideosDGX2", desc: "Stack de geração de vídeo com Wan 2.2 + ComfyUI rodando local no NVIDIA DGX Spark, com interface web e fila de jobs.", url: "https://github.com/inematds/VideosDGX2", badge: "GitHub" },
+  { icon: "🌐", name: "imersaovc", desc: "Landing promocional da Imersão Vibe Coding (curso presencial de 3 dias), 4 versões, checkout via Asaas.", url: "https://inematds.github.io/imersaovc/", badge: "Guia" },
+  { icon: "🤖", name: "logfree", desc: "App (API FastAPI + bot Telegram) que indica o posto com melhor custo real por km para frotas de última milha.", url: "https://github.com/inematds/logfree", badge: "GitHub" },
+  { icon: "🌐", name: "novoprojetovibecode", desc: "Landing page de vendas da comunidade premium INEMA.VIP (transformação de negócios com IA).", url: "https://inematds.github.io/novoprojetovibecode/", badge: "Guia" },
+  { icon: "🌐", name: "jonespaella", desc: "Site/landing institucional da Jones BBQ & Paellas, empresa de catering premium (cliente).", url: "https://inematds.github.io/jonespaella/", badge: "Guia" },
+  { icon: "🌐", name: "web-AG01", desc: "Plataforma web do INEMA.Club (React/Vite): landing, diagnóstico de IA e planos, rodando em modo demo.", url: "https://github.com/inematds/web-AG01", badge: "GitHub" },
+  { icon: "🧩", name: "n8n-ps", desc: "Framework de skills que dá ao Claude expertise para construir, validar e implantar workflows n8n em produção.", url: "https://github.com/inematds/n8n-ps", badge: "GitHub" },
+  { icon: "🩺", name: "TAM", desc: "Sistema de telessaúde/telemedicina móvel: prontuário eletrônico, agendamentos e integração com e-SUS/DATASUS.", url: "https://github.com/inematds/TAM", badge: "GitHub" },
+  { icon: "🌐", name: "inemapromo", desc: "INEMAPROMO — landpages de divulgação: comunidade inema.club, workshop INTELECTO e versões corrigidas (/impeccable).", url: "https://inematds.github.io/inemapromo/", badge: "Guia" },
+  { icon: "🎙️", name: "imkt5", desc: "Plataforma modular multi-tenant de pipelines de mídia (imagem, áudio, vídeo, texto) com fila de jobs e entrada via chat; em desenvolvimento.", url: "https://github.com/inematds/imkt5", badge: "GitHub" },
+  { icon: "📊", name: "iccmonit", desc: "TUI em Python que monitora sessões Claude Code ativas em tempo real: cota de uso, métricas por sessão e chat embutido.", url: "https://github.com/inematds/iccmonit", badge: "GitHub" },
+  { icon: "📊", name: "iccmonitv2", desc: "Monitor local e seguro para sessões Claude Code, com painel de cota, contexto, processos e serviços.", url: "https://inematds.github.io/iccmonitv2/", badge: "Guia" },
+  { icon: "🤖", name: "occio-agentes", desc: "Plataforma de orquestração de agentes de IA para PMEs brasileiras (e-commerce), inspirada no Accio Work; em fase de planejamento.", url: "https://github.com/inematds/occio-agentes", badge: "GitHub" },
+  { icon: "🧩", name: "claude-seo", desc: "Skill de SEO para Claude Code: auditoria técnica, on-page, schema markup, sitemap e otimização para busca por IA (GEO).", url: "https://github.com/inematds/claude-seo", badge: "GitHub" },
+  { icon: "🎓", name: "profeale", desc: "Profe Ale — MVP de plataforma de ensino (Next.js + Supabase) com jornada de aulas por módulos; em desenvolvimento inicial.", url: "https://github.com/inematds/profeale", badge: "GitHub" },
+  { icon: "🎬", name: "DublarV4", desc: "Pipeline de dublagem automática de vídeos com IA: transcrição, tradução e TTS, com interface web e suporte a GPU via Docker.", url: "https://github.com/inematds/DublarV4", badge: "GitHub" },
+  { icon: "🏠", name: "imob360", desc: "Imob360 — sistema de gestão imobiliária para pequenas e médias imobiliárias: imóveis, CRM de leads, contratos e visitas.", url: "https://github.com/inematds/imob360", badge: "GitHub" },
+  { icon: "🤖", name: "rAgentic-cs", desc: "Sistema para controlar Claude Code/Codex remotamente via Telegram e GitHub, com sessões persistentes em Docker.", url: "https://github.com/inematds/rAgentic-cs", badge: "GitHub" },
+  { icon: "📊", name: "token-dashboard", desc: "Dashboard local que analisa custo, uso de tokens e cache das sessões do Claude Code a partir dos logs JSONL.", url: "https://github.com/inematds/token-dashboard", badge: "GitHub" },
+  { icon: "🧩", name: "skillmanager3x", desc: "Biblioteca de 3 skills para Claude Code: session-handoff, session-statusline e memory-audit (PT/EN).", url: "https://github.com/inematds/skillmanager3x", badge: "GitHub" },
+  { icon: "🎬", name: "yt-pub-lives", desc: "Pipeline que corta lives do YouTube em clipes por tópico (transcrição, IA, FFmpeg) e publica em outro canal.", url: "https://github.com/inematds/yt-pub-lives", badge: "GitHub" },
+  { icon: "🤖", name: "timesmkt", desc: "Sistema de agentes de IA via Claude Code que pesquisa, cria textos, gera imagens e vídeos para campanhas de marketing.", url: "https://github.com/inematds/timesmkt", badge: "GitHub" },
+  { icon: "📊", name: "FinancialSaaS", desc: "SaaS de consultoria financeira pessoal com dashboard de portfólio, consultor de IA (Gemini) e dados de mercado (Finnhub).", url: "https://github.com/inematds/FinancialSaaS", badge: "GitHub" },
+  { icon: "🧩", name: "remotion-skills", desc: "Biblioteca/skill para Claude Code com boas práticas de Remotion, exemplos de animação e gerador de vídeo promocional.", url: "https://github.com/inematds/remotion-skills", badge: "GitHub" },
+  { icon: "✍️", name: "udpc", desc: "Prompt estruturado de depuração de código para uso com Claude, com variáveis padronizadas e exemplo preenchido.", url: "https://github.com/inematds/udpc", badge: "GitHub" },
+  { icon: "📦", name: "tMusic", desc: "App Next.js de rankings de música (músicas, bandas, DJs, IA) com votação; monorepo com API mock.", url: "https://github.com/inematds/tMusic", badge: "GitHub" },
+  { icon: "🧩", name: "pollyskill", desc: "CLI que compila Agent Skills escritas uma vez para formatos otimizados de Claude Code e OpenAI Codex.", url: "https://github.com/inematds/pollyskill", badge: "GitHub" },
+  { icon: '🎬', name: 'codex-claude-video', desc: 'Codex + Claude em vídeo: avatar do Nei explica como usar os dois juntos — os seis níveis do Use Both, quem faz o quê, as três formas de conectar e todos os cursos e kits abertos do INEMA. Completo (6 min), essencial (3 min) e reel 9:16.', url: 'https://inematds.github.io/codex-claude-video/videos/', badge: 'Guia' },
+  { icon: "⌨️", name: "claudex", desc: "CLI que faz Claude e Codex debaterem um plano em rounds de revisão até chegar num plano de implementação validado.", url: "https://github.com/inematds/claudex", badge: "GitHub" },
+  { icon: "🎬", name: "yt-pub-lives2", desc: "Pipeline que corta lives do YouTube em clipes por tópico via IA e publica automaticamente em outro canal.", url: "https://github.com/inematds/yt-pub-lives2", badge: "GitHub" },
+  { icon: "📦", name: "3ddrive-explorer", desc: "App web (Drive Explorer) para explorar e baixar modelos 3D do acervo INEMA.", url: "https://inematds.github.io/3ddrive-explorer/", badge: "Guia" },
+  { icon: "🩺", name: "mcp-notebooklm", desc: "Plataforma Next.js para publicar conteúdos criados no NotebookLM, hospedada no Vercel.", url: "https://github.com/inematds/mcp-notebooklm", badge: "GitHub" },
+  { icon: "🤖", name: "docker-openclaw-ollama", desc: "Setup Docker para rodar o agente OpenClaw com Ollama (LLM local) em VPS.", url: "https://github.com/inematds/docker-openclaw-ollama", badge: "GitHub" },
+  { icon: "🌐", name: "sis", desc: "Site de marketing e catálogo de cursos da Sisnema Academy (Next.js, com IA para recomendação de cursos).", url: "https://inematds.github.io/sis/", badge: "Guia" },
+  { icon: "📊", name: "dclima", desc: "Dashboard Next.js de monitoramento de clima em tempo real (previsão, histórico, mapa e precisão).", url: "https://github.com/inematds/dclima", badge: "GitHub" },
+  { icon: "🤖", name: "TLGrupos", desc: "Sistema de gestão de membros pagos de grupos do Telegram, com controle de vencimento e notificações automáticas.", url: "https://github.com/inematds/TLGrupos", badge: "GitHub" },
+  { icon: "🤖", name: "lk_agente_v3", desc: "Agente de voz em português via LiveKit (STT Deepgram, LLM GPT-4o-mini, TTS OpenAI) com ferramentas de hora e clima.", url: "https://github.com/inematds/lk_agente_v3", badge: "GitHub" },
+  { icon: "🤖", name: "openpcbot", desc: "Bot pessoal de Telegram que roda o Claude Code CLI local, com multi-agente (Ollama/Codex/OpenRouter) e segundo cérebro.", url: "https://github.com/inematds/openpcbot", badge: "GitHub" },
+  { icon: '🤖', name: 'openpcbotv3', desc: 'Assistente pessoal no Telegram com fila durável em SQLite, gestor do Ollama com preflight de RAM, custo por chamada com orçamento e memória PT-BR com consolidação noturna — roda ao lado do v2 sem faltar memória.', url: 'https://inematds.github.io/openpcbotv3/guia/', badge: 'Guia' },
+  { icon: "📦", name: "myqi", desc: "Teste de QI online gratuito e open-source, com matrizes progressivas geradas proceduralmente (estilo Raven/ICAR).", url: "https://github.com/inematds/myqi", badge: "GitHub" },
+  { icon: "📊", name: "ccjagenticos", desc: "Claude OS: painel pessoal read-only que agrega uso, custo e memória de ferramentas de IA (Claude, ChatGPT, Pinecone, Obsidian) num dashboard.", url: "https://github.com/inematds/ccjagenticos", badge: "GitHub" },
+  { icon: "🎬", name: "inemavox2", desc: "Suite de IA para vídeos: dublagem automática, transcrição, corte de clips e download, sem GPU (via API cloud ou CPU).", url: "https://github.com/inematds/inemavox2", badge: "GitHub" },
+  { icon: "🤖", name: "mirofish-pt", desc: "Motor de simulação com swarm de agentes IA que reagem em redes sociais para prever desdobramento de eventos (fork traduzido do MiroFish).", url: "https://github.com/inematds/mirofish-pt", badge: "GitHub" },
+  { icon: "🤖", name: "claudebot", desc: "ClaudeClaw: leva o Claude Code CLI para o Telegram, rodando o processo real na máquina do usuário.", url: "https://github.com/inematds/claudebot", badge: "GitHub" },
+  { icon: "📦", name: "colebuilder", desc: "Construtor de página link-in-bio (estilo Linktree) full-stack com Next.js 15, React 19 e Neon Postgres.", url: "https://github.com/inematds/colebuilder", badge: "GitHub" },
+  { icon: "🤖", name: "docker-moltbot-open", desc: "Setup Docker pronto e seguro para rodar o Moltbot (assistente de IA pessoal multi-canal: Telegram, WhatsApp, Discord).", url: "https://github.com/inematds/docker-moltbot-open", badge: "GitHub" },
+  { icon: "💰", name: "bet360", desc: "Plataforma white-label B2B de apostas/iGaming com wallet, KYC e compliance para o mercado brasileiro e LATAM.", url: "https://github.com/inematds/bet360", badge: "GitHub" },
+  { icon: "🎓", name: "IAcao", desc: "RPG educacional em Godot para crianças/adolescentes que usa IA (ARIA) como recurso estratégico para ensinar competências do século XXI.", url: "https://github.com/inematds/IAcao", badge: "GitHub" },
+  { icon: "🎬", name: "videos-edit-cria", desc: "Forja Reel: meta-skill que entrevista você e gera sua própria skill de edição de reels — corte limpo, motion graphics, B-roll real, legendas e SFX, sem abrir editor de vídeo.", url: "https://inematds.github.io/videos-edit-cria/guia/", badge: "Guia" },
+  { icon: "📣", name: "inemapromover", desc: "Fábrica de reels de divulgação do INEMA.club segmentados por público: texto → avatar HeyGen → reel empilhado → publicação automática no canal do público.", url: "https://inematds.github.io/inemapromover/guia/", badge: "Guia" },
+  { icon: "📸", name: "produtoshotad", desc: "Pipeline que transforma 1 foto de produto em 5 imagens de anúncio e 5 vídeos curtos (9:16), com 3 workers: Agnes (US$0), HyperFrames (sem IA de vídeo) e Fal.ai/Seedance + ElevenLabs.", url: "https://inematds.github.io/produtoshotad/guia/", badge: "Guia" },
+  { icon: "🎞️", name: "fable5skill", desc: "Skill de Claude Code que constrói sites scroll-film (a página inteira é um plano-sequência cinematográfico que se dissolve no conteúdo ao rolar), com 3 lanes: GSAP puro, Higgsfield/Kie.ai/fal e Agnes AI (US$0).", url: "https://inematds.github.io/fable5skill/guia/", badge: "Guia" },
+  { icon: "🧪", name: "personal-benchmark", desc: "Transforma o histórico do Claude Code em um benchmark pessoal, repetível e julgado às cegas para comparar modelos e níveis de esforço.", url: "https://inematds.github.io/personal-benchmark/guia/", badge: "Guia" },
+  { icon: "💳", name: "saas-pay", desc: "Guia de referência para pagamento Asaas (PIX, cartão à vista, cartão parcelado, boleto) com liberação automática de acesso, mais login sem senha via magic link (Supabase) — código de exemplo pra copiar em qualquer SaaS Next.js.", url: "https://inematds.github.io/saas-pay/guia/", badge: "Guia" },
+  { icon: "🏦", name: "nubank-pay", desc: "Análise honesta: o Nubank não tem API/webhook oficial de pagamento. Documenta o BR Code (padrão público do Banco Central), o workaround de comunidade de ler o email de confirmação via Gmail API, e um fallback de comprovante validado por OCR/visão.", url: "https://inematds.github.io/nubank-pay/guia/", badge: "Guia" },
+]
+
+type Repo = {
+  name: string
+  url: string
+  description: string
+  stars: number
+  language: string | null
+  pushed_at: string
+}
+
+const LANG_ICON: Record<string, string> = {
+  TypeScript: '🟦',
+  JavaScript: '🟨',
+  Python: '🐍',
+  HTML: '🌐',
+  CSS: '🎨',
+  Shell: '🐚',
+  Go: '🐹',
+  Rust: '🦀',
+  Java: '☕',
+  Ruby: '💎',
+  PHP: '🐘',
+  Vue: '💚',
+  Svelte: '🧡',
+  Dockerfile: '🐳',
+}
+
+/**
+ * Flag de conteúdo detalhado (cursos, busca, atualizações de cursos/projetos,
+ * cards das trilhas Profissional/Vibe/Skills e cards de projetos).
+ * Desligado em 2026-08-01: a home passou a mostrar só títulos de trilhas +
+ * chamada única de projetos. O código e os dados ficam preservados aqui para
+ * reaproveitamento — basta voltar para `true`.
+ * Snapshot da versão anterior: /index2.html
+ */
+const SHOW_DETALHES = false
+
+export default function Portal({
+  visitStats,
+  locale = 'pt',
+}: {
+  visitStats: VisitStats
+  locale?: Locale
+}) {
+  const [searchTerm, setSearchTerm] = useState('')
+  const [updatesExpanded, setUpdatesExpanded] = useState(false)
+  const [projectUpdatesExpanded, setProjectUpdatesExpanded] = useState(false)
+  const [novidadesExpanded, setNovidadesExpanded] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 768px)')
+    const sync = () => setIsMobile(mq.matches)
+    sync()
+    mq.addEventListener('change', sync)
+    return () => mq.removeEventListener('change', sync)
+  }, [])
+  const [novidadeAberta, setNovidadeAberta] = useState<string | null>(null)
+  const [repos, setRepos] = useState<Repo[]>([])
+  const t = getDictionary(locale)
+  const img = (src: string) => localizedSrc(src, locale)
+  // Menu, banners e feeds mantêm o idioma ao abrir qualquer área do Eventos.
+  const evLink = (url: string) => localizedEventUrl(url, locale)
+  // Feeds (novidades/atualizações) são dados em PT; scripts/traduz-feeds.mjs mantém o cache por idioma.
+  const tr = (text: string) =>
+    locale === 'pt' ? text : ((feedsI18n as Record<string, Partial<Record<Locale, string>>>)[text]?.[locale] ?? text)
+  const translated = translatedFor(locale)
+
+  // Registra a visita ao montar
+  useEffect(() => {
+    async function trackVisit() {
+      let sid = localStorage.getItem('animabook_sid')
+      if (!sid) {
+        sid = crypto.randomUUID()
+        localStorage.setItem('animabook_sid', sid)
+      }
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' }
+      const {
+        data: { session },
+      } = await supabase.auth.getSession()
+      if (session?.access_token) {
+        headers['Authorization'] = `Bearer ${session.access_token}`
+      }
+      await fetch('/api/visit', {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({ session_id: sid }),
+      })
+    }
+    trackVisit()
+  }, [])
+
+  // Busca repositórios da org (ordenados por estrelas)
+  useEffect(() => {
+    let cancelled = false
+    fetch('/api/repos')
+      .then((r) => r.json())
+      .then((data) => {
+        if (cancelled) return
+        if (data?.ok && Array.isArray(data.items)) {
+          setRepos(data.items)
+        }
+      })
+      .catch(() => {})
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
+  // Rastreia cliques em links externos
+  function trackClick(url: string, label: string, section: string) {
+    url = evLink(url)
+    const sid = localStorage.getItem('animabook_sid') ?? 'unknown'
+    fetch('/api/click', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ session_id: sid, url, label, section }),
+    })
+  }
+
+  // Busca unificada: cursos + projetos + repos
+  const isSearching = searchTerm.trim() !== ''
+  const term = searchTerm.toLowerCase()
+
+  const filteredCourses: Course[] = isSearching
+    ? platformsData.filter(
+        (p) =>
+          p.title.toLowerCase().includes(term) ||
+          p.description.toLowerCase().includes(term) ||
+          p.tags.some((t) => t.toLowerCase().includes(term))
+      )
+    : platformsData
+
+  type ContentType = 'Curso' | 'Projeto' | 'Repo'
+  type UnifiedResult = {
+    key: string
+    icon: string
+    title: string
+    description: string
+    url?: string
+    type: ContentType
+    tags?: string[]
+  }
+
+  const unifiedResults: UnifiedResult[] = isSearching
+    ? [
+        ...filteredCourses.map((p) => ({
+          key: `curso-${p.id}`,
+          icon: p.icon,
+          title: p.title,
+          description: p.description,
+          url: coursePath(p),
+          type: 'Curso' as ContentType,
+          tags: p.tags,
+        })),
+        ...communityProjects
+          .filter(
+            (p) =>
+              p.name.toLowerCase().includes(term) ||
+              p.desc.toLowerCase().includes(term)
+          )
+          .map((p) => ({
+            key: `projeto-${p.name}`,
+            icon: p.icon,
+            title: p.name,
+            description: p.desc,
+            url: p.url,
+            type: 'Projeto' as ContentType,
+          })),
+        ...repos
+          .filter(
+            (r) =>
+              r.name.toLowerCase().includes(term) ||
+              (r.description ?? '').toLowerCase().includes(term)
+          )
+          .map((r) => ({
+            key: `repo-${r.name}`,
+            icon: LANG_ICON[r.language ?? ''] ?? '📦',
+            title: r.name,
+            description: r.description,
+            url: r.url,
+            type: 'Repo' as ContentType,
+          })),
+      ]
+    : []
+
+  // Lista de atualizações a exibir
+  const visibleNovidades = novidadesData.slice(0, novidadesExpanded ? 20 : 5)
+  // Cursos e projetos: 30 no desktop; no celular continua 20.
+  const updatesLimit = isMobile ? 20 : 30
+  const visibleUpdates = updatesData.slice(0, updatesExpanded ? updatesLimit : 5)
+  const visibleProjectUpdates = projectUpdatesData.slice(0, projectUpdatesExpanded ? updatesLimit : 5)
+  const sortedProjects = [...communityProjects].sort((a, b) =>
+    a.name.localeCompare(b.name, 'pt', { sensitivity: 'base' })
+  )
+
+
+  function formatDate(dateStr: string) {
+    const date = new Date(dateStr + 'T00:00:00')
+    return date.toLocaleDateString(INTL_LOCALE[locale], { day: '2-digit', month: '2-digit' })
+  }
+
+  // Título de trilha = "<emoji> <nome PT>"; o nome vem do dicionário quando houver tradução.
+  function trailTitle(title: string) {
+    const space = title.indexOf(' ')
+    if (space < 0) return title
+    const emoji = title.slice(0, space)
+    const name = title.slice(space + 1)
+    const names = t.trails.names as Record<string, string>
+    return `${emoji} ${names[name] ?? name}`
+  }
+
+  return (
+    <>
+      {/* Header */}
+      <header className="header">
+        <div className="container">
+          <a
+            href="https://inema.vip"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="community-badge"
+            onClick={() => trackClick('https://inema.vip', 'Participe da Comunidade', 'header')}
+          >
+            <img src={img("/doc/conviteinemap.webp")} alt="INEMA.VIP" />
+            <span>{t.header.communityBadge}</span>
+          </a>
+          <a
+            href="https://inema.pro"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="community-badge community-badge--pro"
+            onClick={() => trackClick('https://inema.pro', 'INEMA.PRO', 'header')}
+          >
+            <img src={img("/doc/inema-pro-badge.webp")} alt="INEMA.PRO" />
+            <span>{t.header.proBadge}</span>
+          </a>
+          <div className="header-content">
+            <h1 className="logo">{t.header.logo}</h1>
+            <p className="tagline">{t.header.tagline}</p>
+            {/* Chips de visitantes */}
+            <div className="visit-chips">
+              <span className="visit-chip" title={t.header.chipVisits}>
+                👁 {visitStats.total}
+              </span>
+              <span className="visit-chip" title={t.header.chipUnique}>
+                👤 {visitStats.uniqueAnon}
+              </span>
+              {visitStats.uniqueLogged > 0 && (
+                <span className="visit-chip" title={t.header.chipLogged}>
+                  🔑 {visitStats.uniqueLogged}
+                </span>
+              )}
+            </div>
+            <nav className="lang-switcher" aria-label={t.langSwitcher.label}>
+              {LOCALES.map((l) => (
+                <a key={l} href={localeHome(l)} className={l === locale ? 'active' : ''} hrefLang={HTML_LANG[l]} lang={l}>
+                  {LOCALE_LABEL[l]}
+                </a>
+              ))}
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      {/* Section Nav */}
+      <nav className="section-nav">
+        <div className="container">
+          <div className="section-nav-links">
+            <a href={localeHome(locale)} className="section-nav-link">{t.nav.home}</a>
+            <a
+              href="https://buscas.inema.club"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="section-nav-link"
+              onClick={() => trackClick('https://buscas.inema.club', 'Buscas', 'section-nav')}
+            >
+              {t.nav.search}
+            </a>
+            <a
+              href={newsUrl(locale)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="section-nav-link"
+              onClick={() => trackClick('https://news.inema.pro', 'News', 'section-nav')}
+            >
+              {t.nav.news}
+            </a>
+            <a href="/aprender-inteligencia-artificial/" className="section-nav-link">{t.nav.learnAi}</a>
+            <a href="#trilha-iniciantes" className="section-nav-link">{t.nav.beginners}</a>
+            <a href={coursesPath(locale)} className="section-nav-link">{t.nav.courses}</a>
+            <a
+              href={evLink("https://eventos.inema.pro")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="section-nav-link"
+              onClick={() => trackClick('https://eventos.inema.pro', 'Eventos', 'section-nav')}
+            >
+              {t.nav.events}
+            </a>
+            <a href="/videos/" className="section-nav-link">{t.nav.videos}</a>
+            <a href="#comunidade" className="section-nav-link">{t.nav.projects}</a>
+            <a href="#telegram" className="section-nav-link">{t.nav.telegram}</a>
+            <a href="#social" className="section-nav-link">{t.nav.social}</a>
+            <a
+              href="https://inema.pro"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="section-nav-link"
+              onClick={() => trackClick('https://inema.pro', 'INEMA.PRO', 'section-nav')}
+            >
+              {t.nav.pro}
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      {/* Recruitment Hero */}
+      <section className="recruitment-hero">
+        <div className="container">
+          <div className="recruitment-content">
+            <div className="recruitment-image-wrapper">
+              <a
+                href={newsUrl(locale)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="news-banner"
+                onClick={() => trackClick('https://news.inema.pro', 'News', 'banner-news-hero')}
+              >
+                <span className="news-banner-badge"><span className="news-banner-dot" aria-hidden="true" />{t.hero.newsBadge}</span>
+                <span className="news-banner-body">
+                  <span className="news-banner-title">📰 NEWS<span>.inema.pro</span></span>
+                  <span className="news-banner-text">{t.hero.newsText}</span>
+                </span>
+                <span className="news-banner-arrow" aria-hidden="true">→</span>
+              </a>
+              <div className="recruitment-image">
+                <img
+                  src={img("/doc/inema-hero-aprenda-pratique-evolua.webp")}
+                  alt={t.hero.imageAlt}
+                />
+              </div>
+              <p className="recruitment-image-caption">
+                <strong>{t.hero.caption}</strong>
+              </p>
+            </div>
+            <div className="recruitment-text">
+              <h2>{t.hero.title}</h2>
+              <p>{t.hero.body}</p>
+              <p>{t.hero.body2}</p>
+              <p><a href="/aprender-inteligencia-artificial/" className="hero-guide-link">{t.hero.guideCta}</a></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Busca manual + tool WebMCP declarativa. O formulário continua útil
+          em qualquer navegador e pode ser descoberto por agentes compatíveis. */}
+      <section className="webmcp-course-search" aria-labelledby="webmcp-course-search-title">
+        <div className="container">
+          <div className="webmcp-course-search-content">
+            <div>
+              <h2 id="webmcp-course-search-title">{t.search.title}</h2>
+              <p>
+                {t.search.body}
+                {locale !== 'pt' && <> {t.search.catalogNote}</>}
+              </p>
+            </div>
+            <form
+              action={coursesPath(locale)}
+              method="get"
+              {...({
+                toolname: 'buscar_cursos',
+                tooldescription: 'Busca cursos públicos do INEMA por tema, ferramenta ou objetivo de aprendizagem.',
+                toolautosubmit: '',
+              } as Record<string, string>)}
+            >
+              <label htmlFor="home-course-search">{t.search.label}</label>
+              <div className="webmcp-course-search-controls">
+                <input
+                  id="home-course-search"
+                  type="search"
+                  name="q"
+                  required
+                  maxLength={100}
+                  placeholder={t.search.placeholder}
+                  {...({
+                    toolparamdescription: 'Tema, ferramenta ou objetivo que a pessoa deseja aprender.',
+                  } as Record<string, string>)}
+                />
+                <button type="submit">{t.search.button}</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* Evento — Codex + Claude: usar os dois juntos (destaque, topo) */}
+      <section id="evento-codex-claude" style={{ padding: '2.5rem 0 0' }}>
+        <div className="container">
+          <a
+            href={evLink("https://eventos.inema.pro/codex-claude/")}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackClick('https://eventos.inema.pro/codex-claude/', 'Codex + Claude juntos', 'evento')}
+            style={{
+              display: 'block',
+              overflow: 'hidden',
+              border: '1px solid oklch(0.70 0.14 230)',
+              borderRadius: '16px',
+              background: 'oklch(0.14 0.03 250)',
+              boxShadow: '0 20px 60px oklch(0.04 0.02 250 / .55)',
+              textDecoration: 'none',
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img decoding="async"
+              src={img("/doc/codex-claude.webp")}
+              alt={t.events.codexClaudeAlt}
+              style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '1672 / 941', objectFit: 'cover' }}
+            />
+          </a>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px', marginTop: '14px' }}>
+            {[
+              { href: 'https://eventos.inema.pro/codex-claude/', label: '🎤 Área', desc: 'Usar os dois juntos, como tudo se integra e todos os projetos' },
+              { href: 'https://inematds.github.io/use-both-claude-codex/guia/', label: '🤝 Use Both', desc: 'Kit MIT: 6 fluxos, prompts, templates e skills handoff/prime' },
+              { href: 'https://inematds.github.io/iclaudex/', label: '⌨️ claudex', desc: 'Claude escreve o plano, Codex critica, em loop até validar' },
+              { href: 'https://eventos.inema.pro/claude-codex/', label: '🧠 Migrar', desc: 'Claude → Codex: migre ou fique agnóstico' },
+            ].map((c) => (
+              <a key={c.label} href={evLink(c.href)} target="_blank" rel="noopener noreferrer"
+                 onClick={() => trackClick(c.href, c.label, 'codex-claude')}
+                 style={{ display: 'block', padding: '14px 16px', borderRadius: '12px', border: '1px solid oklch(0.70 0.14 230 / .35)', background: 'oklch(0.16 0.03 250 / .6)', textDecoration: 'none', color: 'inherit' }}>
+                <strong style={{ display: 'block', marginBottom: '4px' }}>{c.label}</strong>
+                <span style={{ fontSize: '.88rem', opacity: .8 }}>{c.desc}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Evento — RSI chegou 2 anos antes (destaque, topo) */}
+      <section id="evento-rsi" style={{ padding: '2.5rem 0 0' }}>
+        <div className="container">
+          <a
+            href={evLink("https://eventos.inema.pro/rsi/")}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackClick('https://eventos.inema.pro/rsi/', 'RSI chegou 2 anos antes', 'evento')}
+            style={{
+              display: 'block',
+              overflow: 'hidden',
+              border: '1px solid oklch(0.65 0.14 75)',
+              borderRadius: '16px',
+              background: 'oklch(0.14 0.018 75)',
+              boxShadow: '0 20px 60px oklch(0.04 0.02 28 / .55)',
+              textDecoration: 'none',
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img decoding="async"
+              src={img("/doc/rsi.webp")}
+              alt={t.events.rsiAlt}
+              style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '1672 / 941', objectFit: 'cover' }}
+            />
+          </a>
+        </div>
+      </section>
+
+      {/* Live — canal INEMATDSX no YouTube (destaque) */}
+      <section id="live-inematdsx" style={{ padding: '2.5rem 0 0' }}>
+        <div className="container">
+          <a
+            href="https://www.youtube.com/@inematdsx"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackClick('https://www.youtube.com/@inematdsx', 'Live INEMATDSX no YouTube', 'evento')}
+            style={{
+              display: 'block',
+              overflow: 'hidden',
+              border: '1px solid oklch(0.65 0.14 75)',
+              borderRadius: '16px',
+              background: 'oklch(0.14 0.018 75)',
+              boxShadow: '0 20px 60px oklch(0.04 0.02 28 / .55)',
+              textDecoration: 'none',
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img loading="lazy" decoding="async"
+              src={img("/doc/live-inematdsx.webp")}
+              alt={t.events.liveInematdsxAlt}
+              style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '1672 / 941', objectFit: 'cover' }}
+            />
+          </a>
+        </div>
+      </section>
+
+      {/* Guia — Claude Opus 5.5 (destaque) */}
+      <section id="guia-claude-opus55" style={{ padding: '2.5rem 0 0' }}>
+        <div className="container">
+          <a
+            href="https://inematds.github.io/claude-opus55/guia/"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackClick('https://inematds.github.io/claude-opus55/guia/', 'Guia Claude Opus 5.5', 'guia')}
+            style={{
+              display: 'block',
+              overflow: 'hidden',
+              border: '1px solid oklch(0.65 0.14 75)',
+              borderRadius: '16px',
+              background: 'oklch(0.14 0.018 75)',
+              boxShadow: '0 20px 60px oklch(0.04 0.02 28 / .55)',
+              textDecoration: 'none',
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img loading="lazy" decoding="async"
+              src={img("/doc/claude-opus55.webp")}
+              alt={t.events.opus55Alt}
+              style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '1672 / 941', objectFit: 'cover' }}
+            />
+          </a>
+        </div>
+      </section>
+
+      {/* Evento — OSWork — IA como sistema de trabalho (destaque) */}
+      <section id="evento-oswork" style={{ padding: '2.5rem 0 0' }}>
+        <div className="container">
+          <a
+            href={evLink("https://eventos.inema.pro/oswork/")}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackClick('https://eventos.inema.pro/oswork/', 'OSWork — IA como sistema de trabalho', 'evento')}
+            style={{
+              display: 'block',
+              overflow: 'hidden',
+              border: '1px solid oklch(0.65 0.14 75)',
+              borderRadius: '16px',
+              background: 'oklch(0.14 0.018 75)',
+              boxShadow: '0 20px 60px oklch(0.04 0.02 28 / .55)',
+              textDecoration: 'none',
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img loading="lazy" decoding="async"
+              src={img("/doc/oswork.webp")}
+              alt={t.events.osworkAlt}
+              style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '1280 / 720', objectFit: 'cover' }}
+            />
+          </a>
+        </div>
+      </section>
+
+      {/* Evento — JEV — decisões de IA na prática (destaque) */}
+      <section id="evento-jev" style={{ padding: '2.5rem 0 0' }}>
+        <div className="container">
+          <a
+            href={evLink("https://eventos.inema.pro/jev/")}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackClick('https://eventos.inema.pro/jev/', 'JEV — decisões de IA na prática', 'evento')}
+            style={{
+              display: 'block',
+              overflow: 'hidden',
+              border: '1px solid oklch(0.48 0.19 28)',
+              borderRadius: '16px',
+              background: 'oklch(0.14 0.018 28)',
+              boxShadow: '0 20px 60px oklch(0.04 0.02 28 / .55)',
+              textDecoration: 'none',
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img loading="lazy" decoding="async"
+              src={img("/doc/jev.webp")}
+              alt={t.events.jevAlt}
+              style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '1672 / 941', objectFit: 'cover' }}
+            />
+          </a>
+        </div>
+      </section>
+
+      {/* Evento — Gestão de Agentes 2027 (destaque) */}
+      <section id="evento-gestao-agentes-2027" style={{ padding: '2.5rem 0 0' }}>
+        <div className="container">
+          <a
+            href={evLink("https://eventos.inema.pro/gestao-ia/")}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackClick('https://eventos.inema.pro/gestao-ia/', 'Gestão de Agentes 2027', 'evento')}
+            style={{
+              display: 'block',
+              overflow: 'hidden',
+              border: '1px solid oklch(0.48 0.19 28)',
+              borderRadius: '16px',
+              background: 'oklch(0.14 0.018 28)',
+              boxShadow: '0 20px 60px oklch(0.04 0.02 28 / .55)',
+              textDecoration: 'none',
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img loading="lazy" decoding="async"
+              src={img("/doc/gestao-agentes-2027.webp")}
+              alt={t.events.gestao2027Alt}
+              style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '1672 / 941', objectFit: 'cover' }}
+            />
+          </a>
+        </div>
+      </section>
+
+      {/* Evento — IA Cultivada (destaque) */}
+      <section id="evento-ia-cultivada" style={{ padding: '2.5rem 0 0' }}>
+        <div className="container">
+          <a
+            href={evLink("https://eventos.inema.pro/ia-cultivada/")}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackClick('https://eventos.inema.pro/ia-cultivada/', 'IA Cultivada', 'evento')}
+            style={{
+              display: 'block',
+              overflow: 'hidden',
+              border: '1px solid oklch(0.48 0.19 28)',
+              borderRadius: '16px',
+              background: 'oklch(0.14 0.018 28)',
+              boxShadow: '0 20px 60px oklch(0.04 0.02 28 / .55)',
+              textDecoration: 'none',
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img loading="lazy" decoding="async"
+              src={img("/doc/ia-cultivada.webp")}
+              alt={t.events.iaCultivadaAlt}
+              style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '1672 / 941', objectFit: 'cover' }}
+            />
+          </a>
+        </div>
+      </section>
+
+      {/* Evento — Claude → Codex: migre ou fique agnóstico (banner + área do tema) */}
+      <section id="evento-claude-codex" style={{ padding: '2.5rem 0 0' }}>
+        <div className="container">
+          <a
+            href={evLink("https://eventos.inema.pro/claude-codex/")}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackClick('https://eventos.inema.pro/claude-codex/', 'Claude → Codex agnóstico', 'evento')}
+            style={{
+              display: 'block',
+              overflow: 'hidden',
+              border: '1px solid oklch(0.72 0.16 75)',
+              borderRadius: '16px',
+              background: 'oklch(0.14 0.018 60)',
+              boxShadow: '0 20px 60px oklch(0.04 0.02 60 / .55)',
+              textDecoration: 'none',
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img loading="lazy" decoding="async"
+              src={img("/doc/claude-codex-agnostico.webp")}
+              alt={t.events.claudeCodexAlt}
+              style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '1672 / 941', objectFit: 'cover' }}
+            />
+          </a>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px', marginTop: '14px' }}>
+            {[
+              { href: 'https://inematds.github.io/curso-claude-codex/', label: '🎓 Curso', desc: '3 trilhas, 18 módulos: fundamentos, mão na massa e projetos' },
+              { href: 'https://inematds.github.io/agente-claude-codex/guia/', label: '🧰 Kit', desc: 'doctor, audit, AGENTS.md, núcleo portátil, skills, readback' },
+              { href: '/guias/claude-codex.html', label: '🗺️ Tudo sobre o tema', desc: 'Mapa do que dá pra fazer: skills, executores, plano em fases' },
+              { href: 'https://eventos.inema.pro/claude-codex/', label: '🎤 Evento', desc: 'Área no eventos: migrar ou ficar agnóstico' },
+            ].map((c) => (
+              <a key={c.label} href={evLink(c.href)} target="_blank" rel="noopener noreferrer"
+                 onClick={() => trackClick(c.href, c.label, 'claude-codex')}
+                 style={{ display: 'block', padding: '14px 16px', borderRadius: '12px', border: '1px solid oklch(0.72 0.16 75 / .35)', background: 'oklch(0.16 0.02 60 / .6)', textDecoration: 'none', color: 'inherit' }}>
+                <strong style={{ display: 'block', marginBottom: '4px' }}>{c.label}</strong>
+                <span style={{ fontSize: '.88rem', opacity: .8 }}>{c.desc}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Evento — AGI chegou */}
+      <section id="evento-agi-chegou" style={{ padding: '2.5rem 0 0' }}>
+        <div className="container">
+          <a
+            href={evLink("https://eventos.inema.pro/agi-ready/")}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackClick('https://eventos.inema.pro/agi-ready/', 'AGI chegou', 'evento')}
+            style={{
+              display: 'block',
+              overflow: 'hidden',
+              border: '1px solid oklch(0.48 0.19 28)',
+              borderRadius: '16px',
+              background: 'oklch(0.14 0.018 28)',
+              boxShadow: '0 20px 60px oklch(0.04 0.02 28 / .55)',
+              textDecoration: 'none',
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img loading="lazy" decoding="async"
+              src={img("/doc/agi-chegou.webp")}
+              alt={t.events.agiAlt}
+              style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '1672 / 941', objectFit: 'cover' }}
+            />
+          </a>
+        </div>
+      </section>
+
+      {/* Evento — Content2Video */}
+      <section id="evento-content2video" style={{ padding: '2.5rem 0 0' }}>
+        <div className="container">
+          <a
+            href={evLink("https://eventos.inema.pro/content2video.html")}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackClick('https://eventos.inema.pro/content2video.html', 'Content2Video', 'evento')}
+            style={{
+              display: 'block',
+              overflow: 'hidden',
+              border: '1px solid oklch(0.48 0.19 28)',
+              borderRadius: '16px',
+              background: 'oklch(0.14 0.018 28)',
+              boxShadow: '0 20px 60px oklch(0.04 0.02 28 / .55)',
+              textDecoration: 'none',
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img loading="lazy" decoding="async"
+              src={img("/doc/content2video.webp")}
+              alt={t.events.content2videoAlt}
+              style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '1672 / 941', objectFit: 'cover' }}
+            />
+          </a>
+        </div>
+      </section>
+
+      {/* Evento — WebMCP */}
+      <section id="evento-webmcp" style={{ padding: '2.5rem 0 0' }}>
+        <div className="container">
+          <a
+            href={evLink("https://eventos.inema.pro/webmcp/")}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackClick('https://eventos.inema.pro/webmcp/', 'WebMCP', 'evento')}
+            style={{
+              display: 'block',
+              overflow: 'hidden',
+              border: '1px solid oklch(0.48 0.19 28)',
+              borderRadius: '16px',
+              background: 'oklch(0.14 0.018 28)',
+              boxShadow: '0 20px 60px oklch(0.04 0.02 28 / .55)',
+              textDecoration: 'none',
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img loading="lazy" decoding="async"
+              src={img("/doc/webmcp2.webp")}
+              alt={t.events.webmcpAlt}
+              style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '1672 / 941', objectFit: 'cover' }}
+            />
+          </a>
+        </div>
+      </section>
+
+      {/* Evento — MUSICAVIDEO */}
+      <section id="evento-musicavideo" style={{ padding: '2.5rem 0 0' }}>
+        <div className="container">
+          <a
+            href={evLink("https://eventos.inema.pro/musicavideo.html")}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackClick('https://eventos.inema.pro/musicavideo.html', 'INEMA MUSICAVIDEO', 'evento')}
+            style={{
+              display: 'block',
+              overflow: 'hidden',
+              border: '1px solid oklch(0.48 0.19 28)',
+              borderRadius: '16px',
+              background: 'oklch(0.14 0.018 28)',
+              boxShadow: '0 20px 60px oklch(0.04 0.02 28 / .55)',
+              textDecoration: 'none',
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img loading="lazy" decoding="async"
+              src={img("/doc/capa-musicavideo-v2.webp")}
+              alt={t.events.musicavideoAlt}
+              style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '1672 / 941', objectFit: 'cover' }}
+            />
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: '22px 26px',
+                background: 'oklch(0.15 0.02 28)',
+              }}
+            >
+              <span
+                style={{
+                  flex: '0 0 auto',
+                  display: 'inline-block',
+                  background: 'oklch(0.69 0.22 35)',
+                  color: 'oklch(0.12 0.02 28)',
+                  fontWeight: 800,
+                  borderRadius: '10px',
+                  padding: '11px 18px',
+                  fontSize: '14.5px',
+                }}
+              >
+                {t.events.musicavideoButton}
+              </span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      {/* Evento */}
+      <section id="evento-destaque" style={{ padding: '2.5rem 0' }}>
+        <div className="container">
+          <a
+            href={evLink("https://eventos.inema.pro/inemaccbot.html")}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackClick('https://eventos.inema.pro/inemaccbot.html', 'Evento', 'evento')}
+            style={{
+              display: 'block',
+              overflow: 'hidden',
+              border: '1px solid oklch(0.48 0.19 28)',
+              borderRadius: '16px',
+              background: 'oklch(0.14 0.018 28)',
+              boxShadow: '0 20px 60px oklch(0.04 0.02 28 / .55)',
+              textDecoration: 'none',
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img loading="lazy" decoding="async"
+              src={img("/doc/vczero.webp")}
+              alt={t.events.destaqueAlt}
+              style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '1672 / 941', objectFit: 'cover' }}
+            />
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: '22px 26px',
+                background: 'oklch(0.15 0.02 28)',
+              }}
+            >
+              <span
+                style={{
+                  flex: '0 0 auto',
+                  display: 'inline-block',
+                  background: 'oklch(0.69 0.22 35)',
+                  color: 'oklch(0.12 0.02 28)',
+                  fontWeight: 800,
+                  borderRadius: '10px',
+                  padding: '11px 18px',
+                  fontSize: '14.5px',
+                }}
+              >
+                {t.events.destaqueButton}
+              </span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      {/* Learning Path */}
+      <section id="trilha-iniciantes" className="learning-path-section">
+        <div className="container">
+          <div className="learning-path-header">
+            <h3>{t.beginners.title}</h3>
+            <p>{t.beginners.subtitle}</p>
+            <p style={{ maxWidth: '760px', margin: '.6rem auto 0', fontSize: '.95rem', color: 'var(--text-secondary, #94a3b8)' }}>
+              {t.beginners.body}
+            </p>
+          </div>
+          <div className="learning-path-cards">
+            <a
+              href="https://inematds.github.io/FEP/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="path-card path-card-1"
+              onClick={() => trackClick('https://inematds.github.io/FEP/', 'FEP', 'trilha')}
+            >
+              <div className="path-number">1</div>
+              {locale !== 'pt' && <span className="lang-pill" title={t.beginners.ptPillTitle}>{t.beginners.ptPill}</span>}
+              <h4>FEP</h4>
+              <p>{t.beginners.cards.fep}</p>
+            </a>
+            <a
+              href="https://inematds.github.io/ATIA/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="path-card path-card-2"
+              onClick={() => trackClick('https://inematds.github.io/ATIA/', 'ATIA', 'trilha')}
+            >
+              <div className="path-number">2</div>
+              {locale !== 'pt' && <span className="lang-pill" title={t.beginners.ptPillTitle}>{t.beginners.ptPill}</span>}
+              <h4>ATIA</h4>
+              <p>{t.beginners.cards.atia}</p>
+            </a>
+            <a
+              href="https://inematds.github.io/FDB/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="path-card path-card-3"
+              onClick={() => trackClick('https://inematds.github.io/FDB/', 'FDB', 'trilha')}
+            >
+              <div className="path-number">3</div>
+              {locale !== 'pt' && <span className="lang-pill" title={t.beginners.ptPillTitle}>{t.beginners.ptPill}</span>}
+              <h4>FDB</h4>
+              <p>{t.beginners.cards.fdb}</p>
+            </a>
+            <a
+              href="https://inematds.github.io/VISION/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="path-card path-card-4"
+              onClick={() => trackClick('https://inematds.github.io/VISION/', 'Vision', 'trilha')}
+            >
+              <div className="path-number">4</div>
+              {locale !== 'pt' && <span className="lang-pill" title={t.beginners.ptPillTitle}>{t.beginners.ptPill}</span>}
+              <h4>Vision</h4>
+              <p>{t.beginners.cards.vision}</p>
+            </a>
+            <a
+              href="https://inematds.github.io/ccodebasico/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="path-card path-card-5"
+              onClick={() => trackClick('https://inematds.github.io/ccodebasico/', 'Claude Code Básico', 'trilha')}
+            >
+              <div className="path-number">5</div>
+              {locale !== 'pt' && <span className="lang-pill" title={t.beginners.ptPillTitle}>{t.beginners.ptPill}</span>}
+              <h4>Claude Code Básico</h4>
+              <p>{t.beginners.cards.claudeCodeBasico}</p>
+            </a>
+            <a
+              href="https://inematds.github.io/codexbasico/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="path-card path-card-6"
+              onClick={() => trackClick('https://inematds.github.io/codexbasico/', 'Codex Básico', 'trilha')}
+            >
+              <div className="path-number">6</div>
+              {locale !== 'pt' && <span className="lang-pill" title={t.beginners.ptPillTitle}>{t.beginners.ptPill}</span>}
+              <h4>Codex Básico</h4>
+              <p>{t.beginners.cards.codexBasico}</p>
+            </a>
+            <a
+              href="https://inematds.github.io/do-zero-ao-deploy/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="path-card path-card-7"
+              onClick={() => trackClick('https://inematds.github.io/do-zero-ao-deploy/', 'Do Zero ao Deploy', 'trilha')}
+            >
+              <div className="path-number">7</div>
+              {locale !== 'pt' && <span className="lang-pill" title={t.beginners.ptPillTitle}>{t.beginners.ptPill}</span>}
+              <h4>Do Zero ao Deploy</h4>
+              <p>{t.beginners.cards.zeroDeploy}</p>
+            </a>
+            <a
+              href="https://inematds.github.io/intelecto-curso/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="path-card path-card-8"
+              onClick={() => trackClick('https://inematds.github.io/intelecto-curso/', 'INTELECTO Curso', 'trilha')}
+            >
+              <div className="path-number">8</div>
+              {locale !== 'pt' && <span className="lang-pill" title={t.beginners.ptPillTitle}>{t.beginners.ptPill}</span>}
+              <h4>INTELECTO Curso</h4>
+              <p>{t.beginners.cards.intelecto}</p>
+            </a>
+            <a
+              href="https://inematds.github.io/cccompletopn/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="path-card path-card-1"
+              onClick={() => trackClick('https://inematds.github.io/cccompletopn/', 'Claude Code para Pessoas Normais', 'trilha')}
+            >
+              <div className="path-number">9</div>
+              {locale !== 'pt' && <span className="lang-pill" title={t.beginners.ptPillTitle}>{t.beginners.ptPill}</span>}
+              <h4>Claude Code para Pessoas Normais</h4>
+              <p>{t.beginners.cards.ccPessoasNormais}</p>
+            </a>
+            <a
+              href="https://inematds.github.io/os-agentes/guia/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="path-card path-card-2"
+              onClick={() => trackClick('https://inematds.github.io/os-agentes/guia/', 'OS Agentes', 'trilha')}
+            >
+              <div className="path-number">10</div>
+              {locale !== 'pt' && <span className="lang-pill" title={t.beginners.ptPillTitle}>{t.beginners.ptPill}</span>}
+              <h4>OS Agentes</h4>
+              <p>{t.beginners.cards.osAgentes}</p>
+            </a>
+            <a
+              href="https://inematds.github.io/lives2/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="path-card path-card-3"
+              onClick={() => trackClick('https://inematds.github.io/lives2/', 'Lives 2026', 'trilha')}
+            >
+              <div className="path-number">11</div>
+              {locale !== 'pt' && <span className="lang-pill" title={t.beginners.ptPillTitle}>{t.beginners.ptPill}</span>}
+              <h4>Lives 2026</h4>
+              <p>{t.beginners.cards.lives2026}</p>
+            </a>
+            <a
+              href="https://inematds.github.io/evai2026/curso-e-live/curso/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="path-card path-card-4"
+              onClick={() => trackClick('https://inematds.github.io/evai2026/curso-e-live/curso/', 'Como Montar um Negócio', 'trilha')}
+            >
+              <div className="path-number">12</div>
+              {locale !== 'pt' && <span className="lang-pill" title={t.beginners.ptPillTitle}>{t.beginners.ptPill}</span>}
+              <h4>Como Montar um Negócio</h4>
+              <p>{t.beginners.cards.montarNegocio}</p>
+            </a>
+          </div>
+          <div className="learning-path-footer">
+            <p>{t.beginners.footer}</p>
+            <div className="guide-link-btn-wrap">
+              <a
+                className="guide-link-btn"
+                href="/guias/trilha-iniciantes.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackClick('/guias/trilha-iniciantes.html', 'Guia da Trilha para Iniciantes', 'trilha')}
+              >
+                {t.beginners.guideButton}
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {locale !== 'pt' && (
+        <section id="translated" className="learning-path-section">
+          <div className="container">
+            <div className="learning-path-header">
+              <h3>{t.translated.title}</h3>
+              <p>{t.translated.subtitle}</p>
+            </div>
+            {translated.length === 0 ? (
+              <p className="translated-empty">{t.translated.empty}</p>
+            ) : (
+              <div className="learning-path-cards">
+                {translated.map((item) => (
+                  <a
+                    key={`${item.kind}-${item.id}`}
+                    href={evLink(item.url)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="path-card"
+                    onClick={() => trackClick(item.url, item.title, `translated-${locale}`)}
+                  >
+                    <div className="path-number">{item.icon}</div>
+                    <h4>{item.title}</h4>
+                    <p>{item.description}</p>
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* IA do Zero — porta de entrada para quem nunca usou IA (antes do passo 1 da trilha) */}
+      <section id="ia-do-zero" className="learning-path-section">
+        <div className="container">
+          <div className="learning-path-header">
+            <h3>{t.iaZero.title}</h3>
+            <p>{t.iaZero.subtitle}</p>
+            <p style={{ maxWidth: '760px', margin: '.6rem auto 0', fontSize: '.95rem', color: 'var(--text-secondary, #94a3b8)' }}>
+              {t.iaZero.body}
+            </p>
+          </div>
+          <div className="learning-path-cards">
+            <a
+              href="https://inematds.github.io/ia-do-zero-curso/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="path-card path-card-1"
+              onClick={() => trackClick('https://inematds.github.io/ia-do-zero-curso/', 'IA do Zero (curso)', 'ia-do-zero')}
+            >
+              <div className="path-number">0</div>
+              {locale !== 'pt' && <span className="lang-pill" title={t.beginners.ptPillTitle}>{t.beginners.ptPill}</span>}
+              <h4>{t.iaZero.cards.cursoTitle}</h4>
+              <p>{t.iaZero.cards.cursoDesc}</p>
+            </a>
+            <a
+              href="https://inematds.github.io/ia-do-zero/guia/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="path-card path-card-2"
+              onClick={() => trackClick('https://inematds.github.io/ia-do-zero/guia/', 'IA do Zero (kit)', 'ia-do-zero')}
+            >
+              <div className="path-number">📋</div>
+              {locale !== 'pt' && <span className="lang-pill" title={t.beginners.ptPillTitle}>{t.beginners.ptPill}</span>}
+              <h4>{t.iaZero.cards.kitTitle}</h4>
+              <p>{t.iaZero.cards.kitDesc}</p>
+            </a>
+            <a
+              href="https://inematds.github.io/FEP2026/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="path-card path-card-3"
+              onClick={() => trackClick('https://inematds.github.io/FEP2026/', 'FEP 2026', 'ia-do-zero')}
+            >
+              <div className="path-number">1</div>
+              {locale !== 'pt' && <span className="lang-pill" title={t.beginners.ptPillTitle}>{t.beginners.ptPill}</span>}
+              <h4>FEP 2026</h4>
+              <p>{t.iaZero.cards.fepDesc}</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* IA Cultivada — tudo que dá para fazer com o assunto (página + soluções prontas) */}
+      <section id="ia-cultivada" className="learning-path-section">
+        <div className="container">
+          <div className="learning-path-header">
+            <h3>{t.iaCultivada.title}</h3>
+            <p>{t.iaCultivada.subtitle}</p>
+            <p style={{ maxWidth: '760px', margin: '.6rem auto 0', fontSize: '.95rem', color: 'var(--text-secondary, #94a3b8)' }}>
+              {t.iaCultivada.body}
+            </p>
+          </div>
+          <div className="learning-path-cards">
+            <a
+              href="https://inematds.github.io/iacultivada/videos/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="path-card path-card-4"
+              onClick={() => trackClick('https://inematds.github.io/iacultivada/videos/', 'IA Cultivada (vídeo)', 'ia-cultivada')}
+            >
+              <div className="path-number">🎬</div>
+              {locale !== 'pt' && <span className="lang-pill" title={t.beginners.ptPillTitle}>{t.beginners.ptPill}</span>}
+              <h4>{t.iaCultivada.cards.videoTitle}</h4>
+              <p>{t.iaCultivada.cards.videoDesc}</p>
+            </a>
+            <a
+              href="https://inematds.github.io/iacultivada/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="path-card path-card-1"
+              onClick={() => trackClick('https://inematds.github.io/iacultivada/', 'IA Cultivada (página)', 'ia-cultivada')}
+            >
+              <div className="path-number">🌱</div>
+              {locale !== 'pt' && <span className="lang-pill" title={t.beginners.ptPillTitle}>{t.beginners.ptPill}</span>}
+              <h4>{t.iaCultivada.cards.paginaTitle}</h4>
+              <p>{t.iaCultivada.cards.paginaDesc}</p>
+            </a>
+            <a
+              href="https://inematds.github.io/iacultivada/kits/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="path-card path-card-2"
+              onClick={() => trackClick('https://inematds.github.io/iacultivada/kits/', 'IA Cultivada (kits)', 'ia-cultivada')}
+            >
+              <div className="path-number">📦</div>
+              {locale !== 'pt' && <span className="lang-pill" title={t.beginners.ptPillTitle}>{t.beginners.ptPill}</span>}
+              <h4>{t.iaCultivada.cards.kitsTitle}</h4>
+              <p>{t.iaCultivada.cards.kitsDesc}</p>
+            </a>
+            <a
+              href="https://inematds.github.io/iacultivada/gerador/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="path-card path-card-3"
+              onClick={() => trackClick('https://inematds.github.io/iacultivada/gerador/', 'IA Cultivada (gerador)', 'ia-cultivada')}
+            >
+              <div className="path-number">⚙️</div>
+              {locale !== 'pt' && <span className="lang-pill" title={t.beginners.ptPillTitle}>{t.beginners.ptPill}</span>}
+              <h4>{t.iaCultivada.cards.geradorTitle}</h4>
+              <p>{t.iaCultivada.cards.geradorDesc}</p>
+            </a>
+            <a
+              href="https://inematds.github.io/iacultivada/diagnostico/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="path-card path-card-4"
+              onClick={() => trackClick('https://inematds.github.io/iacultivada/diagnostico/', 'IA Cultivada (diagnóstico)', 'ia-cultivada')}
+            >
+              <div className="path-number">🩺</div>
+              {locale !== 'pt' && <span className="lang-pill" title={t.beginners.ptPillTitle}>{t.beginners.ptPill}</span>}
+              <h4>{t.iaCultivada.cards.diagTitle}</h4>
+              <p>{t.iaCultivada.cards.diagDesc}</p>
+            </a>
+            <a
+              href="https://github.com/inematds/iacultivada/tree/main/skills"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="path-card path-card-1"
+              onClick={() => trackClick('https://github.com/inematds/iacultivada/tree/main/skills', 'IA Cultivada (skills)', 'ia-cultivada')}
+            >
+              <div className="path-number">🧩</div>
+              {locale !== 'pt' && <span className="lang-pill" title={t.beginners.ptPillTitle}>{t.beginners.ptPill}</span>}
+              <h4>{t.iaCultivada.cards.skillsTitle}</h4>
+              <p>{t.iaCultivada.cards.skillsDesc}</p>
+            </a>
+            <a
+              href="https://github.com/inematds/iacultivada/tree/main/pacotes"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="path-card path-card-2"
+              onClick={() => trackClick('https://github.com/inematds/iacultivada/tree/main/pacotes', 'IA Cultivada (pacotes)', 'ia-cultivada')}
+            >
+              <div className="path-number">🧰</div>
+              {locale !== 'pt' && <span className="lang-pill" title={t.beginners.ptPillTitle}>{t.beginners.ptPill}</span>}
+              <h4>{t.iaCultivada.cards.pacotesTitle}</h4>
+              <p>{t.iaCultivada.cards.pacotesDesc}</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Trilha Profissional com IA — detalhe preservado, ver SHOW_DETALHES */}
+      {SHOW_DETALHES && (
+      <section id="trilha-profissional" className="learning-path-section">
+        <div className="container">
+          <div className="learning-path-header">
+            <h3>🧭 Trilha Profissional com IA</h3>
+            <p>Do espectador ao especialista, em 6 estágios — desperte, lidere, construa, crie e opere com agentes</p>
+          </div>
+
+          <div style={{ textAlign: 'center', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', fontSize: '.82rem', color: '#34d399', margin: '0 0 .9rem' }}>1 · Despertar — integre a IA na sua profissão</div>
+          <div className="learning-path-cards">
+            {[
+              { href: 'https://inematds.github.io/mentesbrilhantes1/',  label: 'Mentes Brilhantes',     desc: 'Transforme sua profissão com IA',          n: 1 },
+              { href: 'https://inematds.github.io/caminho-certo-da-ia-guia/', label: 'O Caminho Certo da IA', desc: 'Guia de qualificação real em IA',         n: 2 },
+              { href: 'https://inematds.github.io/profissionalai/',    label: 'Integra sua Profissão', desc: 'Integre a IA na profissão que você já tem', n: 3 },
+              { href: 'https://inematds.github.io/pro-liberal-ia/',    label: 'Liberal com IA',        desc: 'Assistente + prompts + templates pro liberal', n: 4 },
+              { href: 'https://inematds.github.io/pha2030-aula/',      label: 'PHA 2030',              desc: 'Potencial Humano Aumentado',              n: 5 },
+              { href: 'https://inematds.github.io/profissional2027x/', label: 'Profissional 2027',     desc: 'Implementadores de IA para PMEs',          n: 6 },
+              { href: 'https://inematds.github.io/prof2030/',          label: 'Prof2030',              desc: 'O Profissional do Futuro',                n: 7 },
+              { href: 'https://inematds.github.io/os-agentes/guia/',   label: 'OS Agentes',            desc: 'Construa seu OS agêntico, uma camada por vez', n: 8 },
+              { href: 'https://inematds.github.io/agentes-harness/', label: 'Terminal e Harness',    desc: 'Por que o terminal vence o chat, para quem decide', n: 9 },
+              { href: 'https://inematds.github.io/builaios/',   label: 'Construa seu AI OS',    desc: 'Assistente de IA pessoal, sem programar', n: 9 },
+              { href: 'https://inematds.github.io/formacaoia/', label: 'Formação IA',           desc: 'Pedir bem já não basta: monte a estrutura em volta da IA', n: 10 },
+              { href: 'https://inematds.github.io/wat7d/',      label: 'Seu Funcionário Digital', desc: '7 dias para montar um assistente de IA que trabalha sozinho', n: 11 },
+            ].map((p) => (
+              <a key={p.label} href={evLink(p.href)} target="_blank" rel="noopener noreferrer"
+                 className={`path-card path-card-${p.n}`}
+                 onClick={() => trackClick(p.href, p.label, 'trilha-profissional')}>
+                <div className="path-number">{p.n}</div>
+                <h4>{p.label}</h4>
+                <p>{p.desc}</p>
+              </a>
+            ))}
+          </div>
+          <div className="guide-link-btn-wrap">
+            <a
+              className="guide-link-btn"
+              href="/guias/trilha-profissional/despertar.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackClick('/guias/trilha-profissional/despertar.html', 'Guia — Despertar', 'trilha-profissional')}
+            >
+              📖 Guia deste estágio
+            </a>
+          </div>
+
+          <div style={{ textAlign: 'center', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', fontSize: '.82rem', color: '#a78bfa', margin: '1.6rem 0 .9rem' }}>2 · Liderar &amp; Monetizar — consultor, CAIO, certificação</div>
+          <div className="learning-path-cards">
+            {[
+              { href: 'https://inematds.github.io/neurociencia-comportamento/', label: 'Neurociência & Comportamento', desc: 'Entenda o comportamento humano com IA',      n: 1 },
+              { href: 'https://inematds.github.io/pro-liberal-ia/',  label: 'Pro Liberal com IA', desc: 'Do atendimento ao lucro', n: 2 },
+              { href: 'https://inematds.github.io/caio/',          label: 'CAIO',             desc: 'Chief AI Officer 2030',                  n: 3 },
+              { href: 'https://inematds.github.io/prof2031CAIP/',  label: 'CAIP',             desc: 'Certified AI Professional',              n: 4 },
+              { href: 'https://inematds.github.io/consultoria2k/', label: 'Consultor de IA',  desc: 'Do Rótulo ao Resultado',                 n: 5 },
+              { href: 'https://inematds.github.io/cultura-inovacao/', label: 'Cultura de Inovação', desc: 'Da Teoria à Prática',                  n: 6 },
+              { href: 'https://inematds.github.io/mapacliente/', label: 'Mapa do Cliente', desc: 'Formação DICA — Consultor de IA para Pequenos Negócios', n: 7 },
+              { href: 'https://inematds.github.io/profissional2027x', label: 'Profissional 2027', desc: 'Implementadores de IA para PMEs — Método DPIA', n: 8 },
+            ].map((p) => (
+              <a key={p.label} href={evLink(p.href)} target="_blank" rel="noopener noreferrer"
+                 className={`path-card path-card-${p.n}`}
+                 onClick={() => trackClick(p.href, p.label, 'trilha-profissional')}>
+                <div className="path-number">{p.n}</div>
+                <h4>{p.label}</h4>
+                <p>{p.desc}</p>
+              </a>
+            ))}
+          </div>
+          <div className="guide-link-btn-wrap">
+            <a
+              className="guide-link-btn"
+              href="/guias/trilha-profissional/lideranca-monetizacao.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackClick('/guias/trilha-profissional/lideranca-monetizacao.html', 'Guia — Liderar & Monetizar', 'trilha-profissional')}
+            >
+              📖 Guia deste estágio
+            </a>
+          </div>
+
+          <div style={{ textAlign: 'center', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', fontSize: '.82rem', color: '#38bdf8', margin: '1.6rem 0 .9rem' }}>3 · Estratégia — automação e estratégia com IA</div>
+          <div className="learning-path-cards">
+            {[
+              { href: 'https://inematds.github.io/local-ai-masterclass/', label: 'Local AI Masterclass', desc: 'IA local, rápida e sem dependências',        n: 1 },
+              { href: 'https://inematds.github.io/storm-research/',       label: 'Storm Research',       desc: 'Pesquisa avançada com IA',                 n: 2 },
+              { href: 'https://inematds.github.io/fae-ai/',       label: 'Automação Estratégica', desc: 'Automação Estratégica com IA',           n: 3 },
+              { href: 'https://inematds.github.io/aiestrategia/', label: 'Estratégia de IA',      desc: 'Fábrica de Estratégia — Vire Consultor', n: 4 },
+            ].map((p) => (
+              <a key={p.label} href={evLink(p.href)} target="_blank" rel="noopener noreferrer"
+                 className={`path-card path-card-${p.n}`}
+                 onClick={() => trackClick(p.href, p.label, 'trilha-profissional')}>
+                <div className="path-number">{p.n}</div>
+                <h4>{p.label}</h4>
+                <p>{p.desc}</p>
+              </a>
+            ))}
+          </div>
+          <div className="guide-link-btn-wrap">
+            <a
+              className="guide-link-btn"
+              href="/guias/trilha-profissional/estrategia.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackClick('/guias/trilha-profissional/estrategia.html', 'Guia — Estratégia', 'trilha-profissional')}
+            >
+              📖 Guia deste estágio
+            </a>
+          </div>
+
+          <div style={{ textAlign: 'center', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', fontSize: '.82rem', color: '#f472b6', margin: '1.6rem 0 .9rem' }}>4 · Vibe Code — do conceito à engenharia com IA</div>
+          <div className="learning-path-cards">
+            {[
+              { href: 'https://inematds.github.io/vibecode',          label: 'Vibe Coding',      desc: 'Da Ideia ao Produto com IA',    n: 1 },
+              { href: 'https://inematds.github.io/vb-imersao/',      label: 'VB Imersao',       desc: 'Do Zero ao SaaS em 3 Dias',    n: 2 },
+              { href: 'https://inematds.github.io/skills',            label: 'Skills',           desc: 'Agent Skills Mastery',         n: 3 },
+              { href: 'https://inematds.github.io/agentic/',          label: 'Agentic',          desc: 'Engenharia de Agentic',        n: 4 },
+              { href: 'https://inematds.github.io/ws2ia/',            label: 'Eng. de Software com IA', desc: 'AI First sem perder o controle: spec, harness, loop e gates', n: 5 },
+            ].map((p) => (
+              <a key={p.label} href={evLink(p.href)} target="_blank" rel="noopener noreferrer"
+                 className={`path-card path-card-${p.n}`}
+                 onClick={() => trackClick(p.href, p.label, 'trilha-profissional')}>
+                <div className="path-number">{p.n}</div>
+                <h4>{p.label}</h4>
+                <p>{p.desc}</p>
+              </a>
+            ))}
+          </div>
+          <div className="guide-link-btn-wrap">
+            <a
+              className="guide-link-btn"
+              href="/guias/trilha-profissional/vibe-code.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackClick('/guias/trilha-profissional/vibe-code.html', 'Guia — Vibe Code', 'trilha-profissional')}
+            >
+              📖 Guia deste estágio
+            </a>
+          </div>
+
+          <div style={{ textAlign: 'center', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', fontSize: '.82rem', color: '#fbbf24', margin: '1.6rem 0 .9rem' }}>5 · Filmes &amp; Vídeos — crie conteúdo profissional</div>
+          <div className="learning-path-cards">
+            {[
+              { href: 'https://inematds.github.io/yt-pub-livesx/',    label: 'YT Pub LivesX', desc: 'Corte lives em clips com IA',        n: 1 },
+              { href: 'https://inematds.github.io/skill-video-explicativo/', label: 'HyperFrames', desc: 'Vídeos Explicativos com Claude Code', n: 2 },
+              { href: 'https://inematds.github.io/timesmkt3/',        label: 'TimesMkt3',      desc: 'Fábrica de Conteúdo + Vídeos',     n: 3 },
+              { href: 'https://inematds.github.io/inemavox/',         label: 'Inemavox',       desc: 'Suíte de Voz e Vídeo com IA',     n: 4 },
+              { href: 'https://inematds.github.io/recursos-video/',   label: 'Recursos de Vídeo', desc: 'Catálogo-guia dos 44 projetos de vídeo e imagem do ecossistema', n: 5 },
+            ].map((p) => (
+              <a key={p.label} href={evLink(p.href)} target="_blank" rel="noopener noreferrer"
+                 className={`path-card path-card-${p.n}`}
+                 onClick={() => trackClick(p.href, p.label, 'trilha-profissional')}>
+                <div className="path-number">{p.n}</div>
+                <h4>{p.label}</h4>
+                <p>{p.desc}</p>
+              </a>
+            ))}
+          </div>
+          <div className="guide-link-btn-wrap">
+            <a
+              className="guide-link-btn"
+              href="/guias/trilha-profissional/filmes-videos.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackClick('/guias/trilha-profissional/filmes-videos.html', 'Guia — Filmes & Vídeos', 'trilha-profissional')}
+            >
+              📖 Guia deste estágio
+            </a>
+          </div>
+
+          <div style={{ textAlign: 'center', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', fontSize: '.82rem', color: '#fb923c', margin: '1.6rem 0 .9rem' }}>6 · Profissionais Experientes — agentes para quem vive da expertise</div>
+          <div className="learning-path-cards">
+            {[
+              { href: 'https://inematds.github.io/agentes-office/',                             label: 'Agentes: o Novo Office', desc: 'Formação em agentes de IA por perfil', n: 1 },
+              { href: 'https://inematds.github.io/agentes-office/curso/liberal/landing.html', label: 'Curso Liberal',          desc: 'Aula 0 + 8 módulos — o segundo cérebro do liberal', n: 2 },
+              { href: 'https://inematds.github.io/segunda-opiniao/landing.html',                label: 'Segunda Opinião',       desc: 'IA para Gestores e Líderes',                        n: 3 },
+              { href: 'https://inematds.github.io/evai2026/curso-e-live/curso/',                label: 'Negócio de Serviços de IA', desc: '8 aulas sem programar — do primeiro cliente ao contrato', n: 4 },
+            ].map((p) => (
+              <a key={p.label} href={evLink(p.href)} target="_blank" rel="noopener noreferrer"
+                 className={`path-card path-card-${p.n}`}
+                 onClick={() => trackClick(p.href, p.label, 'trilha-profissional')}>
+                <div className="path-number">{p.n}</div>
+                <h4>{p.label}</h4>
+                <p>{p.desc}</p>
+              </a>
+            ))}
+          </div>
+          <div className="guide-link-btn-wrap">
+            <a
+              className="guide-link-btn"
+              href="/guias/trilha-profissional/profissionais-experientes.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackClick('/guias/trilha-profissional/profissionais-experientes.html', 'Guia — Profissionais Experientes', 'trilha-profissional')}
+            >
+              📖 Guia deste estágio
+            </a>
+          </div>
+
+          <div className="learning-path-footer">
+            <p>Uma jornada do INEMA.CLUB: integre a IA na sua profissão, vire implementador, consultor, especialista em Vibe Code, produtor de conteúdo e profissional experiente operando com agentes</p>
+          </div>
+
+          <a
+            href="https://inema.pro"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inemapro-banner inemapro-banner--wide"
+            onClick={() => trackClick('https://inema.pro', 'INEMA.PRO — Jornada', 'banner-inemapro')}
+          >
+            <img src={img("/doc/inema-pro-banner-jornada.webp")} alt="INEMA.PRO — Desenvolva. Construa. Escale." loading="lazy" />
+          </a>
+        </div>
+      </section>
+      )}
+
+      {/* Banner */}
+      <section style={{ padding: '0 0 2rem' }}>
+        <div className="container">
+          <a
+            href={evLink("https://eventos.inema.pro/agentes-hub-v.html")}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackClick('https://eventos.inema.pro/agentes-hub-v.html', 'Banner evento', 'evento')}
+            style={{
+              display: 'block',
+              overflow: 'hidden',
+              border: '1px solid oklch(0.48 0.19 28)',
+              borderRadius: '16px',
+              background: 'oklch(0.14 0.018 28)',
+              boxShadow: '0 20px 60px oklch(0.04 0.02 28 / .55)',
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={img("/doc/inemaagenteshubv.webp")}
+              alt={t.events.eventoAlt}
+              loading="lazy"
+              style={{ display: 'block', width: '100%', height: 'auto', aspectRatio: '1280 / 720', objectFit: 'cover' }}
+            />
+          </a>
+        </div>
+      </section>
+
+      {/* Main — Updates + Search + Cards */}
+      <main className="main">
+        <div className="container">
+          {/* Últimas Novidades — vem do INEMA.VIP no Telegram (gera-novidades.mjs) */}
+          {novidadesData.length > 0 && (
+            <section id="novidades" className="updates-section novidades-section">
+              <div
+                className="updates-header"
+                onClick={() => setNovidadesExpanded((v) => !v)}
+                style={{ cursor: 'pointer' }}
+              >
+                <h3>{t.novidades.title}</h3>
+                <span className="updates-toggle">{novidadesExpanded ? t.novidades.less : t.novidades.more}</span>
+              </div>
+              <div className={`updates-list${novidadesExpanded ? ' expanded' : ''}`}>
+                {visibleNovidades.map((n) => {
+                  const aberta = novidadeAberta === n.id
+                  return (
+                    <div key={n.id} className={`novidade${aberta ? ' aberta' : ''}`}>
+                      <button
+                        type="button"
+                        className="update-item novidade-head"
+                        aria-expanded={aberta}
+                        onClick={() => setNovidadeAberta(aberta ? null : n.id)}
+                      >
+                        <span className="update-date">{formatDate(n.date)}</span>
+                        <span className="update-type novidade-grupo">{n.grupo}</span>
+                        <span className="update-title">{tr(n.titulo)}</span>
+                        <span className="update-arrow">{aberta ? '−' : '+'}</span>
+                      </button>
+                      {aberta && (
+                        <div className="novidade-corpo">
+                          {n.resumo && <p>{tr(n.resumo)}</p>}
+                          {n.url && (
+                            <a
+                              href={evLink(n.url)}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() => trackClick(n.url, n.titulo, 'novidades')}
+                            >
+                              {n.url.includes('cvip.inema.pro') ? t.novidades.readVip : t.novidades.openLink}
+                            </a>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  )
+                })}
+              </div>
+            </section>
+          )}
+
+          {/* Updates de Cursos */}
+          <section className="updates-section">
+            <div
+              className="updates-header"
+              onClick={() => setUpdatesExpanded((v) => !v)}
+              style={{ cursor: 'pointer' }}
+            >
+              <h3>{t.updates.coursesTitle}</h3>
+              <span className="updates-toggle">{updatesExpanded ? t.novidades.less : t.novidades.more}</span>
+            </div>
+            <div className={`updates-list updates-list-30${updatesExpanded ? ' expanded' : ''}`}>
+              {visibleUpdates.map((update, i) => (
+                <a
+                  key={i}
+                  className="update-item"
+                  href={evLink(update.url)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackClick(update.url, update.title, 'atualizacoes')}
+                >
+                  <span className="update-date">{formatDate(update.date)}</span>
+                  <span className={`update-type ${update.type}`}>
+                    {update.type === 'novo' ? t.updates.typeNovo : t.updates.typeAtualizado}
+                  </span>
+                  <span className="update-title">{tr(update.title)}</span>
+                  <span className="update-arrow">→</span>
+                </a>
+              ))}
+            </div>
+          </section>
+
+          {/* Updates de Projetos */}
+          <section className="updates-section">
+            <div
+              className="updates-header"
+              onClick={() => setProjectUpdatesExpanded((v) => !v)}
+              style={{ cursor: 'pointer' }}
+            >
+              <h3>{t.updates.projectsTitle}</h3>
+              <span className="updates-toggle">{projectUpdatesExpanded ? t.novidades.less : t.novidades.more}</span>
+            </div>
+            <div className={`updates-list updates-list-30${projectUpdatesExpanded ? ' expanded' : ''}`}>
+              {visibleProjectUpdates.map((update, i) => (
+                <a
+                  key={i}
+                  className="update-item"
+                  href={evLink(update.url)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackClick(update.url, update.title, 'atualizacoes-projetos')}
+                >
+                  <span className="update-date">{formatDate(update.date)}</span>
+                  <span className={`update-type ${update.type}`}>
+                    {update.type === 'novo' ? t.updates.typeNovo : t.updates.typeAtualizado}
+                  </span>
+                  <span className="update-title">{tr(update.title)}</span>
+                  <span className="update-arrow">→</span>
+                </a>
+              ))}
+            </div>
+          </section>
+
+          {/* Banner Perfis IA */}
+          <section className="perfis-ia-section">
+            <a
+              href="https://inematds.github.io/agentes-office/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackClick('https://inematds.github.io/agentes-office/', 'Perfis IA — Topo', 'perfis-ia')}
+            >
+              <img
+                src={img("/doc/perfis-ia-topo.webp")}
+                alt={t.perfis.topoAlt}
+                className="perfis-ia-topo"
+                loading="lazy"
+              />
+            </a>
+            <div className="perfis-ia-grid">
+              <a
+                href="https://inematds.github.io/agentes-office/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackClick('https://inematds.github.io/agentes-office/', 'Perfis IA — Operacional', 'perfis-ia')}
+              >
+                <img src={img("/doc/perfis-ia-operacional.webp")} alt={t.perfis.operacionalAlt} loading="lazy" />
+              </a>
+              <a
+                href="https://inematds.github.io/agentes-office/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackClick('https://inematds.github.io/agentes-office/', 'Perfis IA — Empreendedor', 'perfis-ia')}
+              >
+                <img src={img("/doc/perfis-ia-empreendedor.webp")} alt={t.perfis.empreendedorAlt} loading="lazy" />
+              </a>
+              <a
+                href="https://inematds.github.io/agentes-office/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackClick('https://inematds.github.io/agentes-office/', 'Perfis IA — Liberal', 'perfis-ia')}
+              >
+                <img src={img("/doc/perfis-ia-liberal.webp")} alt={t.perfis.liberalAlt} loading="lazy" />
+              </a>
+              <a
+                href="https://inematds.github.io/agentes-office/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackClick('https://inematds.github.io/agentes-office/', 'Perfis IA — Gestor', 'perfis-ia')}
+              >
+                <img src={img("/doc/perfis-ia-gestor.webp")} alt={t.perfis.gestorAlt} loading="lazy" />
+              </a>
+            </div>
+          </section>
+
+          {/* Search */}
+          {SHOW_DETALHES && (
+          <section id="cursos" className="search-section">
+            <input
+              type="text"
+              className="search-input"
+              placeholder="Buscar cursos, projetos ou repositórios..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Escape') setSearchTerm('')
+              }}
+            />
+          </section>
+          )}
+
+          {/* Cards */}
+          {SHOW_DETALHES && (
+          <section className="cards-grid">
+            {isSearching ? (
+              unifiedResults.length === 0 ? (
+                <div className="empty-state">
+                  <div className="empty-state-icon">🔍</div>
+                  <p className="empty-state-text">Nenhum conteúdo encontrado</p>
+                </div>
+              ) : (
+                unifiedResults.map((item) => (
+                  <div key={item.key} className="card">
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                      <div className="card-icon">{item.icon}</div>
+                      <span className={`content-type-badge content-type-badge--${item.type.toLowerCase()}`}>
+                        {item.type}
+                      </span>
+                    </div>
+                    <h2 className="card-title">{item.title}</h2>
+                    <p className="card-description">{item.description}</p>
+                    {item.tags && (
+                      <div className="card-tags">
+                        {item.tags.map((tag) => (
+                          <span key={tag} className="tag">{tag}</span>
+                        ))}
+                      </div>
+                    )}
+                    {item.url ? (
+                      <a
+                        href={evLink(item.url)}
+                        className="card-link"
+                        target={item.type === 'Curso' ? undefined : '_blank'}
+                        rel={item.type === 'Curso' ? undefined : 'noopener noreferrer'}
+                        onClick={() => trackClick(item.url!, item.title, 'busca')}
+                      >
+                        Acessar →
+                      </a>
+                    ) : (
+                      <span className="card-link" style={{ opacity: 0.4, cursor: 'default' }}>Sem link</span>
+                    )}
+                  </div>
+                ))
+              )
+            ) : (
+              filteredCourses.map((course) => (
+                <div key={course.id} className="card">
+                  <div className="card-icon">{course.icon}</div>
+                  <h2 className="card-title">{course.title}</h2>
+                  <p className="card-description">{course.description}</p>
+                  <div className="card-tags">
+                    {course.tags.map((tag) => (
+                      <span key={tag} className="tag">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <a
+                    href={coursePath(course)}
+                    className="card-link"
+                    onClick={() => trackClick(coursePath(course), course.title, 'cursos')}
+                  >
+                    Ver detalhes
+                  </a>
+                </div>
+              ))
+            )}
+          </section>
+          )}
+        </div>
+      </main>
+
+      {/* Banner INEMA.PRO */}
+      <section className="inemapro-banner-section">
+        <div className="container">
+          <a
+            href="https://inema.pro"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inemapro-banner inemapro-banner--wide"
+            onClick={() => trackClick('https://inema.pro', 'INEMA.PRO — Completo', 'banner-inemapro')}
+          >
+            <img src={img("/doc/inema-pro-banner-completo.webp")} alt={t.proBanner.alt} loading="lazy" />
+          </a>
+        </div>
+      </section>
+
+      {/* Trilha Vibe Code — detalhe preservado, ver SHOW_DETALHES */}
+      {SHOW_DETALHES && (
+      <section id="trilha-vibe" className="learning-path-section">
+        <div className="container">
+          <div className="learning-path-header">
+            <h3>⚡ Trilha Vibe Code</h3>
+            <p>Do conceito à engenharia — crie software com IA de ponta a ponta</p>
+          </div>
+          <div className="learning-path-cards">
+            {[
+              { href: 'https://inematds.github.io/vibecode',          label: 'Vibe Coding',      desc: 'Da Ideia ao Produto com IA',    n: 1 },
+              { href: 'https://inematds.github.io/vb-imersao/',      label: 'VB Imersao',       desc: 'Do Zero ao SaaS em 3 Dias',    n: 2 },
+              { href: 'https://inematds.github.io/skills',            label: 'Skills',           desc: 'Agent Skills Mastery',         n: 3 },
+              { href: 'https://inematds.github.io/agentic/',          label: 'Agentic',          desc: 'Engenharia de Agentic',        n: 4 },
+              { href: 'https://inematds.github.io/agentic-workflow/', label: 'Agentic Workflow', desc: 'Workflows Agentic na Prática', n: 5 },
+              { href: 'https://inematds.github.io/CLI-x',            label: 'CLI-x',            desc: 'O Terminal como Interface dos Agentes', n: 6 },
+              { href: 'https://inematds.github.io/skill-design/',    label: 'Skill Design',     desc: 'Skills pra Melhorar Páginas',  n: 7 },
+              { href: 'https://inematds.github.io/skill-video-explicativo/', label: 'HyperFrames', desc: 'Vídeos Explicativos com Claude Code', n: 8 },
+              { href: 'https://inematds.github.io/skills-craft/',    label: 'Criando Skills',   desc: 'Do Catálogo à Sua Primeira Skill', n: 9 },
+              { href: 'https://inematds.github.io/subagentes/',     label: 'Subagentes',       desc: 'Especialistas do Claude Code', n: 10 },
+              { href: 'https://inematds.github.io/fablelite/',       label: 'Fable Lite',       desc: 'Garimpe o Raciocínio dos Modelos', n: 11 },
+              { href: 'https://inematds.github.io/vibe-coding-completo/', label: 'Domínio Completo', desc: 'Fundamentos, Técnica, Prompts, Skills, Agentes e Produção', n: 12 },
+              { href: 'https://inematds.github.io/vibe-coding/', label: 'Vibe Coding na Prática', desc: 'Do Primeiro Workflow ao App no Ar', n: 13 },
+            ].map((p) => (
+              <a key={p.label} href={evLink(p.href)} target="_blank" rel="noopener noreferrer"
+                 className={`path-card path-card-${p.n}`}
+                 onClick={() => trackClick(p.href, p.label, 'trilha-vibe')}>
+                <div className="path-number">{p.n}</div>
+                <h4>{p.label}</h4>
+                <p>{p.desc}</p>
+              </a>
+            ))}
+          </div>
+          <div className="learning-path-footer">
+            <p>Trilha completa para dominar o desenvolvimento de software com IA — do vibe ao agente</p>
+          </div>
+        </div>
+      </section>
+      )}
+
+      {/* Trilha Skills — detalhe preservado, ver SHOW_DETALHES */}
+      {SHOW_DETALHES && (
+      <section id="trilha-skills" className="learning-path-section">
+        <div className="container">
+          <div className="learning-path-header">
+            <h3>🧩 Trilha Skills</h3>
+            <p>Domine as Agent Skills do Claude Code — do catálogo à sua própria Skill</p>
+          </div>
+          <div className="learning-path-cards">
+            {[
+              { href: 'https://inematds.github.io/skills-craft/',           label: 'Criando Skills',          desc: 'Do Catálogo à Sua Primeira Skill',   n: 1 },
+              { href: 'https://inematds.github.io/skill-video-explicativo/', label: 'HyperFrames',             desc: 'Vídeos Explicativos com Claude Code', n: 2 },
+              { href: 'https://inematds.github.io/akarpathy-skill/curso-pt/', label: 'Karpathy Guidelines',     desc: '4 Princípios pra Código Limpo',      n: 3 },
+              { href: 'https://inematds.github.io/polyskills',              label: 'PolySkills',              desc: 'Claude Code & Codex lado a lado',    n: 4 },
+              { href: 'https://inematds.github.io/skill-design/',           label: 'Skill Design',            desc: 'Arsenal de Skills pra Páginas',      n: 5 },
+              { href: 'https://inematds.github.io/skills',                  label: 'Skills',                  desc: 'Agent Skills Mastery',               n: 6 },
+              { href: 'https://inematds.github.io/mp-skill/curso-skills/',  label: 'Skills For Real Engineers', desc: 'Skills pra Engenheiros de Verdade', n: 7 },
+              { href: 'https://inematds.github.io/skills-premium/',         label: 'Skills Premium',          desc: 'Do Iniciante ao Expert',             n: 8 },
+              { href: 'https://inematds.github.io/superskills-karpathy/',   label: 'SuperSkills Karpathy',    desc: 'Skills como Funcionários Digitais',  n: 9 },
+              { href: 'https://inematds.github.io/claude-skills/',          label: 'Claude Skills na Prática', desc: 'Construa Agent Skills do Claude Code', n: 10 },
+              { href: 'https://inematds.github.io/claude-watch/',           label: 'claude-watch',            desc: 'Dê ao Claude olhos pra assistir vídeo', n: 11 },
+              { href: 'https://inematds.github.io/grillme/',                label: 'Grill Me',                desc: 'Extraia o que está na sua cabeça',     n: 12 },
+              { href: 'https://inematds.github.io/videos-edit/',            label: 'videos-edit',             desc: 'Forja Reel — editor de reels com IA',  n: 13 },
+              { href: 'https://inematds.github.io/curso-ablacao/',          label: 'Auditoria de Ablação',    desc: 'Enxugue CLAUDE.md, skills e hooks',    n: 14 },
+            ].map((p) => (
+              <a key={p.label} href={evLink(p.href)} target="_blank" rel="noopener noreferrer"
+                 className={`path-card path-card-${p.n}`}
+                 onClick={() => trackClick(p.href, p.label, 'trilha-skills')}>
+                <div className="path-number">{p.n}</div>
+                <h4>{p.label}</h4>
+                <p>{p.desc}</p>
+              </a>
+            ))}
+          </div>
+          <div className="learning-path-footer">
+            <p>Skills transformam o Claude Code em especialistas sob demanda — aprenda a criar e usar as suas</p>
+          </div>
+        </div>
+      </section>
+      )}
+
+      {/* Banner */}
+      <section className="hero-banner">
+        <div className="container">
+          <img loading="lazy" decoding="async" src={img("/doc/inemac2.jpg")} alt={t.banners.clubAlt} className="hero-banner-image" />
+        </div>
+      </section>
+
+      {/* Trilhas de Aprendizado — só os títulos das trilhas */}
+      <section id="trilhas" className="trilhas-section">
+        <div className="container">
+          <div className="learning-path-header">
+            <h3>{t.trails.title}</h3>
+            <p>{t.trails.subtitle}</p>
+          </div>
+          <div className={SHOW_DETALHES ? '' : 'trilhas-titles-grid'}>
+          {([
+            { title: '🧭 Trilha Profissional com IA', steps: [] },
+            { title: '⚡ Trilha Vibe Code', steps: [] },
+            { title: '🧩 Trilha Skills', steps: [] },
+            { title: '🎯 Arquitetura de IA', steps: [
+              { href: 'https://inematds.github.io/arquitetura-de-intencao/', label: 'Arquitetura de Intenção', desc: 'Imersão de 4 dias — do prompt ao sistema (Dia 4: Fable 5.1 e GPT-6 Astra)' },
+              { href: 'https://inematds.github.io/manual-oculto-ia/',        label: 'Manual Oculto',         desc: 'System Prompts como os Labs Fazem — o cérebro do Fable' },
+              { href: 'https://inematds.github.io/fablelite/',               label: 'Fable Lite',            desc: 'Garimpando o Raciocínio dos Modelos' },
+            ]},
+            { title: '⚡ Automação', steps: [
+              { href: 'https://inematds.github.io/copilot-agentic/', label: 'Copilot + Agentes', desc: 'Copilot, Copilot Studio, Power Automate e Power BI em processos reais (9 aulas)' },
+              { href: 'https://inematds.github.io/ssh-basico/', label: 'SSH',    desc: 'Fundamentos SSH e VPS' },
+              { href: 'https://inematds.github.io/FIA2026/', label: 'FIA2026',    desc: 'Automações com IA 2026' },
+              { href: 'https://inematds.github.io/N8Nb',    label: 'N8Nb',       desc: 'Fundamentos N8N' },
+              { href: 'https://inematds.github.io/N8Np',    label: 'N8Np',       desc: 'N8N Avançado' },
+              { href: 'https://inematds.github.io/MAKE/',   label: 'MAKE',       desc: 'Automação com Make' },
+            ]},
+            { title: '✍️ Engenharia de Prompts', steps: [
+              { href: 'https://inematds.github.io/FEP/',     label: 'FEP',     desc: 'Fundamentos de Prompts' },
+              { href: 'https://inematds.github.io/FEP2/',    label: 'FEP2',    desc: 'Prompt Engineering Masterclass' },
+              { href: 'https://inematds.github.io/FEP-AGI/', label: 'FEP → AGI', desc: 'Do prompt à intenção: a evolução do FEP em 9 aulas, das 5 eras à virada de set/2026' },
+              { href: 'https://inematds.github.io/FEP2026/', label: 'FEP 2026', desc: 'A AGI chegou e o prompt quase morreu: o FEP reescrito técnica por técnica (7 aulas)' },
+              { href: 'https://inematds.github.io/prompts/', label: 'Prompts', desc: 'Engenharia de Prompts Avançada' },
+              { href: 'https://inematds.github.io/FEI/',     label: 'FEI',     desc: 'Engenharia da Intenção' },
+              { href: 'https://inematds.github.io/prompts-prontos/', label: 'Prompts Prontos', desc: '13 System Prompts Copiáveis' },
+              { href: 'https://inematds.github.io/astra-5-prompts/', label: 'Astra: 5 Pedidos', desc: '5 pedidos de resultado para o GPT-6 Astra' },
+            ]},
+            { title: '🎨 Design & Visual', steps: [
+              { href: "https://inematds.github.io/curso-figma-criadores/", label: "Design Essencial no Figma para Criadores", desc: "Monte uma capa e três páginas com quadros, imagens, texto, estilos e componentes. Revise e exporte uma série organizada em 18 aulas no formato v6.2." },
+              { href: "https://inematds.github.io/curso-visual-dna/", label: "Visual DNA: Direção de Arte e Branding com IA v6.2", desc: "15 aulas para definir a mensagem da marca, organizar referências, criar regras visuais com IA e conferir três aplicações." },
+              { href: "https://inematds.github.io/curso-prompting-imagem/", label: "Prompting de Imagem v6.2", desc: "Pense como Diretor de Fotografia" },
+              { href: "https://inematds.github.io/curso-nano-banana-pro/", label: "Nano Banana Pro v6.2", desc: "Campanha de Marca Completa" },
+              { href: "https://inematds.github.io/curso-olhar-treinado/", label: "Olhar Treinado v6.2", desc: "Gosto Visual e Estéticas" },
+
+              { href: 'https://inematds.github.io/webp',      label: 'WebP',      desc: 'Designer 2026' },
+              { href: 'https://inematds.github.io/FDF',       label: 'FDF',       desc: 'Designers do Futuro' },
+              { href: 'https://inematds.github.io/dash/',     label: 'Dashboard', desc: 'Dashboard Mastery' },
+              { href: 'https://inematds.github.io/VisionPro', label: 'VisionPro', desc: 'Construção Audiovisual com IA' },
+              { href: 'https://inematds.github.io/motion-rise/', label: 'Motion RISE v6', desc: 'Animações que saem de um pedido — edição visual para iniciantes' },
+            ]},
+            { title: '🤖 Robótica & Humanoides', steps: [
+              { href: 'https://inematds.github.io/robot/', label: 'Robot', desc: 'Robótica e Automação' },
+              { href: 'https://inematds.github.io/FTH/',   label: 'FTH',   desc: 'Treinamento de Humanoides' },
+              { href: 'https://inematds.github.io/HG1',    label: 'HG1',   desc: 'Academia dos Humanoides G1' },
+              { href: 'https://inematds.github.io/segrobot/', label: 'segROBOT', desc: 'Requalificação Humana p/ Ambientes Robotizados' },
+              { href: 'https://inematds.github.io/vla/', label: 'VLA', desc: 'Vision Language Action para Robótica' },
+            ]},
+            { title: '💼 Consultoria IA & Negócios', steps: [
+              { href: 'https://inematds.github.io/produtos-era-ia/', label: 'Produtos na era da IA', desc: 'Saber o que vale a pena construir quando dá para construir qualquer coisa' },
+              { href: "https://inematds.github.io/curso-monetizacao-criadores/", label: "Monetização: Portfólio, Ofertas, Preços e Clientes", desc: "Organize três peças de portfólio, calcule custos e margem, compare pacotes e prepare uma proposta e abordagens pertinentes. Curso gratuito com 24 aulas no estilo OSWork v6.2, sem promessa de renda." },
+              { href: 'https://inematds.github.io/curso-gestao-ia/', label: 'Gestão de IA — plano', desc: 'Plano de formação para gerir processos com humanos e agentes; aulas em desenvolvimento' },
+              { href: 'https://inematds.github.io/ATIA/',        label: 'ATIA',        desc: 'Oportunidades Digitais com IA' },
+              { href: 'https://inematds.github.io/FGMD/',        label: 'FGMD',        desc: 'Gatilhos Mentais Digitais' },
+              { href: 'https://inematds.github.io/Playbook-IA/', label: 'Playbook-IA', desc: 'Formação de Consultoria IA' },
+              { href: 'https://inematds.github.io/tiktokshop',   label: 'TikTok Shop', desc: 'Vendas no TikTok Shop' },
+              { href: 'https://inematds.github.io/whatsapp-bsuid/', label: 'WhatsApp BSUID', desc: 'Privacidade e Identidade no WhatsApp' },
+              { href: 'https://inematds.github.io/vendasaios/', label: 'Vendendo AIOS', desc: 'Como Vender Sistemas Operacionais de IA' },
+              { href: 'https://inematds.github.io/mapacliente/', label: 'Mapa do Cliente', desc: 'Formação DICA — Consultor de IA para Pequenos Negócios' },
+              { href: 'https://inematds.github.io/profissional2027x', label: 'Profissional 2027', desc: 'Implementadores de IA para PMEs — Método DPIA' },
+              { href: 'https://inematds.github.io/AI-CONSULT/', label: 'AI Strategy Factory', desc: 'Estratégia de IA Completa para Qualquer Empresa' },
+              { href: 'https://inematds.github.io/aiestrategia/', label: 'Fábrica de Estratégia de IA', desc: 'Curso — vire consultor de IA construindo a sua própria fábrica' },
+              { href: 'https://inematds.github.io/evai2026/curso-e-live/curso/', label: 'Negócio de Serviços de IA', desc: '8 aulas sem programar — do primeiro cliente ao contrato enterprise' },
+            ]},
+            { title: '📊 Dados & IA', steps: [
+              { href: 'https://inematds.github.io/FDB/',       label: 'FDB',        desc: 'Fundamentos de Banco de Dados' },
+              { href: 'https://inematds.github.io/DBA-FO/',    label: 'DBA-FO',     desc: 'Fundamentos DBA Oracle' },
+              { href: 'https://inematds.github.io/FETD/',      label: 'FETD',       desc: 'Engenharia de Treinamento de Dados' },
+              { href: 'https://inematds.github.io/notebooklm', label: 'NotebookLM', desc: 'Do Zero ao Avançado' },
+            ]},
+            { title: '💻 Desenvolvedor IA', steps: [
+              { href: 'https://inematds.github.io/ccguide2026',          label: 'CCGuide',          desc: 'Claude Code 2026' },
+              { href: 'https://inematds.github.io/6pilarccb/',           label: '6 Pilares',        desc: '6 Pilares do Claude Code' },
+              { href: 'https://inematds.github.io/6pilarccfull/',        label: '6 Pilares Full',   desc: 'Edicao Completa 2026' },
+              { href: 'https://inematds.github.io/agentic-workflow/',    label: 'Agentic Workflow', desc: 'Engenharia Agentic Prática' },
+              { href: 'https://inematds.github.io/BMAD-Academy/',       label: 'BMAD',             desc: 'BMAD Academy' },
+              { href: 'https://inematds.github.io/github/',              label: 'GitHub',           desc: 'Repositórios INEMA' },
+              { href: 'https://inematds.github.io/dash/',                label: 'Dashboard',        desc: 'Dashboard Mastery' },
+              { href: 'https://inematds.github.io/mkblogs/',              label: 'MkBlogs',          desc: 'Publicação Multi-Plataforma sem SaaS' },
+            ]},
+            { title: '🌱 Transformação Digital', steps: [
+              { href: 'https://inematds.github.io/FTD/',  label: 'FTD',  desc: 'Formação Transformação Digital' },
+              { href: 'https://inematds.github.io/TDS/',  label: 'TDS',  desc: 'Transformação Digital Sustentável' },
+              { href: 'https://inematds.github.io/SHIA/', label: 'SHIA', desc: 'Super Humanos Inteligência Ampliada' },
+              { href: 'https://inematds.github.io/GIPM/', label: 'GIPM', desc: 'Projetos com IA Governada' },
+              { href: 'https://inematds.github.io/mentesbrilhantes1/', label: 'Mentes Brilhantes', desc: 'A Fórmula 1-20-79' },
+              { href: 'https://inematds.github.io/caio/', label: 'CAIO', desc: 'Chief AI Officer 2030' },
+              { href: 'https://inematds.github.io/loop-r/curso/', label: 'LOOP-R', desc: 'Sua Empresa que Aprende Sozinha' },
+              { href: 'https://inematds.github.io/agi-ready/', label: 'Os Super-Agentes Chegaram', desc: 'O que muda no seu trabalho quando a IA deixa de esperar ordens' },
+              { href: 'https://inematds.github.io/ia-do-zero-curso/', label: 'IA do Zero', desc: 'Os primeiros pedidos de quem nunca usou IA (4 aulas)' },
+              { href: 'https://inematds.github.io/segunda-opiniao/', label: 'Segunda Opinião', desc: 'IA para Gestores e Líderes' },
+            ]},
+            { title: '🤖 Arquiteto de Agentes', steps: [
+              { href: 'https://inematds.github.io/curso-rsi/', label: 'RSI v6.2', desc: 'Autoaperfeiçoamento de IA: evidências, avaliação e ciclos supervisionados' },
+              { href: 'https://inematds.github.io/pffia/', label: 'Arquiteto de Trabalho com IA', desc: 'Redesenhe processos para humanos dirigirem e agentes executarem' },
+              { href: 'https://inematds.github.io/arquiteto-agentes-saude/', label: 'Caderno: Saúde', desc: 'Agentes na clínica — administrativo sim, clínico nunca' },
+              { href: 'https://inematds.github.io/arquiteto-agentes-contabil/', label: 'Caderno: Contábil', desc: 'Agentes até a porta da assinatura, chaves trancadas' },
+              { href: 'https://inematds.github.io/arquiteto-agentes-advocacia/', label: 'Caderno: Advocacia', desc: 'O agente lê, conta e prepara; o advogado assina' },
+              { href: 'https://inematds.github.io/kit-arquiteto-agentes/guia/', label: 'Kit do Arquiteto', desc: 'A ferramenta que monta a especificação do agente' },
+              { href: 'https://inematds.github.io/curso-7pa/', label: 'Gestão de Agentes: 7 Princípios', desc: 'Intenção, limites e supervisão — do N0 ao N4, com projeto final' },
+              { href: 'https://inematds.github.io/curso-agente-sob-controle-v2/', label: 'Agente sob Controle v2', desc: '5 trilhas: dor, controle, riscos ocultos e resultado, com a planilha em 4 blocos' },
+              { href: 'https://inematds.github.io/curso-agente-sob-controle/', label: 'Agente sob controle v6.2', desc: 'Achar a dor, limitar o agente, fechar as portas e medir o resultado' },
+            ]},
+            { title: '🎬 Vídeos, Filmes e Cinema', steps: [
+              { href: "https://inematds.github.io/curso-influenciador-ia/", label: "Influenciador IA em 21 Dias", desc: "Crie uma personagem original e execute 21 publicações editoriais mais uma oferta transparente, com fichas e acompanhamento local. Curso gratuito com 24 aulas no estilo OSWork v6.2, sem promessa de renda." },
+              { href: "https://inematds.github.io/curso-redes-sociais-ia/", label: "Redes Sociais para Criadores IA v6.2 — o Sistema Viral", desc: "Planeje três pilares, estude referências e publique um vídeo revisado. 18 aulas, 33 aberturas e calendário de sete dias, sem promessa de viralização." },
+              { href: "https://inematds.github.io/curso-laboratorio-anuncios-ia/", label: "Laboratório de Anúncios com IA: 6 Cases Desmontados", desc: "Produza seis estudos com marcas fictícias: narrativa, música, produto, esporte, primeira pessoa e demonstração. 24 aulas v6.2 com roteiros e revisão." },
+              { href: "https://inematds.github.io/curso-capcut-ia/", label: "CapCut para Criadores de Vídeo IA v6.2", desc: "Monte um vídeo vertical com cortes, movimento, som e legendas. 18 aulas práticas com quatro clipes de exercício e conferência do arquivo final." },
+              { href: "https://inematds.github.io/curso-audio-video-ia/", label: "Áudio que Vende: Voz, Música e Sound Design v6.2", desc: "Monte voz, música, três efeitos e ambiente em 12 aulas, com kit de áudio, créditos e comparação com e sem efeitos." },
+              { href: "https://inematds.github.io/curso-estilos-cinema-ia/", label: "Estilos e Cinema: Seedance + Higgsfield v6.2", desc: "Compare duas linguagens visuais, organize referências e produza uma sequência curta com decisões de câmera verificáveis." },
+              { href: "https://inematds.github.io/curso-avatares-ia/", label: "Avatares, Lip Sync e Motion Control v6.2", desc: "Prepare rosto, voz e movimento em 12 aulas: HeyGen, fala no Kling, referências próprias e personagem consistente." },
+              { href: "https://inematds.github.io/curso-kling-ai/", label: "Kling AI v6.2 — do Básico ao Multi-Shot", desc: "Teste câmera, movimento, referências e sequências de planos no Kling em 15 aulas com práticas e revisão." },
+              { href: "https://inematds.github.io/curso-primeiro-video-ia/", label: "Seu Primeiro Vídeo com IA em 24 Horas v6.2", desc: "Da ideia a um vídeo curto: 12 aulas com roteiro, referências, geração, montagem no CapCut, voz, legendas e revisão. Um desafio de produção, sem promessa de prazo garantido." },
+              { href: 'https://inematds.github.io/idallai/', label: 'Formação Cinema com IA', desc: '9 cursos, 58 aulas — do zero ao mini-filme final' },
+              { href: 'https://inematds.github.io/seedance2/',  label: 'Seedance 2.0', desc: 'Video com IA (ByteDance)' },
+              { href: 'https://inematds.github.io/VisionPro',   label: 'VisionPro',    desc: 'Construção Audiovisual com IA' },
+              { href: 'https://inematds.github.io/fpfilm1/',     label: 'FPFilm',       desc: 'Crie Filmes com IA (Freepik)' },
+              { href: 'https://inematds.github.io/VISION/',      label: 'VISION',       desc: 'Visão Computacional com IA' },
+              { href: 'https://inematds.github.io/promptfilmes/', label: 'Prompt Director', desc: 'Imagens e Cinema com IA' },
+              { href: 'https://inematds.github.io/videos-edit/', label: 'videos-edit', desc: 'Forja Reel — reel pro a partir do bruto, sem editor' },
+            ]},
+            { title: '🧠 Frameworks & Assistentes', steps: [
+              { href: 'https://inematds.github.io/intelecto-curso/',   label: 'INTELECTO Curso', desc: 'Do Zero ao Expert em IA — 6 trilhas, 18 módulos' },
+              { href: 'https://inematds.github.io/intelecto',          label: 'INTELECTO',       desc: 'Inteligência Pessoal sem Frameworks Inchados' },
+              { href: 'https://inematds.github.io/docker-openclaw/',   label: 'Docker OpenClaw', desc: 'Assistente IA Autônomo e Multi-Canal' },
+              { href: 'https://inematds.github.io/deerflow/',          label: 'DeerFlow',        desc: 'Framework de Agentes ByteDance' },
+              { href: 'https://inematds.github.io/agentejax/',        label: 'AgenteJAX',      desc: 'Agente de IA Pessoal em TypeScript' },
+              { href: 'https://inematds.github.io/ruflo/',               label: 'Ruflo',       desc: 'Orquestração de Agentes Multi-IA' },
+              { href: 'https://inematds.github.io/openhuman/',           label: 'OpenHuman',   desc: 'Assistente IA para Comunidades (Rust/Tauri)' },
+            ]},
+            { title: '🖥️ Claude Code', steps: [
+              { href: 'https://inematds.github.io/pilulasdeouro/', label: 'Pílulas de Ouro', desc: 'IA em projetos práticos: prompts, skills, revisão e entrega' },
+              { href: 'https://inematds.github.io/fable51-system/',    label: 'Fable 5.1 na prática', desc: 'O que mudou, como usar, como gastar menos' },
+              { href: 'https://inematds.github.io/ccodebasico/',          label: 'CC Básico',        desc: 'Do Zero: Instalação, Comandos, Skills, MCP e Cowork' },
+              { href: 'https://inematds.github.io/jccode23/',             label: 'Do Zero ao Projeto', desc: 'Claude Code dos Fundamentos ao Deploy' },
+              { href: 'https://inematds.github.io/claude-code-na-pratica/', label: 'Na Prática', desc: 'Do Zero ao Produto: sites, apps e automações' },
+              { href: 'https://inematds.github.io/ccguide2026',           label: 'CCGuide',     desc: 'Claude Code 2026 - Completo' },
+              { href: 'https://inematds.github.io/6pilarccb/',            label: '6 Pilares',   desc: '6 Pilares do Claude Code' },
+              { href: 'https://inematds.github.io/6pilarccfull/',         label: '6 Pilares Full', desc: 'Edição Completa 2026' },
+              { href: 'https://inematds.github.io/claudecode-estrutura/', label: 'Por Dentro',  desc: 'Arquitetura do Claude Code' },
+              { href: 'https://inematds.github.io/claudecode-manual/',    label: 'Deep Dive',   desc: 'Mergulho no Código-Fonte' },
+              { href: 'https://inematds.github.io/CLI-x',                label: 'CLI-x',       desc: 'Terminal como Interface dos Agentes' },
+              { href: 'https://inematds.github.io/ccmastermemory/',    label: 'MasterMemory', desc: 'Memory Injection via Hooks' },
+              { href: 'https://inematds.github.io/cctop/',             label: 'CCTop',        desc: 'Mestre em Contexto e Tokens' },
+              { href: 'https://inematds.github.io/cccache/',           label: 'cccache',      desc: 'Prompt Caching no Claude Code' },
+              { href: 'https://inematds.github.io/segundo-cerebro/',   label: 'Segundo Cérebro', desc: 'Memória persistente: Graphify + Obsidian' },
+              { href: 'https://inematds.github.io/opus47/',            label: 'Opus 4.7',     desc: 'Dominando o Opus 4.7' },
+              { href: 'https://inematds.github.io/opus48/curso/',      label: 'Opus 4.8',     desc: 'Raciocínio Híbrido, Effort Control e Dynamic Workflows' },
+              { href: 'https://inematds.github.io/ccfast32/',           label: 'CCFast32',     desc: '32 Hacks do Claude Code' },
+              { href: 'https://inematds.github.io/superpowers/',        label: 'Superpowers',  desc: 'Desenvolvimento com Agentes de IA' },
+              { href: 'https://inematds.github.io/ccopen/',             label: 'CCOpen',       desc: 'Claude Code de Graça ou por Quase Nada' },
+              { href: 'https://inematds.github.io/superskills-karpathy/', label: 'SuperSkills', desc: 'Skills como Funcionários Digitais (Karpathy)' },
+              { href: 'https://inematds.github.io/curso-od/',             label: 'Open Design',  desc: 'Alternativa Open-Source ao Claude Design' },
+              { href: 'https://inematds.github.io/multiagentes/',         label: 'Multiagentes', desc: 'Equipes de Agentes na Prática' },
+              { href: 'https://inematds.github.io/FEC/',                  label: 'FEC',          desc: 'Engenharia de Contexto para LLM' },
+              { href: 'https://inematds.github.io/power-design/',         label: 'Power Design', desc: 'Os 20 Princípios de Design' },
+              { href: 'https://inematds.github.io/5niveiscc/',           label: '5 Níveis',     desc: 'Em qual nível do Claude você está?' },
+              { href: 'https://inematds.github.io/pp-cli/',              label: 'Printing Press', desc: 'CLI para Agentes — 35x menos tokens que MCP' },
+              { href: 'https://inematds.github.io/skills-premium/',     label: 'Skills Premium', desc: 'Skills do Iniciante ao Expert' },
+              { href: 'https://inematds.github.io/mkbook/',              label: 'mkbook',         desc: 'Seu Livro em 30 Dias com Claude Code' },
+              { href: 'https://inematds.github.io/mp-skill/curso-skills/', label: 'Skills Engineers', desc: 'Skills do Matt Pocock para Claude Code' },
+              { href: 'https://inematds.github.io/akarpathy-skill/curso-pt/', label: 'Karpathy Guidelines', desc: '4 Princípios para Código Limpo com LLM' },
+              { href: 'https://inematds.github.io/u-any/curso/', label: 'Understand Anything', desc: 'Análise de Código com LLM e Dashboards Interativos' },
+              { href: 'https://inematds.github.io/manual-oculto-ia/', label: 'Manual Oculto', desc: 'System Prompts como os Labs Fazem — do Fundamento ao Cérebro do Fable' },
+            ]},
+            { title: '⚙️ Agentic OS', steps: [
+              { href: 'https://inematds.github.io/oswork/', label: 'OSWork', desc: 'Do chat ao ambiente de agentes — curso v2 com práticas' },
+              { href: 'https://inematds.github.io/oswork-v5/', label: 'OSWork v5', desc: 'Organize seu ambiente de IA — edição sem código, para quem não programa' },
+              { href: 'https://inematds.github.io/oswork-v6/', label: 'OSWork v6', desc: 'Pare de refazer o que a IA te devolve — edição visual para iniciantes' },
+              { href: 'https://inematds.github.io/oswork-v62/', label: 'OSWork v6.2', desc: 'Sua IA precisa de um sistema — o v2 completo no formato visual do v6' },
+              { href: 'https://inematds.github.io/oswork-quick/', label: 'OSWork Quick', desc: 'A versão direta e visual — os mesmos assuntos em 77 minutos' },
+              { href: 'https://inematds.github.io/agenticbasico/', label: 'Agentic Básico', desc: 'Fundamentos de Agentes IA — 5 Pilares + Arena' },
+              { href: 'https://inematds.github.io/agenticos/',           label: 'Agentic OS',     desc: 'Sistema Operacional do Trabalho com IA' },
+              { href: 'https://inematds.github.io/newagenticos/',        label: 'New Agentic OS', desc: 'Do Executivo ao Jarvis Multi-Cliente' },
+              { href: 'https://inematds.github.io/curso-iamasters-os/',  label: 'iAmasters OS',   desc: 'Sistema Operativo Agêntico para Operadores de IA' },
+              { href: 'https://inematds.github.io/loopgraph/',           label: 'Graph Engineering', desc: 'De loops isolados a grafos de agentes' },
+              { href: 'https://inematds.github.io/curso-times-de-ia/',    label: 'Times de IA',       desc: 'Seis times de IA especializados por comando' },
+              { href: 'https://inematds.github.io/agi-pratica/',        label: 'Super-Agentes',     desc: 'Da IA que responde à IA que trabalha: delegue responsabilidades a agentes' },
+            ]},
+            { title: '💰 Formação Vendas com IA', steps: [
+              { href: 'https://inematds.github.io/formacao-vendas-ia-oportunidades/', label: '1 · 43 Oportunidades', desc: '43 formas de ganhar dinheiro com IA, com preço e primeiro passo' },
+              { href: 'https://inematds.github.io/formacao-vendas-ia-consultoria/', label: '2 · Playbook de Consultoria', desc: 'Diagnóstico, solução, preço e crescimento do consultor de IA' },
+              { href: 'https://inematds.github.io/formacao-vendas-ia-fundamentos/', label: '3 · Fundamentos de Vender IA', desc: 'Impostor, confiança, posicionamento e fechamento leve' },
+              { href: 'https://inematds.github.io/formacao-vendas-ia-primeiro-cliente/', label: '4 · Do Zero ao Primeiro Cliente', desc: 'Auditoria, precificação, cold call e entrega do primeiro contrato' },
+              { href: 'https://inematds.github.io/formacao-vendas-ia-masterclass/', label: '5 · Masterclass', desc: 'A venda calma: escuta, leitura da sala e fechamento em 3 passos' },
+            ]},
+            { title: '🌐 Formação WebMCP', steps: [
+              { href: 'https://inematds.github.io/webmcp-1-formacao/',       label: '1 · Visão da Formação', desc: 'Conceito, diagnóstico e mapa do zero ao expert' },
+              { href: 'https://inematds.github.io/webmcp-2-builder/',         label: '2 · Builder',            desc: 'Tools declarativas e imperativas na página' },
+              { href: 'https://inematds.github.io/webmcp-3-integrator/',      label: '3 · Integrator',         desc: 'Estado, migração e frameworks modernos' },
+              { href: 'https://inematds.github.io/webmcp-4-agent-developer/', label: '4 · Agent Developer',    desc: 'Descoberta, execução, permissões e conversa' },
+              { href: 'https://inematds.github.io/webmcp-5-expert/',          label: '5 · Expert',             desc: 'Segurança, evals, produção e governança' },
+            ]},
+            { title: '🧩 Codex', steps: [
+              { href: 'https://inematds.github.io/agent-skills/', label: 'Agent Skills', desc: 'Skills verificáveis: 8 módulos e 53 diagramas em PT, EN e ES' },
+              { href: 'https://inematds.github.io/codexbasico/',        label: 'Codex Básico', desc: 'Curso Completo do Codex CLI em 6 Trilhas' },
+              { href: 'https://inematds.github.io/iclaudex/',           label: 'iClaudeX',     desc: 'Planejamento com Claude + Codex no Terminal' },
+              { href: 'https://inematds.github.io/makeclaudex/',        label: 'MakeClaudeX',  desc: 'Do Prompt ao Plugin de Produção' },
+              { href: 'https://inematds.github.io/mastercodex/',        label: 'Master Codex', desc: 'Fábrica de SaaS com Agentes de IA' },
+              { href: 'https://inematds.github.io/deepclaudex/',        label: 'DeepClaudeX',  desc: 'Multi-Modelo 70/20/10' },
+              { href: 'https://inematds.github.io/ccxcx',              label: 'CCXCX',        desc: 'Claude e Codex Tool-Agnostic' },
+              { href: 'https://inematds.github.io/curso-claude-codex/', label: 'Claude → Codex', desc: 'Migre ou fique agnóstico: workspace portátil em 18 módulos' },
+              { href: 'https://inematds.github.io/dev-ia-validacao/',   label: 'Dev com IA v6.2', desc: 'Um faz, o outro confere: revisão cruzada, testes e custo (30 aulas)' },
+              { href: 'https://inematds.github.io/ruflo/',              label: 'Ruflo',        desc: 'Orquestração de Agentes Multi-IA' },
+              { href: 'https://inematds.github.io/astra-computer-use/', label: 'Computer Use', desc: 'Cinco fluxos de computer use com o GPT-6 Astra' },
+              { href: 'https://inematds.github.io/gpt6-astra/',         label: 'Astra na prática', desc: 'Delegue tarefas inteiras ao GPT-6 Astra, sem programar (8 aulas)' },
+              { href: 'https://inematds.github.io/gpt6-astra-tecnico/', label: 'Astra técnico',    desc: 'Contrato, computer use, skills, MCP, cota e memória (8 módulos)' },
+            ]},
+            { title: '🤝 Claude Cowork', steps: [
+              { href: 'https://inematds.github.io/cccowork/',         label: 'Claude Cowork',  desc: 'Equipe de Marketing de US$ 10k/mês' },
+              { href: 'https://inematds.github.io/cccoworkfull/',      label: 'Cowork Full',    desc: 'Guia Completo do Claude Cowork' },
+              { href: 'https://inematds.github.io/cccoworkexec/',     label: 'Cowork Exec',    desc: 'Playbook para Treinadores de Cowork' },
+            ]},
+            { title: '🧬 Neurociência & Futuro', steps: [
+              { href: 'https://inematds.github.io/prof2030/', label: 'Prof2030', desc: 'O Tripé do Profissional do Futuro' },
+              { href: 'https://inematds.github.io/mentesbrilhantes1/', label: 'Mentes Brilhantes', desc: 'A Fórmula 1-20-79' },
+              { href: 'https://inematds.github.io/prof2031CAIP', label: 'CAIP', desc: 'Certified AI Professional' },
+            ]},
+            { title: '🤖 Agentes Jarvis', steps: [
+              { href: 'https://inematds.github.io/laya-curso/', label: 'Laya & Jev', desc: 'Decisões estruturadas, triagem local e avaliação em português' },
+              { href: 'https://inematds.github.io/hermes21c/',         label: 'Hermes 21C',      desc: 'Os 21 conceitos do Hermes explicados' },
+              { href: 'https://inematds.github.io/agentehermes',       label: 'Agente Hermes',   desc: 'Assistente IA Self-Hosted com Docker' },
+              { href: 'https://inematds.github.io/docker-openclaw/',   label: 'Docker OpenClaw', desc: 'Assistente IA Autônomo e Multi-Canal' },
+              { href: 'https://inematds.github.io/intelecto-curso/',   label: 'INTELECTO Curso', desc: 'Do Zero ao Expert em IA' },
+              { href: 'https://inematds.github.io/intelecto',          label: 'INTELECTO',       desc: 'Inteligência Pessoal sem Frameworks' },
+              { href: 'https://inematds.github.io/agentejax/',         label: 'AgenteJAX',       desc: 'Agente de IA Pessoal em TypeScript' },
+              { href: 'https://inematds.github.io/triad',              label: 'TRIAD',            desc: 'Automação de IA Multi-Modelo com Hermes e DeepSeek' },
+              { href: 'https://inematds.github.io/hnotebooklm',        label: 'Hermes+NotebookLM', desc: 'Agente AI com RAG Grátis via Telegram' },
+              { href: 'https://inematds.github.io/hermesagent/',       label: 'Hermes Agent',     desc: 'Curso Completo Avançado — Nous Research' },
+              { href: 'https://inematds.github.io/manual-oculto-ia/', label: 'Manual Oculto', desc: 'O Loop Operacional e a Destilação do Cérebro do Fable' },
+              { href: 'https://inematds.github.io/mundo-apos-claude/',  label: 'O Mundo Após o Claude', desc: 'De usuário a maestro: construa qualquer coisa e monte seu Jarvis' },
+              { href: 'https://inematds.github.io/healthos/',           label: 'HealthOS',         desc: 'Coach de saúde pessoal com IA no Telegram' },
+              { href: 'https://inematds.github.io/curso-openpcbotv3/', label: 'openpcbot v3',     desc: 'Seu Jarvis local: fila, Ollama, memória e custo' },
+            ]},
+            { title: '🗄️ Dados & IA', steps: [
+              { href: 'https://inematds.github.io/engdadosai', label: 'Eng. Dados com IA', desc: 'A Base dos Sistemas de IA e Agentes' },
+            ]},
+          ] as Array<{ title: string; steps: Array<{ href: string; label: string; desc: string }> }>).map((trail) => (
+            <div key={trail.title} className="trilha-group">
+              <h4 className="trilha-group-title">{trailTitle(trail.title)}</h4>
+              {SHOW_DETALHES && (
+              <div className="learning-path-cards">
+                {trail.steps.map((p, i) => (
+                  <a key={p.label} href={evLink(p.href)} target="_blank" rel="noopener noreferrer"
+                     className={`path-card path-card-${(i % 4) + 1}`}
+                     onClick={() => trackClick(p.href, p.label, 'trilhas')}>
+                    <div className="path-number">{i + 1}</div>
+                    <h4>{p.label}</h4>
+                    <p>{p.desc}</p>
+                  </a>
+                ))}
+              </div>
+              )}
+            </div>
+          ))}
+          </div>
+          <div className="learning-path-footer">
+            <div className="guide-link-btn-wrap">
+              <a
+                className="guide-link-btn"
+                href="https://inema.pro"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackClick('https://inema.pro', 'Trilhas — INEMA.PRO', 'trilhas')}
+              >
+                {t.trails.ctaButton}
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Projetos — id="projetos" é a âncora canônica (o agente navega pra cá);
+          id="comunidade" fica no section por compatibilidade com links antigos */}
+      <span id="projetos" />
+      <section id="comunidade" className="community-projects-section">
+        <div className="container">
+          <div className="community-projects-header">
+            <h3>{t.projects.title}</h3>
+            <p>{t.projects.subtitle}</p>
+          </div>
+          <div className="projetos-cta">
+            <div className="projetos-cta-number">+400</div>
+            <p>{t.projects.ctaLine}</p>
+            <p>{t.projects.ctaBody}</p>
+            <div className="guide-link-btn-wrap">
+              <a
+                className="guide-link-btn"
+                href="https://inema.pro"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackClick('https://inema.pro', 'Projetos — INEMA.PRO', 'projetos-comunidade')}
+              >
+                {t.projects.ctaButton}
+              </a>
+            </div>
+          </div>
+          {SHOW_DETALHES && (
+          <div className="community-projects-grid">
+            {sortedProjects.map((project) =>
+              project.url ? (
+                <a
+                  key={project.name}
+                  href={evLink(project.url)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="community-project-card community-project-card-linked"
+                  onClick={() => trackClick(project.url!, project.name, 'projetos-comunidade')}
+                >
+                  <span className="community-project-icon">{project.icon}</span>
+                  <h4>{project.name}</h4>
+                  <p>{project.desc}</p>
+                  <span className="community-project-badge">{project.badge ?? 'Link'}</span>
+                </a>
+              ) : (
+                <div key={project.name} className="community-project-card">
+                  <span className="community-project-icon">{project.icon}</span>
+                  <h4>{project.name}</h4>
+                  <p>{project.desc}</p>
+                </div>
+              )
+            )}
+          </div>
+          )}
+        </div>
+      </section>
+
+      {/* GitHub Repos — retirado da home, ver SHOW_DETALHES */}
+      {SHOW_DETALHES && (
+      <section id="github" className="github-section">
+        <div className="container">
+          <div className="github-header">
+            <h3>Repositórios GitHub INEMA</h3>
+            <p>Explore nossos projetos open-source e contribua com a comunidade</p>
+          </div>
+          <div className="github-grid">
+            {repos.length === 0 ? (
+              <p style={{ color: 'var(--text-secondary)' }}>Carregando repositórios…</p>
+            ) : (
+              repos.map((repo) => (
+                <a
+                  key={repo.name}
+                  href={repo.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="github-card"
+                  onClick={() => trackClick(repo.url, repo.name, 'github')}
+                >
+                  <div className="github-card-header">
+                    <span className="github-icon">
+                      {(repo.language && LANG_ICON[repo.language]) ?? '📦'}
+                    </span>
+                    <h4>{repo.name}</h4>
+                  </div>
+                  <p className="github-description">
+                    {repo.description || 'Sem descrição'}
+                  </p>
+                  <div className="github-stats">
+                    <span className="github-stars">⭐ {repo.stars}</span>
+                    {repo.language && (
+                      <span className="github-stars" style={{ marginLeft: '0.75rem' }}>
+                        {repo.language}
+                      </span>
+                    )}
+                  </div>
+                </a>
+              ))
+            )}
+          </div>
+          <div className="github-footer">
+            <a
+              href="https://github.com/inematds"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="github-view-all"
+              onClick={() => trackClick('https://github.com/inematds', 'Ver todos os repositórios', 'github')}
+            >
+              Ver todos os repositórios no GitHub →
+            </a>
+          </div>
+        </div>
+      </section>
+      )}
+
+      {/* Hero Banners */}
+      <section className="hero-banner">
+        <div className="container">
+          <img loading="lazy" decoding="async"
+            src={img("/doc/inemaclubee.jpg")}
+            alt={t.banners.teamAlt}
+            className="hero-banner-image"
+          />
+        </div>
+      </section>
+
+      {/* Telegram */}
+      <section id="telegram" className="telegram-section">
+        <div className="container">
+          <div className="telegram-header">
+            <h3>{t.telegram.title}</h3>
+            <p>{t.telegram.subtitle}</p>
+          </div>
+          {locale !== 'pt' ? (
+            <div className="locale-cta">
+              <p>{t.telegram.comingSoon}</p>
+              <a
+                className="guide-link-btn"
+                href="https://inema.vip"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackClick('https://inema.vip', 'Telegram (EN/ES)', 'telegram')}
+              >
+                {t.telegram.ctaLabel}
+              </a>
+            </div>
+          ) : (
+          <div className="telegram-grid">
+            {[
+              { icon: '💬', name: 'INEMA.VIP - Recepção' },
+              { icon: '👥', name: 'INEMA.ADULTO' },
+              { icon: '🤖', name: 'INEMA.AGENTES' },
+              { icon: '🎭', name: 'INEMA.AVATARES' },
+              { icon: '📋', name: 'BMAD - Método' },
+              { icon: '💻', name: 'INEMA.CCODE' },
+              { icon: '🔧', name: 'INEMA.CODEX' },
+              { icon: '💼', name: 'INEMA.CONSULT' },
+              { icon: '💰', name: 'INEMA.CPA' },
+              { icon: '👨‍💻', name: 'INEMA.DEV' },
+              { icon: '🎓', name: 'INEMA.EDUC' },
+              { icon: '🌐', name: 'INEMA.FTD' },
+              { icon: '🎮', name: 'INEMA.GAMES' },
+              { icon: '🔎', name: 'INEMA.GOOGLE' },
+              { icon: '🧠', name: 'INEMA.IA' },
+              { icon: '🖼️', name: 'INEMA.IMAGENS' },
+              { icon: '🔌', name: 'INEMA.INFRA' },
+              { icon: '🔤', name: 'INEMA.LLMs' },
+              { icon: '⚙️', name: 'INEMA.Make' },
+              { icon: '📢', name: 'INEMA.MKT' },
+              { icon: '🎵', name: 'INEMA.MUSICAL' },
+              { icon: '🔄', name: 'INEMA.N8N' },
+              { icon: '🧬', name: 'INEMA.NCIA' },
+              { icon: '➕', name: 'INEMA.PLUS' },
+              { icon: '✍️', name: 'INEMA.Prompts' },
+              { icon: '🦾', name: 'INEMA.ROBOT' },
+              { icon: '🌱', name: 'INEMA.TDS' },
+              { icon: '⚡', name: 'INEMA.TIA' },
+              { icon: '🛠️', name: 'INEMA.TOOLS' },
+              { icon: '✨', name: 'INEMA.VIBE' },
+              { icon: '📹', name: 'INEMA.VIDEOS' },
+              { icon: '👁️', name: 'INEMA.VISION' },
+              { icon: '🎤', name: 'INEMA.VOZ' },
+            ].map((g) => (
+              <div key={g.name} className="telegram-btn">
+                <span className="telegram-icon">{g.icon}</span>
+                <span className="telegram-name">{g.name}</span>
+              </div>
+            ))}
+          </div>
+          )}
+        </div>
+      </section>
+
+      {/* Featured Banner */}
+      <section className="featured-banner">
+        <div className="container">
+          <a
+            href="https://inema.vip"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="featured-link"
+            onClick={() => trackClick('https://inema.vip', 'INEMA.VIP - Faça seu Cadastro', 'comunidade')}
+          >
+            <div className="featured-content">
+              <div className="featured-logo">
+                <img loading="lazy" decoding="async"
+                  src={img("/doc/conviteinemap.webp")}
+                  alt={t.vip.alt}
+                />
+              </div>
+              <div className="featured-text">
+                <h2 className="featured-title">{t.vip.title}</h2>
+                <p className="featured-description">{t.vip.description}</p>
+              </div>
+              <div className="featured-badge">{t.vip.badge}</div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      {/* Social */}
+      <section id="social" className="social-section">
+        <div className="container">
+          <div className="social-header">
+            <h3>{t.social.title}</h3>
+            <p>{t.social.subtitle}</p>
+          </div>
+          {locale !== 'pt' ? (
+            <div className="locale-cta">
+              <p>{t.social.comingSoon}</p>
+              <div className="locale-cta-links">
+                {[
+                  { label: 'TikTok', url: 'https://www.tiktok.com/@inema.tds', cls: 'tiktok' },
+                  { label: 'Instagram', url: 'https://www.instagram.com/inema.tds', cls: 'instagram' },
+                  { label: 'YouTube', url: 'https://www.youtube.com/@inematdsx', cls: 'youtube' },
+                  { label: 'Facebook', url: 'https://www.facebook.com/inematds', cls: 'facebook' },
+                ].map((p) => (
+                  <a
+                    key={p.label}
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`social-btn ${p.cls}`}
+                    onClick={() => trackClick(p.url, p.label, 'social')}
+                  >
+                    <span>{p.label}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          ) : (
+          <div className="social-platforms">
+            {/* TikTok */}
+            <div className="social-platform">
+              <div className="platform-header">
+                <span className="platform-icon">📱</span>
+                <h4 className="platform-name">TikTok</h4>
+              </div>
+              <div className="social-links">
+                {['@inema.tds', '@inema.tia', '@inemafuturos', '@inema.tech', '@inema.prompts', '@inema.robot', '@inema.vip'].map(
+                  (handle) => (
+                    <a
+                      key={handle}
+                      href={`https://www.tiktok.com/${handle}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="social-btn tiktok"
+                    >
+                      <span>{handle}</span>
+                    </a>
+                  )
+                )}
+              </div>
+            </div>
+            {/* Instagram */}
+            <div className="social-platform">
+              <div className="platform-header">
+                <span className="platform-icon">📷</span>
+                <h4 className="platform-name">Instagram</h4>
+              </div>
+              <div className="social-links">
+                {['@inema.tds', '@inema.tia', '@inema.vip'].map((handle) => (
+                  <a
+                    key={handle}
+                    href={`https://www.instagram.com/${handle.replace('@', '')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="social-btn instagram"
+                  >
+                    <span>{handle}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+            {/* YouTube */}
+            <div className="social-platform">
+              <div className="platform-header">
+                <span className="platform-icon">🎬</span>
+                <h4 className="platform-name">YouTube</h4>
+              </div>
+              <div className="social-links">
+                {['@inematdsx', '@inematia', '@inemaftd', '@inematec'].map((handle) => (
+                  <a
+                    key={handle}
+                    href={`https://www.youtube.com/${handle}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="social-btn youtube"
+                    onClick={() => trackClick(`https://www.youtube.com/${handle}`, handle, 'social')}
+                  >
+                    <span>{handle}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+            {/* Facebook */}
+            <div className="social-platform">
+              <div className="platform-header">
+                <span className="platform-icon">👍</span>
+                <h4 className="platform-name">Facebook</h4>
+              </div>
+              <div className="social-links">
+                {[
+                  { handle: 'inemafuturos', url: 'https://www.facebook.com/inemafuturos' },
+                  { handle: 'inematds', url: 'https://www.facebook.com/inematds' },
+                ].map((fb) => (
+                  <a
+                    key={fb.handle}
+                    href={fb.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="social-btn facebook"
+                  >
+                    <span>{fb.handle}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+          )}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="footer">
+        <div className="container">
+          <p>{t.footer.copyright}</p>
+        </div>
+      </footer>
+    </>
+  )
+}

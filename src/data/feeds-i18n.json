@@ -1,0 +1,374 @@
+{
+  "Dream-RSI - Recursive Self-Improvement": {
+    "en": "Dream-RSI - Recursive Self-Improvement",
+    "es": "Dream-RSI - Recursive Self-Improvement"
+  },
+  "Vale a Pena estudar.": {
+    "en": "It's worth studying.",
+    "es": "Vale la pena estudiar."
+  },
+  "`IA para quem decide · 6 aulas curtas`": {
+    "en": "`AI for those who decide · 6 short lessons`",
+    "es": "`IA para quien decide · 6 clases cortas`"
+  },
+  "Claude Session Kit — statusline com cota real + skills de sessão https://share.google/uhnOjJUIlossUjZzR": {
+    "en": "Claude Session Kit — statusline with real quota + session skills https://share.google/uhnOjJUIlossUjZzR",
+    "es": "Claude Session Kit — barra de estado con cuota real + habilidades de sesión https://share.google/uhnOjJUIlossUjZzR"
+  },
+  "Tópico dedicado ao projeto/ferramenta JEV, com compartilhamento de links de referência — vídeos do YouTube, documentação e portal de eventos.": {
+    "en": "Topic dedicated to the JEV project/tool, with sharing of reference links — YouTube videos, documentation and events portal.",
+    "es": "Tema dedicado al proyecto/herramienta JEV, con compartición de enlaces de referencia — videos de YouTube, documentación y portal de eventos."
+  },
+  "IA Cultivada — não se programa, se cultiva https://share.google/8FKgpBHd9AewWZn9G": {
+    "en": "Cultivated AI — not programmed, cultivated https://share.google/8FKgpBHd9AewWZn9G",
+    "es": "IA Cultivada — no se programa, se cultiva https://share.google/8FKgpBHd9AewWZn9G"
+  },
+  "Apresentação da skill \"Astra Higgsfield\" para o Claude Codex, integrando a API da Higgsfield como alternativa à assinatura direta do serviço.": {
+    "en": "Presentation of the \"Astra Higgsfield\" skill for Claude Codex, integrating the Higgsfield API as an alternative to direct service subscription.",
+    "es": "Presentación de la skill \"Astra Higgsfield\" para Claude Codex, integrando la API de Higgsfield como alternativa a la suscripción directa del servicio."
+  },
+  "Explicação detalhada do conceito Dream-RSI (Recursive Self-Improvement) e sua conexão com o projeto LOOP-R da INEMA. O tópico apresenta um guia educativo criado pela INEMA sobre o paper \"Dream-RSI: Recursive Self-Improvement through Evolving Worlds\".": {
+    "en": "Detailed explanation of the Dream-RSI (Recursive Self-Improvement) concept and its connection to INEMA's LOOP-R project. The topic presents an educational guide created by INEMA on the paper \"Dream-RSI: Recursive Self-Improvement through Evolving Worlds\".",
+    "es": "Explicación detallada del concepto Dream-RSI (Recursive Self-Improvement) y su conexión con el proyecto LOOP-R de INEMA. El tema presenta una guía educativa creada por INEMA sobre el artículo \"Dream-RSI: Recursive Self-Improvement through Evolving Worlds\"."
+  },
+  "Fonte: CNN Brasil": {
+    "en": "Source: CNN Brasil",
+    "es": "Fuente: CNN Brasil"
+  },
+  "agentes-fronteiros — migração de agentes para generalista + skills https://inematds.github.io/agentes-fronteiros/guia/": {
+    "en": "agentes-fronteiros — migration of agents to generalist + skills https://inematds.github.io/agentes-fronteiros/guia/",
+    "es": "agentes-fronteiros — migración de agentes a generalista + habilidades https://inematds.github.io/agentes-fronteiros/guia/"
+  },
+  "JEV": {
+    "en": "JEV",
+    "es": "JEV"
+  },
+  "otimizando os Agentes": {
+    "en": "optimizing the Agents",
+    "es": "optimizando los Agentes"
+  },
+  "12 Novas IAs — Outubro 2026 · rumores × versões atuais verificadas https://inematds.github.io/newia-oct2026/guia/": {
+    "en": "12 New AIs — October 2026 · rumors × verified current versions https://inematds.github.io/newia-oct2026/guia/",
+    "es": "12 Nuevas IAs — Octubre 2026 · rumores × versiones actuales verificadas https://inematds.github.io/newia-oct2026/guia/"
+  },
+  "**O chat responde. O __terminal__ executa**. Para executivos e profissionais liberais que já usam IA no navegador e ainda copiam e colam tudo. Entenda as quatro camadas de um sistema de IA, por que o terminal com agente é a que faz o trabalho, e como o harness faz ele trabalhar do seu jeito.": {
+    "en": "**The chat replies. The __terminal__ executes**. For executives and freelancers who already use AI in the browser and still copy and paste everything. Understand the four layers of an AI system, why the agent terminal is the one that does the work, and how the harness makes it work your way.",
+    "es": "**El chat responde. El __terminal__ ejecuta**. Para ejecutivos y profesionales liberales que ya usan IA en el navegador y aún copian y pegan todo. Entiende las cuatro capas de un sistema de IA, por qué el terminal con agente es el que hace el trabajo, y cómo el harness lo hace trabajar a tu manera."
+  },
+  "otimizando o uso das IAs": {
+    "en": "optimizing AI usage",
+    "es": "optimizando el uso de las IAs"
+  },
+  "Skill Astra Higgsfield": {
+    "en": "Astra Higgsfield Skill",
+    "es": "Skill Astra Higgsfield"
+  },
+  "já divulguei aqui antes mas agora fui lá e construir um projeto com todas essas informações de como você pode se beneficiar": {
+    "en": "I already shared this here before, but now I went there and built a project with all this information on how you can benefit",
+    "es": "ya lo publiqué aquí antes, pero ahora fui allí y construí un proyecto con toda esa información de cómo puedes beneficiarte"
+  },
+  "'": {
+    "en": "'",
+    "es": "'"
+  },
+  "Publicação de um guia estruturado chamado \"IA como Sistema — Do Chat ao seu próprio ambiente de agentes\", que ensina a evolução do uso de IA de chatbot simples até um ambiente de agentes com memória, Skills, Git, Telegram e VPS. O material é organizado em 29 lições numeradas.": {
+    "en": "Release of a structured guide called \"AI as System — From Chat to your own agent environment\", which teaches the evolution of using AI from simple chatbot to an agent environment with memory, Skills, Git, Telegram and VPS. The material is organized into 29 numbered lessons.",
+    "es": "Publicación de una guía estructurada llamada \"IA como Sistema — Do Chat ao seu próprio ambiente de agentes\", que enseña la evolución del uso de IA desde un chatbot simple hasta un entorno de agentes con memoria, Skills, Git, Telegram y VPS. El material está organizado en 29 lecciones numeradas."
+  },
+  "Laya x JEV": {
+    "en": "Laya x JEV",
+    "es": "Laya x JEV"
+  },
+  "Análise comparativa aprofundada dos modelos de decisão Jev e Laya como motores \"System 1\" em arquiteturas de IA multi-camada. O tópico explora benchmarks, limitações, fine-tuning e como essa separação muda a gestão de agentes.": {
+    "en": "In-depth comparative analysis of the Jev and Laya decision models as \"System 1\" engines in multi-layer AI architectures. The topic explores benchmarks, limitations, fine-tuning and how this separation changes agent management.",
+    "es": "Análisis comparativo profundo de los modelos de decisión Jev y Laya como motores \"System 1\" en arquitecturas de IA multicapa. El tema explora benchmarks, limitaciones, fine‑tuning y cómo esta separación cambia la gestión de agentes."
+  },
+  "no Club": {
+    "en": "in Club",
+    "es": "en Club"
+  },
+  "Chegou o Opous 5.5": {
+    "en": "Opous 5.5 has arrived",
+    "es": "Llegó el Opous 5.5"
+  },
+  "quem tem o ;claude ele esta disponivel": {
+    "en": "who has ;claude he is available",
+    "es": "quien tiene el ;claude está disponible"
+  },
+  "ALERTA": {
+    "en": "ALERT",
+    "es": "ALERTA"
+  },
+  "Aviso: não use o repositório do GitHub 'short-video-generator-AI É apresentado como uma ferramenta gratuita que transforma vídeos longos em vídeos curtos. Mas possui código oculto que roda no Windows. Se você apenas baixou o arquivo ou está usando um Mac, exclua a pasta. Se você usa o Windows, primeiro use seu celular para alterar a senha do seu e-mail e depois as outras senhas. Em seguida, reinicie o computador. O código pode mudar a qualquer momento, então eu simplesmente ficaria longe dele 💪 Antes de executar qualquer repositório do GitHub, abra-o no Claude/Codex e verifique: \"Leia todos os arquivos, não execute nada. Verifique se é seguro usar e sinalize qualquer arquivo que baixe código ou pareça corrompido.\"": {
+    "en": "Notice: do not use the GitHub repository 'short-video-generator-AI It is presented as a free tool that turns long videos into short videos. But it has hidden code that runs on Windows. If you only downloaded the file or are using a Mac, delete the folder. If you use Windows, first use your phone to change your email password and then the other passwords. Then restart the computer. The code can change at any time, so I would simply stay away from it 💪 Before running any GitHub repository, open it in Claude/Codex and check: \"Read all files, do not execute anything. Verify it is safe to use and flag any file that downloads code or appears corrupted.\"",
+    "es": "Aviso: no use el repositorio de GitHub 'short-video-generator-AI' Es presentado como una herramienta gratuita que transforma videos largos en videos cortos. Pero tiene código oculto que se ejecuta en Windows. Si solo descargó el archivo o está usando un Mac, elimine la carpeta. Si usa Windows, primero use su celular para cambiar la contraseña de su correo electrónico y luego las demás contraseñas. Después, reinicie el ordenador. El código puede cambiar en cualquier momento, así que simplemente me mantendría alejado de él 💪 Antes de ejecutar cualquier repositorio de GitHub, ábralo en Claude/Codex y verifique: \"Lea todos los archivos, no ejecute nada. Verifique si es seguro usar y señale cualquier archivo que descargue código o parezca corrupto.\""
+  },
+  "Ganhos de eficiência Jev": {
+    "en": "Jev Efficiency Gains",
+    "es": "Ganancias de eficiencia Jev"
+  },
+  "Além de usar o Jev para tornar o LinkedIn mais tolerável, decidi testá-lo em um dos meus aplicativos, . Uma plataforma de orquestração de agentes para criar equipes de agentes e concluir tarefas de trabalho reais. Para que isso funcione, tenho várias ferramentas que  pode usar para realizar todo tipo de tarefa, mas essas ferramentas consomem muitos tokens. O cache está ativado, o que ajuda, mas poderia ser melhor. Então, decidi colocar o Jev entre a mensagem do usuário e  com o objetivo de selecionar apenas as ferramentas que o orquestrador precisa para esse tipo de solicitação. Eu esperava, é claro, uma boa redução no número de tokens, mas o que eu não esperava era uma redução de mais de 90%. Agora preciso analisar com muita atenção meus aplicativos e automações e ver que melhorias posso obter em outras áreas.": {
+    "en": "In addition to using Jev to make LinkedIn more tolerable, I decided to test it in one of my apps, . A platform for orchestrating agents to create agent teams and complete real work tasks. For this to work, I have several tools that  can use to perform all kinds of tasks, but these tools consume many tokens. Cache is enabled, which helps, but it could be better. So I decided to place Jev between the user message and  with the goal of selecting only the tools the orchestrator needs for this type of request. I expected, of course, a good reduction in token count, but what I didn’t expect was a reduction of over 90%. Now I need to carefully analyze my apps and automations and see what improvements I can achieve in other areas.",
+    "es": "Además de usar Jev para hacer LinkedIn más tolerable, decidí probarlo en una de mis aplicaciones, . Una plataforma de orquestación de agentes para crear equipos de agentes y completar tareas de trabajo reales. Para que funcione, tengo varias herramientas que  puede usar para realizar todo tipo de tarea, pero esas herramientas consumen muchos tokens. La caché está activada, lo que ayuda, pero podría ser mejor. Entonces, decidí colocar Jev entre el mensaje del usuario y  con el objetivo de seleccionar solo las herramientas que el orquestador necesita para este tipo de solicitud. Esperaba, por supuesto, una buena reducción en el número de tokens, pero lo que no esperaba era una reducción de más del 90%. Ahora necesito analizar con mucha atención mis aplicaciones y automatizaciones y ver qué mejoras puedo obtener en otras áreas."
+  },
+  "Prompt de Orientação de TEXTO": {
+    "en": "Text Guidance Prompt",
+    "es": "Prompt de Orientación de TEXTO"
+  },
+  "Tópico dedicado a um prompt de orientação de estilo para reescrita e organização de textos com IA. Define um sistema de rótulos para controlar o grau e direção da reescrita.": {
+    "en": "Topic dedicated to a style guidance prompt for rewriting and organizing texts with AI. Defines a labeling system to control the degree and direction of rewriting.",
+    "es": "Tema dedicado a un prompt de orientación de estilo para reescritura y organización de textos con IA. Define un sistema de etiquetas para controlar el grado y la dirección de la reescritura."
+  },
+  "Chegou o Opus 5.5": {
+    "en": "Opus 5.5 has arrived",
+    "es": "Llegó el Opus 5.5"
+  },
+  "Publicação de material relacionado ao modelo Claude Opus 5.5, com link para guia hospedado no GitHub Pages.": {
+    "en": "Release of material related to the Claude Opus 5.5 model, with a link to a guide hosted on GitHub Pages.",
+    "es": "Publicación de material relacionado con el modelo Claude Opus 5.5, con enlace al guía alojado en GitHub Pages."
+  },
+  "Qual Modelos Usar Setembro/2026": {
+    "en": "Which Models to Use September/2026",
+    "es": "Qué Modelos Usar Septiembre/2026"
+  },
+  "Análise prática dos principais modelos de IA disponíveis em setembro/2026, com recomendação de pilha e estratégia de uso combinado entre Astra, Sol e Luna.": {
+    "en": "Practical analysis of the main AI models available in September/2026, with a stack recommendation and combined usage strategy among Astra, Sol and Luna.",
+    "es": "Análisis práctico de los principales modelos de IA disponibles en septiembre/2026, con recomendación de stack y estrategia de uso combinado entre Astra, Sol y Luna."
+  },
+  "7 Princípios da Gestão de Agentes": {
+    "en": "7 Principles of Agent Management",
+    "es": "7 Principios de la Gestión de Agentes"
+  },
+  "Análise de material externo (provavelmente vídeo/evento sobre agentes de IA) comparando com a metodologia INEMA de gestão de agentes, confirmando alinhamento entre o que já era ensinado e o que grandes empresas de tech estão adotando como linguagem oficial.": {
+    "en": "Analysis of external material (likely a video/event about AI agents) comparing it with the INEMA agent management methodology, confirming alignment between what was already taught and what major tech companies are adopting as the official language.",
+    "es": "Análisis de material externo (probablemente video/evento sobre agentes de IA) comparando con la metodología INEMA de gestión de agentes, confirmando alineación entre lo que ya se enseñaba y lo que grandes empresas de tecnología están adoptando como lenguaje oficial."
+  },
+  "video muito bom sobre o Opus5.5": {
+    "en": "very good video about Opus5.5",
+    "es": "video muy bueno sobre el Opus5.5"
+  },
+  "Jev Decision Lab — Pacote de viagens: anúncio avaliado uma vez e cruzado por regra com 12 perfis": {
+    "en": "Jev Decision Lab — Travel package: ad evaluated once and cross-referenced by rule with 12 profiles",
+    "es": "Jev Decision Lab — Paquete de viajes: anuncio evaluado una vez y cruzado por regla con 12 perfiles"
+  },
+  "Jarvis v7 — prompt pack Opus 5.5 (18 prompts) e especificação do Jarvis no Telegram": {
+    "en": "Jarvis v7 — prompt pack Opus 5.5 (18 prompts) and Jarvis specification on Telegram",
+    "es": "Jarvis v7 — paquete de prompts Opus 5.5 (18 prompts) y especificación del Jarvis en Telegram"
+  },
+  "Exemplos Prompts Opus5.5": {
+    "en": "Prompt Examples Opus5.5",
+    "es": "Ejemplos Prompts Opus5.5"
+  },
+  "Coleção de 5 prompts neutros (sem citar marcas/modelos) para benchmark de agentes criativos autônomos, rotulados como \"Exemplos Prompts Opus5.5\". Cada prompt é uma tarefa criativa completa, do zero ao entregável final.": {
+    "en": "Collection of 5 neutral prompts (without mentioning brands/models) for benchmarking autonomous creative agents, labeled as \"Exemplos Prompts Opus5.5\". Each prompt is a complete creative task, from scratch to final deliverable.",
+    "es": "Colección de 5 prompts neutros (sin citar marcas/modelos) para benchmark de agentes creativos autónomos, etiquetados como \"Exemplos Prompts Opus5.5\". Cada prompt es una tarea creativa completa, desde cero hasta el entregable final."
+  },
+  "openpcbot v3 — voz no Telegram: como mandar e receber áudio (uso no v2 e plano local via inemavox)": {
+    "en": "openpcbot v3 — voice on Telegram: how to send and receive audio (use in v2 and local plan via inemavox)",
+    "es": "openpcbot v3 — voz en Telegram: cómo enviar y recibir audio (uso en v2 y plan local vía inemavox)"
+  },
+  "intelecto — voz no Telegram: transcrição, resposta em áudio e comando /voz": {
+    "en": "intelecto — voice on Telegram: transcription, audio response and /voz command",
+    "es": "intelecto — voz en Telegram: transcripción, respuesta en audio y comando /voz"
+  },
+  "jev-open — especialista classificador local: triagem de advocacia e clínica, treino e serviço em CPU": {
+    "en": "jev-open — local specialist classifier: law and clinic triage, training and service on CPU",
+    "es": "jev-open — especialista clasificador local: triaje de abogacía y clínica, entrenamiento y servicio en CPU"
+  },
+  "RSI — a IA que melhora a IA: pesquisa verificada, LOOP-R e como empresas, governo e pessoas se beneficiam": {
+    "en": "RSI — the AI that improves AI: verified research, LOOP-R and how companies, government and people benefit",
+    "es": "RSI — la IA que mejora la IA: investigación verificada, LOOP-R y cómo empresas, gobierno y personas se benefician"
+  },
+  "RSI Copiloto — sistema com IA, memória, rotinas e melhoria supervisionada para pessoas e negócios": {
+    "en": "RSI Copiloto — system with AI, memory, routines and supervised improvement for people and businesses",
+    "es": "RSI Copiloto — sistema con IA, memoria, rutinas y mejora supervisada para personas y negocios"
+  },
+  "Olhar Treinado v6.2 — Gosto Visual e Estéticas": {
+    "en": "Olhar Treinado v6.2 — Visual Taste and Aesthetics",
+    "es": "Olhar Treinado v6.2 — Gusto Visual y Estéticas"
+  },
+  "Seu Primeiro Vídeo com IA em 24 Horas v6.2": {
+    "en": "Your First Video with AI in 24 Hours v6.2",
+    "es": "Tu Primer Video con IA en 24 Horas v6.2"
+  },
+  "Kling AI v6.2 — do Básico ao Multi-Shot": {
+    "en": "Kling AI v6.2 — from Basic to Multi-Shot",
+    "es": "Kling AI v6.2 — del Básico al Multi-Shot"
+  },
+  "Avatares, Lip Sync e Motion Control v6.2": {
+    "en": "Avatars, Lip Sync and Motion Control v6.2",
+    "es": "Avatares, Lip Sync y Motion Control v6.2"
+  },
+  "Estilos e Cinema: Seedance + Higgsfield v6.2": {
+    "en": "Styles and Cinema: Seedance + Higgsfield v6.2",
+    "es": "Estilos y Cine: Seedance + Higgsfield v6.2"
+  },
+  "Áudio que Vende: Voz, Música e Sound Design v6.2": {
+    "en": "Audio that Sells: Voice, Music and Sound Design v6.2",
+    "es": "Audio que Vende: Voz, Música y Sound Design v6.2"
+  },
+  "CapCut para Criadores de Vídeo IA v6.2": {
+    "en": "CapCut for Video Creators AI v6.2",
+    "es": "CapCut para Creadores de Video IA v6.2"
+  },
+  "Visual DNA: Direção de Arte e Branding com IA v6.2": {
+    "en": "Visual DNA: Art Direction and Branding with AI v6.2",
+    "es": "Visual DNA: Dirección de Arte y Branding con IA v6.2"
+  },
+  "Design Essencial no Figma para Criadores": {
+    "en": "Essential Design in Figma for Creators",
+    "es": "Diseño Esencial en Figma para Creadores"
+  },
+  "Laboratório de Anúncios com IA: 6 Cases Desmontados": {
+    "en": "Ads Lab with AI: 6 Cases Dissected",
+    "es": "Laboratorio de Anuncios con IA: 6 Casos Desmontados"
+  },
+  "Redes Sociais para Criadores IA v6.2 — o Sistema Viral": {
+    "en": "Social Networks for AI Creators v6.2 — the Viral System",
+    "es": "Redes Sociales para Creadores IA v6.2 — el Sistema Viral"
+  },
+  "Monetização: Portfólio, Ofertas, Preços e Clientes": {
+    "en": "Monetization: Portfolio, Offers, Prices and Clients",
+    "es": "Monetización: Portafolio, Ofertas, Precios y Clientes"
+  },
+  "Influenciador IA em 21 Dias": {
+    "en": "AI Influencer in 21 Days",
+    "es": "Influencer IA en 21 Días"
+  },
+  "OSWork v6.2 — vídeo-aulas com o Nei, uma por módulo": {
+    "en": "OSWork v6.2 — video lessons with Nei, one per module",
+    "es": "OSWork v6.2 — video-clases con Nei, una por módulo"
+  },
+  "Congelou — curta com efeito time freeze feito com a assinatura Kling AI: vídeo, prompts, scripts e como repetir": {
+    "en": "Froze — enjoy with time freeze effect made with the Kling AI signature: video, prompts, scripts and how to repeat",
+    "es": "Congeló — disfruta con efecto time freeze hecho con la firma Kling AI: video, prompts, scripts y cómo repetir"
+  },
+  "Expedição Sul — Hua Hum: nosso plano × nossa aventura (estrada interrompida, fronteira fechada, fotos reais da viagem, 9:16 e 16:9)": {
+    "en": "South Expedition — Hua Hum: our plan × our adventure (road interrupted, border closed, real travel photos, 9:16 and 16:9)",
+    "es": "Expedición Sur — Hua Hum: nuestro plan × nuestra aventura (carretera interrumpida, frontera cerrada, fotos reales del viaje, 9:16 y 16:9)"
+  },
+  "San Martín — estudo de redesign de site municipal: diagnóstico, pesquisa de sites de governo 2026 e proposta de home": {
+    "en": "San Martín — study of municipal website redesign: diagnosis, 2026 government website research and home proposal",
+    "es": "San Martín — estudio de rediseño de sitio municipal: diagnóstico, investigación de sitios de gobierno 2026 y propuesta de home"
+  },
+  "RSI Chegou - Quem nao acompanhar vai ser como mexer no chat enquanto outros  usam agentes. Ou seja esqueca Agentes...": {
+    "en": "RSI Arrived - Anyone who doesn't keep up will be like using chat while others use agents. In other words, forget Agents...",
+    "es": "RSI Llegó - Quien no acompañe será como mover el chat mientras otros usan agentes. Es decir, olvida Agentes..."
+  },
+  "este conteudo ficou muito bom,": {
+    "en": "this content turned out great,",
+    "es": "este contenido quedó muy bueno,"
+  },
+  "Olha o sistema usado pelo ExplicaVideos": {
+    "en": "Check out the system used by ExplicaVideos",
+    "es": "Mira el sistema usado por ExplicaVideos"
+  },
+  "muito cuidado com isso": {
+    "en": "be very careful with this",
+    "es": "mucho cuidado con eso"
+  },
+  "Prompt Video Congelado": {
+    "en": "Frozen Prompt Video",
+    "es": "Prompt Video Congelado"
+  },
+  "Tutorial sobre como criar o efeito de \"tempo congelado\" com vídeo de IA, onde objetos e personagens ficam suspensos enquanto a câmera continua se movendo pela cena.": {
+    "en": "Tutorial on how to create the \"frozen time\" effect with AI video, where objects and characters stay suspended while the camera keeps moving through the scene.",
+    "es": "Tutorial sobre cómo crear el efecto de \"tiempo congelado\" con video de IA, donde objetos y personajes quedan suspendidos mientras la cámara sigue moviéndose por la escena."
+  },
+  "curso de Video completo OSWork estilo de conteudo v2": {
+    "en": "complete OSWork Video course content style v2",
+    "es": "curso de Video completo OSWork estilo de contenido v2"
+  },
+  "RSI do INEMA": {
+    "en": "RSI of INEMA",
+    "es": "RSI de INEMA"
+  },
+  "Divulgação da área RSI do INEMA — plataforma de estudo e aplicação prática de Recursive Self-Improvement (melhoria recursiva de IA). O tópico apresenta o conceito e o conteúdo disponível no site.": {
+    "en": "Announcement of the INEMA RSI area — study platform and practical application of Recursive Self-Improvement (recursive AI improvement). The topic presents the concept and the content available on the site.",
+    "es": "Divulgación del área RSI de INEMA — plataforma de estudio y aplicación práctica de Recursive Self-Improvement (mejora recursiva de IA). El tema presenta el concepto y el contenido disponible en el sitio."
+  },
+  "skills-wait-what": {
+    "en": "skills-wait-what",
+    "es": "skills-wait-what"
+  },
+  "Compartilhamento de dicas sobre a skill `wait-what` do ecossistema `aihero.dev` e comandos para manter skills atualizadas via `npx`.": {
+    "en": "Sharing tips about the `wait-what` skill from the `aihero.dev` ecosystem and commands to keep skills updated via `npx`.",
+    "es": "Compartir consejos sobre la skill `wait-what` del ecosistema `aihero.dev` y comandos para mantener skills actualizadas vía `npx`."
+  },
+  "MakeShorts — fábrica de shorts com IA no Claude Code: roteiro, voz ou avatar, edição 9:16, QA e agendamento (local ou VPS com APIs)": {
+    "en": "MakeShorts — short factory with AI in Claude Code: script, voice or avatar, 9:16 editing, QA and scheduling (local or VPS with APIs)",
+    "es": "MakeShorts — fábrica de shorts con IA en Claude Code: guion, voz o avatar, edición 9:16, QA y programación (local o VPS con APIs)"
+  },
+  "Use Both — Claude + Codex: um planeja, o outro desafia. 6 fluxos, prompts, templates e skills handoff/prime (kit MIT com guia PT/EN/ES)": {
+    "en": "Use Both — Claude + Codex: one plans, the other challenges. 6 flows, prompts, templates and skills handoff/prime (MIT kit with PT/EN/ES guide)",
+    "es": "Use Both — Claude + Codex: uno planea, el otro desafía. 6 flujos, prompts, plantillas y skills handoff/prime (kit MIT con guía PT/EN/ES)"
+  },
+  "Letramento em IA nos EUA — o que o governo está fazendo: decretos, verbas, referencial de competências e lições para o Brasil": {
+    "en": "AI Literacy in the US — what the government is doing: decrees, funding, competency framework and lessons for Brazil",
+    "es": "Alfabetización en IA en EE. UU. — lo que el gobierno está haciendo: decretos, fondos, marco de competencias y lecciones para Brasil"
+  },
+  "Agente sob controle v6.2 — Use agentes de IA sem se queimar": {
+    "en": "Agent under control v6.2 — Use AI agents without getting burned",
+    "es": "Agente bajo control v6.2 — Usa agentes de IA sin quemarte"
+  },
+  "agente-claude-codex 1.1.1 — handoff atualizado: histórico que nunca sobrescreve, verificação só do que rodou, checagem de compartilhamento, memória tocada e prime só leitura": {
+    "en": "agente-claude-codex 1.1.1 — handoff updated: history that never overwrites, verification of only what actually ran, sharing check, memory touched and read-only prime",
+    "es": "agente-claude-codex 1.1.1 — handoff actualizado: historial que nunca sobrescribe, verificación solo de lo que se ejecutó, control de compartición, memoria tocada y prime solo lectura"
+  },
+  "Dev com IA v6.2 — Um faz, o outro confere": {
+    "en": "Dev with AI v6.2 — One does, the other checks",
+    "es": "Dev con IA v6.2 — Uno hace, el otro revisa"
+  },
+  "Letramento em IA na China — planos, carga horária por província, regras de uso de IA na escola, leitura crítica e comparação com os EUA": {
+    "en": "AI literacy in China — plans, class hours by province, rules for using AI in schools, critical reading, and comparison with the US",
+    "es": "Alfabetización en IA en China — planes, carga horaria por provincia, reglas de uso de IA en la escuela, lectura crítica y comparación con EE. UU."
+  },
+  "Produtos na era da IA — Saber o que vale a pena construir": {
+    "en": "Products in the age of AI — Knowing what’s worth building",
+    "es": "Productos en la era de la IA — Saber qué vale la pena construir"
+  },
+  "Agente sob Controle v2 — Use agentes de IA sem se queimar": {
+    "en": "Agent Under Control v2 — Use AI agents without getting burned",
+    "es": "Agente bajo control v2 — Usa agentes de IA sin quemarte"
+  },
+  "Áreas do INEMA Eventos — O que é cada área": {
+    "en": "INEMA Events Areas — What Each Area Is",
+    "es": "Áreas de INEMA Eventos — Qué es cada área"
+  },
+  "Trade com Agentes — o método do desafio de 7 dias com GPT-6 Astra: rotinas, handoff, estrategista + executor e por que perdeu para o S&P (estudo, não recomendação)": {
+    "en": "Agent Trading — the 7-day challenge method with GPT-6 Astra: routines, handoff, strategist + executor, and why it underperformed the S&P (study, not a recommendation)",
+    "es": "Trading con Agentes — el método del desafío de 7 días con GPT-6 Astra: rutinas, handoff, estratega + ejecutor y por qué perdió frente al S&P (estudio, no recomendación)"
+  },
+  "IA Cultivada — vídeo explicativo com o Nei (10 min): casa × jardim, os oito elementos, os quatro níveis e por que agente não é IA cultivada": {
+    "en": "Cultivated AI — explainer video with Nei (10 min): house × garden, the eight elements, the four levels, and why an agent is not cultivated AI",
+    "es": "IA Cultivada — video explicativo con Nei (10 min): casa × jardín, los ocho elementos, los cuatro niveles y por qué un agente no es IA cultivada"
+  },
+  "Produtos na era da IA v6 — Saber o que vale a pena construir": {
+    "en": "Products in the AI era v6 — Knowing what’s worth building",
+    "es": "Productos en la era de la IA v6 — Saber qué vale la pena construir"
+  },
+  "Codex + Claude em vídeo — um planeja, o outro critica: os seis níveis do Use Both, quem faz o quê e todos os cursos e kits abertos, com avatar do Nei (completo 6 min, essencial 3 min e reel 9:16)": {
+    "en": "Codex + Claude in a video — one plans, the other critiques: the six levels of Use Both, who does what, and all the open courses and kits, with Nei’s avatar (full 6 min, essential 3 min, and 9:16 reel)",
+    "es": "Codex + Claude en video — uno planifica, el otro critica: los seis niveles de Use Both, quién hace qué y todos los cursos y kits abiertos, con avatar de Nei (completo 6 min, esencial 3 min y reel 9:16)"
+  },
+  "A corrida da IA está saindo do “melhor modelo” e indo para quem constrói o melhor agente pessoal.": {
+    "en": "The AI race is moving beyond “best model” toward whoever builds the best personal agent.",
+    "es": "La carrera de la IA está dejando atrás el «mejor modelo» y avanzando hacia quién construye el mejor agente personal."
+  },
+  "Os principais pontos são: - Opus 5.5 é apresentado como o grande destaque entre os novos modelos, principalmente por escrever melhor, ser mais direto, criar interfaces, apresentações, artefatos visuais e até vídeos via código. - GPT-6 Sol e Luna aparecem como novas opções da OpenAI, com foco também em mais velocidade e eficiência de tokens. - O Voice do ChatGPT ganha muito mais importância porque pode conversar em tempo real enquanto usa ferramentas como e-mail, calendário, Slack e outros plugins. Ou seja: voz deixa de ser apenas conversa e passa a executar trabalho. - O maior destaque do texto é o Muse, da Meta: um agente pessoal rápido, proativo, conectado às ferramentas, capaz de acessar computador, navegador e acompanhar objetivos. - A Meta estaria levando esse agente também para óculos, voz, vídeo e dispositivos dedicados, tentando transformar a IA em algo presente o tempo inteiro, e não apenas dentro de um aplicativo. - O Muse teria sido fortemente inspirado no OpenClaw, mas com a proposta de transformar aquela experiência mais técnica em algo seguro e simples para bilhões de pessoas. - A tendência apontada é que OpenAI, Anthropic, Meta e outras empresas estejam convergindo para praticamente o mesmo produto: memória persistente + e-mail + calendário + mensagens + navegador + computador + tarefas em segundo plano + notificações proativas + voz + ferramentas + contexto do ambiente. Em uma frase: > Estamos entrando na fase em que a disputa deixa de ser “qual IA responde melhor?” e passa a ser “qual agente conhece você, usa suas ferramentas e consegue trabalhar por você o dia inteiro?” Aprender a trabalhar de forma agent-native está se tornando mais importante do que simplesmente aprender a conversar com uma IA.": {
+    "en": "The main points are: - Opus 5.5 is presented as the standout among the new models, mainly for writing better, being more direct, creating interfaces, presentations, visual assets, and even videos through code. - GPT-6 Sol and Luna appear as new options from OpenAI, also focused on greater speed and token efficiency. - ChatGPT Voice becomes much more important because it can have real-time conversations while using tools like email, calendar, Slack, and other plugins. In other words: voice stops being just conversation and starts getting work done. - The biggest highlight of the text is Muse, from Meta: a fast, proactive personal agent connected to tools, able to access a computer and browser and keep track of goals. - Meta is reportedly bringing this agent to glasses, voice, video, and dedicated devices too, trying to make AI something that is always present, not just inside an app. - Muse is said to have been heavily inspired by OpenClaw, but with the goal of turning that more technical experience into something safe and simple for billions of people. - The trend described is that OpenAI, Anthropic, Meta, and other companies are converging on practically the same product: persistent memory + email + calendar + messages + browser + computer + background tasks + proactive notifications + voice + tools + environmental context. In one sentence: > We’re entering a phase where the question is no longer “which AI gives the best answers?” but “which agent knows you, uses your tools, and can work for you all day?” Learning to work in an agent-native way is becoming more important than simply learning to chat with an AI.",
+    "es": "Los puntos principales son: - Opus 5.5 se presenta como el gran destacado entre los nuevos modelos, sobre todo por escribir mejor, ser más directo, crear interfaces, presentaciones, artefactos visuales e incluso videos mediante código. - GPT-6 Sol y Luna aparecen como nuevas opciones de OpenAI, con énfasis también en una mayor velocidad y eficiencia de tokens. - Voice de ChatGPT gana mucha más importancia porque puede conversar en tiempo real mientras usa herramientas como correo electrónico, calendario, Slack y otros plugins. Es decir: la voz deja de ser solo conversación y pasa a ejecutar tareas. - El mayor destacado del texto es Muse, de Meta: un agente personal rápido, proactivo, conectado a las herramientas, capaz de acceder al computador, al navegador y hacer seguimiento de objetivos. - Meta estaría llevando este agente también a gafas, voz, video y dispositivos dedicados, intentando convertir la IA en algo presente todo el tiempo, y no solo dentro de una aplicación. - Muse estaría fuertemente inspirado en OpenClaw, pero con la propuesta de transformar esa experiencia más técnica en algo seguro y sencillo para miles de millones de personas. - La tendencia que se señala es que OpenAI, Anthropic, Meta y otras empresas están convergiendo hacia prácticamente el mismo producto: memoria persistente + correo electrónico + calendario + mensajes + navegador + computador + tareas en segundo plano + notificaciones proactivas + voz + herramientas + contexto del entorno. En una frase: > Estamos entrando en la fase en que la disputa deja de ser «¿qué IA responde mejor?» y pasa a ser «¿qué agente te conoce, usa tus herramientas y puede trabajar por ti todo el día?». Aprender a trabajar de forma agent-native se está volviendo más importante que simplemente aprender a conversar con una IA."
+  },
+  "Estou recuperando um portal q eu criei em 2000,  em 2014 abandonei pq tinha vendido minha empresa mas recuperei mais de 11 milhoes de fotos, 160 mil materia etc,  aos poucos estou fazendo ele voltar": {
+    "en": "I’m bringing back a portal I created in 2000. In 2014, I abandoned it because I had sold my company, but I recovered more than 11 million photos, 160,000 articles, etc. I’m gradually bringing it back.",
+    "es": "Estoy recuperando un portal que creé en 2000. En 2014 lo abandoné porque había vendido mi empresa, pero recuperé más de 11 millones de fotos, 160 mil artículos, etc. Poco a poco estoy haciendo que vuelva."
+  },
+  "Muse × OpenMuse — o agente pessoal da Meta contra a alternativa open source da CopilotKit: comparação com fatos checados (e o que circula errado nas redes)": {
+    "en": "Muse × OpenMuse — Meta’s personal agent versus CopilotKit’s open-source alternative: a fact-checked comparison (and what’s being misreported on social media)",
+    "es": "Muse × OpenMuse — el agente personal de Meta frente a la alternativa de código abierto de CopilotKit: comparación con datos verificados (y lo que circula erróneamente en las redes)"
+  },
+  "San Martín — nova proposta v3 no estilo \"mesa de trabalho\" (post-its, fichas, pastas, comprovante) e as três versões da home agora em PT/EN/ES": {
+    "en": "San Martín — new v3 proposal in the “workbench” style (post-its, cards, folders, receipt) and all three home page versions now in PT/EN/ES",
+    "es": "San Martín — nueva propuesta v3 al estilo \"mesa de trabajo\" (notas adhesivas, fichas, carpetas, comprobante) y las tres versiones de la página de inicio ahora en PT/EN/ES"
+  }
+}
