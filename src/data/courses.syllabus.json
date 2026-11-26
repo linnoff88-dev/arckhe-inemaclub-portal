@@ -1,5 +1,5 @@
 {
-  "https://inematds.github.io/ATIA/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "1.1 O Tsunami da IA",
@@ -65,7 +65,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/FDB/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Iniciante",
@@ -104,7 +104,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/FEA-IA/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Nível Fundamentos",
@@ -173,7 +173,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/FEC/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Fundamentos de Contexto",
@@ -218,7 +218,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/FEP-AGI/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [],
     "learn": [],
     "audience": [],
@@ -231,7 +231,7 @@
     "enrichedAt": "2026-09-24",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/FEP/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Fundamentos de LLMs e técnicas básicas de prompting.",
@@ -300,10 +300,10 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/FEP2026/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
-        "title": "FEP 2026 · INEMA.CLUB PRO",
+        "title": "FEP 2026 · ARCKHÉ AI PRO",
         "detail": ""
       }
     ],
@@ -318,7 +318,7 @@
     "enrichedAt": "2026-09-24",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/VISION/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "VISION — Audiovisual com IA | Curso Completo Maio 2026",
@@ -388,7 +388,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/agent-skills/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Fundamentos",
@@ -436,7 +436,7 @@
     "enrichedAt": "2026-09-24",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/agentejax/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Fundamentos",
@@ -479,7 +479,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/agentes-harness/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [],
     "learn": [],
     "audience": [],
@@ -492,7 +492,7 @@
     "enrichedAt": "2026-09-24",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/agentes-office/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Entrando no mundo dos agentes",
@@ -556,7 +556,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/agenticbasico/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Anatomia",
@@ -612,10 +612,10 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/agi-pratica/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
-        "title": "Super-Agentes · INEMA.CLUB PRO",
+        "title": "Super-Agentes · ARCKHÉ AI PRO",
         "detail": ""
       }
     ],
@@ -630,7 +630,7 @@
     "enrichedAt": "2026-09-24",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/agi-ready/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [],
     "learn": [],
     "audience": [],
@@ -643,18 +643,18 @@
     "enrichedAt": "2026-09-24",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/aiestrategia/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
-        "title": "INEMA.CLUB T1 Fundamentos",
+        "title": "ARCKHÉ AI T1 Fundamentos",
         "detail": "1 · Pesquisa Perplexity"
       },
       {
-        "title": "INEMA.CLUB T1 Fundamentos",
+        "title": "ARCKHÉ AI T1 Fundamentos",
         "detail": "2 · Síntese Gemini"
       },
       {
-        "title": "INEMA.CLUB T1 Fundamentos",
+        "title": "ARCKHÉ AI T1 Fundamentos",
         "detail": "3 · Geraçêo PPTX · DOCX · PNG"
       },
       {
@@ -700,7 +700,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/arquiteto-agentes-advocacia/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Caderno de Advocacia",
@@ -711,7 +711,7 @@
         "detail": ""
       },
       {
-        "title": "INEMA.CLUB PRO",
+        "title": "ARCKHÉ AI PRO",
         "detail": ""
       }
     ],
@@ -726,7 +726,7 @@
     "enrichedAt": "2026-09-24",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/arquiteto-agentes-contabil/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Caderno Contábil e Financeiro · Arquiteto de Agentes",
@@ -744,7 +744,7 @@
     "enrichedAt": "2026-09-24",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/arquiteto-agentes-saude/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Caderno de Saúde",
@@ -755,7 +755,7 @@
         "detail": ""
       },
       {
-        "title": "INEMA.CLUB PRO",
+        "title": "ARCKHÉ AI PRO",
         "detail": ""
       }
     ],
@@ -770,7 +770,7 @@
     "enrichedAt": "2026-09-24",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/astra-5-prompts/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Astra: 5 Pedidos de Verdade",
@@ -788,7 +788,7 @@
     "enrichedAt": "2026-09-24",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/astra-computer-use/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Fundamentos e contrato",
@@ -846,10 +846,10 @@
     "enrichedAt": "2026-09-24",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/caio/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
-        "title": "Profissional de IA 2030 | INEMA.CLUB T1 Realidade T2 Caminhos T3 Skills T4 Marketing T5 Playbooks T6 12 semanas",
+        "title": "Profissional de IA 2030 | ARCKHÉ AI T1 Realidade T2 Caminhos T3 Skills T4 Marketing T5 Playbooks T6 12 semanas",
         "detail": "CURSO COMPLETO · ESTILO AGENTICO"
       },
       {
@@ -890,7 +890,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/cccompletopn/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Fundamentos e mentalidade",
@@ -954,7 +954,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/ccodebasico/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Básico & Instalaçêo",
@@ -992,7 +992,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/codexbasico/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Codex Básico",
@@ -1037,7 +1037,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/consultoria2k/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Fundamentos",
@@ -1077,7 +1077,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/copilot-agentic/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [],
     "learn": [],
     "audience": [],
@@ -1090,7 +1090,7 @@
     "enrichedAt": "2026-09-24",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/criaagentes/guia/": {
+  "https://linnoff88-dev.github.io/arckhe-/guia/": {
     "structure": [
       {
         "title": "Identidade · CLAUDE.md",
@@ -1132,7 +1132,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/cultura-inovacao/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Fundamentos da Cultura de Inovaçêo",
@@ -1175,7 +1175,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/curso-7pa/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Da virada ao agente em produçêo",
@@ -1233,7 +1233,7 @@
     "enrichedAt": "2026-09-24",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/curso-claude-codex/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "TRILHA 1",
@@ -1311,7 +1311,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/curso-gestao-ia/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "1 Mapear o trabalho",
@@ -1388,7 +1388,7 @@
     "enrichedAt": "2026-09-24",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/curso-openpcbotv3/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Fundamentos",
@@ -1423,7 +1423,7 @@
     "enrichedAt": "2026-09-24",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/do-zero-ao-deploy/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "TRILHA 1 4 modulos Terminal & Git",
@@ -1505,7 +1505,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/evai2026/curso-e-live/curso/": {
+  "https://linnoff88-dev.github.io/arckhe-/curso-e-live/curso/": {
     "structure": [
       {
         "title": "Seus primeiros 30 dias",
@@ -1569,7 +1569,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/fae-ai/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Fundamentos",
@@ -1614,7 +1614,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/gpt6-astra-tecnico/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Setup e operaçêo",
@@ -1684,10 +1684,10 @@
     "enrichedAt": "2026-09-24",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/gpt6-astra/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
-        "title": "GPT-6 Astra na prática · INEMA.CLUB PRO",
+        "title": "GPT-6 Astra na prática · ARCKHÉ AI PRO",
         "detail": ""
       }
     ],
@@ -1702,7 +1702,7 @@
     "enrichedAt": "2026-09-24",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/ia-do-zero-curso/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [],
     "learn": [],
     "audience": [],
@@ -1715,7 +1715,7 @@
     "enrichedAt": "2026-09-24",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/intelecto-curso/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Fundamentos",
@@ -1765,7 +1765,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/jev-curso/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Abrir meu roteiro de decisêo",
@@ -1815,7 +1815,7 @@
     "enrichedAt": "2026-09-24",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/laya-curso/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Fundamentos",
@@ -1878,7 +1878,7 @@
     "enrichedAt": "2026-09-24",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/lives2/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Lives 2026 — Negócio de Serviços de IA",
@@ -1931,7 +1931,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/local-ai-masterclass/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Fundamentos",
@@ -1972,7 +1972,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/mapacliente/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Mercado & Mentalidade",
@@ -2026,7 +2026,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/mentesbrilhantes1/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Mentalidade do Vencedor",
@@ -2083,7 +2083,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/neurociencia-comportamento/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "TRILHA 1 O Cérebro que Decide",
@@ -2128,7 +2128,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/os-agentes/guia/": {
+  "https://linnoff88-dev.github.io/arckhe-/guia/": {
     "structure": [
       {
         "title": "Uma camada por vez",
@@ -2192,7 +2192,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/oswork-quick/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [],
     "learn": [],
     "audience": [],
@@ -2205,7 +2205,7 @@
     "enrichedAt": "2026-09-24",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/oswork-v5/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [],
     "learn": [],
     "audience": [],
@@ -2218,7 +2218,7 @@
     "enrichedAt": "2026-09-24",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/oswork/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "OSWORK MODELO",
@@ -2293,11 +2293,11 @@
     "enrichedAt": "2026-09-24",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/pffia/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Arquiteto de Trabalho com IA",
-        "detail": "INEMA.CLUB PRO"
+        "detail": "ARCKHÉ AI PRO"
       }
     ],
     "learn": [],
@@ -2311,7 +2311,7 @@
     "enrichedAt": "2026-09-24",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/pha2030-aula": {
+  "https://linnoff88-dev.github.io/arckhe-pha2030-aula": {
     "structure": [
       {
         "title": "Fundamentos do PHA 2030",
@@ -2345,7 +2345,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/pilulasdeouro/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Fundamentos",
@@ -2389,7 +2389,7 @@
     "enrichedAt": "2026-09-24",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/pro-liberal-ia/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "O que a IA pode fazer por voce",
@@ -2465,7 +2465,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/prof2030/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Comunicar com a máquina",
@@ -2529,7 +2529,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/prof2031CAIP": {
+  "https://linnoff88-dev.github.io/arckhe-prof2031CAIP": {
     "structure": [
       {
         "title": "Fundamentos de IA Aplicada",
@@ -2601,7 +2601,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/profissional2027x": {
+  "https://linnoff88-dev.github.io/arckhe-profissional2027x": {
     "structure": [
       {
         "title": "Fundamentos + os 4 passos do método DPIA + a Aplicaçêo no mercado real.",
@@ -2676,7 +2676,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/profissionalai/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Trilha 1 · Fundamentos",
@@ -2748,7 +2748,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/skill-video-explicativo/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "As 4 trilhas",
@@ -2815,7 +2815,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/skills": {
+  "https://linnoff88-dev.github.io/arckhe-skills": {
     "structure": [
       {
         "title": "Fundamentos",
@@ -2855,7 +2855,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/skills-craft/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Panorama do Ecossistema",
@@ -2902,7 +2902,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/storm-research/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Como o STORM trabalha",
@@ -2962,7 +2962,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/vb-imersao/": {
+  "https://linnoff88-dev.github.io/arckhe-/": {
     "structure": [
       {
         "title": "Mentalidade e Metodo",
@@ -3002,7 +3002,7 @@
     "enrichedAt": "2026-09-23",
     "model": "openai/gpt-5.4-nano"
   },
-  "https://inematds.github.io/vibecode": {
+  "https://linnoff88-dev.github.io/arckhe-vibecode": {
     "structure": [
       {
         "title": "Fundamentos",

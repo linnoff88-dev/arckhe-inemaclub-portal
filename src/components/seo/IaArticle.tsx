@@ -38,7 +38,7 @@ export function buildIaJsonLd(page: IaPage) {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'INEMA.club', item: SITE_URL },
+        { '@type': 'ListItem', position: 1, name: 'ARCKHÉ AI', item: SITE_URL },
         { '@type': 'ListItem', position: 2, name: page.pillar.title, item: `${SITE_URL}${page.pillar.path}` },
         { '@type': 'ListItem', position: 3, name: page.title, item: url },
       ],
@@ -71,7 +71,7 @@ export default function IaArticle({ page }: { page: IaPage }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(buildIaJsonLd(page)).replace(/</g, '\\u003c') }}
       />
       <nav className="course-breadcrumb" aria-label="Navegaçêo estrutural">
-        <a href="/">INEMA.club</a><span aria-hidden="true">/</span><a href={page.pillar.path}>{page.pillar.title}</a>
+        <a href="/">ARCKHÉ AI</a><span aria-hidden="true">/</span><a href={page.pillar.path}>{page.pillar.title}</a>
         <span className="breadcrumb-current"><span aria-hidden="true">/</span><span>{page.title}</span></span>
       </nav>
       <article className="course-detail">
@@ -110,7 +110,7 @@ export default function IaArticle({ page }: { page: IaPage }) {
 
         {related.length > 0 && (
           <section aria-labelledby="cursos-relacionados">
-            <h2 id="cursos-relacionados">Cursos do INEMA sobre o tema</h2>
+            <h2 id="cursos-relacionados">Cursos do ARCKHÉ sobre o tema</h2>
             <ul className="seo-list">
               {related.map((course) => (
                 <li key={course.canonicalPath}><a href={course.canonicalPath}>{course.title}</a></li>
@@ -122,9 +122,9 @@ export default function IaArticle({ page }: { page: IaPage }) {
         <section aria-labelledby="comunidade">
           <h2 id="comunidade">Aprenda junto com a comunidade</h2>
           <p>
-            Para tirar dúvidas, ver projetos de outros alunos e acompanhar as novidades, a formaçêo contínua do INEMA fica no{' '}
-            <a href="https://inema.pro" target="_blank" rel="noopener noreferrer">INEMA.PRO</a>, que inclui a comunidade{' '}
-            <a href="https://inema.vip" target="_blank" rel="noopener noreferrer">INEMA.VIP</a>.
+            Para tirar dúvidas, ver projetos de outros alunos e acompanhar as novidades, a formaçêo contínua do ARCKHÉ fica no{' '}
+            <a href="https://ARCKHÉ.pro" target="_blank" rel="noopener noreferrer">ARCKHÉ.PRO</a>, que inclui a comunidade{' '}
+            <a href="https://ARCKHÉ.vip" target="_blank" rel="noopener noreferrer">ARCKHÉ.VIP</a>.
           </p>
         </section>
 
@@ -153,7 +153,7 @@ export default function IaArticle({ page }: { page: IaPage }) {
 
         <footer className="course-source-note">
           <p>
-            Por <a href="/conhecimento/quem-e-nei-maldaner/">Nei Maldaner</a>, criador do INEMA · Publicado em{' '}
+            Por <a href="/conhecimento/quem-e-nei-maldaner/">Nei Maldaner</a>, criador do ARCKHÉ · Publicado em{' '}
             <time dateTime={page.published}>{formatDate(page.published)}</time>
             {page.updated !== page.published && (
               <> · Atualizado em <time dateTime={page.updated}>{formatDate(page.updated)}</time></>

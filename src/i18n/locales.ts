@@ -17,9 +17,9 @@ export function coursesPath(locale: Locale): string {
   return `${localeHome(locale)}cursos/`
 }
 
-/** news.inema.pro tem /en/ e /es/; PT fica na raiz. */
+/** news.ARCKHÉ.pro tem /en/ e /es/; PT fica na raiz. */
 export function newsUrl(locale: Locale): string {
-  return locale === DEFAULT_LOCALE ? 'https://news.inema.pro' : `https://news.inema.pro/${locale}/`
+  return locale === DEFAULT_LOCALE ? 'https://news.ARCKHÉ.pro' : `https://news.ARCKHÉ.pro/${locale}/`
 }
 
 export function isLocale(value: string): value is Locale {

@@ -31,7 +31,7 @@ export async function GET(request: NextRequest) {
       url: `${SITE_URL}/conhecimento/${article.slug}/`,
     }))
     const items = [...localItems, ...source]
-      .map((item) => ({ ...item, url: item.url.replace('https://inema.club', 'https://www.inema.club') }))
+      .map((item) => ({ ...item, url: item.url.replace('https://ARCKHÉ AI', 'https://www.ARCKHÉ AI') }))
       .filter((item) => (!type || item.tipo === type) && (!term || normalize(`${item.titulo} ${item.tipo}`).includes(term)))
 
     return NextResponse.json({ ok: true, total: items.length, items })

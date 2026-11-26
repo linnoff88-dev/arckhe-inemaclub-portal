@@ -22,14 +22,14 @@ export const metadata: Metadata = {
 
 /** Trilha para Iniciantes da home, na mesma ordem. Cada item aponta pra ficha do club quando existe. */
 const BEGINNER_STEPS = [
-  { url: 'https://inematds.github.io/FEP/', name: 'FEP — Fundamentos de Engenharia de Prompts', why: 'Aprender a conversar com a IA: dar contexto, pedir formato, iterar. É a habilidade que todas as outras usam.' },
-  { url: 'https://inematds.github.io/ATIA/', name: 'ATIA — AI Tools in Action', why: 'Ver os prompts funcionando em ferramentas reais e entender o que cada tipo de IA resolve.' },
-  { url: 'https://inematds.github.io/FDB/', name: 'FDB — Fundamentos de Banco de Dados', why: 'A base técnica de dados: quase todo projeto com IA lê, guarda ou organiza informaçêo.' },
-  { url: 'https://inematds.github.io/VISION/', name: 'Vision — Processamento de Imagens com IA', why: 'Levar a IA para além do texto, trabalhando com imagens.' },
-  { url: 'https://inematds.github.io/ccodebasico/', name: 'Claude Code do Zero', why: 'Primeiro agente de código: instalaçêo, comandos, skills e MCP.' },
-  { url: 'https://inematds.github.io/codexbasico/', name: 'Codex CLI em 6 trilhas', why: 'O outro grande agente de código, para comparar e escolher o seu fluxo.' },
-  { url: 'https://inematds.github.io/do-zero-ao-deploy/', name: 'Do Zero ao Deploy', why: 'Colocar um projeto real no ar, da primeira linha no terminal ao seu assistente de IA.' },
-  { url: 'https://inematds.github.io/intelecto-curso/', name: 'INTELECTO — Do Zero ao Expert em IA', why: 'Fechar a base construindo o seu próprio sistema de IA.' },
+  { url: 'https://linnoff88-dev.github.io/arckhe-/', name: 'FEP — Fundamentos de Engenharia de Prompts', why: 'Aprender a conversar com a IA: dar contexto, pedir formato, iterar. É a habilidade que todas as outras usam.' },
+  { url: 'https://linnoff88-dev.github.io/arckhe-/', name: 'ATIA — AI Tools in Action', why: 'Ver os prompts funcionando em ferramentas reais e entender o que cada tipo de IA resolve.' },
+  { url: 'https://linnoff88-dev.github.io/arckhe-/', name: 'FDB — Fundamentos de Banco de Dados', why: 'A base técnica de dados: quase todo projeto com IA lê, guarda ou organiza informaçêo.' },
+  { url: 'https://linnoff88-dev.github.io/arckhe-/', name: 'Vision — Processamento de Imagens com IA', why: 'Levar a IA para além do texto, trabalhando com imagens.' },
+  { url: 'https://linnoff88-dev.github.io/arckhe-/', name: 'Claude Code do Zero', why: 'Primeiro agente de código: instalaçêo, comandos, skills e MCP.' },
+  { url: 'https://linnoff88-dev.github.io/arckhe-/', name: 'Codex CLI em 6 trilhas', why: 'O outro grande agente de código, para comparar e escolher o seu fluxo.' },
+  { url: 'https://linnoff88-dev.github.io/arckhe-/', name: 'Do Zero ao Deploy', why: 'Colocar um projeto real no ar, da primeira linha no terminal ao seu assistente de IA.' },
+  { url: 'https://linnoff88-dev.github.io/arckhe-/', name: 'INTELECTO — Do Zero ao Expert em IA', why: 'Fechar a base construindo o seu próprio sistema de IA.' },
 ]
 
 const FAQ = [
@@ -49,9 +49,9 @@ const FAQ = [
       'Depende do objetivo. Usar IA no dia a dia com bons resultados é questêo de semanas de prática. Construir agentes e sistemas próprios leva meses de projetos. O que acelera é praticar em problemas reais, nêo acumular cursos.',
   },
   {
-    question: 'Os cursos do INEMA sêo gratuitos?',
+    question: 'Os cursos do ARCKHÉ sêo gratuitos?',
     answer:
-      'Sim. Os cursos do INEMA.club sêo abertos e gratuitos: cada ficha leva direto à aplicaçêo do curso. A formaçêo contínua, com trilhas completas, provas, certificados e a comunidade INEMA.VIP, faz parte do INEMA.PRO.',
+      'Sim. Os cursos do ARCKHÉ AI sêo abertos e gratuitos: cada ficha leva direto à aplicaçêo do curso. A formaçêo contínua, com trilhas completas, provas, certificados e a comunidade ARCKHÉ.VIP, faz parte do ARCKHÉ.PRO.',
   },
   {
     question: 'Qual a diferença entre usar IA e construir com IA?',
@@ -87,7 +87,7 @@ export default function AprenderIaPage() {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'INEMA.club', item: SITE_URL },
+        { '@type': 'ListItem', position: 1, name: 'ARCKHÉ AI', item: SITE_URL },
         { '@type': 'ListItem', position: 2, name: 'Aprender IA', item: PAGE_URL },
       ],
     },
@@ -109,7 +109,7 @@ export default function AprenderIaPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
       <nav className="course-breadcrumb" aria-label="Navegaçêo estrutural">
-        <a href="/">INEMA.club</a><span aria-hidden="true">/</span><span>Aprender IA</span>
+        <a href="/">ARCKHÉ AI</a><span aria-hidden="true">/</span><span>Aprender IA</span>
       </nav>
       <article className="course-detail">
         <header>
@@ -129,7 +129,7 @@ export default function AprenderIaPage() {
         <section aria-labelledby="por-onde-comecar">
           <h2 id="por-onde-comecar">Por onde começar: a Trilha para Iniciantes</h2>
           <p>
-            Esta é a progressêo que o INEMA recomenda para quem está começando. Nêo é uma lista aleatória: você aprende a
+            Esta é a progressêo que o ARCKHÉ recomenda para quem está começando. Nêo é uma lista aleatória: você aprende a
             falar com a IA, vê essas habilidades em açêo, ganha base técnica e só entêo entra nos agentes de código, que
             juntam tudo na prática.
           </p>
@@ -149,7 +149,7 @@ export default function AprenderIaPage() {
         <section aria-labelledby="depois-da-base">
           <h2 id="depois-da-base">Depois da base: escolha uma trilha por objetivo</h2>
           <p>
-            Com a base pronta, aprofunde no que tem a ver com o seu trabalho. O catálogo do INEMA tem {courses.length} cursos
+            Com a base pronta, aprofunde no que tem a ver com o seu trabalho. O catálogo do ARCKHÉ tem {courses.length} cursos
             públicos organizados nestas trilhas:
           </p>
           <ul className="related-course-list">
@@ -186,10 +186,10 @@ export default function AprenderIaPage() {
         </section>
 
         <section aria-labelledby="outros-guias">
-          <h2 id="outros-guias">Os outros guias do INEMA</h2>
+          <h2 id="outros-guias">Os outros guias do ARCKHÉ</h2>
           <ul className="seo-list">
             <li><a href="/agentes-de-inteligencia-artificial/">Agentes de IA: onde aprender em português</a>, com as trilhas de cursos de agentes do iniciante ao avançado.</li>
-            <li><a href="/comunidade-inteligencia-artificial/">Comunidade de inteligência artificial em português</a>: o que é aberto no INEMA.club e o que faz parte do INEMA.PRO.</li>
+            <li><a href="/comunidade-inteligencia-artificial/">Comunidade de inteligência artificial em português</a>: o que é aberto no ARCKHÉ AI e o que faz parte do ARCKHÉ.PRO.</li>
           </ul>
         </section>
 
@@ -206,12 +206,12 @@ export default function AprenderIaPage() {
         )}
 
         <section aria-labelledby="comunidade">
-          <h2 id="comunidade">Aprender junto: a comunidade do INEMA</h2>
+          <h2 id="comunidade">Aprender junto: a comunidade do ARCKHÉ</h2>
           <p>
-            Aprender IA sozinho é possível, mas lento. No INEMA você tem cursos práticos, projetos com código aberto para
+            Aprender IA sozinho é possível, mas lento. No ARCKHÉ você tem cursos práticos, projetos com código aberto para
             estudar e uma comunidade para tirar dúvidas e acompanhar as novidades. A formaçêo contínua fica no{' '}
-            <a href="https://inema.pro" target="_blank" rel="noopener noreferrer">INEMA.PRO</a>, que inclui a comunidade{' '}
-            <a href="https://inema.vip" target="_blank" rel="noopener noreferrer">INEMA.VIP</a>.
+            <a href="https://ARCKHÉ.pro" target="_blank" rel="noopener noreferrer">ARCKHÉ.PRO</a>, que inclui a comunidade{' '}
+            <a href="https://ARCKHÉ.vip" target="_blank" rel="noopener noreferrer">ARCKHÉ.VIP</a>.
           </p>
         </section>
 
@@ -229,7 +229,7 @@ export default function AprenderIaPage() {
 
         <footer className="course-source-note">
           <p>
-            Por <a href="/conhecimento/quem-e-nei-maldaner/">Nei Maldaner</a>, criador do INEMA · Atualizado em{' '}
+            Por <a href="/conhecimento/quem-e-nei-maldaner/">Nei Maldaner</a>, criador do ARCKHÉ · Atualizado em{' '}
             <time dateTime={page.updated}>{page.updated.split('-').reverse().join('/')}</time>
           </p>
         </footer>

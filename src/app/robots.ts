@@ -12,10 +12,10 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    host: 'https://www.inema.club',
+    host: 'https://www.ARCKHÉ AI',
     sitemap: [
-      'https://www.inema.club/sitemap.xml',
-      'https://www.inema.club/courses-sitemap.xml',
+      'https://www.ARCKHÉ AI/sitemap.xml',
+      'https://www.ARCKHÉ AI/courses-sitemap.xml',
     ],
   }
 }

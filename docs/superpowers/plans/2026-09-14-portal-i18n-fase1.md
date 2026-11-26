@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Publicar `inema.club/en/` e `inema.club/es/` como versões da home com interface, metadados e chat no idioma do visitante, mantendo um único repo, um único deploy e os dados de cursos/projetos intocados.
+**Goal:** Publicar `ARCKHÉ AI/en/` e `ARCKHÉ AI/es/` como versões da home com interface, metadados e chat no idioma do visitante, mantendo um único repo, um único deploy e os dados de cursos/projetos intocados.
 
 **Architecture:** A home continua sendo o `Portal.tsx`, que passa a receber `locale` e a ler os textos de interface de dicionários JSON (`src/i18n/messages/{pt,en,es}.json`). Como o `<html lang>` só pode ser trocado em root layout, o app passa a ter três root layouts via route groups (`app/(pt)`, `app/(en)/en`, `app/(es)/es`) compartilhando um `RootShell`. Os cursos e projetos seguem em português (modelo híbrido): cards ganham um selo "PT" nas versões EN/ES, e uma seçêo nova "Disponível em inglês/espanhol" lista os cursos já traduzidos (lista vazia no início, cresce nas fases seguintes).
 
@@ -32,7 +32,7 @@
 | `src/i18n/messages/pt.json`, `en.json`, `es.json` | Dicionários de interface. Mesmas chaves nos três. |
 | `src/i18n/dictionary.ts` | `getDictionary(locale)` tipado a partir do `pt.json`. |
 | `tests/i18n.test.mjs` | Paridade de chaves entre os três JSON e ausência de valores vazios. |
-| `src/components/RootShell.tsx` | `<html lang>` + `<head>` (origin trial, Plausible) + `<body>` com `InemaWebMCP` e `AgenteChat`. Usado pelos três root layouts. |
+| `src/components/RootShell.tsx` | `<html lang>` + `<head>` (origin trial, Plausible) + `<body>` com `ARCKHÉWebMCP` e `AgenteChat`. Usado pelos três root layouts. |
 | `src/lib/root-metadata.ts` | `buildRootMetadata(locale)` com título, descriçêo, OpenGraph, Twitter e `alternates.languages` (hreflang). |
 | `src/lib/home-page.ts` | `getVisitStats()` e `buildHomeJsonLd(locale)` (extraídos do `page.tsx` atual). |
 | `src/components/HomePage.tsx` | Server component: busca stats, injeta JSON-LD, renderiza `<Portal locale=... />`. |
@@ -150,8 +150,8 @@ Os valores sêo os textos que hoje estêo hardcoded no `Portal.tsx` (linhas 428�
   "langSwitcher": { "label": "Idioma" },
   "header": {
     "communityBadge": "Participe da Comunidade",
-    "proBadge": "Assine o INEMA.PRO",
-    "logo": "INEMA.CLUB Portal INEMA",
+    "proBadge": "Assine o ARCKHÉ.PRO",
+    "logo": "ARCKHÉ AI Portal ARCKHÉ",
     "tagline": "Acesso centralizado aos seus cursos e plataformas",
     "chipVisits": "acessos",
     "chipUnique": "visitantes únicos",
@@ -165,17 +165,17 @@ Os valores sêo os textos que hoje estêo hardcoded no `Portal.tsx` (linhas 428�
     "projects": "🚀 Projetos",
     "telegram": "💬 Telegram",
     "social": "📱 Social",
-    "pro": "⭐ INEMA.PRO"
+    "pro": "⭐ ARCKHÉ.PRO"
   },
   "hero": {
-    "imageAlt": "INEMA.CLUB — Aprenda. Pratique. Evolua. O ecossistema para dominar IA na prática.",
+    "imageAlt": "ARCKHÉ AI — Aprenda. Pratique. Evolua. O ecossistema para dominar IA na prática.",
     "caption": "Aprenda. Pratique. Evolua. — uma base sólida de conhecimento em IA, para aplicar no trabalho, nos projetos e na carreira.",
     "title": "Construa uma base sólida de conhecimento em IA.",
-    "body": "O INEMA Club é um ecossistema de aprendizado prático para quem quer dominar inteligência artificial e aplicar IA no trabalho, nos projetos e na carreira. A ideia central é simples: aprender, praticar e evoluir com IA de forma contínua."
+    "body": "O ARCKHÉ Club é um ecossistema de aprendizado prático para quem quer dominar inteligência artificial e aplicar IA no trabalho, nos projetos e na carreira. A ideia central é simples: aprender, praticar e evoluir com IA de forma contínua."
   },
   "search": {
     "title": "O que você quer aprender hoje?",
-    "body": "Pesquise os cursos públicos do INEMA por tema, ferramenta ou objetivo. Mesmo sem WebMCP, você pode continuar manualmente pelo catálogo.",
+    "body": "Pesquise os cursos públicos do ARCKHÉ por tema, ferramenta ou objetivo. Mesmo sem WebMCP, você pode continuar manualmente pelo catálogo.",
     "label": "Tema ou objetivo",
     "placeholder": "Ex.: WebMCP, agentes, automaçêo",
     "button": "Buscar cursos",
@@ -185,10 +185,10 @@ Os valores sêo os textos que hoje estêo hardcoded no `Portal.tsx` (linhas 428�
     "gestao2027Alt": "Gestêo de Agentes 2027 — o novo papel das empresas. Mesma liderança, uma nova força de trabalho: humanos + agentes = mais valor.",
     "agiAlt": "AGI chegou — nêo é mais sobre fazer tudo, é sobre comandar agentes. A era dos super-agentes começou.",
     "content2videoAlt": "Content2Video — um link entra, um vídeo sai",
-    "webmcpAlt": "WebMCP — evento INEMA",
-    "musicavideoAlt": "INEMA MUSICAVIDEO — crie músicas e clipes em escala, de ideia ao hit",
-    "destaqueAlt": "Curso INEMACCBOT com Promoavatar",
-    "eventoAlt": "Evento INEMA"
+    "webmcpAlt": "WebMCP — evento ARCKHÉ",
+    "musicavideoAlt": "ARCKHÉ MUSICAVIDEO — crie músicas e clipes em escala, de ideia ao hit",
+    "destaqueAlt": "Curso ARCKHÉCCBOT com Promoavatar",
+    "eventoAlt": "Evento ARCKHÉ"
   },
   "beginners": {
     "title": "Trilha para Iniciantes",
@@ -208,7 +208,7 @@ Os valores sêo os textos que hoje estêo hardcoded no `Portal.tsx` (linhas 428�
     "title": "Últimas Novidades",
     "more": "Ver mais",
     "less": "Ver menos",
-    "readVip": "Ler no INEMA.VIP →",
+    "readVip": "Ler no ARCKHÉ.VIP →",
     "openLink": "Abrir link →",
     "ptNote": "Conteúdo em português."
   },
@@ -223,24 +223,24 @@ Os valores sêo os textos que hoje estêo hardcoded no `Portal.tsx` (linhas 428�
     "liberalAlt": "Profissional Liberal Experiente com IA",
     "gestorAlt": "Gestor e Líder — lidere melhor com IA"
   },
-  "proBanner": { "alt": "INEMA.PRO — A plataforma para quem quer usar IA para crescer na prática" },
+  "proBanner": { "alt": "ARCKHÉ.PRO — A plataforma para quem quer usar IA para crescer na prática" },
   "trails": {
-    "title": "Trilhas de Aprendizado do INEMA.PRO",
-    "subtitle": "Escolha seu caminho e avance com foco — o conteúdo completo de cada trilha está no INEMA.PRO"
+    "title": "Trilhas de Aprendizado do ARCKHÉ.PRO",
+    "subtitle": "Escolha seu caminho e avance com foco — o conteúdo completo de cada trilha está no ARCKHÉ.PRO"
   },
   "projects": {
     "title": "Projetos",
-    "subtitle": "Projetos desenvolvidos pela INEMA — prontos para baixar e usar",
+    "subtitle": "Projetos desenvolvidos pela ARCKHÉ — prontos para baixar e usar",
     "ctaLine": "projetos prontos para baixar e usar",
-    "ctaBody": "Aplicativos, agentes, skills e ferramentas construídos pela comunidade INEMA, com código e guia de uso."
+    "ctaBody": "Aplicativos, agentes, skills e ferramentas construídos pela comunidade ARCKHÉ, com código e guia de uso."
   },
   "translated": {
     "title": "Disponível em português",
-    "subtitle": "Cursos e projetos do INEMA já publicados neste idioma",
+    "subtitle": "Cursos e projetos do ARCKHÉ já publicados neste idioma",
     "empty": "Estamos traduzindo o catálogo. Os primeiros cursos neste idioma aparecem aqui assim que forem publicados."
   },
   "banners": {
-    "clubAlt": "INEMA.CLUB",
+    "clubAlt": "ARCKHÉ AI",
     "teamAlt": "Crie sua equipe. Lidere o futuro."
   },
   "telegram": {
@@ -248,16 +248,16 @@ Os valores sêo os textos que hoje estêo hardcoded no `Portal.tsx` (linhas 428�
     "subtitle": "Junte-se à nossa comunidade de aprendizado"
   },
   "vip": {
-    "alt": "INEMA.VIP - Você foi convidado para a comunidade",
-    "title": "INEMA.VIP",
+    "alt": "ARCKHÉ.VIP - Você foi convidado para a comunidade",
+    "title": "ARCKHÉ.VIP",
     "description": "Um espaço de autoaprendizado e transformaçêo com IA e Humanoides",
     "badge": "Faça seu Cadastro →"
   },
   "social": {
-    "title": "Redes Sociais INEMA",
+    "title": "Redes Sociais ARCKHÉ",
     "subtitle": "Siga-nos nas principais plataformas"
   },
-  "footer": { "copyright": "© 2025 Portal INEMA. Todos os direitos reservados." }
+  "footer": { "copyright": "© 2025 Portal ARCKHÉ. Todos os direitos reservados." }
 }
 ```
 
@@ -270,8 +270,8 @@ Se, ao executar a Task 3, aparecer um texto visível em PT que nêo está aqui (
   "langSwitcher": { "label": "Language" },
   "header": {
     "communityBadge": "Join the Community",
-    "proBadge": "Subscribe to INEMA.PRO",
-    "logo": "INEMA.CLUB Portal INEMA",
+    "proBadge": "Subscribe to ARCKHÉ.PRO",
+    "logo": "ARCKHÉ AI Portal ARCKHÉ",
     "tagline": "One place for all your courses and platforms",
     "chipVisits": "visits",
     "chipUnique": "unique visitors",
@@ -285,17 +285,17 @@ Se, ao executar a Task 3, aparecer um texto visível em PT que nêo está aqui (
     "projects": "🚀 Projects",
     "telegram": "💬 Telegram",
     "social": "📱 Social",
-    "pro": "⭐ INEMA.PRO"
+    "pro": "⭐ ARCKHÉ.PRO"
   },
   "hero": {
-    "imageAlt": "INEMA.CLUB — Learn. Practice. Evolve. The ecosystem for mastering AI in practice.",
+    "imageAlt": "ARCKHÉ AI — Learn. Practice. Evolve. The ecosystem for mastering AI in practice.",
     "caption": "Learn. Practice. Evolve. — a solid AI knowledge base to apply at work, in projects and in your career.",
     "title": "Build a solid foundation of AI knowledge.",
-    "body": "INEMA Club is a hands-on learning ecosystem for people who want to master artificial intelligence and apply it at work, in projects and in their careers. The core idea is simple: learn, practice and evolve with AI continuously."
+    "body": "ARCKHÉ Club is a hands-on learning ecosystem for people who want to master artificial intelligence and apply it at work, in projects and in their careers. The core idea is simple: learn, practice and evolve with AI continuously."
   },
   "search": {
     "title": "What do you want to learn today?",
-    "body": "Search INEMA's public courses by topic, tool or goal. Even without WebMCP you can browse the catalog manually.",
+    "body": "Search ARCKHÉ's public courses by topic, tool or goal. Even without WebMCP you can browse the catalog manually.",
     "label": "Topic or goal",
     "placeholder": "E.g.: WebMCP, agents, automation",
     "button": "Search courses",
@@ -305,10 +305,10 @@ Se, ao executar a Task 3, aparecer um texto visível em PT que nêo está aqui (
     "gestao2027Alt": "Agent Management 2027 — the new role of companies. Same leadership, a new workforce: humans + agents = more value.",
     "agiAlt": "AGI has arrived — it is no longer about doing everything, it is about commanding agents. The era of super-agents has begun.",
     "content2videoAlt": "Content2Video — a link goes in, a video comes out",
-    "webmcpAlt": "WebMCP — INEMA event",
-    "musicavideoAlt": "INEMA MUSICAVIDEO — create songs and music videos at scale, from idea to hit",
-    "destaqueAlt": "INEMACCBOT course with Promoavatar",
-    "eventoAlt": "INEMA event"
+    "webmcpAlt": "WebMCP — ARCKHÉ event",
+    "musicavideoAlt": "ARCKHÉ MUSICAVIDEO — create songs and music videos at scale, from idea to hit",
+    "destaqueAlt": "ARCKHÉCCBOT course with Promoavatar",
+    "eventoAlt": "ARCKHÉ event"
   },
   "beginners": {
     "title": "Beginner Path",
@@ -328,7 +328,7 @@ Se, ao executar a Task 3, aparecer um texto visível em PT que nêo está aqui (
     "title": "Latest News",
     "more": "Show more",
     "less": "Show less",
-    "readVip": "Read on INEMA.VIP →",
+    "readVip": "Read on ARCKHÉ.VIP →",
     "openLink": "Open link →",
     "ptNote": "Content in Portuguese."
   },
@@ -343,24 +343,24 @@ Se, ao executar a Task 3, aparecer um texto visível em PT que nêo está aqui (
     "liberalAlt": "Experienced Independent Professional with AI",
     "gestorAlt": "Manager and Leader — lead better with AI"
   },
-  "proBanner": { "alt": "INEMA.PRO — The platform for people who want to use AI to grow in practice" },
+  "proBanner": { "alt": "ARCKHÉ.PRO — The platform for people who want to use AI to grow in practice" },
   "trails": {
-    "title": "INEMA.PRO Learning Paths",
-    "subtitle": "Choose your path and move forward with focus — the full content of each path is on INEMA.PRO"
+    "title": "ARCKHÉ.PRO Learning Paths",
+    "subtitle": "Choose your path and move forward with focus — the full content of each path is on ARCKHÉ.PRO"
   },
   "projects": {
     "title": "Projects",
-    "subtitle": "Projects built by INEMA — ready to download and use",
+    "subtitle": "Projects built by ARCKHÉ — ready to download and use",
     "ctaLine": "projects ready to download and use",
-    "ctaBody": "Apps, agents, skills and tools built by the INEMA community, with code and a usage guide."
+    "ctaBody": "Apps, agents, skills and tools built by the ARCKHÉ community, with code and a usage guide."
   },
   "translated": {
     "title": "Available in English",
-    "subtitle": "INEMA courses and projects already published in this language",
+    "subtitle": "ARCKHÉ courses and projects already published in this language",
     "empty": "We are translating the catalog. The first courses in this language will appear here as soon as they are published."
   },
   "banners": {
-    "clubAlt": "INEMA.CLUB",
+    "clubAlt": "ARCKHÉ AI",
     "teamAlt": "Build your team. Lead the future."
   },
   "telegram": {
@@ -368,16 +368,16 @@ Se, ao executar a Task 3, aparecer um texto visível em PT que nêo está aqui (
     "subtitle": "Join our learning community"
   },
   "vip": {
-    "alt": "INEMA.VIP - You are invited to the community",
-    "title": "INEMA.VIP",
+    "alt": "ARCKHÉ.VIP - You are invited to the community",
+    "title": "ARCKHÉ.VIP",
     "description": "A space for self-directed learning and transformation with AI and Humanoids",
     "badge": "Sign up →"
   },
   "social": {
-    "title": "INEMA Social Media",
+    "title": "ARCKHÉ Social Media",
     "subtitle": "Follow us on the main platforms"
   },
-  "footer": { "copyright": "© 2025 Portal INEMA. All rights reserved." }
+  "footer": { "copyright": "© 2025 Portal ARCKHÉ. All rights reserved." }
 }
 ```
 
@@ -388,8 +388,8 @@ Se, ao executar a Task 3, aparecer um texto visível em PT que nêo está aqui (
   "langSwitcher": { "label": "Idioma" },
   "header": {
     "communityBadge": "Únete a la Comunidad",
-    "proBadge": "Suscríbete a INEMA.PRO",
-    "logo": "INEMA.CLUB Portal INEMA",
+    "proBadge": "Suscríbete a ARCKHÉ.PRO",
+    "logo": "ARCKHÉ AI Portal ARCKHÉ",
     "tagline": "Acceso centralizado a tus cursos y plataformas",
     "chipVisits": "accesos",
     "chipUnique": "visitantes únicos",
@@ -403,17 +403,17 @@ Se, ao executar a Task 3, aparecer um texto visível em PT que nêo está aqui (
     "projects": "🚀 Proyectos",
     "telegram": "💬 Telegram",
     "social": "📱 Social",
-    "pro": "⭐ INEMA.PRO"
+    "pro": "⭐ ARCKHÉ.PRO"
   },
   "hero": {
-    "imageAlt": "INEMA.CLUB — Aprende. Practica. Evoluciona. El ecosistema para dominar la IA en la práctica.",
+    "imageAlt": "ARCKHÉ AI — Aprende. Practica. Evoluciona. El ecosistema para dominar la IA en la práctica.",
     "caption": "Aprende. Practica. Evoluciona. — una base sólida de conocimiento en IA para aplicar en el trabajo, en los proyectos y en la carrera.",
     "title": "Construye una base sólida de conocimiento en IA.",
-    "body": "INEMA Club es un ecosistema de aprendizaje práctico para quienes quieren dominar la inteligencia artificial y aplicarla en el trabajo, en los proyectos y en la carrera. La idea central es simple: aprender, practicar y evolucionar con IA de forma continua."
+    "body": "ARCKHÉ Club es un ecosistema de aprendizaje práctico para quienes quieren dominar la inteligencia artificial y aplicarla en el trabajo, en los proyectos y en la carrera. La idea central es simple: aprender, practicar y evolucionar con IA de forma continua."
   },
   "search": {
     "title": "¿Qué quieres aprender hoy?",
-    "body": "Busca los cursos públicos de INEMA por tema, herramienta u objetivo. Incluso sin WebMCP puedes seguir manualmente por el catálogo.",
+    "body": "Busca los cursos públicos de ARCKHÉ por tema, herramienta u objetivo. Incluso sin WebMCP puedes seguir manualmente por el catálogo.",
     "label": "Tema u objetivo",
     "placeholder": "Ej.: WebMCP, agentes, automatización",
     "button": "Buscar cursos",
@@ -423,10 +423,10 @@ Se, ao executar a Task 3, aparecer um texto visível em PT que nêo está aqui (
     "gestao2027Alt": "Gestión de Agentes 2027 — el nuevo papel de las empresas. El mismo liderazgo, una nueva fuerza de trabajo: humanos + agentes = más valor.",
     "agiAlt": "La AGI llegó — ya no se trata de hacerlo todo, sino de comandar agentes. La era de los superagentes ha comenzado.",
     "content2videoAlt": "Content2Video — entra un enlace, sale un video",
-    "webmcpAlt": "WebMCP — evento INEMA",
-    "musicavideoAlt": "INEMA MUSICAVIDEO — crea canciones y videoclips a escala, de la idea al hit",
-    "destaqueAlt": "Curso INEMACCBOT con Promoavatar",
-    "eventoAlt": "Evento INEMA"
+    "webmcpAlt": "WebMCP — evento ARCKHÉ",
+    "musicavideoAlt": "ARCKHÉ MUSICAVIDEO — crea canciones y videoclips a escala, de la idea al hit",
+    "destaqueAlt": "Curso ARCKHÉCCBOT con Promoavatar",
+    "eventoAlt": "Evento ARCKHÉ"
   },
   "beginners": {
     "title": "Ruta para Principiantes",
@@ -446,7 +446,7 @@ Se, ao executar a Task 3, aparecer um texto visível em PT que nêo está aqui (
     "title": "Últimas Novedades",
     "more": "Ver más",
     "less": "Ver menos",
-    "readVip": "Leer en INEMA.VIP →",
+    "readVip": "Leer en ARCKHÉ.VIP →",
     "openLink": "Abrir enlace →",
     "ptNote": "Contenido en portugués."
   },
@@ -461,24 +461,24 @@ Se, ao executar a Task 3, aparecer um texto visível em PT que nêo está aqui (
     "liberalAlt": "Profesional Independiente Experimentado con IA",
     "gestorAlt": "Gestor y Líder — lidera mejor con IA"
   },
-  "proBanner": { "alt": "INEMA.PRO — La plataforma para quienes quieren usar la IA para crecer en la práctica" },
+  "proBanner": { "alt": "ARCKHÉ.PRO — La plataforma para quienes quieren usar la IA para crecer en la práctica" },
   "trails": {
-    "title": "Rutas de Aprendizaje de INEMA.PRO",
-    "subtitle": "Elige tu camino y avanza con foco — el contenido completo de cada ruta está en INEMA.PRO"
+    "title": "Rutas de Aprendizaje de ARCKHÉ.PRO",
+    "subtitle": "Elige tu camino y avanza con foco — el contenido completo de cada ruta está en ARCKHÉ.PRO"
   },
   "projects": {
     "title": "Proyectos",
-    "subtitle": "Proyectos desarrollados por INEMA — listos para descargar y usar",
+    "subtitle": "Proyectos desarrollados por ARCKHÉ — listos para descargar y usar",
     "ctaLine": "proyectos listos para descargar y usar",
-    "ctaBody": "Aplicaciones, agentes, skills y herramientas construidos por la comunidad INEMA, con código y guía de uso."
+    "ctaBody": "Aplicaciones, agentes, skills y herramientas construidos por la comunidad ARCKHÉ, con código y guía de uso."
   },
   "translated": {
     "title": "Disponible en español",
-    "subtitle": "Cursos y proyectos de INEMA ya publicados en este idioma",
+    "subtitle": "Cursos y proyectos de ARCKHÉ ya publicados en este idioma",
     "empty": "Estamos traduciendo el catálogo. Los primeros cursos en este idioma aparecerán aquí en cuanto se publiquen."
   },
   "banners": {
-    "clubAlt": "INEMA.CLUB",
+    "clubAlt": "ARCKHÉ AI",
     "teamAlt": "Crea tu equipo. Lidera el futuro."
   },
   "telegram": {
@@ -486,16 +486,16 @@ Se, ao executar a Task 3, aparecer um texto visível em PT que nêo está aqui (
     "subtitle": "Únete a nuestra comunidad de aprendizaje"
   },
   "vip": {
-    "alt": "INEMA.VIP - Has sido invitado a la comunidad",
-    "title": "INEMA.VIP",
+    "alt": "ARCKHÉ.VIP - Has sido invitado a la comunidad",
+    "title": "ARCKHÉ.VIP",
     "description": "Un espacio de autoaprendizaje y transformación con IA y Humanoides",
     "badge": "Regístrate →"
   },
   "social": {
-    "title": "Redes Sociales INEMA",
+    "title": "Redes Sociales ARCKHÉ",
     "subtitle": "Síguenos en las principales plataformas"
   },
-  "footer": { "copyright": "© 2025 Portal INEMA. Todos los derechos reservados." }
+  "footer": { "copyright": "© 2025 Portal ARCKHÉ. Todos los derechos reservados." }
 }
 ```
 
@@ -560,7 +560,7 @@ Por que route groups: um layout aninhado (`app/en/layout.tsx`) nêo consegue tro
 ```tsx
 import Script from 'next/script'
 import AgenteChat from '@/components/AgenteChat/AgenteChat'
-import InemaWebMCP from '@/components/InemaWebMCP'
+import ARCKHÉWebMCP from '@/components/ARCKHÉWebMCP'
 import '@/app/globals.css'
 
 export default function RootShell({ lang, children }: { lang: string; children: React.ReactNode }) {
@@ -587,7 +587,7 @@ export default function RootShell({ lang, children }: { lang: string; children: 
       </head>
       <body>
         {children}
-        <InemaWebMCP />
+        <ARCKHÉWebMCP />
         <AgenteChat />
       </body>
     </html>
@@ -606,18 +606,18 @@ import { OG_LOCALE, localeHome, type Locale } from '@/i18n/locales'
 
 const TITLES: Record<Locale, { title: string; og: string; description: string }> = {
   pt: {
-    title: 'INEMA.club — Cursos, projetos e formaçêo prática em IA',
-    og: 'INEMA.club — Aprenda, pratique e evolua com IA',
+    title: 'ARCKHÉ AI — Cursos, projetos e formaçêo prática em IA',
+    og: 'ARCKHÉ AI — Aprenda, pratique e evolua com IA',
     description: 'Formaçêo prática em inteligência artificial, agentes e automaçêo.',
   },
   en: {
-    title: 'INEMA.club — Courses, projects and hands-on AI training',
-    og: 'INEMA.club — Learn, practice and evolve with AI',
+    title: 'ARCKHÉ AI — Courses, projects and hands-on AI training',
+    og: 'ARCKHÉ AI — Learn, practice and evolve with AI',
     description: 'Hands-on training in artificial intelligence, agents and automation.',
   },
   es: {
-    title: 'INEMA.club — Cursos, proyectos y formación práctica en IA',
-    og: 'INEMA.club — Aprende, practica y evoluciona con IA',
+    title: 'ARCKHÉ AI — Cursos, proyectos y formación práctica en IA',
+    og: 'ARCKHÉ AI — Aprende, practica y evoluciona con IA',
     description: 'Formación práctica en inteligencia artificial, agentes y automatización.',
   },
 }
@@ -649,7 +649,7 @@ export function buildRootMetadata(locale: Locale): Metadata {
       description: t.description,
       images: [
         {
-          url: '/doc/inema-hero-aprenda-pratique-evolua.webp',
+          url: '/doc/ARCKHÉ-hero-aprenda-pratique-evolua.webp',
           width: 1200,
           height: 675,
           alt: t.og,
@@ -660,7 +660,7 @@ export function buildRootMetadata(locale: Locale): Metadata {
       card: 'summary_large_image',
       title: t.og,
       description: t.description,
-      images: ['/doc/inema-hero-aprenda-pratique-evolua.webp'],
+      images: ['/doc/ARCKHÉ-hero-aprenda-pratique-evolua.webp'],
     },
     category: 'education',
   }
@@ -707,10 +707,10 @@ export function buildHomeJsonLd(locale: Locale) {
     '@context': 'https://schema.org',
     '@type': 'EducationalOrganization',
     '@id': `${SITE_URL}/#organization`,
-    name: 'INEMA.club',
-    alternateName: 'INEMA',
+    name: 'ARCKHÉ AI',
+    alternateName: 'ARCKHÉ',
     url: SITE_URL,
-    logo: `${SITE_URL}/doc/conviteinemap.png`,
+    logo: `${SITE_URL}/doc/conviteARCKHÉp.png`,
     description: SITE_DESCRIPTION,
     founder: {
       '@type': 'Person',
@@ -720,12 +720,12 @@ export function buildHomeJsonLd(locale: Locale) {
     areaServed: { '@type': 'Country', name: 'Brasil' },
     sameAs: OFFICIAL_PROFILES,
     subOrganization: [
-      { '@type': 'Organization', name: 'INEMA.pro', url: 'https://inema.pro/' },
-      { '@type': 'Organization', name: 'INEMA.VIP', url: 'https://inema.vip/' },
+      { '@type': 'Organization', name: 'ARCKHÉ.pro', url: 'https://ARCKHÉ.pro/' },
+      { '@type': 'Organization', name: 'ARCKHÉ.VIP', url: 'https://ARCKHÉ.vip/' },
     ],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'Cursos e formações do INEMA',
+      name: 'Cursos e formações do ARCKHÉ',
       url: `${SITE_URL}/cursos/`,
     },
   }
@@ -735,7 +735,7 @@ export function buildHomeJsonLd(locale: Locale) {
     '@type': 'WebSite',
     '@id': `${SITE_URL}${localeHome(locale)}#website`,
     url: `${SITE_URL}${localeHome(locale)}`,
-    name: 'INEMA.club',
+    name: 'ARCKHÉ AI',
     description: SITE_DESCRIPTION,
     publisher: { '@id': `${SITE_URL}/#organization` },
     inLanguage: HTML_LANG[locale],
@@ -745,7 +745,7 @@ export function buildHomeJsonLd(locale: Locale) {
 }
 ```
 
-Nota: para `pt`, `localeHome` devolve `/`, entêo `@id` e `url` ficam `https://www.inema.club/#website` e `https://www.inema.club/`, idênticos aos de hoje.
+Nota: para `pt`, `localeHome` devolve `/`, entêo `@id` e `url` ficam `https://www.ARCKHÉ AI/#website` e `https://www.ARCKHÉ AI/`, idênticos aos de hoje.
 
 - [ ] **Step 4: Criar `src/components/HomePage.tsx`**
 
@@ -954,11 +954,11 @@ Mapa linha → chave (linhas de referência do arquivo em 2026-09-14; localizar 
 | Texto atual | Substituir por |
 |---|---|
 | `<span>Participe da Comunidade</span>` | `<span>{t.header.communityBadge}</span>` |
-| `<span>Assine o INEMA.PRO</span>` | `<span>{t.header.proBadge}</span>` |
-| `<h1 className="logo">INEMA.CLUB Portal INEMA</h1>` | `<h1 className="logo">{t.header.logo}</h1>` |
+| `<span>Assine o ARCKHÉ.PRO</span>` | `<span>{t.header.proBadge}</span>` |
+| `<h1 className="logo">ARCKHÉ AI Portal ARCKHÉ</h1>` | `<h1 className="logo">{t.header.logo}</h1>` |
 | `<p className="tagline">Acesso centralizado…</p>` | `<p className="tagline">{t.header.tagline}</p>` |
 | `title="acessos"` / `"visitantes únicos"` / `"logados"` | `title={t.header.chipVisits}` / `{t.header.chipUnique}` / `{t.header.chipLogged}` |
-| `🔍 Buscas` … `⭐ INEMA.PRO` (8 links da section-nav) | `{t.nav.search}`, `{t.nav.beginners}`, `{t.nav.courses}`, `{t.nav.trails}`, `{t.nav.projects}`, `{t.nav.telegram}`, `{t.nav.social}`, `{t.nav.pro}` |
+| `🔍 Buscas` … `⭐ ARCKHÉ.PRO` (8 links da section-nav) | `{t.nav.search}`, `{t.nav.beginners}`, `{t.nav.courses}`, `{t.nav.trails}`, `{t.nav.projects}`, `{t.nav.telegram}`, `{t.nav.social}`, `{t.nav.pro}` |
 
 Os `label` passados ao `trackClick(...)` **nêo mudam** (sêo chaves de analytics, ficam em PT).
 
@@ -966,10 +966,10 @@ Os `label` passados ao `trackClick(...)` **nêo mudam** (sêo chaves de analytic
 
 | Texto atual | Substituir por |
 |---|---|
-| `alt="INEMA.CLUB — Aprenda. Pratique. Evolua. …"` (hero) | `alt={t.hero.imageAlt}` |
+| `alt="ARCKHÉ AI — Aprenda. Pratique. Evolua. …"` (hero) | `alt={t.hero.imageAlt}` |
 | `<strong>Aprenda. Pratique. Evolua. — uma base sólida…</strong>` | `<strong>{t.hero.caption}</strong>` |
 | `<h2>Construa uma base sólida de conhecimento em IA.</h2>` | `<h2>{t.hero.title}</h2>` |
-| `<p>O INEMA Club é um ecossistema…</p>` | `<p>{t.hero.body}</p>` |
+| `<p>O ARCKHÉ Club é um ecossistema…</p>` | `<p>{t.hero.body}</p>` |
 | `<h2 id="webmcp-course-search-title">O que você quer aprender hoje?</h2>` | `<h2 id="webmcp-course-search-title">{t.search.title}</h2>` |
 | `<p>Pesquise os cursos públicos…</p>` | `<p>{t.search.body}{locale !== 'pt' && <> {t.search.catalogNote}</>}</p>` |
 | `<label htmlFor="home-course-search">Tema ou objetivo</label>` | `<label htmlFor="home-course-search">{t.search.label}</label>` |
@@ -978,10 +978,10 @@ Os `label` passados ao `trackClick(...)` **nêo mudam** (sêo chaves de analytic
 | `alt="Gestêo de Agentes 2027 — …"` | `alt={t.events.gestao2027Alt}` |
 | `alt="AGI chegou — …"` | `alt={t.events.agiAlt}` |
 | `alt="Content2Video — …"` | `alt={t.events.content2videoAlt}` |
-| `alt="WebMCP — evento INEMA"` | `alt={t.events.webmcpAlt}` |
-| `alt="INEMA MUSICAVIDEO — …"` | `alt={t.events.musicavideoAlt}` |
-| `alt="Curso INEMACCBOT com Promoavatar"` | `alt={t.events.destaqueAlt}` |
-| `alt="Evento INEMA"` | `alt={t.events.eventoAlt}` |
+| `alt="WebMCP — evento ARCKHÉ"` | `alt={t.events.webmcpAlt}` |
+| `alt="ARCKHÉ MUSICAVIDEO — …"` | `alt={t.events.musicavideoAlt}` |
+| `alt="Curso ARCKHÉCCBOT com Promoavatar"` | `alt={t.events.destaqueAlt}` |
+| `alt="Evento ARCKHÉ"` | `alt={t.events.eventoAlt}` |
 
 Os atributos `toolname`, `tooldescription`, `toolparamdescription` do formulário WebMCP **ficam em PT** (contrato com o agente WebMCP; fora do escopo desta fase).
 
@@ -1012,7 +1012,7 @@ Os `<h4>` e `<p>` desses cards (nomes e subtítulos dos cursos) **nêo mudam**.
 |---|---|
 | `<h3>Últimas Novidades</h3>` | `<h3>{t.novidades.title}{locale !== 'pt' && <small className="lang-note"> · {t.novidades.ptNote}</small>}</h3>` |
 | `{novidadesExpanded ? 'Ver menos' : 'Ver mais'}` | `{novidadesExpanded ? t.novidades.less : t.novidades.more}` |
-| `'Ler no INEMA.VIP →' : 'Abrir link →'` | `t.novidades.readVip : t.novidades.openLink` |
+| `'Ler no ARCKHÉ.VIP →' : 'Abrir link →'` | `t.novidades.readVip : t.novidades.openLink` |
 | `<h3>Últimas Atualizações de Cursos</h3>` | `<h3>{t.updates.coursesTitle}</h3>` |
 | `{updatesExpanded ? 'Ver menos' : 'Ver mais'}` | `{updatesExpanded ? t.novidades.less : t.novidades.more}` |
 | `<h3>Últimas Atualizações de Projetos</h3>` | `<h3>{t.updates.projectsTitle}</h3>` |
@@ -1022,26 +1022,26 @@ Os `<h4>` e `<p>` desses cards (nomes e subtítulos dos cursos) **nêo mudam**.
 | `alt="Empreendedor Estratégico com IA"` | `alt={t.perfis.empreendedorAlt}` |
 | `alt="Profissional Liberal Experiente com IA"` | `alt={t.perfis.liberalAlt}` |
 | `alt="Gestor e Líder — …"` | `alt={t.perfis.gestorAlt}` |
-| `alt="INEMA.PRO — A plataforma…"` | `alt={t.proBanner.alt}` |
-| `alt="INEMA.CLUB"` (hero-banner inemac2.jpg) | `alt={t.banners.clubAlt}` |
-| `<h3>Trilhas de Aprendizado do INEMA.PRO</h3>` | `<h3>{t.trails.title}</h3>` |
+| `alt="ARCKHÉ.PRO — A plataforma…"` | `alt={t.proBanner.alt}` |
+| `alt="ARCKHÉ AI"` (hero-banner ARCKHÉc2.jpg) | `alt={t.banners.clubAlt}` |
+| `<h3>Trilhas de Aprendizado do ARCKHÉ.PRO</h3>` | `<h3>{t.trails.title}</h3>` |
 | `<p>Escolha seu caminho…</p>` | `<p>{t.trails.subtitle}</p>` |
 | `<h3>Projetos</h3>` | `<h3>{t.projects.title}</h3>` |
-| `<p>Projetos desenvolvidos pela INEMA…</p>` | `<p>{t.projects.subtitle}</p>` |
+| `<p>Projetos desenvolvidos pela ARCKHÉ…</p>` | `<p>{t.projects.subtitle}</p>` |
 | `<p>projetos prontos para baixar e usar</p>` | `<p>{t.projects.ctaLine}</p>` |
 | `<p>Aplicativos, agentes, skills…</p>` | `<p>{t.projects.ctaBody}</p>` |
 | `alt="Crie sua equipe. Lidere o futuro."` | `alt={t.banners.teamAlt}` |
 | `<h3>Grupos e Canais Telegram</h3>` | `<h3>{t.telegram.title}</h3>` |
 | `<p>Junte-se à nossa comunidade de aprendizado</p>` | `<p>{t.telegram.subtitle}</p>` |
-| `alt="INEMA.VIP - Você foi convidado…"` | `alt={t.vip.alt}` |
-| `<h2 className="featured-title">INEMA.VIP</h2>` | `<h2 className="featured-title">{t.vip.title}</h2>` |
+| `alt="ARCKHÉ.VIP - Você foi convidado…"` | `alt={t.vip.alt}` |
+| `<h2 className="featured-title">ARCKHÉ.VIP</h2>` | `<h2 className="featured-title">{t.vip.title}</h2>` |
 | `<p className="featured-description">Um espaço de autoaprendizado…</p>` | `<p className="featured-description">{t.vip.description}</p>` |
 | `<div className="featured-badge">Faça seu Cadastro →</div>` | `<div className="featured-badge">{t.vip.badge}</div>` |
-| `<h3>Redes Sociais INEMA</h3>` | `<h3>{t.social.title}</h3>` |
+| `<h3>Redes Sociais ARCKHÉ</h3>` | `<h3>{t.social.title}</h3>` |
 | `<p>Siga-nos nas principais plataformas</p>` | `<p>{t.social.subtitle}</p>` |
-| `<p>&copy; 2025 Portal INEMA. Todos os direitos reservados.</p>` | `<p>{t.footer.copyright}</p>` |
+| `<p>&copy; 2025 Portal ARCKHÉ. Todos os direitos reservados.</p>` | `<p>{t.footer.copyright}</p>` |
 
-Os títulos das oito trilhas na grade `#trilhas` (ex.: "Trilha Profissional com IA"), os nomes dos grupos Telegram, os handles sociais e o botêo da seçêo Projetos que aponta para o `inema.pro` ficam como estêo. Se o botêo de Projetos tiver texto PT visível, criar a chave `projects.ctaButton` nos três JSON e usar.
+Os títulos das oito trilhas na grade `#trilhas` (ex.: "Trilha Profissional com IA"), os nomes dos grupos Telegram, os handles sociais e o botêo da seçêo Projetos que aponta para o `ARCKHÉ.pro` ficam como estêo. Se o botêo de Projetos tiver texto PT visível, criar a chave `projects.ctaButton` nos três JSON e usar.
 
 - [ ] **Step 7: Varredura final por texto PT fora dos blocos `SHOW_DETALHES`**
 
@@ -1141,14 +1141,14 @@ git commit -m "portal: home lê dicionário por idioma, seletor PT/EN/ES e selo 
 **Interfaces:**
 - Produces: `type TranslatedItem = { id: number; kind: 'curso' | 'projeto'; locale: Exclude<Locale, 'pt'>; title: string; description: string; url: string; icon: string }`; `translatedCatalog: TranslatedItem[]`; `translatedFor(locale: Locale): TranslatedItem[]`.
 
-Fica fora de `courses.ts` de propósito: o `gen:data` nêo vê esse arquivo, e o `courses.data.json` que alimenta o PRO e o inemabuscas nêo muda. Nas fases seguintes, cada curso traduzido entra aqui com o `id` do curso original em `platformsData`.
+Fica fora de `courses.ts` de propósito: o `gen:data` nêo vê esse arquivo, e o `courses.data.json` que alimenta o PRO e o ARCKHÉbuscas nêo muda. Nas fases seguintes, cada curso traduzido entra aqui com o `id` do curso original em `platformsData`.
 
 - [ ] **Step 1: Teste**
 
 Adicionar em `tests/i18n.test.mjs`:
 
 ```js
-test('translated-courses.ts: ids únicos por locale e url github.io ou inema', () => {
+test('translated-courses.ts: ids únicos por locale e url github.io ou ARCKHÉ', () => {
   const src = readFileSync(path.join(ROOT, 'src', 'data', 'translated-courses.ts'), 'utf8')
   const entries = [...src.matchAll(/\{\s*id:\s*(\d+),\s*kind:\s*'(curso|projeto)',\s*locale:\s*'(en|es)'[^}]*url:\s*'([^']+)'/g)]
   const seen = new Set()
@@ -1156,7 +1156,7 @@ test('translated-courses.ts: ids únicos por locale e url github.io ou inema', (
     const key = `${locale}:${id}`
     assert.ok(!seen.has(key), `duplicado ${key}`)
     seen.add(key)
-    assert.match(url, /^https:\/\/(inematds\.github\.io|[a-z.]*inema\.(pro|club))\//, `url fora do padrêo: ${url}`)
+    assert.match(url, /^https:\/\/(linnoff88-dev\.github\.io|[a-z.]*ARCKHÉ\.(pro|club))\//, `url fora do padrêo: ${url}`)
   }
 })
 ```
@@ -1187,7 +1187,7 @@ export type TranslatedItem = {
 
 export const translatedCatalog: TranslatedItem[] = [
   // Exemplo do formato (remover quando entrar o primeiro real):
-  // { id: 1, kind: 'curso', locale: 'en', title: 'FEP — Prompt Engineering Fundamentals', description: 'The base course, in English.', url: 'https://inematds.github.io/FEP/en/', icon: '📝' },
+  // { id: 1, kind: 'curso', locale: 'en', title: 'FEP — Prompt Engineering Fundamentals', description: 'The base course, in English.', url: 'https://linnoff88-dev.github.io/arckhe-/en/', icon: '📝' },
 ]
 
 export function translatedFor(locale: Locale): TranslatedItem[] {
@@ -1298,21 +1298,21 @@ const WIDGET_TEXT: Record<WidgetLocale, { placeholder: string; serverError: stri
   pt: {
     placeholder: 'Pergunte alguma coisa...',
     serverError: 'Deu ruim aqui do nosso lado — tenta de novo em instantes.',
-    contactSaved: 'Contato registrado — alguém do INEMA vai falar com você.',
+    contactSaved: 'Contato registrado — alguém do ARCKHÉ vai falar com você.',
     navigating: 'Te levando pra lá...',
     offline: 'Sem conexêo com o agente agora — tenta de novo em instantes.',
   },
   en: {
     placeholder: 'Ask me anything...',
     serverError: 'Something went wrong on our side — please try again in a moment.',
-    contactSaved: 'Contact saved — someone from INEMA will reach out to you.',
+    contactSaved: 'Contact saved — someone from ARCKHÉ will reach out to you.',
     navigating: 'Taking you there...',
     offline: 'No connection to the assistant right now — please try again in a moment.',
   },
   es: {
     placeholder: 'Pregunta lo que quieras...',
     serverError: 'Algo falló de nuestro lado — inténtalo de nuevo en un momento.',
-    contactSaved: 'Contacto registrado — alguien de INEMA hablará contigo.',
+    contactSaved: 'Contacto registrado — alguien de ARCKHÉ hablará contigo.',
     navigating: 'Te llevo allí...',
     offline: 'Sin conexión con el asistente ahora — inténtalo de nuevo en un momento.',
   },
@@ -1408,7 +1408,7 @@ git commit -m "portal: chat responde no idioma da página (locale no payload, pr
 npx supabase functions deploy chat
 ```
 
-O deploy da Edge Function **nêo acontece no push**; sem esse comando o prompt em produçêo continua "responda em português". Depois do deploy, abrir `inema.club/en/` (quando o Vercel publicar), mandar "what is INEMA?" no chat e conferir resposta em inglês.
+O deploy da Edge Function **nêo acontece no push**; sem esse comando o prompt em produçêo continua "responda em português". Depois do deploy, abrir `ARCKHÉ AI/en/` (quando o Vercel publicar), mandar "what is ARCKHÉ?" no chat e conferir resposta em inglês.
 
 ---
 
@@ -1449,7 +1449,7 @@ git commit -m "portal: v0.2.0 — i18n fase 1 (PT/EN/ES), docs"
 git push
 ```
 
-"Concluído" = push entrou no `origin`. O deploy no Vercel é automático e nêo é verificado por este plano. Depois que o site subir, o usuário confere `inema.club/en/` e `inema.club/es/` no navegador.
+"Concluído" = push entrou no `origin`. O deploy no Vercel é automático e nêo é verificado por este plano. Depois que o site subir, o usuário confere `ARCKHÉ AI/en/` e `ARCKHÉ AI/es/` no navegador.
 
 ---
 

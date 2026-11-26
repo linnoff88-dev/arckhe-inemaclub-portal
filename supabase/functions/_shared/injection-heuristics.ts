@@ -6,7 +6,7 @@ const PATTERNS: Array<{ motivo: string; regex: RegExp }> = [
   { motivo: 'pedido de ignorar instruções', regex: /ignor[ea].{0,20}(instru|regra|prompt)/i },
   { motivo: 'pedido de revelar system prompt', regex: /(revele|mostre|repita|copie).{0,20}(prompt|instru)/i },
   { motivo: 'jailbreak de persona (DAN/sem regras)', regex: /\b(dan|sem regras|sem filtro|modo desenvolvedor|developer mode)\b/i },
-  { motivo: 'claim de autoridade suspeito', regex: /(sou|eu sou).{0,15}(nei maldaner|desenvolvedor|admin|equipe (do|da) inema)/i },
+  { motivo: 'claim de autoridade suspeito', regex: /(sou|eu sou).{0,15}(nei maldaner|desenvolvedor|admin|equipe (do|da) ARCKHÉ)/i },
   { motivo: 'tag de sistema falsa', regex: /\[?\s*(system|sistema)\s*\]?\s*:/i },
   { motivo: 'pedido de chave/segredo', regex: /(chave|api.?key|token|secret).{0,15}(api|openrouter|anthropic)/i },
   { motivo: 'pedido de base64/encoding de instruções', regex: /base64|rot13|hex encod/i },

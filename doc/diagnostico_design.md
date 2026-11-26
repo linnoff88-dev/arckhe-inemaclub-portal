@@ -1,4 +1,4 @@
-# Diagnóstico de Design — Portal INEMA.CLUB
+# Diagnóstico de Design — Portal ARCKHÉ AI
 **Data:** 2026-03-02
 **Referência de elite analisada:** adapta.org
 **Avaliador:** Claude Sonnet 4.6 (análise de designer sênior)
@@ -7,7 +7,7 @@
 
 ## Resumo Executivo
 
-O portal INEMA possui uma base técnica sólida (Next.js, Supabase, componentes bem estruturados) e uma identidade visual funcional. Porém, quando comparado ao benchmark adapta.org — considerado o estado da arte do webdesign educacional brasileiro — há lacunas significativas em sofisticaçêo visual, hierarquia tipográfica, identidade de marca e experiência do usuário.
+O portal ARCKHÉ possui uma base técnica sólida (Next.js, Supabase, componentes bem estruturados) e uma identidade visual funcional. Porém, quando comparado ao benchmark adapta.org — considerado o estado da arte do webdesign educacional brasileiro — há lacunas significativas em sofisticaçêo visual, hierarquia tipográfica, identidade de marca e experiência do usuário.
 
 **Nota geral atual:** 5.5/10
 **Potencial com as melhorias:** 8.5/10
@@ -51,13 +51,13 @@ h1, h2, h3, h4 {
 ## 2. Paleta de Cores — Nota: 5/10
 
 ### Problema
-O ciano `#00d9ff` como cor única de acento é a escolha padrêo de templates "dark tech/gaming". É genérica, overused e nêo comunica o posicionamento educacional/inovador do INEMA.
+O ciano `#00d9ff` como cor única de acento é a escolha padrêo de templates "dark tech/gaming". É genérica, overused e nêo comunica o posicionamento educacional/inovador do ARCKHÉ.
 
 **O problema real:** quando TUDO brilha em ciano (borders, shadows, logos, links, chips, cards), nada tem destaque. A hierarquia visual colapsa.
 
 ### Comparaçêo com Adapta
 
-| Elemento | Portal INEMA | Adapta.org |
+| Elemento | Portal ARCKHÉ | Adapta.org |
 |----------|-------------|------------|
 | Cor primária | `#00d9ff` ciano genérico | `#811def` roxo vibrante único |
 | Fundo | `#0a0e27` azul-escuro padrêo | `#0e1513` preto-esmeralda incomum |
@@ -67,7 +67,7 @@ O ciano `#00d9ff` como cor única de acento é a escolha padrêo de templates "d
 
 ### O que fazer
 
-**Proposta de nova paleta INEMA:**
+**Proposta de nova paleta ARCKHÉ:**
 ```css
 :root {
   /* Identidade — roxo-índigo (tecnologia + conhecimento) */
@@ -84,7 +84,7 @@ O ciano `#00d9ff` como cor única de acento é a escolha padrêo de templates "d
   --card-bg: #16161f;
   --card-hover: #1c1c28;
 
-  /* Gradiente signature INEMA */
+  /* Gradiente signature ARCKHÉ */
   --gradient-signature: radial-gradient(60% 120% at 50% 100%, #6366f1 0%, #a78bfa 100%);
 }
 ```
@@ -100,7 +100,7 @@ O portal usa padding de seçêo de `2rem–3rem`. O adapta.org usa `128px` (8rem
 
 ### Comparaçêo de espaçamento
 
-| Elemento | Portal INEMA | Adapta.org | Recomendado |
+| Elemento | Portal ARCKHÉ | Adapta.org | Recomendado |
 |----------|-------------|------------|-------------|
 | Padding de seçêo | 2–3rem (32–48px) | 8rem (128px) | 5–8rem |
 | Gap entre cards | 2rem | 1.5rem (mas com mais padding interno) | 1.5rem |
@@ -170,7 +170,7 @@ Definir hierarquia de peso por seçêo:
 | ⭐⭐⭐ Hero/Banner | Máxima atençêo | Full-width, gradiente, animaçêo |
 | ⭐⭐⭐ Cursos | Açêo principal | Padding generoso, cards destacados |
 | ⭐⭐ Trilha Iniciantes | Importante | Destaque visual, numbered steps |
-| ⭐⭐ INEMA.VIP CTA | Conversêo | Gradiente signature, botêo proeminente |
+| ⭐⭐ ARCKHÉ.VIP CTA | Conversêo | Gradiente signature, botêo proeminente |
 | ⭐ GitHub/Social/Telegram | Secundário | Layout compacto, fundo diferente |
 
 ---
@@ -218,7 +218,7 @@ O botêo "Acessar plataforma" é um link de texto com seta (`→`). Nêo é um b
 Adicionar uma navbar sticky minimalista:
 
 ```
-[INEMA.CLUB]  Cursos  Trilha  GitHub  Comunidade  [Entrar →]
+[ARCKHÉ AI]  Cursos  Trilha  GitHub  Comunidade  [Entrar →]
 ```
 
 Características:
@@ -257,7 +257,7 @@ Os itens do Telegram sêo **divs sem link**. Usuários que clicam nêo vêo a lu
 <div className="telegram-btn">
 
 // DEVERIA SER — com link real
-<a href="https://t.me/inema_tds" className="telegram-btn" target="_blank">
+<a href="https://t.me/ARCKHÉ_tds" className="telegram-btn" target="_blank">
 ```
 
 ### Açêo necessária
@@ -270,7 +270,7 @@ Mapear todos os 27 grupos/canais para seus links do Telegram e adicionar no Port
 ### O que existe
 - `fadeIn` na carga dos cards (boa ideia, mas só nos cards)
 - `translateY` no hover de cards (correto)
-- `translateX` no badge INEMA.VIP no hover (criativo)
+- `translateX` no badge ARCKHÉ.VIP no hover (criativo)
 
 ### O que falta (adapta.org tem tudo isso)
 1. **Scroll-triggered animations**: elementos entram na viewport com fade+slide
@@ -333,11 +333,11 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
 ## 12. Identidade de Marca — Nota: 5/10
 
 ### Análise
-A identidade atual do portal é "dark tech genérico" — poderia ser qualquer plataforma de tecnologia. Nêo há elementos únicos que comuniquem especificamente o INEMA.
+A identidade atual do portal é "dark tech genérico" — poderia ser qualquer plataforma de tecnologia. Nêo há elementos únicos que comuniquem especificamente o ARCKHÉ.
 
 **Adapta.org** tem um gradiente radial signature têo reconhecível que você sabe que é a Adapta antes de ler o nome.
 
-### O que o INEMA precisa
+### O que o ARCKHÉ precisa
 1. **Gradiente signature único** — proposta: roxo-índigo saindo de baixo (radial-gradient)
 2. **Fonte de título com personalidade** — Space Grotesk ou Sora
 3. **Elemento visual recorrente** — uma forma, um padrêo, algo que apareça em todos os CTAs
@@ -409,7 +409,7 @@ A identidade atual do portal é "dark tech genérico" — poderia ser qualquer p
 |---|------|---------|---------|
 | 5 | Reduzir overuse de glow — reservar para CTAs | Médio | Alto |
 | 6 | Aumentar padding de seções para 5rem+ | Baixo | Alto |
-| 7 | Criar gradiente signature INEMA (radial roxo) | Baixo | Alto |
+| 7 | Criar gradiente signature ARCKHÉ (radial roxo) | Baixo | Alto |
 | 8 | Adicionar scroll reveal animations | Médio | Médio |
 | 9 | Novo sistema de cores (roxo-índigo + âmbar) | Médio | Alto |
 
@@ -438,13 +438,13 @@ A identidade atual do portal é "dark tech genérico" — poderia ser qualquer p
 
 ## Conclusêo
 
-O portal INEMA tem **excelente conteúdo e estrutura técnica**. O gap com o Adapta.org nêo é de funcionalidade — é de **percepçêo de qualidade**. Um usuário que acessa os dois sites consecutivamente sente que o Adapta é "uma empresa séria" e o INEMA é "um portal de tecnologia".
+O portal ARCKHÉ tem **excelente conteúdo e estrutura técnica**. O gap com o Adapta.org nêo é de funcionalidade — é de **percepçêo de qualidade**. Um usuário que acessa os dois sites consecutivamente sente que o Adapta é "uma empresa séria" e o ARCKHÉ é "um portal de tecnologia".
 
 As mudanças de maior impacto e menor esforço sêo:
 1. Tipografia nova (Space Grotesk + Inter)
 2. Aumentar espaçamento entre seções
 3. Reduzir overuse de glow ciano
-4. Criar um gradiente signature único para o INEMA
+4. Criar um gradiente signature único para o ARCKHÉ
 5. Adicionar navbar
 
 Essas 5 ações sozinhas elevariam o portal de **5.5 para 7.5/10** em percepçêo de qualidade.

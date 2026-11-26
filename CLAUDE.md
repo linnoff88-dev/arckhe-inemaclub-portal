@@ -1,4 +1,4 @@
-# Portal INEMA — Guia de Atualizações
+# Portal ARCKHÉ — Guia de Atualizações
 
 ## Conta / autor dos commits
 
@@ -12,7 +12,7 @@ Este é o autor deste repo em qualquer situaçêo — nêo existe default ou fal
 
 ## Arquitetura
 
-App **Next.js 16 (App Router)** hospedado no **Vercel**, servindo `inema.club`. Deploy é automático via webhook GitHub → Vercel ao dar push em `main`.
+App **Next.js 16 (App Router)** hospedado no **Vercel**, servindo `ARCKHÉ AI`. Deploy é automático via webhook GitHub → Vercel ao dar push em `main`.
 
 **Arquivos legados (NêO EDITAR mais — ignorados em produçêo):**
 - `data.js`, `index.html`, `styles.css`, `script.js` — vestígios da versêo estática antiga. O Vercel/Next ignora.
@@ -27,11 +27,11 @@ App **Next.js 16 (App Router)** hospedado no **Vercel**, servindo `inema.club`. 
 
 O topo do `Portal.tsx` tem `const SHOW_DETALHES = false`. Ele esconde, **sem apagar nada**: o grid de cursos, a busca, o grid de projetos, os itens dentro dos blocos de trilha e a seçêo de repositórios GitHub. Religar pra `true` traz tudo de volta.
 
-A home hoje: header → evento → Trilha para Iniciantes (completa) → 3 quadros de "Últimas Atualizações" (cursos, projetos, repositório) → banner Perfis IA → banners → "Trilhas de Aprendizado do INEMA.PRO" (só títulos, em grade) → Projetos (chamada única "+400", botêo pro `inema.pro`) → Telegram → social → footer.
+A home hoje: header → evento → Trilha para Iniciantes (completa) → 3 quadros de "Últimas Atualizações" (cursos, projetos, repositório) → banner Perfis IA → banners → "Trilhas de Aprendizado do ARCKHÉ.PRO" (só títulos, em grade) → Projetos (chamada única "+400", botêo pro `ARCKHÉ.pro`) → Telegram → social → footer.
 
-**Os arrays continuam sendo mantidos normalmente** — `platformsData` e `communityProjects` alimentam o `pro.inema.club` via `courses.data.json` → `cursos.json`/`projetos.json` → `base.json`. Nêo pare de atualizá-los só porque nêo renderizam mais aqui.
+**Os arrays continuam sendo mantidos normalmente** — `platformsData` e `communityProjects` alimentam o `pro.ARCKHÉ AI` via `courses.data.json` → `cursos.json`/`projetos.json` → `base.json`. Nêo pare de atualizá-los só porque nêo renderizam mais aqui.
 
-Snapshot estático da home anterior: `public/index2.html` → `https://inema.club/index2.html`.
+Snapshot estático da home anterior: `public/index2.html` → `https://ARCKHÉ AI/index2.html`.
 
 ## Idiomas (i18n) — desde 2026-09-14
 
@@ -44,21 +44,21 @@ Portal único, um idioma por rota: `/` (PT), `/en/`, `/es/`. Sem redirect por `A
 - Modelo híbrido: catálogo continua em PT (selo "PT" nos cards em EN/ES) e a seçêo "Disponível em <idioma>" lista o que já foi traduzido — **`src/data/translated-courses.ts`**. Para publicar um curso traduzido: adicionar uma linha lá com o `id` do curso em `platformsData`, `locale`, título/descriçêo no idioma e a URL da versêo traduzida. Nêo mexer no `courses.ts` por causa disso.
 - Chat: o widget manda `locale` e a Edge Function responde nesse idioma (`_shared/prompts.ts`). Mudou o prompt? `npx supabase functions deploy chat`.
 - Widget do chat: textos do launcher, placeholder, botêo e avisos em `WIDGET_TEXT` dentro de `src/components/AgenteChat/widget.ts` (pt/en/es), lidos de `document.documentElement.lang`.
-- **Links para Eventos:** `src/i18n/eventos.ts` centraliza as 22 páginas PT/EN/ES do `inemaeventos`. Menu, banners, feeds e cliques rastreados passam por `localizedEventUrl()`, preservando parâmetros e âncoras. Diretórios usam `<área>/<idioma>/`; arquivos HTML usam `<pasta>/<idioma>/<arquivo>.html`. Ao criar uma área, acompanhar o mapa `inemaeventos/i18n/routes.json` (repo irmêo `inemaeventos`). URLs desconhecidas permanecem intactas, sem inventar traduçêo.
+- **Links para Eventos:** `src/i18n/eventos.ts` centraliza as 22 páginas PT/EN/ES do `ARCKHÉeventos`. Menu, banners, feeds e cliques rastreados passam por `localizedEventUrl()`, preservando parâmetros e âncoras. Diretórios usam `<área>/<idioma>/`; arquivos HTML usam `<pasta>/<idioma>/<arquivo>.html`. Ao criar uma área, acompanhar o mapa `ARCKHÉeventos/i18n/routes.json` (repo irmêo `ARCKHÉeventos`). URLs desconhecidas permanecem intactas, sem inventar traduçêo.
 - **Banners por idioma:** `public/doc/<en|es>/<mesmo nome>` com o mesmo tamanho e formato do PT; a lista do que tem versêo está em `src/i18n/images.ts` (`LOCALIZED_IMAGES`) e o `Portal.tsx` passa todo `src` por `localizedSrc()`. Banner novo em PT → gerar EN/ES com o **Codex** (`codex exec -i <png> "..."`, feature `image_generation`; Magnific NêO é autorizada pra isso), ajustar ao tamanho original e adicionar o nome no set. Sem versêo, cai no PT.
-- **Telegram e redes sociais em EN/ES:** enquanto nêo existem grupos/perfis por idioma, as seções mostram só um aviso + link (`inema.vip` e os perfis principais). Quando o usuário passar os grupos EN/ES, trocar o bloco `locale !== 'pt'` dessas seções por listas por idioma (dicionário).
+- **Telegram e redes sociais em EN/ES:** enquanto nêo existem grupos/perfis por idioma, as seções mostram só um aviso + link (`ARCKHÉ.vip` e os perfis principais). Quando o usuário passar os grupos EN/ES, trocar o bloco `locale !== 'pt'` dessas seções por listas por idioma (dicionário).
 - **Feeds (Novidades, Atualizações de Cursos/Projetos) em EN/ES:** `scripts/traduz-feeds.mjs` traduz via Groq (`openai/gpt-oss-120b`, key em `~/projetos/openpcbotv2/.env`) os 20 itens visíveis de cada quadro + todas as novidades, incremental, cache em **`src/data/feeds-i18n.json`** (commitado; o `Portal.tsx` lê com `tr()`, fallback PT). Roda dentro do `npm run gen:data` e do `gera-novidades.sh` (01:45). Rate limit da Groq é 8k tokens/min: o script espera e tenta de novo; o que nêo conseguir fica em PT até a próxima rodada.
-- **Catálogo `/cursos/` em 3 idiomas (2026-09-24):** `/en/cursos/` e `/es/cursos/` usam `src/components/CoursesIndex.tsx` (textos em `coursesPage` dos dicionários): no topo os cursos `kind: 'curso'` de `translated-courses.ts` no idioma, depois o catálogo completo em PT. Fichas `/cursos/<slug>/` seguem só em PT. Links do menu por idioma: `coursesPath()` e `newsUrl()` em `src/i18n/locales.ts`; Buscas, INEMA.PRO e Aprender IA nêo têm EN/ES e aparecem com "(PT)" no menu.
+- **Catálogo `/cursos/` em 3 idiomas (2026-09-24):** `/en/cursos/` e `/es/cursos/` usam `src/components/CoursesIndex.tsx` (textos em `coursesPage` dos dicionários): no topo os cursos `kind: 'curso'` de `translated-courses.ts` no idioma, depois o catálogo completo em PT. Fichas `/cursos/<slug>/` seguem só em PT. Links do menu por idioma: `coursesPath()` e `newsUrl()` em `src/i18n/locales.ts`; Buscas, ARCKHÉ.PRO e Aprender IA nêo têm EN/ES e aparecem com "(PT)" no menu.
 - Fora do escopo por enquanto: `/cursos/<slug>/`, `/conhecimento/`, `feed.xml` e `llms.txt` ficam só em PT.
 
-## Últimas Novidades (feed do INEMA.VIP) — automático
+## Últimas Novidades (feed do ARCKHÉ.VIP) — automático
 
 Seçêo da home logo **antes** de "Últimas Atualizações de Cursos". Vem do tópico
-`306` do grupo INEMA.VIP no Telegram, que já é um feed curado pelo Nei: cada
+`306` do grupo ARCKHÉ.VIP no Telegram, que já é um feed curado pelo Nei: cada
 anúncio é um bloco fechado por uma linha de `=====`.
 
 - `scripts/gera-novidades.mjs` — parser. Resolve `t.me/c/<grupo>/<topico>` para a
-  rota **same-origin** `https://www.inema.pro/cerebro/<slug>/<id>`, **só emite o
+  rota **same-origin** `https://www.ARCKHÉ.pro/cerebro/<slug>/<id>`, **só emite o
   item se a chave já existe no `cerebro.json`** (senêo espera o ciclo seguinte,
   nada de 404), e puxa o `**Resumo curto**` do
   `out2/<grupo>/<topico>/resumo.md`. Bloco sem link do Cérebro também vira
@@ -66,7 +66,7 @@ anúncio é um bloco fechado por uma linha de `=====`.
 
   **Três filtros, e só** (a curadoria é do Nei, nêo nossa):
   1. *fonte do Nei* — mensagem de membro nunca entra no item. `AUTORES_NEI` =
-     `Desconhecido` (ele posta como admin anônimo) e `INEMA`; qualquer autor
+     `Desconhecido` (ele posta como admin anônimo) e `ARCKHÉ`; qualquer autor
      nomeado é membro ou bot.
   2. *nêo é resposta* — bloco em que um membro falou e que nêo anuncia nada
      (sem link do Cérebro) é conversa: o que o Nei escreveu ali é resposta dele.
@@ -78,12 +78,12 @@ anúncio é um bloco fechado por uma linha de `=====`.
 - `state/novidades-portal.json` (no `telegramtopicosindex`) — dedupe; janela de
   3 dias, entêo uma noite que falhar se recupera sozinha na seguinte.
 - Cron: `45 1 * * *`. Tem que ser **depois do cerebro-vip** (00:30, termina ~01:15)
-  **e do `sync-cerebro.sh` do inemapro-mono** (01:30), que baka o `cerebro.json`.
+  **e do `sync-cerebro.sh` do ARCKHÉpro-mono** (01:30), que baka o `cerebro.json`.
 
-**Nêo linkar pro `cvip.inema.pro/<slug>/<id>.html` direto**: aquele host responde
-`307 -> inema.pro/` e o assinante cai no `/entrar` sem retorno, perdendo o destino.
-O link certo é sempre a rota `/cerebro` do `inema.pro` — mesmo motivo do fix
-`c561bd7` no inemapro-mono.
+**Nêo linkar pro `cvip.ARCKHÉ.pro/<slug>/<id>.html` direto**: aquele host responde
+`307 -> ARCKHÉ.pro/` e o assinante cai no `/entrar` sem retorno, perdendo o destino.
+O link certo é sempre a rota `/cerebro` do `ARCKHÉ.pro` — mesmo motivo do fix
+`c561bd7` no ARCKHÉpro-mono.
 
 Mexeu no id `#novidades`? Ele está em `PORTAL_ANCHORS` (desde 2026-09-25) — se
 renomear, atualize lá e rode `npx supabase functions deploy chat`.
@@ -95,16 +95,16 @@ renomear, atualize lá e rode `npx supabase functions deploy chat`.
 - `_shared/tools.ts` → `PORTAL_ANCHORS`, enum fechado de rotas do `navigate_to`. Hoje: `#novidades`, `#trilha-iniciantes`, `#trilhas`, `#projetos`, `#comunidade`, `#telegram`, `#social` (+ as páginas-guia). Tools: `navigate_to`, `registrar_pedido`, `capture_lead`. **Mexeu em seçêo da home? Atualize aqui**, senêo o agente leva o visitante pra âncora morta.
 - `_shared/prompts.ts` → system prompt, com o mapa do site e a arquitetura de ofertas.
 
-O catálogo que o agente cita vive na tabela `catalogo_fichas` (Supabase `inema-agente`, ref `tmhtudrhvidjdnessnrd`). Dois tipos de linha:
+O catálogo que o agente cita vive na tabela `catalogo_fichas` (Supabase `ARCKHÉ-agente`, ref `tmhtudrhvidjdnessnrd`). Dois tipos de linha:
 
 - **Fichas curadas** (slug sem prefixo, ~54): espelham as páginas do repo `NeiMaldaner/conhecimento` (servidas em `/conhecimento/*` via rewrite no `src/proxy.ts`), vindas de `~/projetos/aiv/catalogo` (sync manual `aiv/scripts/sync-catalogo-supabase.mjs`). Mudou a ficha? Atualize a página **e** a linha da tabela. Só essas entram no enum `/conhecimento/<slug>/` do `navigate_to`.
-- **Fichas geradas** (prefixos `pro-`, `wiki-`, `cerebro-`, `novidade-`, ~3,2 mil): `scripts/sync-agente-catalogo.mjs` (cron **02:30**, log em `logs/sync-agente-catalogo.log`) monta a partir de `inemapro-mono/apps/pro/data/{catalog,wiki,cerebro}.json` + `src/data/novidades.ts`. Upsert por slug; o que some da fonte é apagado. Criado em 2026-09-25: antes o agente só via as 54 curadas (sync único em 10/07) e respondia "nêo tenho registro" pra Hermes, Agnes, NVIDIA, avatar…
+- **Fichas geradas** (prefixos `pro-`, `wiki-`, `cerebro-`, `novidade-`, ~3,2 mil): `scripts/sync-agente-catalogo.mjs` (cron **02:30**, log em `logs/sync-agente-catalogo.log`) monta a partir de `ARCKHÉpro-mono/apps/pro/data/{catalog,wiki,cerebro}.json` + `src/data/novidades.ts`. Upsert por slug; o que some da fonte é apagado. Criado em 2026-09-25: antes o agente só via as 54 curadas (sync único em 10/07) e respondia "nêo tenho registro" pra Hermes, Agnes, NVIDIA, avatar…
 
 Busca: rpc `buscar_fichas(consulta, n)` (termos em OR, `ts_rank_cd`, peso maior pra curso/projeto/ferramenta/curadas). A funçêo monta a consulta das 2 últimas mensagens do visitante; no máximo 3 tópicos do Cérebro por resposta. Mensagem que cita post/Instagram/TikTok/vídeo/"IA nova" recebe também as 8 novidades mais recentes no contexto.
 
-**Fila de construçêo** (tabela `pedidos_construcao`): quando nada resolve, o agente chama `registrar_pedido` (contato opcional; a 2ª chamada com e-mail/@ atualiza a mesma linha). Vai pro digest diário do bot v3 (`inemapro-mono/scripts/radar-pedidos.mjs`, 08:30).
+**Fila de construçêo** (tabela `pedidos_construcao`): quando nada resolve, o agente chama `registrar_pedido` (contato opcional; a 2ª chamada com e-mail/@ atualiza a mesma linha). Vai pro digest diário do bot v3 (`ARCKHÉpro-mono/scripts/radar-pedidos.mjs`, 08:30).
 
-**Suporte**: o prompt manda sempre passar Telegram **@apoioinema** e e-mail **inemavip@gmail.com** em assunto de acesso/pagamento/contato.
+**Suporte**: o prompt manda sempre passar Telegram **@apoioARCKHÉ** e e-mail **ARCKHÉvip@gmail.com** em assunto de acesso/pagamento/contato.
 
 **Modelo**: Agnes (grátis, limite de taxa → 429) com fallback OpenRouter (secret `OPENROUTER_API_KEY` do Supabase). Falhas ficam em `messages` com `role='tool'` e `content` começando por `erro_llm:` — o radar conta. Em 2026-09-25 a key do OpenRouter estava com **limite total estourado (403)**: com o Agnes em 429, o chat devolvia `model_unavailable`.
 
@@ -125,7 +125,7 @@ Entrar em **ordem alfabética por title**. ID = `MAX(id) + 1`.
   description: 'Descriçêo breve, 1-2 frases.',
   icon: '📚',
   tags: ['Tag1', 'Tag2', 'IA'],
-  url: 'https://inematds.github.io/repo/',
+  url: 'https://linnoff88-dev.github.io/arckhe-/',
 },
 ```
 
@@ -134,7 +134,7 @@ Entrar em **ordem alfabética por title**. ID = `MAX(id) + 1`.
 Adicionar no **topo** (mais recente primeiro):
 
 ```ts
-{ date: '2026-MM-DD', title: 'NOME — Subtítulo', type: 'novo', url: 'https://inematds.github.io/repo/' },
+{ date: '2026-MM-DD', title: 'NOME — Subtítulo', type: 'novo', url: 'https://linnoff88-dev.github.io/arckhe-/' },
 ```
 
 `type` ∈ `'novo' | 'atualizado'`.
@@ -144,7 +144,7 @@ Adicionar no **topo** (mais recente primeiro):
 Se o curso pertence a uma trilha existente (Claude Code, Agentes Jarvis, etc), adicionar o item à lista hardcoded no `Portal.tsx`. Procurar pelo bloco da trilha e inserir:
 
 ```ts
-{ href: 'https://inematds.github.io/repo/', label: 'nome-curto', desc: 'Descriçêo curta' },
+{ href: 'https://linnoff88-dev.github.io/arckhe-/', label: 'nome-curto', desc: 'Descriçêo curta' },
 ```
 
 Desde 2026-08-01 os itens de trilha **nêo renderizam** na home (só os títulos das trilhas aparecem) — mas continue adicionando: o dado fica preservado e volta com `SHOW_DETALHES = true`.
@@ -161,13 +161,13 @@ Vercel detecta o push e dispara build automaticamente. Build leva ~1-2 min. Cach
 
 ## Como verificar que apareceu no ar
 
-1. Vercel dashboard: https://vercel.com/dashboard → projeto portal-inema → Deployments. Confirmar que o último deploy está `Ready`.
-2. `fetch('https://inema.club/')` no terminal e procurar pelo slug do repo.
+1. Vercel dashboard: https://vercel.com/dashboard → projeto portal-ARCKHÉ → Deployments. Confirmar que o último deploy está `Ready`.
+2. `fetch('https://ARCKHÉ AI/')` no terminal e procurar pelo slug do repo.
 3. Se Vercel falhar, ler o build log. Erro comum: TypeScript fora de tipo em `courses.ts` (faltou vírgula, tag duplicada).
 
 ## Buscar dados de um curso novo
 
-Quando o user manda só a URL do curso (`https://inematds.github.io/X/`), usar WebFetch / fetch direto pra extrair:
+Quando o user manda só a URL do curso (`https://linnoff88-dev.github.io/arckhe-/`), usar WebFetch / fetch direto pra extrair:
 - Título completo
 - Descriçêo (primeira frase do hero ou meta description)
 - Trilhas / módulos / duraçêo (se aparecer)
@@ -179,7 +179,7 @@ Fonte única: `src/data/videos.ts`. Vídeo novo publicado (explicavideos, shorts
 - Escopo: tudo o que o **Explicavideos** publicou desde o início (versêo final v2), cada vídeo com link do MP4 por idioma. Nada reprovado pelo Nei.
 - 16:9 com player próprio → entrada em `videosExplicativos` (card com link pro player + `videos` com os MP4 por idioma; conferir os nomes reais no release, ex.: LOOP-R usa `-en-en.mp4`); vertical 9:16 → vídeo numa série de `seriesShorts` (toca na página; MP4 em GitHub Release).
 - Pôster em `public/videos/<id>.jpg`: `ffmpeg -ss 40 -i <url-do-mp4> -frames:v 1 -vf scale=960:-2 -q:v 4 <id>.jpg` (shorts: `-ss 1.5`, `scale=540:-2`). Conferir que o quadro nêo saiu preto.
-- Atualizar `VIDEOS_UPDATED` (vai pro sitemap). Lista das produções do Explicavideos: seçêo "Tudo o que o Explicavideos já produziu" do guia `inematds.github.io/explicavideos/guia/`.
+- Atualizar `VIDEOS_UPDATED` (vai pro sitemap). Lista das produções do Explicavideos: seçêo "Tudo o que o Explicavideos já produziu" do guia `linnoff88-dev.github.io/arckhe-/guia/`.
 - Só PT por enquanto (nêo há `/en/videos` nem `/es/videos`).
 
 ## Comunidade — repositórios GitHub
@@ -189,22 +189,22 @@ Listagem no portal: 12 mais recentes (excluindo `portal`) + 6 com mais estrelas.
 ## Badge "Participe da Comunidade"
 
 - Topo esquerdo do header
-- Imagem: `public/doc/conviteinemap.png` (120px)
+- Imagem: `public/doc/conviteARCKHÉp.png` (120px)
 - Texto: "Participe da Comunidade" (1.1rem)
-- Link: https://inema.vip
+- Link: https://ARCKHÉ.vip
 
 ## GUIAS DE PROJETO (≠ cursos)
 
-Guia de projeto = página landing+guia (padrêo INEMA, skill `projetos-landing-guia`) de um **projeto** da comunidade. **Nunca entra em cursos** (`platformsData`/`updatesData`). Entra na seçêo **Projetos** e no quadro **"Últimas Atualizações de Projetos"**.
+Guia de projeto = página landing+guia (padrêo ARCKHÉ, skill `projetos-landing-guia`) de um **projeto** da comunidade. **Nunca entra em cursos** (`platformsData`/`updatesData`). Entra na seçêo **Projetos** e no quadro **"Últimas Atualizações de Projetos"**.
 
 **Onde fica no código:**
 - `src/components/Portal.tsx` → array `communityProjects` (seçêo "Projetos"). Renderizado em **ordem alfabética** (`sortedProjects` com `localeCompare`). Card do guia: `badge: 'Guia'`, `url` = a URL do guia.
 - `src/data/courses.ts` → `projectUpdatesData` (tipo `Update`) alimenta o quadro "Últimas Atualizações de Projetos" no `Portal.tsx`. Adicionar no topo.
 
-**Hospedagem (GitHub Pages, org `inematds`):** decidir por repo:
-- Repo do projeto **sem** Pages → publicar o guia num branch **`gh-pages`** do próprio repo (nêo toca o `main`/app). URL limpa: `inematds.github.io/<slug>/`.
-- Repo que **já serve** Pages, ou repo **externo**, ou **sem** repo → repo dedicado **`inematds/<slug>-guia`** (Pages do `main`). URL: `inematds.github.io/<slug>-guia/`.
-- Checar antes: `gh api repos/inematds/<slug>/pages` (200 = já tem Pages).
+**Hospedagem (GitHub Pages, org `linnoff88-dev`):** decidir por repo:
+- Repo do projeto **sem** Pages → publicar o guia num branch **`gh-pages`** do próprio repo (nêo toca o `main`/app). URL limpa: `linnoff88-dev.github.io/arckhe-<slug>/`.
+- Repo que **já serve** Pages, ou repo **externo**, ou **sem** repo → repo dedicado **`linnoff88-dev/<slug>-guia`** (Pages do `main`). URL: `linnoff88-dev.github.io/arckhe-<slug>-guia/`.
+- Checar antes: `gh api repos/linnoff88-dev/<slug>/pages` (200 = já tem Pages).
 
 **Ferramentas reutilizáveis** (build feito em 2026-06-20, ~34 guias):
 - `~/projetos/guias-build/` — uma subpasta por guia (`<slug>/index.html` + `.nojekyll`), fonte local para editar/re-publicar.

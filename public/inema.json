@@ -1,34 +1,34 @@
 {
   "schema_version": "1.0",
-  "id": "inema.portal",
-  "name": "INEMA.club",
-  "url": "https://www.inema.club/",
+  "id": "ARCKHÉ.portal",
+  "name": "ARCKHÉ AI",
+  "url": "https://www.ARCKHÉ AI/",
   "languages": [
     "pt-BR",
     "en",
     "es"
   ],
   "access": "public",
-  "description": "Cursos, projetos, trilhas e conhecimento público sobre inteligência artificial do INEMA.",
+  "description": "Cursos, projetos, trilhas e conhecimento público sobre inteligência artificial do ARCKHÉ.",
   "discovery": {
-    "llms": "https://www.inema.club/llms.txt",
-    "robots": "https://www.inema.club/robots.txt",
+    "llms": "https://www.ARCKHÉ AI/llms.txt",
+    "robots": "https://www.ARCKHÉ AI/robots.txt",
     "sitemaps": [
-      "https://www.inema.club/sitemap.xml",
-      "https://www.inema.club/courses-sitemap.xml"
+      "https://www.ARCKHÉ AI/sitemap.xml",
+      "https://www.ARCKHÉ AI/courses-sitemap.xml"
     ],
     "catalogs": [
-      "https://www.inema.club/api/courses/",
-      "https://www.inema.club/api/projects/",
-      "https://www.inema.club/api/trails/",
-      "https://www.inema.club/api/knowledge/",
-      "https://www.inema.club/api/updates/"
+      "https://www.ARCKHÉ AI/api/courses/",
+      "https://www.ARCKHÉ AI/api/projects/",
+      "https://www.ARCKHÉ AI/api/trails/",
+      "https://www.ARCKHÉ AI/api/knowledge/",
+      "https://www.ARCKHÉ AI/api/updates/"
     ]
   },
   "related_systems": [
     {
-      "id": "inema.news",
-      "url": "https://news.inema.pro/",
+      "id": "ARCKHÉ.news",
+      "url": "https://news.ARCKHÉ.pro/",
       "languages": [
         "pt-BR",
         "en",
@@ -36,8 +36,8 @@
       ]
     },
     {
-      "id": "inema.eventos",
-      "url": "https://eventos.inema.pro/",
+      "id": "ARCKHÉ.eventos",
+      "url": "https://eventos.ARCKHÉ.pro/",
       "languages": [
         "pt-BR",
         "en",
@@ -45,21 +45,21 @@
       ]
     },
     {
-      "id": "inema.webmcp-readiness",
-      "url": "https://webmcp.inema.pro/",
+      "id": "ARCKHÉ.webmcp-readiness",
+      "url": "https://webmcp.ARCKHÉ.pro/",
       "languages": [
         "pt-BR"
       ]
     },
     {
-      "id": "inema.cerebro-vip",
-      "url": "https://cvip.inema.pro/",
+      "id": "ARCKHÉ.cerebro-vip",
+      "url": "https://cvip.ARCKHÉ.pro/",
       "access": "subscription"
     }
   ],
   "webmcp": {
     "status": "declared_in_source",
-    "page": "https://www.inema.club/",
+    "page": "https://www.ARCKHÉ AI/",
     "requires": "Browser support and successful page registration",
     "tools": [
       "buscar_cursos",
@@ -74,10 +74,10 @@
     "runtime_verified": false
   },
   "localized_urls": {
-    "pt-BR": "https://www.inema.club/",
-    "en": "https://www.inema.club/en/",
-    "es": "https://www.inema.club/es/"
+    "pt-BR": "https://www.ARCKHÉ AI/",
+    "en": "https://www.ARCKHÉ AI/en/",
+    "es": "https://www.ARCKHÉ AI/es/"
   },
-  "manifest_note": "Manifesto de descoberta próprio do INEMA; nêo é um registro de ferramentas WebMCP.",
+  "manifest_note": "Manifesto de descoberta próprio do ARCKHÉ; nêo é um registro de ferramentas WebMCP.",
   "repository": "https://github.com/NeiMaldaner/portal"
 }

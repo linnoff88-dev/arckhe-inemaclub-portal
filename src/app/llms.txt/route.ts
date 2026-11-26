@@ -4,23 +4,23 @@ import { seoPages } from '@/data/seo-pages'
 
 export function GET() {
   const webMcpCourses = courses.filter((course) => course.tags.includes('WebMCP'))
-  const content = `# INEMA.club
+  const content = `# ARCKHÉ AI
 
 > Plataforma brasileira de formaçêo prática em inteligência artificial, agentes e automaçêo, criada por Nei Maldaner.
 
 ## Principais páginas
 
-- [Portal INEMA — Português](https://www.inema.club/)
-- [Portal INEMA — English](https://www.inema.club/en/)
-- [Portal INEMA — Español](https://www.inema.club/es/)
-- [Sobre o INEMA](https://www.inema.club/conhecimento/o-que-e-o-inema/)
-- [Cursos](https://www.inema.club/cursos/)
-- [Projetos](https://www.inema.club/conhecimento/projetos-publicos-do-inema/)
-- [Base de conhecimento](https://www.inema.club/conhecimento/)
+- [Portal ARCKHÉ — Português](https://www.ARCKHÉ AI/)
+- [Portal ARCKHÉ — English](https://www.ARCKHÉ AI/en/)
+- [Portal ARCKHÉ — Español](https://www.ARCKHÉ AI/es/)
+- [Sobre o ARCKHÉ](https://www.ARCKHÉ AI/conhecimento/o-que-e-o-ARCKHÉ/)
+- [Cursos](https://www.ARCKHÉ AI/cursos/)
+- [Projetos](https://www.ARCKHÉ AI/conhecimento/projetos-publicos-do-ARCKHÉ/)
+- [Base de conhecimento](https://www.ARCKHÉ AI/conhecimento/)
 
 ## Guias para aprender IA
 
-${seoPages.map((page) => `- [${page.title}](https://www.inema.club${page.path}): ${page.description}`).join('\n')}
+${seoPages.map((page) => `- [${page.title}](https://www.ARCKHÉ AI${page.path}): ${page.description}`).join('\n')}
 
 ## Formaçêo WebMCP
 
@@ -28,36 +28,36 @@ ${webMcpCourses.map((course) => `- [${course.title}](${course.canonicalUrl})`).j
 
 ## Perguntas sobre WebMCP
 
-${webMcpKnowledge.map((article) => `- [${article.title}](https://www.inema.club/conhecimento/${article.slug}/)`).join('\n')}
+${webMcpKnowledge.map((article) => `- [${article.title}](https://www.ARCKHÉ AI/conhecimento/${article.slug}/)`).join('\n')}
 
 ## Descoberta
 
-- [Manifesto INEMA](https://www.inema.club/inema.json): identidade, idiomas, relações e capacidades declaradas.
-- [Sitemap de páginas](https://www.inema.club/sitemap.xml)
-- [Sitemap de cursos](https://www.inema.club/courses-sitemap.xml)
+- [Manifesto ARCKHÉ](https://www.ARCKHÉ AI/ARCKHÉ.json): identidade, idiomas, relações e capacidades declaradas.
+- [Sitemap de páginas](https://www.ARCKHÉ AI/sitemap.xml)
+- [Sitemap de cursos](https://www.ARCKHÉ AI/courses-sitemap.xml)
 
 ## Catálogos para agentes
 
-- [Cursos em JSON](https://www.inema.club/api/courses)
-- [Projetos em JSON](https://www.inema.club/api/projects)
-- [Trilhas em JSON](https://www.inema.club/api/trails)
-- [Conhecimento em JSON](https://www.inema.club/api/knowledge)
-- [Atualizações em JSON](https://www.inema.club/api/updates)
-- [Atualizações em RSS](https://www.inema.club/feed.xml)
+- [Cursos em JSON](https://www.ARCKHÉ AI/api/courses)
+- [Projetos em JSON](https://www.ARCKHÉ AI/api/projects)
+- [Trilhas em JSON](https://www.ARCKHÉ AI/api/trails)
+- [Conhecimento em JSON](https://www.ARCKHÉ AI/api/knowledge)
+- [Atualizações em JSON](https://www.ARCKHÉ AI/api/updates)
+- [Atualizações em RSS](https://www.ARCKHÉ AI/feed.xml)
 
 ## Ecossistema oficial
 
-- [INEMA.pro](https://inema.pro/)
-- [INEMA.VIP](https://inema.vip/)
-- [GitHub](https://github.com/inematds)
+- [ARCKHÉ.pro](https://ARCKHÉ.pro/)
+- [ARCKHÉ.VIP](https://ARCKHÉ.vip/)
+- [GitHub](https://github.com/linnoff88-dev)
 
 ## Idiomas e ferramentas
 
-- [Homes PT/EN/ES](https://www.inema.club/): somente as homes estêo traduzidas; catálogo e conhecimento permanecem em português.
-- [Ferramentas WebMCP declaradas](https://www.inema.club/inema.json): disponíveis na página quando o navegador suporta o registro; use as APIs JSON como alternativa de leitura. Este índice nêo comprova execuçêo.
-- [News PT](https://news.inema.pro/), [English](https://news.inema.pro/en/), [Español](https://news.inema.pro/es/): notícias.
-- [Eventos PT](https://eventos.inema.pro/), [English](https://eventos.inema.pro/en/), [Español](https://eventos.inema.pro/es/): agenda e páginas de eventos.
-- [WebMCP Readiness](https://webmcp.inema.pro/): análise passiva de sites.
+- [Homes PT/EN/ES](https://www.ARCKHÉ AI/): somente as homes estêo traduzidas; catálogo e conhecimento permanecem em português.
+- [Ferramentas WebMCP declaradas](https://www.ARCKHÉ AI/ARCKHÉ.json): disponíveis na página quando o navegador suporta o registro; use as APIs JSON como alternativa de leitura. Este índice nêo comprova execuçêo.
+- [News PT](https://news.ARCKHÉ.pro/), [English](https://news.ARCKHÉ.pro/en/), [Español](https://news.ARCKHÉ.pro/es/): notícias.
+- [Eventos PT](https://eventos.ARCKHÉ.pro/), [English](https://eventos.ARCKHÉ.pro/en/), [Español](https://eventos.ARCKHÉ.pro/es/): agenda e páginas de eventos.
+- [WebMCP Readiness](https://webmcp.ARCKHÉ.pro/): análise passiva de sites.
 
 Índice gerado a partir do catálogo; datas de conteúdo estêo nos registros e sitemaps quando conhecidas.
 `

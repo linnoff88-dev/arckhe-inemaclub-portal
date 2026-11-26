@@ -25,13 +25,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: page.description,
       publishedTime: page.published,
       modifiedTime: page.updated,
-      images: ['/doc/inema-hero-aprenda-pratique-evolua.webp'],
+      images: ['/doc/ARCKHÉ-hero-aprenda-pratique-evolua.webp'],
     },
     twitter: {
       card: 'summary_large_image',
       title: page.title,
       description: page.description,
-      images: ['/doc/inema-hero-aprenda-pratique-evolua.webp'],
+      images: ['/doc/ARCKHÉ-hero-aprenda-pratique-evolua.webp'],
     },
   }
 }

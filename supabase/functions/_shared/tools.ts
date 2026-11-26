@@ -47,7 +47,7 @@ export function buildTools(conhecimentoSlugs: string[]) {
       type: 'function',
       function: {
         name: 'registrar_pedido',
-        description: 'Registra na fila de construçêo do INEMA algo que o visitante quer e que NêO existe no catálogo (nenhuma ficha resolve). O time usa essa fila para construir o que foi pedido. Chame assim que ficar claro o que a pessoa quer e que nêo temos — o contato é opcional: ofereça avisar quando ficar pronto e, se a pessoa deixar e-mail ou Telegram, chame de novo com o contato. Nêo use para perguntas fora do tema IA/automaçêo nem para testes.',
+        description: 'Registra na fila de construçêo do ARCKHÉ algo que o visitante quer e que NêO existe no catálogo (nenhuma ficha resolve). O time usa essa fila para construir o que foi pedido. Chame assim que ficar claro o que a pessoa quer e que nêo temos — o contato é opcional: ofereça avisar quando ficar pronto e, se a pessoa deixar e-mail ou Telegram, chame de novo com o contato. Nêo use para perguntas fora do tema IA/automaçêo nem para testes.',
         parameters: {
           type: 'object',
           properties: {

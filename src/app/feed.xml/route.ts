@@ -20,7 +20,7 @@ function updateUrl(update: (typeof catalogUpdates)[number]) {
 export function GET() {
   const items = catalogUpdates.slice(0, 50).map((update) => {
     const url = updateUrl(update)
-    const description = `${update.type === 'novo' ? 'Novo' : 'Atualizado'} ${update.category} no catálogo do INEMA.`
+    const description = `${update.type === 'novo' ? 'Novo' : 'Atualizado'} ${update.category} no catálogo do ARCKHÉ.`
     return `    <item>
       <title>${escapeXml(update.title)}</title>
       <link>${escapeXml(url)}</link>
@@ -34,7 +34,7 @@ export function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>Atualizações do INEMA.club</title>
+    <title>Atualizações do ARCKHÉ AI</title>
     <link>${SITE_URL}/</link>
     <description>${escapeXml(SITE_DESCRIPTION)}</description>
     <language>pt-BR</language>

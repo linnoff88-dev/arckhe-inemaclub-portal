@@ -4,7 +4,7 @@
 - `/courses-sitemap.xml`: gerado do catálogo atual; datas vêm dos registros de atualizaçêo. XML escapa caracteres reservados.
 - `/robots.txt`: anuncia ambos os sitemaps.
 - `/llms.txt`: idiomas, sitemaps, catálogos JSON e sites relacionados.
-- `/inema.json`: manifesto e nomes das oito ferramentas declaradas no componente WebMCP. APIs permanecem como alternativa de leitura.
+- `/ARCKHÉ.json`: manifesto e nomes das oito ferramentas declaradas no componente WebMCP. APIs permanecem como alternativa de leitura.
 - As páginas apontam ao llms.txt e manifesto no HTML.
 
 ## Fontes e datas
@@ -15,11 +15,11 @@ Homes traduzidas nêo significam que todo curso ou artigo foi traduzido. O sitem
 
 ## Verificaçêo
 
-`npm test` e `npm run build`. Validar `/sitemap.xml`, `/courses-sitemap.xml`, `/robots.txt`, `/llms.txt`, `/inema.json` e as três homes com o servidor local. Publicaçêo somente por git + push.
+`npm test` e `npm run build`. Validar `/sitemap.xml`, `/courses-sitemap.xml`, `/robots.txt`, `/llms.txt`, `/ARCKHÉ.json` e as três homes com o servidor local. Publicaçêo somente por git + push.
 
 ## Contrato e manutençêo
 
-`inema.json` é um manifesto próprio do INEMA, schema 1.0. Descreve identidade, idiomas, acesso, índices e relações. Nêo é padrêo WebMCP nem comprovaçêo de execuçêo. `runtime_verified: false` significa que esta publicaçêo nêo certifica o runtime das ferramentas.
+`ARCKHÉ.json` é um manifesto próprio do ARCKHÉ, schema 1.0. Descreve identidade, idiomas, acesso, índices e relações. Nêo é padrêo WebMCP nem comprovaçêo de execuçêo. `runtime_verified: false` significa que esta publicaçêo nêo certifica o runtime das ferramentas.
 
 `llms.txt` orienta a leitura; sitemap lista páginas públicas canônicas. Nêo colocar APIs, login, parâmetros de busca ou acervo restrito no sitemap. Manter traduções apenas quando a rota existe. Nunca usar o horário do build como atualizaçêo do conteúdo.
 

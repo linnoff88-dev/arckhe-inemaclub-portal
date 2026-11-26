@@ -1,6 +1,6 @@
--- Fila de construção: tudo que o visitante pediu e o INEMA ainda não tem.
+-- Fila de construção: tudo que o visitante pediu e o ARCKHÉ ainda não tem.
 -- O agente grava aqui pela tool registrar_pedido (contato é opcional).
--- O digest semanal (inemapro-mono/scripts/radar-pedidos.mjs) lê esta tabela
+-- O digest semanal (ARCKHÉpro-mono/scripts/radar-pedidos.mjs) lê esta tabela
 -- e manda no Telegram pelo bot v3.
 
 create table if not exists pedidos_construcao (

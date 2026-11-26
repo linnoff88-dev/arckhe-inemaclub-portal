@@ -1,9 +1,9 @@
-# Plano — Portal INEMA evoluído (eventos + notícias + educaçêo)
+# Plano — Portal ARCKHÉ evoluído (eventos + notícias + educaçêo)
 
 Data: 2026-09-15. Autor: Claude (Fable 5.1) a pedido do Nei. Status: **proposta, nada construído.**
 
-**Pedido:** um portal de eventos, notícias e educaçêo mais evoluído que o inema.club de hoje,
-no estilo editorial do eventos.inema.pro, que seja base de conhecimento **e** promocional.
+**Pedido:** um portal de eventos, notícias e educaçêo mais evoluído que o ARCKHÉ AI de hoje,
+no estilo editorial do eventos.ARCKHÉ.pro, que seja base de conhecimento **e** promocional.
 Pesquisar o que pode viralizar e propor um plano viral e/ou pago.
 
 **Recomendaçêo em uma linha:** orgânico-primeiro, apoiado na fábrica de conteúdo que já existe,
@@ -11,11 +11,11 @@ com **um** teste pago pequeno e medido no mês 2. Detalhes na seçêo 7.
 
 **Decisões do Nei em 2026-09-15 (depois da 1ª versêo):**
 - O portal de conteúdo é **trilíngue (pt, es, en)** desde o primeiro dia.
-- Vive num domínio próprio, **news.inema.pro** (ou nome parecido). O **eventos.inema.pro fica só como
+- Vive num domínio próprio, **news.ARCKHÉ.pro** (ou nome parecido). O **eventos.ARCKHÉ.pro fica só como
   agenda de eventos**; tudo que hoje é repassado pra lá como conteúdo editorial passa a ir pro news.
 - Layout **impactante mas funcional, de leitura fácil**. Mockup navegável em
   `doc/mockup-portal-conteudo.html`; capturas desktop/celular nos 3 idiomas em
-  `~/projetos/output/news-inema-layouts/` (enviadas ao @inemav3bot).
+  `~/projetos/output/news-ARCKHÉ-layouts/` (enviadas ao @ARCKHÉv3bot).
 
 ---
 
@@ -23,12 +23,12 @@ com **um** teste pago pequeno e medido no mês 2. Detalhes na seçêo 7.
 
 | Superfície | Estado | O que serve pro plano |
 |---|---|---|
-| **inema.club** (repo `portal`) | Next.js 16 + Supabase no Vercel. Home enxuta, i18n pt/en/es, `feed.xml`, `llms.txt`, contador de visitas no Supabase, seçêo "Últimas Novidades" alimentada automaticamente pelo tópico 306 do INEMA.VIP (parser sem LLM) | Base técnica pronta: banco, feed, idiomas, mediçêo. É aqui que o portal evoluído deve nascer |
-| **eventos.inema.pro** (repo `inemaeventos`) | HTML estático no GitHub Pages. Formato editorial longo por área (AGI-ready, WebMCP, Gestêo de IA 2027, Content2Video, Meridiano, imersões). Paleta dark `#0a0b0d` + âmbar + ciano, fonte mono | É o **estilo** pedido. Faltam: `ld+json` (0 na página), analytics (nenhum script), datas estruturadas de evento |
-| **pay.inema.pro / inema.vip** | Assinatura R$ 42/mês, R$ 327 ou R$ 300/ano (riscado R$ 67 / R$ 543) | Único produto pago. O portal é o topo desse funil |
-| **Comunidade (inema.pro, Telegram INEMA.VIP, t.me/apoioinema)** | Curadoria diária do Nei no tópico 306 | Matéria-prima do "briefing diário" já existe, com custo zero |
-| **Fábrica de conteúdo** | inemaccbot (fila durável, fluxos com portêo humano), inemapromover (1 assunto → 11 reels por público → 11 canais YouTube lives21–31), content2video, musicavideo, inemavox (TTS), HeyGen (avatar), Codex image_gen (banners), Agnes (vídeo a US$ 0) | Cada formato viral abaixo mapeia num pipeline que já roda. Vantagem que os concorrentes nêo têm |
-| **Público** | Primário: 40+ leigo (formato-curso-v5). Secundário: 11 personas do inemapromover | Filtro pra escolher canal: WhatsApp, YouTube, e-mail, Facebook, nêo Threads/X |
+| **ARCKHÉ AI** (repo `portal`) | Next.js 16 + Supabase no Vercel. Home enxuta, i18n pt/en/es, `feed.xml`, `llms.txt`, contador de visitas no Supabase, seçêo "Últimas Novidades" alimentada automaticamente pelo tópico 306 do ARCKHÉ.VIP (parser sem LLM) | Base técnica pronta: banco, feed, idiomas, mediçêo. É aqui que o portal evoluído deve nascer |
+| **eventos.ARCKHÉ.pro** (repo `ARCKHÉeventos`) | HTML estático no GitHub Pages. Formato editorial longo por área (AGI-ready, WebMCP, Gestêo de IA 2027, Content2Video, Meridiano, imersões). Paleta dark `#0a0b0d` + âmbar + ciano, fonte mono | É o **estilo** pedido. Faltam: `ld+json` (0 na página), analytics (nenhum script), datas estruturadas de evento |
+| **pay.ARCKHÉ.pro / ARCKHÉ.vip** | Assinatura R$ 42/mês, R$ 327 ou R$ 300/ano (riscado R$ 67 / R$ 543) | Único produto pago. O portal é o topo desse funil |
+| **Comunidade (ARCKHÉ.pro, Telegram ARCKHÉ.VIP, t.me/apoioARCKHÉ)** | Curadoria diária do Nei no tópico 306 | Matéria-prima do "briefing diário" já existe, com custo zero |
+| **Fábrica de conteúdo** | ARCKHÉccbot (fila durável, fluxos com portêo humano), ARCKHÉpromover (1 assunto → 11 reels por público → 11 canais YouTube lives21–31), content2video, musicavideo, ARCKHÉvox (TTS), HeyGen (avatar), Codex image_gen (banners), Agnes (vídeo a US$ 0) | Cada formato viral abaixo mapeia num pipeline que já roda. Vantagem que os concorrentes nêo têm |
+| **Público** | Primário: 40+ leigo (formato-curso-v5). Secundário: 11 personas do ARCKHÉpromover | Filtro pra escolher canal: WhatsApp, YouTube, e-mail, Facebook, nêo Threads/X |
 
 Baseline de audiência: **nêo há número confiável além do contador do Supabase.** Medir na semana 1
 antes de qualquer meta.
@@ -42,20 +42,20 @@ antes de qualquer meta.
 - **Schema.org Event** (name, startDate, location, endDate, eventStatus, image 16:9 ≥1200×675, offers) habilita carrossel de eventos no Google e citaçêo em AI Overviews. Esforço baixo.
 - **Interativo converte:** quiz e enquetes dêo 2× conversêo e 5× pageviews. Certificado com o nome do usuário em destaque gerou +300% de compartilhamento num case.
 - **Referral nativo:** beehiiv tem programa de indicaçêo embutido (SparkLoop está descontinuando). Substack fica com 10% da receita; beehiiv cobra fixo.
-- **Pago, benchmarks externos (nêo sêo dados INEMA):** CPL médio Meta Ads 2025 US$ 27,66; Google Ads US$ 70,11; Brasil é "tier 3" no Meta (CPM ~US$ 4,20) com 20 a 30% de tráfego suspeito de bot. **Nêo existe CPL confiável para "educaçêo/IA Brasil 40+"**: só medindo.
+- **Pago, benchmarks externos (nêo sêo dados ARCKHÉ):** CPL médio Meta Ads 2025 US$ 27,66; Google Ads US$ 70,11; Brasil é "tier 3" no Meta (CPM ~US$ 4,20) com 20 a 30% de tráfego suspeito de bot. **Nêo existe CPL confiável para "educaçêo/IA Brasil 40+"**: só medindo.
 - **Público 40+/60+ já está online:** 74,5% dos 60+ conectados, 65+ usam smartphone ~22 h/semana.
 
-## 3. Conceito: news.inema.pro, o portal de conteúdo
+## 3. Conceito: news.ARCKHÉ.pro, o portal de conteúdo
 
-Um portal com três motores editoriais no formato longo do eventos.inema.pro, todos alimentados
+Um portal com três motores editoriais no formato longo do eventos.ARCKHÉ.pro, todos alimentados
 pela fábrica atual:
 
-1. **Eventos** — a agenda continua no eventos.inema.pro; o news mostra os próximos e, para cada
+1. **Eventos** — a agenda continua no eventos.ARCKHÉ.pro; o news mostra os próximos e, para cada
    evento, publica o artigo editorial (o que muda, tese, como aplicar, gravaçêo, oferta).
 2. **Notícias / Briefing de IA** — um "IA em 3 minutos" diário ou 3× por semana, escrito para leigo
    40+, com a mesma curadoria que o Nei já faz no tópico 306. Cada ediçêo vira: página no portal
-   (Discover), e-mail (beehiiv), post no Canal do WhatsApp, reel narrado (inemapromover) e áudio
-   (inemavox). **Um insumo, seis saídas, sem trabalho novo de curadoria.**
+   (Discover), e-mail (beehiiv), post no Canal do WhatsApp, reel narrado (ARCKHÉpromover) e áudio
+   (ARCKHÉvox). **Um insumo, seis saídas, sem trabalho novo de curadoria.**
 3. **Educaçêo** — as trilhas e cursos gratuitos que já existem, mais dois imês: **quiz "Que
    nível de IA você está?"** com resultado compartilhável e **certificado com nome** ao terminar
    uma trilha.
@@ -64,20 +64,20 @@ pela fábrica atual:
 
 | Domínio | Papel | O que tem |
 |---|---|---|
-| **news.inema.pro** | portal de conteúdo | briefing diário, artigos longos no formato editorial, trilhas/educaçêo, quiz, certificado, captura de e-mail/WhatsApp |
-| **eventos.inema.pro** | agenda | calendário, página por evento com Event schema, inscriçêo, gravaçêo depois; cada evento linka o artigo correspondente no news |
-| **inema.club** | porta de entrada | home enxuta que já existe, apontando pros dois |
+| **news.ARCKHÉ.pro** | portal de conteúdo | briefing diário, artigos longos no formato editorial, trilhas/educaçêo, quiz, certificado, captura de e-mail/WhatsApp |
+| **eventos.ARCKHÉ.pro** | agenda | calendário, página por evento com Event schema, inscriçêo, gravaçêo depois; cada evento linka o artigo correspondente no news |
+| **ARCKHÉ AI** | porta de entrada | home enxuta que já existe, apontando pros dois |
 
-Assunçêo de arquitetura: **news.inema.pro nasce como app Next.js no mesmo padrêo do repo `portal`**
+Assunçêo de arquitetura: **news.ARCKHÉ.pro nasce como app Next.js no mesmo padrêo do repo `portal`**
 (rotas `/`, `/es/`, `/en/`, Supabase, feed, `llms.txt`), reaproveitando `src/i18n`, `RootShell` e
 `buildRootMetadata`. Pode ser o próprio repo `portal` com o domínio novo apontando pra um grupo de
-rotas, ou um repo irmêo `inematds/news` copiando a base. Recomendo **repo irmêo**: o portal fica
+rotas, ou um repo irmêo `linnoff88-dev/news` copiando a base. Recomendo **repo irmêo**: o portal fica
 enxuto e o news pode ter modelo de dados próprio (edições, artigos, traduções). O eventos continua
 estático no GitHub Pages, só ganhando schema, analytics e um JSON público da agenda que o news lê.
 
 ## 3.1 Três idiomas: como o conteúdo funciona
 
-- **Uma URL por idioma**, sem redirect automático, igual ao portal: `news.inema.pro/`, `/es/`, `/en/`.
+- **Uma URL por idioma**, sem redirect automático, igual ao portal: `news.ARCKHÉ.pro/`, `/es/`, `/en/`.
   `hreflang` entre as três e `canonical` por idioma.
 - **Modelo de dados:** cada peça (ediçêo do briefing, artigo, evento, trilha) é um registro com
   `slug` fixo e três blocos de texto `{pt, es, en}`. Sem traduçêo pronta, a página mostra o PT com
@@ -95,7 +95,7 @@ estático no GitHub Pages, só ganhando schema, analytics e um JSON público da 
 
 - **Tipografia:** display *Bricolage Grotesque*; corpo *Atkinson Hyperlegible* a 19px, linha 1,6,
   máximo 68 caracteres por linha. Escolha deliberada pra leitor 40+.
-- **Paleta:** a do eventos.inema.pro (fundo `#0a0b0d`, painel `#111317`, âmbar `#f5c04a`, ciano
+- **Paleta:** a do eventos.ARCKHÉ.pro (fundo `#0a0b0d`, painel `#111317`, âmbar `#f5c04a`, ciano
   `#38bdf8`), pra manter a mesma família visual.
 - **Hero = "primeira página de hoje":** data em destaque, três manchetes do briefing com horário,
   botêo "Ler a ediçêo de hoje" e o próximo evento ao lado. É o único elemento de impacto; o resto é
@@ -107,7 +107,7 @@ estático no GitHub Pages, só ganhando schema, analytics e um JSON público da 
 - Pendências do mockup: espaço vazio sob o card do próximo evento no desktop (candidato a banner
   da semana ou lista de edições), página de artigo e página de ediçêo ainda nêo desenhadas.
 
-Estrutura editorial de cada área, herdada do eventos.inema.pro:
+Estrutura editorial de cada área, herdada do eventos.ARCKHÉ.pro:
 `o que muda → tese → competências/ideias → como aplicar (curso/guia) → acervo → oferta`.
 
 ## 4. Trilha orgânica (viral)
@@ -115,12 +115,12 @@ Estrutura editorial de cada área, herdada do eventos.inema.pro:
 | # | Aposta | Por que | Mapeia em | Esforço |
 |---|---|---|---|---|
 | 1 | **Newsletter "IA em 3 minutos"** em beehiiv com referral desde o dia 1 (indique 3 → acesso a um mini-curso; 10 → 1 mês de VIP) | Maior alavanca comprovada do nicho | Parser do tópico 306 + redaçêo por skill + envio | Médio |
-| 2 | **Canal do WhatsApp INEMA** com o mesmo briefing | Canal nativo do 40+, zero atrito | Publicaçêo manual ou via API do Canal | Baixo |
+| 2 | **Canal do WhatsApp ARCKHÉ** com o mesmo briefing | Canal nativo do 40+, zero atrito | Publicaçêo manual ou via API do Canal | Baixo |
 | 3 | **Event schema + página evergreen por evento** | Carrossel do Google e AI Overviews | Rota `/eventos/[slug]` no Next | Baixo |
 | 4 | **Cobertura quente (<1 h) de lançamentos de IA** mirando o Discover | Único canal Google que cresce | agi-newprof / content2video geram análise + vídeo | Médio |
 | 5 | **Quiz "Que nível de IA você está?"** com card de resultado pra compartilhar no WhatsApp | 2× conversêo, 5× pageviews | Página no portal + imagem gerada (Codex/flux) | Baixo |
 | 6 | **Certificado com nome grande** ao concluir trilha | +300% compartilhamento no case | Supabase (já tem login) + PDF/PNG | Baixo |
-| 7 | **Reels por público** de cada ediçêo (11 canais YouTube) | Já existe, só falta ligar ao briefing | inemapromover | Zero novo |
+| 7 | **Reels por público** de cada ediçêo (11 canais YouTube) | Já existe, só falta ligar ao briefing | ARCKHÉpromover | Zero novo |
 | 8 | **SEO programático híbrido**: uma página por ferramenta de IA e por tema, cada uma com FAQ própria escrita, nêo clonada | Cauda longa contínua | Skill de geraçêo + revisêo humana | Médio |
 | 9 | **PWA + push web** no portal | Retençêo sem depender de algoritmo | Next PWA | Médio |
 | 10 | **Evento online gratuito trimestral** (desafio de 5 dias ou summit) com inscriçêo via newsletter | Ímê de lista + venda de VIP no fim | Já se faz imersões; só formalizar o funil | Médio |
@@ -132,11 +132,11 @@ o link do portal.
 ## 5. Trilha paga
 
 Só depois de a trilha orgânica ter mediçêo (semana 1) e um imê funcionando (quiz ou newsletter).
-Valores abaixo sêo **estimativas externas**, nêo dados INEMA.
+Valores abaixo sêo **estimativas externas**, nêo dados ARCKHÉ.
 
 | Nível | Verba/mês | Onde | Objetivo | Expectativa (a validar) |
 |---|---|---|---|---|
-| **Piloto** | R$ 500 | Meta Ads, objetivo Leads, 40+ BR, criativo = reel do inemapromover | Descobrir o CPL real do nicho | Com CPL de US$ 15 a 30 (Meta BR barato): 90 a 180 assinantes/mês |
+| **Piloto** | R$ 500 | Meta Ads, objetivo Leads, 40+ BR, criativo = reel do ARCKHÉpromover | Descobrir o CPL real do nicho | Com CPL de US$ 15 a 30 (Meta BR barato): 90 a 180 assinantes/mês |
 | **Crescimento** | R$ 2.000 | Meta 70% + YouTube 30% (canais lives) | Escalar o criativo vencedor do piloto | 400 a 700 assinantes/mês |
 | **Aceleraçêo** | R$ 5.000 | Meta + YouTube + patrocínio de 1 newsletter BR do nicho | Encher o evento trimestral | 1.000+ assinantes/mês |
 
@@ -144,7 +144,7 @@ Regras: nunca escalar sem CPL medido no piloto; criativo sempre em vídeo (a fá
 graça); descontar 20 a 30% de tráfego suspeito nas leituras de Meta BR.
 
 Outras receitas possíveis, em ordem de facilidade: patrocínio da newsletter (quando passar de
-5 mil assinantes), ingressos de imersêo presencial (já existe nota em `INEMAVIPw/NOTAS-IMERSAO-PRESENCIAL.md`),
+5 mil assinantes), ingressos de imersêo presencial (já existe nota em `ARCKHÉVIPw/NOTAS-IMERSAO-PRESENCIAL.md`),
 listagem paga de ferramentas no diretório programático, afiliados de ferramentas de IA.
 
 ## 6. Fases
@@ -152,19 +152,19 @@ listagem paga de ferramentas no diretório programático, afiliados de ferrament
 **Semana 1 — medir e destravar (sem design novo)**
 - Analytics no portal e no eventos (Plausible ou GA4). Registrar baseline de visitas, origem, top páginas.
 - Event schema nas páginas de evento existentes. Testar no Rich Results Test.
-- Criar Canal do WhatsApp INEMA e conta beehiiv (plano gratuito basta pra começar).
+- Criar Canal do WhatsApp ARCKHÉ e conta beehiiv (plano gratuito basta pra começar).
 - Publicar a 1ª ediçêo do "IA em 3 minutos" a partir do tópico 306.
 
 **Semanas 2 a 4 — o loop mínimo**
-- Rota `/hoje` (briefing) e `/eventos` no portal, no visual do eventos.inema.pro.
+- Rota `/hoje` (briefing) e `/eventos` no portal, no visual do eventos.ARCKHÉ.pro.
 - Quiz de nível de IA com card compartilhável.
 - Referral do beehiiv ligado com as duas recompensas.
-- Ligar o briefing ao inemapromover: cada ediçêo gera reels pros 11 canais.
+- Ligar o briefing ao ARCKHÉpromover: cada ediçêo gera reels pros 11 canais.
 
 **Mês 2 — teste pago + certificado**
 - Piloto Meta Ads R$ 500 com 3 criativos em vídeo. Meta: CPL medido.
 - Certificado com nome ao concluir trilha para iniciantes.
-- Migrar o eventos.inema.pro pra dentro do portal (domínio aponta pra rota).
+- Migrar o eventos.ARCKHÉ.pro pra dentro do portal (domínio aponta pra rota).
 
 **Mês 3 — escalar o que provou**
 - Se CPL ≤ R$ 15: subir pra R$ 2.000. Se nêo: seguir só orgânico e revisar criativo.
@@ -193,14 +193,14 @@ O que viraria a decisêo pra "pago-primeiro": um evento com data e capacidade a 
 | Eventos com rich result no Google | 0 | 100% | Search Console |
 | Tráfego Discover | 0 | existir | Search Console |
 | CPL Meta (piloto) | — | ≤ R$ 15 | Ads Manager |
-| Conversêo assinante → VIP | — | ≥ 1% | pay.inema.pro |
+| Conversêo assinante → VIP | — | ≥ 1% | pay.ARCKHÉ.pro |
 
 ## 9. O que nêo verifiquei
 
 - Números atuais de visitas, membros do VIP e inscritos nos canais YouTube: nêo li o Supabase nem o YouTube.
 - CPL real do nicho no Brasil: nêo existe em fonte confiável; só o piloto responde.
 - Dados 2025–26 de Threads, LinkedIn newsletters, Shorts e TikTok BR: a pesquisa nêo achou fonte sólida.
-- Se o Canal do WhatsApp aceita publicaçêo por API na conta INEMA (pode exigir a API oficial da Meta).
+- Se o Canal do WhatsApp aceita publicaçêo por API na conta ARCKHÉ (pode exigir a API oficial da Meta).
 - Custo do beehiiv com referral: o plano com indicaçêo começa em ~US$ 517/ano; o gratuito serve pra começar sem referral.
 
 **Fontes principais da pesquisa:** therundown.ai/advertise-with-us · growthinreverse.com/bens-bites ·

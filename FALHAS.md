@@ -4,12 +4,12 @@
 
 | data | o que quebrou | menor correçêo | prompt \| infra |
 |---|---|---|---|
-| 2026-09-29 | Anúncio do Nei de 28/09 (aventura/eai.inema.club) nêo virou novidade: perguntas de membro de 27/09 sem `=====` caíram no mesmo bloco e ele foi descartado como conversa | Nei escrevendo 2 h+ após o último membro = anúncio novo (`GAP_ANUNCIO_MS` em `gera-novidades.mjs`) | prompt |
+| 2026-09-29 | Anúncio do Nei de 28/09 (aventura/eai.ARCKHÉ AI) nêo virou novidade: perguntas de membro de 27/09 sem `=====` caíram no mesmo bloco e ele foi descartado como conversa | Nei escrevendo 2 h+ após o último membro = anúncio novo (`GAP_ANUNCIO_MS` em `gera-novidades.mjs`) | prompt |
 | 2026-09-26 | Novas entradas com chaves entre aspas nêo eram capturadas pelo teste regex do catálogo traduzido | Usar o literal TS padrêo com id/kind/locale sem aspas nas chaves; teste rerodado antes do push | prompt |
 | 2026-09-25 | Agente do portal respondia "nêo tenho registro" pra Hermes, Agnes, NVIDIA etc. (catálogo congelado em 54 fichas desde 10/07 + busca exigindo todas as palavras) | Cron `sync-agente-catalogo.mjs` + rpc `buscar_fichas` em OR ranqueada | infra |
 | 2026-09-25 | Push RSI concorreu com cadastro RSI Copiloto e conflitou no array traduzido | Rebase preservando ambas as entradas e restaurar ediçêo local OSWork | infra |
-| 2026-09-24 | Menu Cursos (e News) nas homes EN/ES apontava pra `/cursos/` e `news.inema.pro` em PT | `coursesPath()`/`newsUrl()` por locale + rotas `/en/cursos/` e `/es/cursos/` | prompt |
-| 2026-09-24 | `extrai-syllabus.mjs` re-extraiu e sobrescreveu 34 fichas já revisadas: o bloco de link de volta mudou o hash de toda página | Tirar o bloco `inema-backlink:v1` antes do hash (`1b71f12`); fichas antigas restauradas do git | prompt |
+| 2026-09-24 | Menu Cursos (e News) nas homes EN/ES apontava pra `/cursos/` e `news.ARCKHÉ.pro` em PT | `coursesPath()`/`newsUrl()` por locale + rotas `/en/cursos/` e `/es/cursos/` | prompt |
+| 2026-09-24 | `extrai-syllabus.mjs` re-extraiu e sobrescreveu 34 fichas já revisadas: o bloco de link de volta mudou o hash de toda página | Tirar o bloco `ARCKHÉ-backlink:v1` antes do hash (`1b71f12`); fichas antigas restauradas do git | prompt |
 | 2026-09-23 | Últimas Novidades: bloco do Nei descartado porque membro mandou `/status` no meio (virou "conversa"); título saía com `**`/`===ALERTA===` | gera-novidades.mjs ignora comando `/` de membro e limpa `**`/`=` das linhas | prompt |
 | 2026-09-23 | Sessêo paralela commitou (`f278475`) ediçêo ainda em andamento do Portal.tsx de outra sessêo; origin ficou minutos com chaves i18n inexistentes | Commitar só arquivos próprios (`git add <arquivos>`, nunca `-A`/`.`) e checar `git status` antes | infra |
 | 2026-09-21 | Home referenciava cerca de 20 MiB em imagens, com banners PNG carregados antecipadamente | Servir derivados WebP PT/EN/ES e carregar banners abaixo do topo sob demanda | infra |

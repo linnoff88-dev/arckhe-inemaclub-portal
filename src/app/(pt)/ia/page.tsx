@@ -6,7 +6,7 @@ import { SITE_URL } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Perguntas sobre IA: respostas diretas e práticas',
   description:
-    'Respostas diretas do INEMA para as dúvidas mais comuns sobre inteligência artificial, agentes, automaçêo e ferramentas, com o caminho para aprender na prática.',
+    'Respostas diretas do ARCKHÉ para as dúvidas mais comuns sobre inteligência artificial, agentes, automaçêo e ferramentas, com o caminho para aprender na prática.',
   alternates: { canonical: '/ia/' },
 }
 
@@ -15,7 +15,7 @@ export default function IaIndexPage() {
   const listJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Perguntas sobre IA — INEMA.club',
+    name: 'Perguntas sobre IA — ARCKHÉ AI',
     numberOfItems: pages.length,
     itemListElement: pages.map((page, index) => ({
       '@type': 'ListItem',
@@ -32,7 +32,7 @@ export default function IaIndexPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(listJsonLd).replace(/</g, '\\u003c') }}
       />
       <nav className="course-breadcrumb" aria-label="Navegaçêo estrutural">
-        <a href="/">INEMA.club</a><span aria-hidden="true">/</span><span>Perguntas sobre IA</span>
+        <a href="/">ARCKHÉ AI</a><span aria-hidden="true">/</span><span>Perguntas sobre IA</span>
       </nav>
       <header className="course-index-header">
         <h1>Perguntas sobre IA</h1>

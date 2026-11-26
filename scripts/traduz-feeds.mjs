@@ -77,7 +77,7 @@ async function traduzLote(key, lang, itens) {
         role: 'system',
         content:
           `You translate short Brazilian Portuguese announcement titles about AI courses and software projects into ${LANGS[lang]}. ` +
-          'Keep proper names, product names, course names in acronyms (FEP, ATIA, Codex, Claude Code, WebMCP, INEMA, INEMA.PRO, INEMA.VIP), repo slugs, version numbers, emojis and URLs exactly as they are. ' +
+          'Keep proper names, product names, course names in acronyms (FEP, ATIA, Codex, Claude Code, WebMCP, ARCKHÉ, ARCKHÉ.PRO, ARCKHÉ.VIP), repo slugs, version numbers, emojis and URLs exactly as they are. ' +
           'Translate the rest naturally and concisely, same tone, same punctuation style (keep the " — " separators). ' +
           'Return ONLY a JSON object {"t": ["...", ...]} with the translations in the same order and same count as the input array.',
       },

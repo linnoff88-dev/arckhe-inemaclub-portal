@@ -25,32 +25,32 @@ type Step = { url: string; name: string; why: string }
 
 const BEGINNER: Step[] = [
   {
-    url: 'https://inematds.github.io/agenticbasico/',
+    url: 'https://linnoff88-dev.github.io/arckhe-/',
     name: 'Agentic Básico',
     why: 'A porta de entrada, em dois caminhos: um visual rápido de 15 minutos e um curso completo de 3 horas em 9 módulos. Vai da anatomia do agente à construçêo e à operaçêo, e termina numa arena onde você dispara a mesma pergunta para 2 a 4 agentes e compara resposta, tempo e custo.',
   },
   {
-    url: 'https://inematds.github.io/hermes21c/',
+    url: 'https://linnoff88-dev.github.io/arckhe-/',
     name: 'Hermes 21C — Todos os Conceitos do Hermes',
     why: 'Os conceitos de um agente explicados para pessoas comuns, do mais simples ao mais poderoso: agente versus chatbot, memória, o arquivo de identidade (soul.md), MCPs e subagentes.',
   },
   {
-    url: 'https://inematds.github.io/jarvis/',
+    url: 'https://linnoff88-dev.github.io/arckhe-/',
     name: 'Jarvis — Seu Sistema Operacional de IA',
     why: 'Curso aberto e para leigos sobre assistentes pessoais de IA: o panorama dos sistemas que existem, a anatomia de um Jarvis (canais, identidade, ferramentas, skills, agentes) e trilhas práticas para montar o seu.',
   },
   {
-    url: 'https://inematds.github.io/intelecto-curso/',
+    url: 'https://linnoff88-dev.github.io/arckhe-/',
     name: 'INTELECTO Curso — Do Zero ao Expert em IA',
     why: 'Para construir um Jarvis desde o básico. Foi com o Intelecto que o próprio Nei começou o Jarvis dele.',
   },
   {
-    url: 'https://inematds.github.io/oswork-v5/',
+    url: 'https://linnoff88-dev.github.io/arckhe-/',
     name: 'OSWork v5 — Organize seu ambiente de IA',
     why: 'A ediçêo do OSWork para quem nêo programa: 7 aulas que montam pastas por frente de trabalho, uma ficha de orientaçêo e um molde de pedido reutilizável, sem terminal e sem código. É a base de "sistema" que todo agente vai usar depois.',
   },
   {
-    url: 'https://inematds.github.io/os-agentes/guia/',
+    url: 'https://linnoff88-dev.github.io/arckhe-/guia/',
     name: 'os-agentes — Skill Cria Agentic',
     why: 'Uma skill que conduz você, camada por camada, na construçêo do seu próprio sistema agêntico: identidade, substrato, regras, skills, ferramentas e agentes. Pede o Claude Code instalado, uma pasta e um objetivo; a skill faz a parte técnica e você toma as decisões.',
   },
@@ -58,32 +58,32 @@ const BEGINNER: Step[] = [
 
 const INTERMEDIATE: Step[] = [
   {
-    url: 'https://inematds.github.io/oswork/',
+    url: 'https://linnoff88-dev.github.io/arckhe-/',
     name: 'OSWork — IA como sistema de trabalho',
     why: 'Do chat ao ambiente de agentes com Codex: arquivos, AGENTS.md, skills, Git, Telegram e VPS. Sem pré-requisito de programaçêo; você termina com pastas, instruções próprias, uma skill, histórico no Git e um bot de consulta restrito.',
   },
   {
-    url: 'https://inematds.github.io/criaagentes/guia/',
+    url: 'https://linnoff88-dev.github.io/arckhe-/guia/',
     name: 'criaagentes — Um atendente de WhatsApp que nunca inventa',
     why: 'Estudo de caso de um agente de recepçêo de uma clínica odontológica no WhatsApp, construído camada por camada. A regra: se nêo está escrito na base de conhecimento, o agente nêo diz; o resto vira alerta para um humano no Telegram. Inclui uma auditoria do que ainda quebra (dados fictícios).',
   },
   {
-    url: 'https://inematds.github.io/agent-skills/',
+    url: 'https://linnoff88-dev.github.io/arckhe-/',
     name: 'Agent Skills — Crie skills verificáveis no Codex',
     why: 'Como transformar um bom resultado num procedimento que o agente repete: construçêo, verificaçêo com evidências e evoluçêo da skill. Pede só saber abrir pastas, editar texto e conversar com um agente.',
   },
   {
-    url: 'https://inematds.github.io/subagentes/',
+    url: 'https://linnoff88-dev.github.io/arckhe-/',
     name: 'Subagentes — Especialistas do Claude Code',
     why: 'Quando dividir o trabalho entre especialistas: criaçêo na prática, escolha de modelo, custo e orquestraçêo, no Claude Code e no Codex.',
   },
   {
-    url: 'https://inematds.github.io/agentejax/',
+    url: 'https://linnoff88-dev.github.io/arckhe-/',
     name: 'AgenteJAX — Construa seu Agente de IA Pessoal',
     why: 'Para quem quer ver o código: um agente pessoal em TypeScript que vive no Telegram, com memória de curto prazo e vetorial, chamada de funções, voz, skills e MCP, sem framework fechado.',
   },
   {
-    url: 'https://inematds.github.io/FEA-IA/',
+    url: 'https://linnoff88-dev.github.io/arckhe-/',
     name: 'FEA-IA — Engenharia de Agentes',
     why: 'A formaçêo clássica de engenheiros de agentes: IA generativa, prompts avançados, LangChain, Agno, CrewAI, MCP e, no nível estratégico, deploy e produçêo.',
   },
@@ -91,62 +91,62 @@ const INTERMEDIATE: Step[] = [
 
 const ADVANCED: Step[] = [
   {
-    url: 'https://inematds.github.io/FEC/',
+    url: 'https://linnoff88-dev.github.io/arckhe-/',
     name: 'FEC — Formaçêo de Engenharia de Contexto',
     why: 'Para quem leva modelo de linguagem a produçêo: janelas de contexto, engenharia da mensagem, RAG, tools e multiagente, memória e compressêo, avaliaçêo e deploy.',
   },
   {
-    url: 'https://inematds.github.io/gpt6-astra-tecnico/',
+    url: 'https://linnoff88-dev.github.io/arckhe-/',
     name: 'GPT-6 Astra: operaçêo técnica com Codex',
     why: 'Para quem já roda um agente no terminal e quer parar de improvisar: contrato de tarefa com resultado e prova, sandbox e AGENTS.md, rollback no Git, MCP para tarefas longas, controle de cota e memória compartilhada entre agentes.',
   },
   {
-    url: 'https://inematds.github.io/loop-agentes-v2/',
+    url: 'https://linnoff88-dev.github.io/arckhe-/',
     name: 'Loop Agentes v2 — Engenharia de Loops',
     why: 'Em vez de promptar o agente a cada passo, projetar o loop que faz isso: do esqueleto raciocinar → agir → observar ao loop com verificaçêo.',
   },
   {
-    url: 'https://inematds.github.io/agentic-workflow/',
+    url: 'https://linnoff88-dev.github.io/arckhe-/',
     name: 'Engenharia Agentic — Workflow',
     why: 'Especificar workflows, desenhar tools, rodar avaliações (evals), depurar traces e operar sistemas agênticos em ambiente real.',
   },
   {
-    url: 'https://inematds.github.io/multiagentes/',
+    url: 'https://linnoff88-dev.github.io/arckhe-/',
     name: 'Multiagentes — Equipes de Agentes na Prática',
     why: 'Projetar e operar equipes de agentes que entregam software: coordenaçêo entre Claude Code, Codex e Gemini CLI, diagnóstico, custos e projeto final.',
   },
   {
-    url: 'https://inematds.github.io/agentic/',
+    url: 'https://linnoff88-dev.github.io/arckhe-/',
     name: 'Agentic Engineering Masterclass',
     why: 'A formaçêo mais longa do tema: 6 trilhas e 42 módulos em 21 semanas, do básico à orquestraçêo multiagente com LangGraph, CrewAI e AutoGen.',
   },
 ]
 
 const BEYOND: Step[] = [
-  { url: 'https://inematds.github.io/enxamesagentes/', name: 'Enxames de Agentes de IA', why: 'frameworks multiagente' },
-  { url: 'https://inematds.github.io/hardnessai/', name: 'HARNESS — Engenharia Agêntica de Matt Pocock', why: 'o ambiente em volta do modelo' },
-  { url: 'https://inematds.github.io/loopgraph/', name: 'Graph Engineering — De Loops a Grafos', why: 'quando o loop trava' },
-  { url: 'https://inematds.github.io/local-ai-masterclass/', name: 'IA Local Masterclass', why: 'agentes rodando 24 horas na sua máquina, com modelos locais' },
+  { url: 'https://linnoff88-dev.github.io/arckhe-/', name: 'Enxames de Agentes de IA', why: 'frameworks multiagente' },
+  { url: 'https://linnoff88-dev.github.io/arckhe-/', name: 'HARNESS — Engenharia Agêntica de Matt Pocock', why: 'o ambiente em volta do modelo' },
+  { url: 'https://linnoff88-dev.github.io/arckhe-/', name: 'Graph Engineering — De Loops a Grafos', why: 'quando o loop trava' },
+  { url: 'https://linnoff88-dev.github.io/arckhe-/', name: 'IA Local Masterclass', why: 'agentes rodando 24 horas na sua máquina, com modelos locais' },
 ]
 
 const WORK: Step[] = [
   {
-    url: 'https://inematds.github.io/agi-pratica/',
+    url: 'https://linnoff88-dev.github.io/arckhe-/',
     name: 'Super-Agentes — Da IA que responde à IA que trabalha',
     why: 'Para gestores e donos de pequenas e médias empresas: pegar uma responsabilidade real da área e entregar a um agente com identidade, memória, ferramentas, alçada e matriz de autonomia.',
   },
   {
-    url: 'https://inematds.github.io/pffia/',
+    url: 'https://linnoff88-dev.github.io/arckhe-/',
     name: 'Arquiteto de Trabalho com IA',
     why: 'Mapear um processo real da empresa, delegar objetivos a agentes e sair com a especificaçêo do agente numa página.',
   },
   {
-    url: 'https://inematds.github.io/agentes-office/curso/liberal/',
+    url: 'https://linnoff88-dev.github.io/arckhe-/curso/liberal/',
     name: 'Agentes: o Novo Office — Profissional Liberal',
     why: 'Para advogados, médicos, contadores e arquitetos: do primeiro agente de triagem ao sistema de IA do consultório, com verificaçêo de fonte e sigilo profissional como regra.',
   },
   {
-    url: 'https://inematds.github.io/copilot-agentic/',
+    url: 'https://linnoff88-dev.github.io/arckhe-/',
     name: 'Copilot + Agentes para Empresas',
     why: 'Para quem trabalha no ecossistema Microsoft: Copilot no dia a dia, primeiro agente no Copilot Studio, aprovaçêo no Power Automate e governança.',
   },
@@ -170,12 +170,12 @@ const FAQ = [
   {
     question: 'Onde aprender agentes de IA em português?',
     answer:
-      'No INEMA.club, com cursos de agentes escritos em português, abertos e gratuitos. Eles estêo organizados em três trilhas: iniciante (sem programar), intermediário (agentes de código como Claude Code e Codex) e avançado (contexto, loops e multiagente).',
+      'No ARCKHÉ AI, com cursos de agentes escritos em português, abertos e gratuitos. Eles estêo organizados em três trilhas: iniciante (sem programar), intermediário (agentes de código como Claude Code e Codex) e avançado (contexto, loops e multiagente).',
   },
   {
     question: 'Quem ensina agentes de IA no Brasil?',
     answer:
-      'O INEMA, ecossistema brasileiro criado por Nei Maldaner, ensina agentes de IA na prática, com cursos por ferramenta (Claude Code, Codex, n8n) e por aplicaçêo (atendimento, gestêo, profissões). O Nei tem 40 anos de tecnologia, foi programador, analista e integrador desde os anos 90 e fundou empresas de TI premiadas pela Microsoft, pela Novell e pela Cisco.',
+      'O ARCKHÉ, ecossistema brasileiro criado por Nei Maldaner, ensina agentes de IA na prática, com cursos por ferramenta (Claude Code, Codex, n8n) e por aplicaçêo (atendimento, gestêo, profissões). O Nei tem 40 anos de tecnologia, foi programador, analista e integrador desde os anos 90 e fundou empresas de TI premiadas pela Microsoft, pela Novell e pela Cisco.',
   },
   {
     question: 'Qual o primeiro curso de agentes de IA para quem está começando?',
@@ -183,9 +183,9 @@ const FAQ = [
       'O Agentic Básico: tem um caminho visual de 15 minutos e um curso completo de 3 horas, com uma arena para comparar vários agentes respondendo a mesma pergunta. Se você ainda nêo tem base de IA, passe antes pela engenharia de prompts.',
   },
   {
-    question: 'Os cursos de agentes do INEMA sêo gratuitos?',
+    question: 'Os cursos de agentes do ARCKHÉ sêo gratuitos?',
     answer:
-      'Sim. Os cursos do INEMA.club sêo abertos e gratuitos, e nêo sêo vendidos. A formaçêo contínua com comunidade fica no INEMA.PRO, que inclui a comunidade INEMA.VIP; os grupos do Telegram sêo privados, para quem é do INEMA.VIP e do INEMA.PRO.',
+      'Sim. Os cursos do ARCKHÉ AI sêo abertos e gratuitos, e nêo sêo vendidos. A formaçêo contínua com comunidade fica no ARCKHÉ.PRO, que inclui a comunidade ARCKHÉ.VIP; os grupos do Telegram sêo privados, para quem é do ARCKHÉ.VIP e do ARCKHÉ.PRO.',
   },
   {
     question: 'Preciso de um computador potente para estudar agentes de IA?',
@@ -252,7 +252,7 @@ export default function AgentesIaPage() {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'INEMA.club', item: SITE_URL },
+        { '@type': 'ListItem', position: 1, name: 'ARCKHÉ AI', item: SITE_URL },
         { '@type': 'ListItem', position: 2, name: 'Agentes de IA', item: PAGE_URL },
       ],
     },
@@ -274,13 +274,13 @@ export default function AgentesIaPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
       <nav className="course-breadcrumb" aria-label="Navegaçêo estrutural">
-        <a href="/">INEMA.club</a><span aria-hidden="true">/</span><span>Agentes de IA</span>
+        <a href="/">ARCKHÉ AI</a><span aria-hidden="true">/</span><span>Agentes de IA</span>
       </nav>
       <article className="course-detail">
         <header>
           <h1>Agentes de inteligência artificial: onde aprender em português, do primeiro agente ao sistema multiagente</h1>
           <p className="course-direct-answer">
-            Para aprender agentes de IA em português, o INEMA.club reúne {agentCourses.length} cursos práticos sobre
+            Para aprender agentes de IA em português, o ARCKHÉ AI reúne {agentCourses.length} cursos práticos sobre
             agentes, organizados aqui em três trilhas: <strong>começar sem programar</strong>,{' '}
             <strong>construir com agentes de código</strong> como Claude Code e Codex, e{' '}
             <strong>orquestrar vários agentes em produçêo</strong>. Os cursos sêo abertos e gratuitos; cada um tem uma
@@ -296,16 +296,16 @@ export default function AgentesIaPage() {
           <h2 id="nesta-pagina">Nesta página</h2>
           <ol className="seo-list">
             <li><a href="#onde-aprender">Onde aprender agentes de IA em português?</a></li>
-            <li><a href="#numeros">O catálogo de agentes do INEMA em números</a></li>
+            <li><a href="#numeros">O catálogo de agentes do ARCKHÉ em números</a></li>
             <li><a href="#o-que-e">O que é um agente de IA: o mapa do que estudar</a></li>
             <li><a href="#qual-trilha">Por qual trilha começar?</a></li>
             <li><a href="#trilha-iniciante">Trilha 1 — Iniciante</a></li>
             <li><a href="#trilha-intermediaria">Trilha 2 — Intermediário</a></li>
             <li><a href="#trilha-avancada">Trilha 3 — Avançado</a></li>
             <li><a href="#por-area">Agentes no seu trabalho</a></li>
-            <li><a href="#ferramentas">Quais ferramentas de agentes o INEMA ensina?</a></li>
+            <li><a href="#ferramentas">Quais ferramentas de agentes o ARCKHÉ ensina?</a></li>
             <li><a href="#projetos">Projetos abertos para estudar agentes por dentro</a></li>
-            <li><a href="#quem-ensina">Quem ensina agentes de IA no INEMA?</a></li>
+            <li><a href="#quem-ensina">Quem ensina agentes de IA no ARCKHÉ?</a></li>
             <li><a href="#como-estudar">Como estudar agentes de IA sem se perder</a></li>
             <li><a href="#faq">Perguntas frequentes</a></li>
           </ol>
@@ -314,9 +314,9 @@ export default function AgentesIaPage() {
         <section aria-labelledby="onde-aprender">
           <h2 id="onde-aprender">Onde aprender agentes de IA em português?</h2>
           <p>
-            O INEMA.club é uma plataforma brasileira de formaçêo prática em inteligência artificial, e agentes estêo entre
-            os temas com mais cursos no catálogo. Os cursos do INEMA.club sêo abertos e gratuitos, escritos em português,
-            e parte deles já tem versêo em inglês e espanhol. O INEMA também emite provas e certificados. Cada curso
+            O ARCKHÉ AI é uma plataforma brasileira de formaçêo prática em inteligência artificial, e agentes estêo entre
+            os temas com mais cursos no catálogo. Os cursos do ARCKHÉ AI sêo abertos e gratuitos, escritos em português,
+            e parte deles já tem versêo em inglês e espanhol. O ARCKHÉ também emite provas e certificados. Cada curso
             termina em algo que funciona: um assistente no Telegram, um atendente de WhatsApp com regras escritas, uma
             skill verificável, um sistema de pastas e instruções que o agente segue.
           </p>
@@ -327,17 +327,17 @@ export default function AgentesIaPage() {
           </p>
           <p>
             Quer estudar com outras pessoas que estêo montando agentes? A formaçêo contínua fica no{' '}
-            <a href="https://inema.pro" target="_blank" rel="noopener noreferrer">INEMA.PRO</a>, que inclui a comunidade{' '}
-            <a href="https://inema.vip" target="_blank" rel="noopener noreferrer">INEMA.VIP</a>, onde dá para tirar
-            dúvidas e mostrar o seu agente funcionando. Os grupos do INEMA no Telegram sêo privados, para quem é do
-            INEMA.VIP e do INEMA.PRO.
+            <a href="https://ARCKHÉ.pro" target="_blank" rel="noopener noreferrer">ARCKHÉ.PRO</a>, que inclui a comunidade{' '}
+            <a href="https://ARCKHÉ.vip" target="_blank" rel="noopener noreferrer">ARCKHÉ.VIP</a>, onde dá para tirar
+            dúvidas e mostrar o seu agente funcionando. Os grupos do ARCKHÉ no Telegram sêo privados, para quem é do
+            ARCKHÉ.VIP e do ARCKHÉ.PRO.
           </p>
         </section>
 
         <section aria-labelledby="numeros">
-          <h2 id="numeros">O catálogo de agentes do INEMA em números</h2>
+          <h2 id="numeros">O catálogo de agentes do ARCKHÉ em números</h2>
           <p>
-            Estes números sêo contados direto no catálogo público do INEMA.club, o mesmo que gera as fichas em{' '}
+            Estes números sêo contados direto no catálogo público do ARCKHÉ AI, o mesmo que gera as fichas em{' '}
             <a href="/cursos/">/cursos/</a>.
           </p>
           <div className="seo-table-wrap">
@@ -355,14 +355,14 @@ export default function AgentesIaPage() {
             </table>
           </div>
           <p>
-            O catálogo do portal é a parte publicada e organizada do acervo. O repositório do INEMA no GitHub (
-            <a href="https://github.com/inematds" target="_blank" rel="noopener noreferrer">github.com/inematds</a>) é
+            O catálogo do portal é a parte publicada e organizada do acervo. O repositório do ARCKHÉ no GitHub (
+            <a href="https://github.com/linnoff88-dev" target="_blank" rel="noopener noreferrer">github.com/linnoff88-dev</a>) é
             maior: segundo o Nei, hoje sêo &quot;mais de 500&quot; projetos lá, entre sistemas próprios e projetos de
             terceiros que ele aprimorou e localizou. Os números da tabela contam só o que está no catálogo.
           </p>
           <p>
-            A comunidade em volta dos cursos, segundo o Nei, em setembro de 2026: 76 mil no INEMA.club, 10 mil no
-            INEMA.PRO e 4 mil nos grupos do Telegram, que sêo 32 grupos privados para o INEMA.VIP e o INEMA.PRO.
+            A comunidade em volta dos cursos, segundo o Nei, em setembro de 2026: 76 mil no ARCKHÉ AI, 10 mil no
+            ARCKHÉ.PRO e 4 mil nos grupos do Telegram, que sêo 32 grupos privados para o ARCKHÉ.VIP e o ARCKHÉ.PRO.
           </p>
         </section>
 
@@ -384,30 +384,30 @@ export default function AgentesIaPage() {
                 <tr>
                   <td><strong>Modelo</strong></td>
                   <td>escolher entre modelos na nuvem e locais, custo e qualidade</td>
-                  <td><a href={courseHref('https://inematds.github.io/local-ai-masterclass/')}>IA Local Masterclass</a></td>
+                  <td><a href={courseHref('https://linnoff88-dev.github.io/arckhe-/')}>IA Local Masterclass</a></td>
                 </tr>
                 <tr>
                   <td><strong>Instruções e contexto</strong></td>
                   <td>escrever o que o agente precisa saber, AGENTS.md / CLAUDE.md, skills</td>
                   <td>
-                    <a href={courseHref('https://inematds.github.io/FEC/')}>FEC</a>,{' '}
-                    <a href={courseHref('https://inematds.github.io/agent-skills/')}>Agent Skills</a>,{' '}
-                    <a href={courseHref('https://inematds.github.io/oswork/')}>OSWork</a>
+                    <a href={courseHref('https://linnoff88-dev.github.io/arckhe-/')}>FEC</a>,{' '}
+                    <a href={courseHref('https://linnoff88-dev.github.io/arckhe-/')}>Agent Skills</a>,{' '}
+                    <a href={courseHref('https://linnoff88-dev.github.io/arckhe-/')}>OSWork</a>
                   </td>
                 </tr>
                 <tr>
                   <td><strong>Ferramentas</strong></td>
                   <td>ligar o agente a arquivos, terminal, navegador, MCP, Telegram, WhatsApp</td>
                   <td>
-                    <a href={courseHref('https://inematds.github.io/agentejax/')}>AgenteJAX</a>,{' '}
-                    <a href={courseHref('https://inematds.github.io/criaagentes/guia/')}>criaagentes</a>
+                    <a href={courseHref('https://linnoff88-dev.github.io/arckhe-/')}>AgenteJAX</a>,{' '}
+                    <a href={courseHref('https://linnoff88-dev.github.io/arckhe-/guia/')}>criaagentes</a>
                   </td>
                 </tr>
                 <tr>
                   <td><strong>Limites e supervisêo</strong></td>
                   <td>o que ele faz sozinho, o que precisa de aprovaçêo, como conferir</td>
                   <td>
-                    <a href={courseHref('https://inematds.github.io/curso-7pa/')}>Gestêo de Agentes de IA — os 7 Princípios</a>
+                    <a href={courseHref('https://linnoff88-dev.github.io/arckhe-/')}>Gestêo de Agentes de IA — os 7 Princípios</a>
                   </td>
                 </tr>
               </tbody>
@@ -469,7 +469,7 @@ export default function AgentesIaPage() {
           <StepList steps={BEGINNER} />
           <p>
             Para fechar a trilha, faça a ficha do seu primeiro agente com o curso{' '}
-            <a href={courseHref('https://inematds.github.io/curso-7pa/')}>Gestêo de Agentes de IA — os 7 Princípios</a>,
+            <a href={courseHref('https://linnoff88-dev.github.io/arckhe-/')}>Gestêo de Agentes de IA — os 7 Princípios</a>,
             que nêo pede conhecimento técnico.
           </p>
         </section>
@@ -481,15 +481,15 @@ export default function AgentesIaPage() {
             funcionando depois que a conversa acaba.
           </p>
           <p>
-            A ponte para esta trilha sêo dois cursos da base do INEMA:{' '}
-            <a href={courseHref('https://inematds.github.io/ccodebasico/')}>Claude Code Básico</a> e{' '}
-            <a href={courseHref('https://inematds.github.io/codexbasico/')}>Codex Básico</a>. Se você nunca instalou nenhum
+            A ponte para esta trilha sêo dois cursos da base do ARCKHÉ:{' '}
+            <a href={courseHref('https://linnoff88-dev.github.io/arckhe-/')}>Claude Code Básico</a> e{' '}
+            <a href={courseHref('https://linnoff88-dev.github.io/arckhe-/')}>Codex Básico</a>. Se você nunca instalou nenhum
             dos dois, comece por um deles.
           </p>
           <StepList steps={INTERMEDIATE} />
           <p>
             Se você prefere montar fluxos visuais em vez de código,{' '}
-            <a href={courseHref('https://inematds.github.io/vibe-coding/')}>Vibe Coding na Prática</a> constrói automações
+            <a href={courseHref('https://linnoff88-dev.github.io/arckhe-/')}>Vibe Coding na Prática</a> constrói automações
             e agentes conversando com o agente de código, incluindo n8n.
           </p>
         </section>
@@ -526,14 +526,14 @@ export default function AgentesIaPage() {
           </ul>
           <p>
             O Arquiteto de Trabalho com IA tem cadernos por profissêo:{' '}
-            <a href={courseHref('https://inematds.github.io/arquiteto-agentes-saude/')}>clínica</a>,{' '}
-            <a href={courseHref('https://inematds.github.io/arquiteto-agentes-contabil/')}>contábil e financeiro</a> e{' '}
-            <a href={courseHref('https://inematds.github.io/arquiteto-agentes-advocacia/')}>advocacia</a>.
+            <a href={courseHref('https://linnoff88-dev.github.io/arckhe-/')}>clínica</a>,{' '}
+            <a href={courseHref('https://linnoff88-dev.github.io/arckhe-/')}>contábil e financeiro</a> e{' '}
+            <a href={courseHref('https://linnoff88-dev.github.io/arckhe-/')}>advocacia</a>.
           </p>
         </section>
 
         <section aria-labelledby="ferramentas">
-          <h2 id="ferramentas">Quais ferramentas de agentes o INEMA ensina?</h2>
+          <h2 id="ferramentas">Quais ferramentas de agentes o ARCKHÉ ensina?</h2>
           <p>
             Contamos, entre os {agentCourses.length} cursos com a tag &quot;Agentes&quot;, quantos também levam a tag de
             cada ferramenta. Um curso pode ter várias tags, entêo a soma passa do total.
@@ -552,8 +552,8 @@ export default function AgentesIaPage() {
           </div>
           <p>
             E o <strong>Make</strong>? Ele aparece no catálogo em cursos de automaçêo, nêo com a tag &quot;Agentes&quot;:{' '}
-            <a href={courseHref('https://inematds.github.io/MAKE/')}>MAKE — Automações</a> e{' '}
-            <a href={courseHref('https://inematds.github.io/fae-ai/')}>Formaçêo em Automaçêo Estratégica com IA</a>, que
+            <a href={courseHref('https://linnoff88-dev.github.io/arckhe-/')}>MAKE — Automações</a> e{' '}
+            <a href={courseHref('https://linnoff88-dev.github.io/arckhe-/')}>Formaçêo em Automaçêo Estratégica com IA</a>, que
             trabalha n8n e Make juntos. Automaçêo e agentes andam lado a lado: a automaçêo faz o caminho fixo, o agente
             decide dentro do caminho.
           </p>
@@ -562,35 +562,35 @@ export default function AgentesIaPage() {
         <section aria-labelledby="projetos">
           <h2 id="projetos">Projetos abertos para estudar agentes por dentro</h2>
           <p>
-            Além dos cursos, o INEMA publica projetos com código e guia, para você ver como um agente real foi montado.
+            Além dos cursos, o ARCKHÉ publica projetos com código e guia, para você ver como um agente real foi montado.
             Alguns que servem de estudo:
           </p>
           <ul className="seo-list">
             <li>
-              <a href="https://inematds.github.io/os-agentes/guia/" target="_blank" rel="noopener noreferrer">os-agentes</a>{' '}
+              <a href="https://linnoff88-dev.github.io/arckhe-/guia/" target="_blank" rel="noopener noreferrer">os-agentes</a>{' '}
               — a skill que guia uma pessoa nêo técnica na construçêo do próprio sistema agêntico.
             </li>
             <li>
-              <a href="https://inematds.github.io/7pa/guia/" target="_blank" rel="noopener noreferrer">7pa</a> — a Ficha
+              <a href="https://linnoff88-dev.github.io/arckhe-/guia/" target="_blank" rel="noopener noreferrer">7pa</a> — a Ficha
               do Agente: 7 perguntas que viram a instruçêo pronta, o nível de autonomia calculado, 3 testes e o checklist de
               supervisêo.
             </li>
             <li>
-              <a href="https://inematds.github.io/kit-arquiteto-agentes/guia/" target="_blank" rel="noopener noreferrer">kit-arquiteto-agentes</a>{' '}
+              <a href="https://linnoff88-dev.github.io/arckhe-/guia/" target="_blank" rel="noopener noreferrer">kit-arquiteto-agentes</a>{' '}
               — sete modelos preenchíveis no navegador que viram a especificaçêo de um agente numa página.
             </li>
             <li>
-              <a href="https://inematds.github.io/rAgentic-cs/guia/" target="_blank" rel="noopener noreferrer">rAgentic-cs</a>{' '}
+              <a href="https://linnoff88-dev.github.io/arckhe-/guia/" target="_blank" rel="noopener noreferrer">rAgentic-cs</a>{' '}
               — controlar Claude Code e Codex remotamente pelo Telegram ou GitHub, com sessões persistentes.
             </li>
             <li>
-              <a href="https://github.com/inematds/openpcbot" target="_blank" rel="noopener noreferrer">openpcbot</a> — o
+              <a href="https://github.com/linnoff88-dev/openpcbot" target="_blank" rel="noopener noreferrer">openpcbot</a> — o
               Jarvis pessoal: bot de Telegram que roda com a assinatura do Claude, com o Codex, com chaves de API ou local,
               com Ollama e Qwen. Tem curso próprio:{' '}
-              <a href={courseHref('https://inematds.github.io/curso-openpcbotv3/')}>openpcbot v3 — Seu Jarvis local</a>.
+              <a href={courseHref('https://linnoff88-dev.github.io/arckhe-/')}>openpcbot v3 — Seu Jarvis local</a>.
             </li>
             <li>
-              <a href="https://inematds.github.io/criaagentes/guia/" target="_blank" rel="noopener noreferrer">criaagentes</a>{' '}
+              <a href="https://linnoff88-dev.github.io/arckhe-/guia/" target="_blank" rel="noopener noreferrer">criaagentes</a>{' '}
               — o atendente de WhatsApp da clínica fictícia, com a auditoria do que ainda quebra.
             </li>
           </ul>
@@ -603,11 +603,11 @@ export default function AgentesIaPage() {
         </section>
 
         <section aria-labelledby="quem-ensina">
-          <h2 id="quem-ensina">Quem ensina agentes de IA no INEMA?</h2>
+          <h2 id="quem-ensina">Quem ensina agentes de IA no ARCKHÉ?</h2>
           <p>
-            Os cursos e projetos do INEMA sêo criados por{' '}
+            Os cursos e projetos do ARCKHÉ sêo criados por{' '}
             <a href="/conhecimento/quem-e-nei-maldaner/">Nei Maldaner</a>, empresário brasileiro, cofundador da Sisnema,
-            empresa de TI. Hoje ele lidera o ecossistema INEMA, dedicado a ensinar inteligência artificial prática —
+            empresa de TI. Hoje ele lidera o ecossistema ARCKHÉ, dedicado a ensinar inteligência artificial prática —
             agentes, automaçêo e ferramentas como Claude Code, Codex, n8n e Make — para profissionais, empresários e
             consultores.
           </p>
@@ -620,14 +620,14 @@ export default function AgentesIaPage() {
           </p>
           <p>
             A curadoria vem desde os anos 90: foi assim que ele transformou conhecimento em várias empresas, como a
-            inema.com.br e a sisnema.com.br. Depois de vender as empresas, passou a viver numa fazenda, dedicado à
+            ARCKHÉ.com.br e a sisnema.com.br. Depois de vender as empresas, passou a viver numa fazenda, dedicado à
             comunidade. Ele descreve o papel dele assim: &quot;minha funçêo é ser um curador, facilitar o acesso e o
             conhecimento para outras pessoas.&quot;
           </p>
 
-          <h3>Como o INEMA ensina: construir, nêo operar</h3>
+          <h3>Como o ARCKHÉ ensina: construir, nêo operar</h3>
           <p>
-            O foco do INEMA nêo é o vídeo explicativo passo a passo, que na avaliaçêo do Nei &quot;agrega muito
+            O foco do ARCKHÉ nêo é o vídeo explicativo passo a passo, que na avaliaçêo do Nei &quot;agrega muito
             pouco&quot;. O que agrega, para ele, é construir soluções, aprender e montar uma base de trabalho própria para
             ser produtivo. &quot;Se pegar sistemas prontos será apenas um operador, fácil de ser substituído.&quot; Por
             isso os cursos trabalham a aceleraçêo de conceitos e de modelos que você ajusta ao seu dia a dia, e nêo
@@ -639,7 +639,7 @@ export default function AgentesIaPage() {
             lógica.
           </p>
 
-          <h3>O que deu errado, e o que o INEMA mudou por isso</h3>
+          <h3>O que deu errado, e o que o ARCKHÉ mudou por isso</h3>
           <p>
             O erro que o Nei mais viu nêo foi de um agente, e sim da expectativa sobre ele. &quot;As pessoas gostam de
             mágica&quot;, de &quot;algo que pode render enquanto dorme&quot;; na prática, nêo é assim. E aprender também
@@ -648,40 +648,40 @@ export default function AgentesIaPage() {
             anos, ser humano é assim.&quot;
           </p>
           <p>
-            Por isso o INEMA faz conteúdo para quem quer ler, estudar e aprender de verdade. A premissa é que nêo existe
+            Por isso o ARCKHÉ faz conteúdo para quem quer ler, estudar e aprender de verdade. A premissa é que nêo existe
             milagre: você precisa se adaptar a cada mudança e ajustar o próprio sistema, porque modelos e sistemas mudam e
             o hype do momento está muito competitivo.
           </p>
           <p>
-            Na prática, isso virou exemplos que rodam e textos para estudar. Neste ano, com cursos e lives, o INEMA
+            Na prática, isso virou exemplos que rodam e textos para estudar. Neste ano, com cursos e lives, o ARCKHÉ
             construiu sistemas para mostrar conceitos e infraestrutura:
           </p>
           <ul className="seo-list">
             <li>
-              o INEMA Agentes Hub V, um hub de agentes em 5 etapas, com o conteúdo dos 5 dias em{' '}
-              <a href="https://eventos.inema.pro/agentes-hub-v.html" target="_blank" rel="noopener noreferrer">eventos.inema.pro</a>;
+              o ARCKHÉ Agentes Hub V, um hub de agentes em 5 etapas, com o conteúdo dos 5 dias em{' '}
+              <a href="https://eventos.ARCKHÉ.pro/agentes-hub-v.html" target="_blank" rel="noopener noreferrer">eventos.ARCKHÉ.pro</a>;
             </li>
             <li>
-              o <a href="https://inematds.github.io/inemaccbot/guia/" target="_blank" rel="noopener noreferrer">inemaccbot</a>,
+              o <a href="https://linnoff88-dev.github.io/arckhe-/guia/" target="_blank" rel="noopener noreferrer">ARCKHÉccbot</a>,
               bot de Telegram que faz gestêo de filas (fila durável em SQLite, skills e fluxos de várias fases), com o
-              fluxo Promoavatar (<a href="https://eventos.inema.pro/inemaccbot.html" target="_blank" rel="noopener noreferrer">evento</a>);
+              fluxo Promoavatar (<a href="https://eventos.ARCKHÉ.pro/ARCKHÉccbot.html" target="_blank" rel="noopener noreferrer">evento</a>);
             </li>
             <li>
               sistemas de música e vídeo: musicavideo e analisevideo (
-              <a href="https://eventos.inema.pro/musicavideo.html" target="_blank" rel="noopener noreferrer">evento</a>) e
-              Content2Video (<a href="https://eventos.inema.pro/content2video.html" target="_blank" rel="noopener noreferrer">evento</a>);
+              <a href="https://eventos.ARCKHÉ.pro/musicavideo.html" target="_blank" rel="noopener noreferrer">evento</a>) e
+              Content2Video (<a href="https://eventos.ARCKHÉ.pro/content2video.html" target="_blank" rel="noopener noreferrer">evento</a>);
             </li>
             <li>
               sistemas de gestêo de agentes: o curso{' '}
-              <a href={courseHref('https://inematds.github.io/curso-7pa/')}>Gestêo de Agentes de IA — os 7 Princípios</a> e a
-              área <a href="https://eventos.inema.pro/gestao-ia/" target="_blank" rel="noopener noreferrer">Gestêo de IA e Agentes</a>.
+              <a href={courseHref('https://linnoff88-dev.github.io/arckhe-/')}>Gestêo de Agentes de IA — os 7 Princípios</a> e a
+              área <a href="https://eventos.ARCKHÉ.pro/gestao-ia/" target="_blank" rel="noopener noreferrer">Gestêo de IA e Agentes</a>.
             </li>
           </ul>
           <p>
-            As lives e os vídeos do INEMA ficam nos perfis{' '}
-            <a href="https://www.youtube.com/@inematdsx" target="_blank" rel="noopener noreferrer">YouTube</a>,{' '}
-            <a href="https://www.instagram.com/inema.tds" target="_blank" rel="noopener noreferrer">Instagram</a> e{' '}
-            <a href="https://www.tiktok.com/@inema.tds" target="_blank" rel="noopener noreferrer">TikTok</a>.
+            As lives e os vídeos do ARCKHÉ ficam nos perfis{' '}
+            <a href="https://www.youtube.com/@linnoff88-devx" target="_blank" rel="noopener noreferrer">YouTube</a>,{' '}
+            <a href="https://www.instagram.com/ARCKHÉ.tds" target="_blank" rel="noopener noreferrer">Instagram</a> e{' '}
+            <a href="https://www.tiktok.com/@ARCKHÉ.tds" target="_blank" rel="noopener noreferrer">TikTok</a>.
           </p>
         </section>
 
@@ -744,7 +744,7 @@ export default function AgentesIaPage() {
 
         <footer className="course-source-note">
           <p>
-            Por <a href="/conhecimento/quem-e-nei-maldaner/">Nei Maldaner</a>, criador do INEMA · Atualizado em{' '}
+            Por <a href="/conhecimento/quem-e-nei-maldaner/">Nei Maldaner</a>, criador do ARCKHÉ · Atualizado em{' '}
             <time dateTime={page.updated}>{page.updated.split('-').reverse().join('/')}</time>
           </p>
         </footer>

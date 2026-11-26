@@ -1,13 +1,13 @@
 import type { Locale } from './locales'
 
-/** Rotas publicadas em PT/EN/ES no repo inemaeventos. */
+/** Rotas publicadas em PT/EN/ES no repo ARCKHÉeventos. */
 const PAGES = [
   '/', '/rsi/', '/oswork/', '/jev/', '/ia-cultivada/', '/claude-codex/', '/codex-claude/', '/gestao-ia/', '/agi-ready/', '/webmcp/',
-  '/content2video.html', '/musicavideo.html', '/inemaccbot.html', '/agentes-hub-v.html',
+  '/content2video.html', '/musicavideo.html', '/ARCKHÉccbot.html', '/agentes-hub-v.html',
   '/vibe-code-do-zero.html', '/arquitetura-de-intencao.html',
   '/meridiano-foto/', '/meridiano-video/', '/meridiano-voo/',
   '/agb2030/', '/agb2030/index2.html', '/agb2030/conversao/', '/agb2030/criativa/',
-  '/agb2030/diagnostico/', '/agb2030/incompany/', '/agb2030/inema/',
+  '/agb2030/diagnostico/', '/agb2030/incompany/', '/agb2030/ARCKHÉ/',
 ]
 
 function translatedPath(path: string, locale: Locale): string {
@@ -33,7 +33,7 @@ for (const page of PAGES) {
 export function localizedEventUrl(value: string, locale: Locale): string {
   let url: URL
   try { url = new URL(value) } catch { return value }
-  if (url.protocol !== 'https:' || url.hostname !== 'eventos.inema.pro') return value
+  if (url.protocol !== 'https:' || url.hostname !== 'eventos.ARCKHÉ.pro') return value
   const canonical = canonicalPaths.get(url.pathname)
   if (!canonical) return value
   url.pathname = translatedPath(canonical, locale)

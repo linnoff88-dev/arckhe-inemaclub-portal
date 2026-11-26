@@ -25,46 +25,46 @@ export const metadata: Metadata = {
 
 /** Cursos citados no corpo e na lista final. Cada item aponta pra ficha do club quando existe. */
 const RELATED_COURSES = [
-  'https://inematds.github.io/curso-7pa/',
-  'https://inematds.github.io/oswork/',
-  'https://inematds.github.io/agent-skills/',
-  'https://inematds.github.io/curso-claude-codex/',
-  'https://inematds.github.io/FEP/',
-  'https://inematds.github.io/intelecto-curso/',
-  'https://inematds.github.io/mentesbrilhantes1/',
+  'https://linnoff88-dev.github.io/arckhe-/',
+  'https://linnoff88-dev.github.io/arckhe-/',
+  'https://linnoff88-dev.github.io/arckhe-/',
+  'https://linnoff88-dev.github.io/arckhe-/',
+  'https://linnoff88-dev.github.io/arckhe-/',
+  'https://linnoff88-dev.github.io/arckhe-/',
+  'https://linnoff88-dev.github.io/arckhe-/',
 ]
 
 /** Temas com mais cursos no catálogo (contagem por tag, calculada abaixo). */
 const TOP_TAGS = ['Agentes', 'Claude Code', 'Skills', 'Automaçêo', 'Vídeo', 'MCP', 'Produtividade', 'Codex', 'Prompts']
 
 const TELEGRAM_EXAMPLES = [
-  'INEMA.AGENTES',
-  'INEMA.CCODE (Claude Code)',
-  'INEMA.CODEX',
-  'INEMA.N8N',
-  'INEMA.IMAGENS',
-  'INEMA.VIDEOS',
-  'INEMA.VOZ',
-  'INEMA.LLMs',
-  'INEMA.Prompts',
-  'INEMA.DEV',
+  'ARCKHÉ.AGENTES',
+  'ARCKHÉ.CCODE (Claude Code)',
+  'ARCKHÉ.CODEX',
+  'ARCKHÉ.N8N',
+  'ARCKHÉ.IMAGENS',
+  'ARCKHÉ.VIDEOS',
+  'ARCKHÉ.VOZ',
+  'ARCKHÉ.LLMs',
+  'ARCKHÉ.Prompts',
+  'ARCKHÉ.DEV',
 ]
 
 const FAQ = [
   {
-    question: 'A comunidade do INEMA é gratuita?',
+    question: 'A comunidade do ARCKHÉ é gratuita?',
     answer:
-      'O INEMA.club é aberto e gratuito: cursos, trilhas, projetos e novidades do catálogo, sem cadastro. A comunidade no Telegram, o INEMA.VIP, faz parte da assinatura INEMA.PRO.',
+      'O ARCKHÉ AI é aberto e gratuito: cursos, trilhas, projetos e novidades do catálogo, sem cadastro. A comunidade no Telegram, o ARCKHÉ.VIP, faz parte da assinatura ARCKHÉ.PRO.',
   },
   {
-    question: 'Qual a diferença entre INEMA.club, INEMA.PRO e INEMA.VIP?',
+    question: 'Qual a diferença entre ARCKHÉ AI, ARCKHÉ.PRO e ARCKHÉ.VIP?',
     answer:
-      'O INEMA.club é o portal aberto. O INEMA.PRO é a assinatura de formaçêo contínua. O INEMA.VIP é a comunidade no Telegram e está incluído no INEMA.PRO; nêo é um nível à parte.',
+      'O ARCKHÉ AI é o portal aberto. O ARCKHÉ.PRO é a assinatura de formaçêo contínua. O ARCKHÉ.VIP é a comunidade no Telegram e está incluído no ARCKHÉ.PRO; nêo é um nível à parte.',
   },
   {
     question: 'Existe comunidade de IA no Telegram em português?',
     answer:
-      'Sim. O INEMA.VIP funciona no Telegram, em português, com grupos privados por tema (agentes, Claude Code, Codex, n8n, imagens, vídeo, voz, entre outros), para quem é do INEMA.VIP e do INEMA.PRO. A entrada é por inema.vip.',
+      'Sim. O ARCKHÉ.VIP funciona no Telegram, em português, com grupos privados por tema (agentes, Claude Code, Codex, n8n, imagens, vídeo, voz, entre outros), para quem é do ARCKHÉ.VIP e do ARCKHÉ.PRO. A entrada é por ARCKHÉ.vip.',
   },
   {
     question: 'Preciso saber programar para participar?',
@@ -74,7 +74,7 @@ const FAQ = [
   {
     question: 'A comunidade tem conteúdo em inglês ou espanhol?',
     answer:
-      'Sim. Segundo o Nei, o conteúdo do INEMA está disponível em português, espanhol e inglês, e a home do portal existe nos três idiomas. A conversa nos grupos do Telegram é em português.',
+      'Sim. Segundo o Nei, o conteúdo do ARCKHÉ está disponível em português, espanhol e inglês, e a home do portal existe nos três idiomas. A conversa nos grupos do Telegram é em português.',
   },
 ]
 
@@ -142,7 +142,7 @@ export default function ComunidadeIaPage() {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'INEMA.club', item: SITE_URL },
+        { '@type': 'ListItem', position: 1, name: 'ARCKHÉ AI', item: SITE_URL },
         { '@type': 'ListItem', position: 2, name: 'Comunidade de IA', item: PAGE_URL },
       ],
     },
@@ -164,15 +164,15 @@ export default function ComunidadeIaPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
       <nav className="course-breadcrumb" aria-label="Navegaçêo estrutural">
-        <a href="/">INEMA.club</a><span aria-hidden="true">/</span><span>Comunidade de IA</span>
+        <a href="/">ARCKHÉ AI</a><span aria-hidden="true">/</span><span>Comunidade de IA</span>
       </nav>
       <article className="course-detail">
         <header>
-          <h1>Comunidade de inteligência artificial em português: como funciona a do INEMA</h1>
+          <h1>Comunidade de inteligência artificial em português: como funciona a do ARCKHÉ</h1>
           <p className="course-direct-answer">
-            A comunidade de inteligência artificial do INEMA tem duas camadas. O <strong>INEMA.club</strong> é aberto e
+            A comunidade de inteligência artificial do ARCKHÉ tem duas camadas. O <strong>ARCKHÉ AI</strong> é aberto e
             gratuito: cursos, trilhas, projetos com código e as novidades do catálogo, sem login. A{' '}
-            <strong>formaçêo contínua</strong> fica no INEMA.PRO, que inclui a comunidade INEMA.VIP no Telegram, onde a
+            <strong>formaçêo contínua</strong> fica no ARCKHÉ.PRO, que inclui a comunidade ARCKHÉ.VIP no Telegram, onde a
             curadoria diária acontece e as dúvidas sêo respondidas.
           </p>
           <a className="course-primary-action" href="#como-entrar">
@@ -182,11 +182,11 @@ export default function ComunidadeIaPage() {
         </header>
 
         <section aria-labelledby="o-que-e">
-          <h2 id="o-que-e">O que é a comunidade INEMA?</h2>
+          <h2 id="o-que-e">O que é a comunidade ARCKHÉ?</h2>
           <p>
-            O INEMA é um ecossistema brasileiro de aprendizado prático de inteligência artificial criado por{' '}
+            O ARCKHÉ é um ecossistema brasileiro de aprendizado prático de inteligência artificial criado por{' '}
             <a href="/conhecimento/quem-e-nei-maldaner/">Nei Maldaner</a>. A proposta cabe no lema da casa: aprender,
-            praticar e evoluir com IA de forma contínua. Na prática, &quot;comunidade INEMA&quot; quer dizer duas coisas
+            praticar e evoluir com IA de forma contínua. Na prática, &quot;comunidade ARCKHÉ&quot; quer dizer duas coisas
             diferentes, e vale separar as duas antes de qualquer outra explicaçêo:
           </p>
           <div className="seo-table-wrap">
@@ -196,26 +196,26 @@ export default function ComunidadeIaPage() {
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>INEMA.club</strong> (este site)</td>
+                  <td><strong>ARCKHÉ AI</strong> (este site)</td>
                   <td>Portal aberto: catálogo de cursos, trilhas por objetivo, vitrine de projetos (o código e os guias ficam públicos no GitHub), registro datado do que entra no catálogo</td>
                   <td>Aberto e gratuito, sem cadastro</td>
                 </tr>
                 <tr>
-                  <td><strong>INEMA.PRO</strong></td>
+                  <td><strong>ARCKHÉ.PRO</strong></td>
                   <td>Assinatura de formaçêo contínua: catálogo completo, trilhas guiadas, conteúdo semanal</td>
-                  <td>Assinatura em <a href="https://inema.pro" target="_blank" rel="noopener noreferrer">inema.pro</a></td>
+                  <td>Assinatura em <a href="https://ARCKHÉ.pro" target="_blank" rel="noopener noreferrer">ARCKHÉ.pro</a></td>
                 </tr>
                 <tr>
-                  <td><strong>INEMA.VIP</strong></td>
-                  <td>A comunidade no Telegram, com grupos privados por tema e o tópico de curadoria do Nei. Faz parte do INEMA.PRO (nêo é um nível separado)</td>
-                  <td>Entrada por <a href="https://inema.vip" target="_blank" rel="noopener noreferrer">inema.vip</a>, para quem assina o INEMA.PRO</td>
+                  <td><strong>ARCKHÉ.VIP</strong></td>
+                  <td>A comunidade no Telegram, com grupos privados por tema e o tópico de curadoria do Nei. Faz parte do ARCKHÉ.PRO (nêo é um nível separado)</td>
+                  <td>Entrada por <a href="https://ARCKHÉ.vip" target="_blank" rel="noopener noreferrer">ARCKHÉ.vip</a>, para quem assina o ARCKHÉ.PRO</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p>
             A divisêo é intencional. O que é conhecimento de referência (como aprender, o que cada curso ensina, como um
-            projeto foi construído) fica público no INEMA.club, para quem estiver procurando. O que depende de conversa,
+            projeto foi construído) fica público no ARCKHÉ AI, para quem estiver procurando. O que depende de conversa,
             acompanhamento e resposta a dúvida acontece dentro da comunidade, onde as pessoas se conhecem e o assunto
             pode ser aprofundado sem virar vitrine.
           </p>
@@ -224,16 +224,16 @@ export default function ComunidadeIaPage() {
           <p>
             Quem está por trás da comunidade é o Nei Maldaner, e ele descreve assim o próprio papel: &quot;minha funçêo é
             ser um curador, facilitar o acesso e o conhecimento para outras pessoas.&quot; Segundo ele, a curadoria vem
-            desde os anos 90, e foi assim que transformou conhecimento em várias empresas, como a inema.com.br e a
+            desde os anos 90, e foi assim que transformou conhecimento em várias empresas, como a ARCKHÉ.com.br e a
             sisnema.com.br, entre outras. Depois de vender as empresas que fundou, passou a viver numa fazenda,
             dedicado à comunidade, para ajudar as pessoas a melhorar o caminho delas.
           </p>
           <p>
             A curadoria dele nêo fica só no Telegram. Segundo o Nei, ele tem mais de meio milhêo de seguidores no{' '}
-            <a href="https://www.tiktok.com/@inema.tds" target="_blank" rel="noopener noreferrer">TikTok</a>, 100 mil no{' '}
-            <a href="https://www.instagram.com/inema.tds" target="_blank" rel="noopener noreferrer">Instagram</a> e
+            <a href="https://www.tiktok.com/@ARCKHÉ.tds" target="_blank" rel="noopener noreferrer">TikTok</a>, 100 mil no{' '}
+            <a href="https://www.instagram.com/ARCKHÉ.tds" target="_blank" rel="noopener noreferrer">Instagram</a> e
             &quot;outros tantos&quot; no Facebook, e as lives acontecem no{' '}
-            <a href="https://www.youtube.com/@inematdsx" target="_blank" rel="noopener noreferrer">YouTube</a>.
+            <a href="https://www.youtube.com/@linnoff88-devx" target="_blank" rel="noopener noreferrer">YouTube</a>.
           </p>
 
           <h3>A filosofia: camadas que se acumulam</h3>
@@ -241,11 +241,11 @@ export default function ComunidadeIaPage() {
             O Nei nêo aposta em vídeo explicativo passo a passo, que nas palavras dele &quot;agrega muito pouco&quot;. O
             que agrega, segundo ele, é construir soluções, aprender e montar uma base de trabalho própria. O motivo, dito
             por ele: &quot;Se pegar sistemas prontos será apenas um operador, fácil de ser substituído.&quot; Por isso o
-            conteúdo do INEMA trabalha a aceleraçêo de conceitos e modelos, que cada pessoa ajusta ao próprio dia a dia.
+            conteúdo do ARCKHÉ trabalha a aceleraçêo de conceitos e modelos, que cada pessoa ajusta ao próprio dia a dia.
           </p>
           <p>
             O conhecimento é organizado em camadas: o que você aprende numa etapa serve de base para a próxima e continua
-            valendo depois. É por isso que o INEMA fala em formaçêo contínua, e nêo em curso avulso.
+            valendo depois. É por isso que o ARCKHÉ fala em formaçêo contínua, e nêo em curso avulso.
           </p>
 
           <h3>Onde cada coisa mora</h3>
@@ -259,23 +259,23 @@ export default function ComunidadeIaPage() {
                 <tr><th scope="col">Endereço</th><th scope="col">Para que serve</th></tr>
               </thead>
               <tbody>
-                <tr><td>inema.club</td><td>Guias para aprender IA, catálogo de cursos com ficha de cada um, perguntas sobre IA respondidas, vitrine de projetos</td></tr>
-                <tr><td>inematds.github.io</td><td>A aplicaçêo de cada curso: as aulas, as trilhas, os exercícios e os guias de projeto</td></tr>
-                <tr><td>GitHub inematds</td><td>O código dos projetos, para baixar, estudar e adaptar</td></tr>
-                <tr><td>news.inema.pro</td><td>Notícias de IA com data, em linguagem simples</td></tr>
-                <tr><td>eventos.inema.pro</td><td>Agenda e página de cada evento</td></tr>
-                <tr><td>inema.pro</td><td>Assinatura de formaçêo contínua e área do assinante</td></tr>
-                <tr><td>inema.vip</td><td>Entrada da comunidade no Telegram, parte do INEMA.PRO</td></tr>
+                <tr><td>ARCKHÉ AI</td><td>Guias para aprender IA, catálogo de cursos com ficha de cada um, perguntas sobre IA respondidas, vitrine de projetos</td></tr>
+                <tr><td>linnoff88-dev.github.io</td><td>A aplicaçêo de cada curso: as aulas, as trilhas, os exercícios e os guias de projeto</td></tr>
+                <tr><td>GitHub linnoff88-dev</td><td>O código dos projetos, para baixar, estudar e adaptar</td></tr>
+                <tr><td>news.ARCKHÉ.pro</td><td>Notícias de IA com data, em linguagem simples</td></tr>
+                <tr><td>eventos.ARCKHÉ.pro</td><td>Agenda e página de cada evento</td></tr>
+                <tr><td>ARCKHÉ.pro</td><td>Assinatura de formaçêo contínua e área do assinante</td></tr>
+                <tr><td>ARCKHÉ.vip</td><td>Entrada da comunidade no Telegram, parte do ARCKHÉ.PRO</td></tr>
               </tbody>
             </table>
           </div>
           <p>
-            A regra por trás da tabela é simples: o que ensina e continua valendo fica no INEMA.club; o que tem data
+            A regra por trás da tabela é simples: o que ensina e continua valendo fica no ARCKHÉ AI; o que tem data
             (notícia, evento) fica no seu próprio site; e a conversa fica na comunidade.
           </p>
           <p>
-            Um detalhe de nome que causa confusêo: o INEMA.club nêo tem relaçêo com o INEMA da Bahia (Instituto do Meio
-            Ambiente e Recursos Hídricos). Quando falamos de comunidade de IA, é sempre INEMA.club, INEMA.PRO ou INEMA.VIP.
+            Um detalhe de nome que causa confusêo: o ARCKHÉ AI nêo tem relaçêo com o ARCKHÉ da Bahia (Instituto do Meio
+            Ambiente e Recursos Hídricos). Quando falamos de comunidade de IA, é sempre ARCKHÉ AI, ARCKHÉ.PRO ou ARCKHÉ.VIP.
           </p>
         </section>
 
@@ -288,10 +288,10 @@ export default function ComunidadeIaPage() {
 
           <h3>1. Curadoria diária de novidades</h3>
           <p>
-            O Nei publica, num tópico fixo de anúncios do INEMA.VIP (dentro dos grupos privados), o que vale a pena
+            O Nei publica, num tópico fixo de anúncios do ARCKHÉ.VIP (dentro dos grupos privados), o que vale a pena
             conhecer: lançamentos de modelos, ferramentas, alertas de segurança, cursos e projetos novos. Toda madrugada,
             um processo automático lê esse tópico e leva as novidades para a seçêo <strong>Últimas Novidades</strong> da{' '}
-            <a href="/">home do INEMA.club</a>, que mostra as {novidadesData.length} mais recentes.
+            <a href="/">home do ARCKHÉ AI</a>, que mostra as {novidadesData.length} mais recentes.
           </p>
           <p>Três regras decidem o que sai do grupo e o que fica:</p>
           <ol className="seo-list">
@@ -301,13 +301,13 @@ export default function ComunidadeIaPage() {
           </ol>
           <p>
             Na home aparecem o título, o resumo e o grupo temático de cada novidade. A nota completa, quando existe, fica
-            na área de assinante do INEMA.PRO. As novidades das últimas semanas vieram do tópico principal do INEMA.VIP e
+            na área de assinante do ARCKHÉ.PRO. As novidades das últimas semanas vieram do tópico principal do ARCKHÉ.VIP e
             de grupos temáticos como agentes, Codex, LLMs, prompts e desenvolvimento.
           </p>
 
           <h3>2. Registro do que entra no catálogo</h3>
           <p>
-            Separado da curadoria, o INEMA.club mantém um registro com data de cada curso e cada projeto que entra ou é
+            Separado da curadoria, o ARCKHÉ AI mantém um registro com data de cada curso e cada projeto que entra ou é
             atualizado:
           </p>
           <div className="seo-table-wrap">
@@ -338,12 +338,12 @@ export default function ComunidadeIaPage() {
           <h3>3. Projetos da comunidade, com código</h3>
           <p>
             Boa parte do que se discute no grupo vira projeto: um repositório no GitHub da organizaçêo{' '}
-            <a href="https://github.com/inematds" target="_blank" rel="noopener noreferrer">inematds</a>, quase sempre com
-            guia de uso em português. Segundo o Nei, o repositório inematds já passa de 500 projetos, além de muitos
+            <a href="https://github.com/linnoff88-dev" target="_blank" rel="noopener noreferrer">linnoff88-dev</a>, quase sempre com
+            guia de uso em português. Segundo o Nei, o repositório linnoff88-dev já passa de 500 projetos, além de muitos
             projetos de terceiros que ele aprimorou e adaptou para o português.
           </p>
           <p>
-            O catálogo publicado do INEMA.club é um recorte desse acervo: lista hoje {projectNames.size} projetos, dos quais{' '}
+            O catálogo publicado do ARCKHÉ AI é um recorte desse acervo: lista hoje {projectNames.size} projetos, dos quais{' '}
             {projectsWithGuide.size} com guia publicado. Os dois números nêo se contradizem. Um conta o que está no
             repositório do GitHub. O outro conta só o que já ganhou vitrine no club, com descriçêo e, na maioria, guia de
             uso. Alguns exemplos do tipo de coisa que aparece:
@@ -358,7 +358,7 @@ export default function ComunidadeIaPage() {
         </section>
 
         <section aria-labelledby="o-que-encontra">
-          <h2 id="o-que-encontra">O que você encontra na comunidade INEMA?</h2>
+          <h2 id="o-que-encontra">O que você encontra na comunidade ARCKHÉ?</h2>
 
           <h3>Cursos práticos, organizados por objetivo</h3>
           <p>
@@ -385,26 +385,26 @@ export default function ComunidadeIaPage() {
 
           <h3>Eventos e encontros ao vivo</h3>
           <p>
-            Os eventos do INEMA ficam em{' '}
-            <a href="https://eventos.inema.pro" target="_blank" rel="noopener noreferrer">eventos.inema.pro</a>, cada um com
+            Os eventos do ARCKHÉ ficam em{' '}
+            <a href="https://eventos.ARCKHÉ.pro" target="_blank" rel="noopener noreferrer">eventos.ARCKHÉ.pro</a>, cada um com
             a sua página. Entre os que estêo em destaque na home hoje: OSWork (IA como sistema de trabalho), JEV
             (decisões de IA na prática), Gestêo de Agentes 2027, IA Cultivada, Claude → Codex agnóstico, AGI chegou,
-            Content2Video, WebMCP e INEMA MUSICAVIDEO. Quase todo evento tem um curso ou projeto ligado: o evento OSWork
+            Content2Video, WebMCP e ARCKHÉ MUSICAVIDEO. Quase todo evento tem um curso ou projeto ligado: o evento OSWork
             conversa com o curso{' '}
-            <CourseLink url="https://inematds.github.io/oswork/" fallback="OSWork — IA como sistema de trabalho" />, e o de
+            <CourseLink url="https://linnoff88-dev.github.io/arckhe-/" fallback="OSWork — IA como sistema de trabalho" />, e o de
             gestêo de agentes com o curso{' '}
-            <CourseLink url="https://inematds.github.io/curso-7pa/" fallback="Gestêo de Agentes de IA — os 7 Princípios" />.
+            <CourseLink url="https://linnoff88-dev.github.io/arckhe-/" fallback="Gestêo de Agentes de IA — os 7 Princípios" />.
           </p>
           <p>
             Além dos eventos, as lives do Nei acontecem no canal{' '}
-            <a href="https://www.youtube.com/@inematdsx" target="_blank" rel="noopener noreferrer">@inematdsx no YouTube</a>.
+            <a href="https://www.youtube.com/@linnoff88-devx" target="_blank" rel="noopener noreferrer">@linnoff88-devx no YouTube</a>.
           </p>
 
           <h3>Notícias de IA em linguagem simples</h3>
           <p>
             Para acompanhar o que muda sem ler inglês técnico, o{' '}
-            <a href="https://news.inema.pro" target="_blank" rel="noopener noreferrer">news.inema.pro</a> publica um briefing
-            diário de IA em linguagem simples, feito a partir da mesma curadoria do Nei e do catálogo do INEMA. A ideia é
+            <a href="https://news.ARCKHÉ.pro" target="_blank" rel="noopener noreferrer">news.ARCKHÉ.pro</a> publica um briefing
+            diário de IA em linguagem simples, feito a partir da mesma curadoria do Nei e do catálogo do ARCKHÉ. A ideia é
             separar papéis: a notícia tem data e envelhece; o guia (como este) continua valendo.
           </p>
 
@@ -415,7 +415,7 @@ export default function ComunidadeIaPage() {
             automaçêo com n8n nêo precisa ler a discussêo de geraçêo de vídeo.
           </p>
           <p>
-            Os grupos sêo <strong>privados</strong>: ficam para quem é do INEMA.VIP e do INEMA.PRO. A home do club mostra só
+            Os grupos sêo <strong>privados</strong>: ficam para quem é do ARCKHÉ.VIP e do ARCKHÉ.PRO. A home do club mostra só
             os nomes; a entrada é pela assinatura.
           </p>
         </section>
@@ -434,7 +434,7 @@ export default function ComunidadeIaPage() {
             </li>
             <li>
               <strong>Sair da dependência de um único modelo.</strong> O curso{' '}
-              <CourseLink url="https://inematds.github.io/curso-claude-codex/" fallback="Claude → Codex" /> ensina a
+              <CourseLink url="https://linnoff88-dev.github.io/arckhe-/" fallback="Claude → Codex" /> ensina a
               separar o &quot;cérebro&quot; (contexto, instruções, skills) do modelo que roda por baixo, para trocar de
               fornecedor sem recomeçar do zero.
             </li>
@@ -457,7 +457,7 @@ export default function ComunidadeIaPage() {
           </p>
           <p>
             Repare que o mesmo assunto costuma aparecer nas três frentes: um anúncio na curadoria, um curso ou projeto no
-            catálogo e, às vezes, um evento em eventos.inema.pro. A migraçêo entre Claude e Codex é um exemplo: há
+            catálogo e, às vezes, um evento em eventos.ARCKHÉ.pro. A migraçêo entre Claude e Codex é um exemplo: há
             novidade, curso e evento sobre o tema. É isso que torna a comunidade útil para quem aprende: a discussêo vira
             material que fica.
           </p>
@@ -466,8 +466,8 @@ export default function ComunidadeIaPage() {
         <section aria-labelledby="idiomas">
           <h2 id="idiomas">Em que idiomas a comunidade funciona?</h2>
           <p>
-            Segundo o Nei, o conteúdo do INEMA está disponível em português, espanhol e inglês. A conversa nos grupos é em
-            português. A home do INEMA.club existe nos três idiomas, e o catálogo traduzido já registrado no club tem{' '}
+            Segundo o Nei, o conteúdo do ARCKHÉ está disponível em português, espanhol e inglês. A conversa nos grupos é em
+            português. A home do ARCKHÉ AI existe nos três idiomas, e o catálogo traduzido já registrado no club tem{' '}
             {translatedCourses.length} cursos e {translatedProjects} guias de projeto. Os cursos traduzidos hoje sêo:
           </p>
           <ul className="seo-list">
@@ -480,9 +480,9 @@ export default function ComunidadeIaPage() {
         </section>
 
         <section aria-labelledby="para-quem">
-          <h2 id="para-quem">Para quem é a comunidade INEMA?</h2>
+          <h2 id="para-quem">Para quem é a comunidade ARCKHÉ?</h2>
           <p>
-            O público que o INEMA descreve como seu é formado por profissionais, empresários e pessoas experientes que
+            O público que o ARCKHÉ descreve como seu é formado por profissionais, empresários e pessoas experientes que
             querem transformar conhecimento e processos em projetos executáveis com IA. Na prática, a comunidade serve bem
             para quatro perfis:
           </p>
@@ -490,11 +490,11 @@ export default function ComunidadeIaPage() {
             <li><strong>Quem está começando e quer companhia.</strong> Tem a Trilha para Iniciantes, cursos que nêo pedem programaçêo (o curso dos 7 princípios, por exemplo, pede só já ter usado o ChatGPT) e um lugar para perguntar quando trava.</li>
             <li><strong>Profissional que quer usar IA no próprio trabalho.</strong> Advocacia, contabilidade, saúde, vendas, consultoria: há cursos e trilhas por área, e o valor está em ver como outras pessoas da mesma área resolveram o mesmo problema.</li>
             <li><strong>Quem constrói com agentes de código.</strong> Claude Code e Codex sêo os dois temas com mais conteúdo, e os projetos vêm com código para estudar e adaptar.</li>
-            <li><strong>Quem tem mais de 40 anos e chegou à IA agora.</strong> Parte do conteúdo (o news.inema.pro e as edições OSWork v5 e Quick, por exemplo) é escrita para quem nêo programa e prefere explicaçêo sem jargêo.</li>
+            <li><strong>Quem tem mais de 40 anos e chegou à IA agora.</strong> Parte do conteúdo (o news.ARCKHÉ.pro e as edições OSWork v5 e Quick, por exemplo) é escrita para quem nêo programa e prefere explicaçêo sem jargêo.</li>
           </ul>
           <p>
             E para quem ela <strong>nêo</strong> é: quem procura um curso único e fechado com começo, meio e fim, quem quer
-            só receber um sistema pronto para operar, ou quem busca atalho para &quot;ganhar dinheiro com IA&quot;. O INEMA
+            só receber um sistema pronto para operar, ou quem busca atalho para &quot;ganhar dinheiro com IA&quot;. O ARCKHÉ
             ensina por projeto e por prática contínua, e emite provas e certificados; mas o resultado depende de você
             aplicar num problema seu.
           </p>
@@ -504,7 +504,7 @@ export default function ComunidadeIaPage() {
           <h2 id="sem-se-perder">Como aprender IA em comunidade sem se perder?</h2>
           <p>
             Aprender em grupo encurta caminho, mas também pode virar ruído: cem mensagens por dia sobre ferramentas que
-            você nunca vai usar. Uma rotina que funciona com o que o INEMA oferece:
+            você nunca vai usar. Uma rotina que funciona com o que o ARCKHÉ oferece:
           </p>
           <ol className="seo-list">
             <li><strong>Escolha uma trilha e um projeto seu.</strong> A comunidade ajuda mais quem chega com um problema concreto (um relatório, um atendimento, uma planilha) do que quem chega &quot;para ver o que tem&quot;.</li>
@@ -527,18 +527,18 @@ export default function ComunidadeIaPage() {
             há mais de 40 anos, ser humano é assim.&quot;
           </p>
           <p>
-            Por isso o conteúdo do INEMA é feito para quem quer ler, estudar e aprender de verdade. Segundo o Nei, só dá
+            Por isso o conteúdo do ARCKHÉ é feito para quem quer ler, estudar e aprender de verdade. Segundo o Nei, só dá
             para relaxar quando o sistema roda correto, e mesmo assim é preciso se adaptar a cada mudança: modelos e
             sistemas mudam, e o hype do momento está muito competitivo.
           </p>
           <p>
             Foi com esse foco, em exemplos práticos e textos para estudar em vez de vídeo explicativo, que saíram os
-            trabalhos deste ano apresentados em eventos.inema.pro, entre eles:
+            trabalhos deste ano apresentados em eventos.ARCKHÉ.pro, entre eles:
           </p>
           <ul className="seo-list">
-            <li><strong>INEMA Agentes Hub V:</strong> o conteúdo dos 5 dias do evento.</li>
-            <li><strong>inemaccbot:</strong> bot de Telegram com fila de tarefas durável e o Promoavatar.</li>
-            <li><strong>Sistemas de música e vídeo:</strong> INEMA MUSICAVIDEO (com análise de vídeo) e Content2Video.</li>
+            <li><strong>ARCKHÉ Agentes Hub V:</strong> o conteúdo dos 5 dias do evento.</li>
+            <li><strong>ARCKHÉccbot:</strong> bot de Telegram com fila de tarefas durável e o Promoavatar.</li>
+            <li><strong>Sistemas de música e vídeo:</strong> ARCKHÉ MUSICAVIDEO (com análise de vídeo) e Content2Video.</li>
             <li><strong>Gestêo de IA e agentes:</strong> o evento Gestêo de Agentes, ligado ao curso dos 7 Princípios.</li>
           </ul>
         </section>
@@ -547,7 +547,7 @@ export default function ComunidadeIaPage() {
           <h2 id="publico-privado">O que é público e o que fica dentro da comunidade?</h2>
           <p>
             Uma regra vale para todo o ecossistema: <strong>nada do que um membro escreve vira conteúdo público</strong>.
-            Nem mensagem, nem nome, nem pergunta literal. O que sai para o INEMA.club, o news e as páginas de perguntas é
+            Nem mensagem, nem nome, nem pergunta literal. O que sai para o ARCKHÉ AI, o news e as páginas de perguntas é
             sempre texto do próprio Nei: a curadoria dele, as respostas reescritas por ele, os cursos e projetos que ele
             publica.
           </p>
@@ -557,7 +557,7 @@ export default function ComunidadeIaPage() {
                 <tr><th scope="col">Fica público</th><th scope="col">Fica dentro da comunidade</th></tr>
               </thead>
               <tbody>
-                <tr><td>Cursos, trilhas e fichas no INEMA.club</td><td>Conversas nos grupos privados do Telegram</td></tr>
+                <tr><td>Cursos, trilhas e fichas no ARCKHÉ AI</td><td>Conversas nos grupos privados do Telegram</td></tr>
                 <tr><td>Projetos com código e guia no GitHub</td><td>Nomes e mensagens de membros</td></tr>
                 <tr><td>Título e resumo das novidades curadas</td><td>A nota completa de cada novidade (área de assinante)</td></tr>
                 <tr><td>Registro de lançamentos (RSS/JSON)</td><td>Dúvidas e respostas individuais</td></tr>
@@ -573,7 +573,7 @@ export default function ComunidadeIaPage() {
         <section aria-labelledby="numeros">
           <h2 id="numeros">A comunidade em números</h2>
           <p>
-            Os dados de catálogo vêm do próprio INEMA.club e se atualizam sozinhos; os de pessoas e de grupos foram
+            Os dados de catálogo vêm do próprio ARCKHÉ AI e se atualizam sozinhos; os de pessoas e de grupos foram
             informados pelo Nei, com dados de setembro de 2026.
           </p>
           <div className="seo-table-wrap">
@@ -582,14 +582,14 @@ export default function ComunidadeIaPage() {
                 <tr><th scope="col">Indicador</th><th scope="col">Valor</th><th scope="col">Fonte</th></tr>
               </thead>
               <tbody>
-                <tr><td>Cursos no catálogo público</td><td>{courses.length}</td><td>catálogo do INEMA.club</td></tr>
-                <tr><td>Projetos no catálogo publicado do club</td><td>{projectNames.size} ({projectsWithGuide.size} com guia)</td><td>catálogo do INEMA.club</td></tr>
-                <tr><td>Projetos no repositório inematds</td><td>mais de 500</td><td>segundo o Nei</td></tr>
+                <tr><td>Cursos no catálogo público</td><td>{courses.length}</td><td>catálogo do ARCKHÉ AI</td></tr>
+                <tr><td>Projetos no catálogo publicado do club</td><td>{projectNames.size} ({projectsWithGuide.size} com guia)</td><td>catálogo do ARCKHÉ AI</td></tr>
+                <tr><td>Projetos no repositório linnoff88-dev</td><td>mais de 500</td><td>segundo o Nei</td></tr>
                 <tr><td>Cursos com versêo em inglês e espanhol</td><td>{translatedCourses.length}</td><td>catálogo traduzido</td></tr>
                 <tr><td>Grupos temáticos no Telegram (privados, VIP e PRO)</td><td>32</td><td>segundo o Nei, setembro de 2026</td></tr>
-                <tr><td>Pessoas no INEMA.PRO</td><td>cerca de 10 mil</td><td>segundo o Nei, setembro de 2026</td></tr>
+                <tr><td>Pessoas no ARCKHÉ.PRO</td><td>cerca de 10 mil</td><td>segundo o Nei, setembro de 2026</td></tr>
                 <tr><td>Pessoas nos grupos do Telegram</td><td>cerca de 4 mil</td><td>segundo o Nei, setembro de 2026</td></tr>
-                <tr><td>Pessoas no INEMA.club</td><td>cerca de 76 mil</td><td>segundo o Nei, setembro de 2026</td></tr>
+                <tr><td>Pessoas no ARCKHÉ AI</td><td>cerca de 76 mil</td><td>segundo o Nei, setembro de 2026</td></tr>
                 <tr><td>Curadoria do Nei</td><td>desde os anos 90</td><td>segundo o Nei</td></tr>
               </tbody>
             </table>
@@ -601,23 +601,23 @@ export default function ComunidadeIaPage() {
           <p>
             Existem outras comunidades e formações de IA em português, com modelos diferentes (curso fechado, mentoria,
             grupo gratuito, assinatura). Esta página nêo faz essa comparaçêo: ela descreve só como funciona a comunidade
-            do INEMA, para você decidir com a informaçêo na mêo.
+            do ARCKHÉ, para você decidir com a informaçêo na mêo.
           </p>
         </section>
 
         <section aria-labelledby="como-entrar">
-          <h2 id="como-entrar">Como entrar na comunidade INEMA?</h2>
+          <h2 id="como-entrar">Como entrar na comunidade ARCKHÉ?</h2>
           <p>Depende do que você quer agora:</p>
           <ol className="seo-list">
-            <li><strong>Só estudar, sem cadastro:</strong> comece pelo <a href="/aprender-inteligencia-artificial/">guia de como aprender IA</a> e pelo <a href="/cursos/">catálogo de cursos</a>. Tudo no INEMA.club é aberto e gratuito.</li>
-            <li><strong>Acompanhar as novidades:</strong> a seçêo Últimas Novidades na home, o news.inema.pro ou o <a href="/feed.xml">feed RSS</a>.</li>
-            <li><strong>Participar da comunidade e da formaçêo contínua:</strong> a assinatura é pelo <a href="https://inema.pro" target="_blank" rel="noopener noreferrer">INEMA.PRO</a>, que inclui a comunidade <a href="https://inema.vip" target="_blank" rel="noopener noreferrer">INEMA.VIP</a> no Telegram.</li>
+            <li><strong>Só estudar, sem cadastro:</strong> comece pelo <a href="/aprender-inteligencia-artificial/">guia de como aprender IA</a> e pelo <a href="/cursos/">catálogo de cursos</a>. Tudo no ARCKHÉ AI é aberto e gratuito.</li>
+            <li><strong>Acompanhar as novidades:</strong> a seçêo Últimas Novidades na home, o news.ARCKHÉ.pro ou o <a href="/feed.xml">feed RSS</a>.</li>
+            <li><strong>Participar da comunidade e da formaçêo contínua:</strong> a assinatura é pelo <a href="https://ARCKHÉ.pro" target="_blank" rel="noopener noreferrer">ARCKHÉ.PRO</a>, que inclui a comunidade <a href="https://ARCKHÉ.vip" target="_blank" rel="noopener noreferrer">ARCKHÉ.VIP</a> no Telegram.</li>
           </ol>
         </section>
 
         {related.length > 0 && (
           <section aria-labelledby="cursos-relacionados">
-            <h2 id="cursos-relacionados">Cursos do INEMA citados nesta página</h2>
+            <h2 id="cursos-relacionados">Cursos do ARCKHÉ citados nesta página</h2>
             <ul className="seo-list">
               {related.map((course) => (
                 <li key={course.canonicalPath}><a href={course.canonicalPath}>{course.title}</a></li>
@@ -627,7 +627,7 @@ export default function ComunidadeIaPage() {
         )}
 
         <section aria-labelledby="outros-guias">
-          <h2 id="outros-guias">Outros guias do INEMA</h2>
+          <h2 id="outros-guias">Outros guias do ARCKHÉ</h2>
           <ul className="seo-list">
             <li><a href="/aprender-inteligencia-artificial/">Como aprender Inteligência Artificial do zero ao avançado</a></li>
             <li><a href="/agentes-de-inteligencia-artificial/">Agentes de IA: onde aprender em português</a></li>
@@ -637,7 +637,7 @@ export default function ComunidadeIaPage() {
         </section>
 
         <section aria-labelledby="faq">
-          <h2 id="faq">Perguntas frequentes sobre a comunidade INEMA</h2>
+          <h2 id="faq">Perguntas frequentes sobre a comunidade ARCKHÉ</h2>
           <div className="course-faq-list">
             {FAQ.map((item) => (
               <details key={item.question}>
@@ -650,7 +650,7 @@ export default function ComunidadeIaPage() {
 
         <footer className="course-source-note">
           <p>
-            Por <a href="/conhecimento/quem-e-nei-maldaner/">Nei Maldaner</a>, criador do INEMA · Atualizado em{' '}
+            Por <a href="/conhecimento/quem-e-nei-maldaner/">Nei Maldaner</a>, criador do ARCKHÉ · Atualizado em{' '}
             <time dateTime={page.updated}>{page.updated.split('-').reverse().join('/')}</time>
           </p>
         </footer>

@@ -4,21 +4,21 @@ import { OG_LOCALE, localeHome, type Locale } from '@/i18n/locales'
 
 const TITLES: Record<Locale, { title: string; og: string; alt: string; description: string }> = {
   pt: {
-    title: 'Aprender Inteligência Artificial na prática | INEMA.club',
-    og: 'INEMA.club — Aprenda, pratique e evolua com IA',
-    alt: 'INEMA.club — Aprenda, pratique e evolua com inteligência artificial',
+    title: 'Aprender Inteligência Artificial na prática | ARCKHÉ AI',
+    og: 'ARCKHÉ AI — Aprenda, pratique e evolua com IA',
+    alt: 'ARCKHÉ AI — Aprenda, pratique e evolua com inteligência artificial',
     description: 'Formaçêo prática em inteligência artificial, agentes e automaçêo.',
   },
   en: {
-    title: 'Learn Artificial Intelligence in practice | INEMA.club',
-    og: 'INEMA.club — Learn, practice and evolve with AI',
-    alt: 'INEMA.club — Learn, practice and evolve with artificial intelligence',
+    title: 'Learn Artificial Intelligence in practice | ARCKHÉ AI',
+    og: 'ARCKHÉ AI — Learn, practice and evolve with AI',
+    alt: 'ARCKHÉ AI — Learn, practice and evolve with artificial intelligence',
     description: 'Hands-on training in artificial intelligence, agents and automation.',
   },
   es: {
-    title: 'Aprende Inteligencia Artificial en la práctica | INEMA.club',
-    og: 'INEMA.club — Aprende, practica y evoluciona con IA',
-    alt: 'INEMA.club — Aprende, practica y evoluciona con inteligencia artificial',
+    title: 'Aprende Inteligencia Artificial en la práctica | ARCKHÉ AI',
+    og: 'ARCKHÉ AI — Aprende, practica y evoluciona con IA',
+    alt: 'ARCKHÉ AI — Aprende, practica y evoluciona con inteligencia artificial',
     description: 'Formación práctica en inteligencia artificial, agentes y automatización.',
   },
 }
@@ -65,7 +65,7 @@ export function buildRootMetadata(locale: Locale): Metadata {
       description: t.description,
       images: [
         {
-          url: '/doc/inema-hero-aprenda-pratique-evolua.webp',
+          url: '/doc/ARCKHÉ-hero-aprenda-pratique-evolua.webp',
           width: 1200,
           height: 675,
           alt: t.alt,
@@ -76,7 +76,7 @@ export function buildRootMetadata(locale: Locale): Metadata {
       card: 'summary_large_image',
       title: t.og,
       description: t.description,
-      images: ['/doc/inema-hero-aprenda-pratique-evolua.webp'],
+      images: ['/doc/ARCKHÉ-hero-aprenda-pratique-evolua.webp'],
     },
     category: 'education',
   }

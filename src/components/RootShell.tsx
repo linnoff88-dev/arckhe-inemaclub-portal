@@ -1,7 +1,7 @@
 import Script from 'next/script'
 import AgenteChat from '@/components/AgenteChat/AgenteChat'
 import CommunityGoal from '@/components/CommunityGoal'
-import InemaWebMCP from '@/components/InemaWebMCP'
+import ARCKHÉWebMCP from '@/components/ARCKHÉWebMCP'
 import { entityGraph } from '@/lib/entities'
 import '@/app/globals.css'
 
@@ -12,7 +12,7 @@ export default function RootShell({ lang, children }: { lang: string; children: 
     <html lang={lang}>
       <head>
         <link rel="describedby" href="/llms.txt" type="text/plain" />
-        <link rel="alternate" href="/inema.json" type="application/json" title="INEMA discovery" />
+        <link rel="alternate" href="/ARCKHÉ.json" type="application/json" title="ARCKHÉ discovery" />
         {originTrialToken && originTrialMode === 'third-party' ? (
           <Script src="/api/webmcp-origin-trial/" strategy="beforeInteractive" />
         ) : originTrialToken ? (
@@ -35,7 +35,7 @@ export default function RootShell({ lang, children }: { lang: string; children: 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(entityGraph).replace(/</g, '\\u003c') }}
         />
         {children}
-        <InemaWebMCP />
+        <ARCKHÉWebMCP />
         <AgenteChat />
         <CommunityGoal />
       </body>

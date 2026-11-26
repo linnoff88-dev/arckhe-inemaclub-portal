@@ -35,7 +35,7 @@ export function buildHomeJsonLd(locale: Locale) {
     '@type': 'WebSite',
     '@id': `${SITE_URL}${localeHome(locale)}#website`,
     url: `${SITE_URL}${localeHome(locale)}`,
-    name: 'INEMA.club',
+    name: 'ARCKHÉ AI',
     description: SITE_DESCRIPTION,
     publisher: { '@id': ORG_ID },
     inLanguage: HTML_LANG[locale],

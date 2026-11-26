@@ -1,6 +1,6 @@
 // GERADO POR scripts/gera-novidades.mjs — NêO EDITAR À MêO.
-// Fonte: tópico 306 do grupo INEMA.VIP no Telegram, todo dia às 01:45.
-// Cada item linka pra rota /cerebro do inema.pro (área do assinante).
+// Fonte: tópico 306 do grupo ARCKHÉ.VIP no Telegram, todo dia às 01:45.
+// Cada item linka pra rota /cerebro do ARCKHÉ.pro (área do assinante).
 
 export type Novidade = {
   id: string;
@@ -17,15 +17,15 @@ export const novidadesData: Novidade[] = [
     "date": "2026-09-28",
     "titulo": "Estou recuperando um portal q eu criei em 2000,  em 2014 abandonei pq tinha vendido minha empresa mas recuperei mais de 11 milhoes de fotos, 160 mil materia etc,  aos poucos estou fazendo ele voltar",
     "resumo": "",
-    "grupo": "INEMA.VIP",
-    "url": "https://eai.inema.club/cinema/"
+    "grupo": "ARCKHÉ.VIP",
+    "url": "https://eai.ARCKHÉ AI/cARCKHÉ/"
   },
   {
     "id": "vip/2026-09-28/A corrida da IA está saindo do “melhor modelo” e indo para q",
     "date": "2026-09-28",
     "titulo": "A corrida da IA está saindo do “melhor modelo” e indo para quem constrói o melhor agente pessoal.",
     "resumo": "Os principais pontos sêo: - Opus 5.5 é apresentado como o grande destaque entre os novos modelos, principalmente por escrever melhor, ser mais direto, criar interfaces, apresentações, artefatos visuais e até vídeos via código. - GPT-6 Sol e Luna aparecem como novas opções da OpenAI, com foco também em mais velocidade e eficiência de tokens. - O Voice do ChatGPT ganha muito mais importância porque pode conversar em tempo real enquanto usa ferramentas como e-mail, calendário, Slack e outros plugins. Ou seja: voz deixa de ser apenas conversa e passa a executar trabalho. - O maior destaque do texto é o Muse, da Meta: um agente pessoal rápido, proativo, conectado às ferramentas, capaz de acessar computador, navegador e acompanhar objetivos. - A Meta estaria levando esse agente também para óculos, voz, vídeo e dispositivos dedicados, tentando transformar a IA em algo presente o tempo inteiro, e nêo apenas dentro de um aplicativo. - O Muse teria sido fortemente inspirado no OpenClaw, mas com a proposta de transformar aquela experiência mais técnica em algo seguro e simples para bilhões de pessoas. - A tendência apontada é que OpenAI, Anthropic, Meta e outras empresas estejam convergindo para praticamente o mesmo produto: memória persistente + e-mail + calendário + mensagens + navegador + computador + tarefas em segundo plano + notificações proativas + voz + ferramentas + contexto do ambiente. Em uma frase: > Estamos entrando na fase em que a disputa deixa de ser “qual IA responde melhor?” e passa a ser “qual agente conhece você, usa suas ferramentas e consegue trabalhar por você o dia inteiro?” Aprender a trabalhar de forma agent-native está se tornando mais importante do que simplesmente aprender a conversar com uma IA.",
-    "grupo": "INEMA.VIP",
+    "grupo": "ARCKHÉ.VIP",
     "url": ""
   },
   {
@@ -33,47 +33,47 @@ export const novidadesData: Novidade[] = [
     "date": "2026-09-26",
     "titulo": "curso de Video completo OSWork estilo de conteudo v2",
     "resumo": "",
-    "grupo": "INEMA.VIP",
-    "url": "https://inematds.github.io/oswork/videos/"
+    "grupo": "ARCKHÉ.VIP",
+    "url": "https://linnoff88-dev.github.io/arckhe-/videos/"
   },
   {
     "id": "2433384436/6720",
     "date": "2026-09-26",
-    "titulo": "RSI do INEMA",
-    "resumo": "Divulgaçêo da área RSI do INEMA — plataforma de estudo e aplicaçêo prática de Recursive Self-Improvement (melhoria recursiva de IA). O tópico apresenta o conceito e o conteúdo disponível no site.",
-    "grupo": "INEMA.AGENTES",
-    "url": "https://www.inema.pro/cerebro/inema-agentes/6720"
+    "titulo": "RSI do ARCKHÉ",
+    "resumo": "Divulgaçêo da área RSI do ARCKHÉ — plataforma de estudo e aplicaçêo prática de Recursive Self-Improvement (melhoria recursiva de IA). O tópico apresenta o conceito e o conteúdo disponível no site.",
+    "grupo": "ARCKHÉ.AGENTES",
+    "url": "https://www.ARCKHÉ.pro/cerebro/ARCKHÉ-agentes/6720"
   },
   {
     "id": "2494987106/6141",
     "date": "2026-09-26",
     "titulo": "skills-wait-what",
     "resumo": "Compartilhamento de dicas sobre a skill `wait-what` do ecossistema `aihero.dev` e comandos para manter skills atualizadas via `npx`.",
-    "grupo": "INEMA.PROMPTS",
-    "url": "https://www.inema.pro/cerebro/inema-prompts/6141"
+    "grupo": "ARCKHÉ.PROMPTS",
+    "url": "https://www.ARCKHÉ.pro/cerebro/ARCKHÉ-prompts/6141"
   },
   {
     "id": "vip/2026-09-25/RSI Chegou - Quem nao acompanhar vai ser como mexer no chat ",
     "date": "2026-09-25",
     "titulo": "RSI Chegou - Quem nao acompanhar vai ser como mexer no chat enquanto outros  usam agentes. Ou seja esqueca Agentes...",
     "resumo": "",
-    "grupo": "INEMA.VIP",
-    "url": "https://inematds.github.io/rsi/guia/"
+    "grupo": "ARCKHÉ.VIP",
+    "url": "https://linnoff88-dev.github.io/arckhe-/guia/"
   },
   {
     "id": "vip/2026-09-25/este conteudo ficou muito bom,",
     "date": "2026-09-25",
     "titulo": "este conteudo ficou muito bom,",
     "resumo": "Olha o sistema usado pelo ExplicaVideos",
-    "grupo": "INEMA.VIP",
-    "url": "https://inematds.github.io/oswork-v62/landing.html"
+    "grupo": "ARCKHÉ.VIP",
+    "url": "https://linnoff88-dev.github.io/arckhe-/landing.html"
   },
   {
     "id": "vip/2026-09-25/muito cuidado com isso",
     "date": "2026-09-25",
     "titulo": "muito cuidado com isso",
     "resumo": "",
-    "grupo": "INEMA.VIP",
+    "grupo": "ARCKHÉ.VIP",
     "url": "https://abliteration.ai/"
   },
   {
@@ -81,55 +81,55 @@ export const novidadesData: Novidade[] = [
     "date": "2026-09-25",
     "titulo": "Prompt Video Congelado",
     "resumo": "Tutorial sobre como criar o efeito de \"tempo congelado\" com vídeo de IA, onde objetos e personagens ficam suspensos enquanto a câmera continua se movendo pela cena.",
-    "grupo": "INEMA.PROMPTS",
-    "url": "https://www.inema.pro/cerebro/inema-prompts/6123"
+    "grupo": "ARCKHÉ.PROMPTS",
+    "url": "https://www.ARCKHÉ.pro/cerebro/ARCKHÉ-prompts/6123"
   },
   {
     "id": "2494987106/6109",
     "date": "2026-09-24",
     "titulo": "Exemplos Prompts Opus5.5",
     "resumo": "Coleçêo de 5 prompts neutros (sem citar marcas/modelos) para benchmark de agentes criativos autônomos, rotulados como \"Exemplos Prompts Opus5.5\". Cada prompt é uma tarefa criativa completa, do zero ao entregável final.",
-    "grupo": "INEMA.PROMPTS",
-    "url": "https://www.inema.pro/cerebro/inema-prompts/6109"
+    "grupo": "ARCKHÉ.PROMPTS",
+    "url": "https://www.ARCKHÉ.pro/cerebro/ARCKHÉ-prompts/6109"
   },
   {
     "id": "2494987106/6099",
     "date": "2026-09-23",
     "titulo": "Prompt de Orientaçêo de TEXTO",
     "resumo": "Tópico dedicado a um prompt de orientaçêo de estilo para reescrita e organizaçêo de textos com IA. Define um sistema de rótulos para controlar o grau e direçêo da reescrita.",
-    "grupo": "INEMA.PROMPTS",
-    "url": "https://www.inema.pro/cerebro/inema-prompts/6099"
+    "grupo": "ARCKHÉ.PROMPTS",
+    "url": "https://www.ARCKHÉ.pro/cerebro/ARCKHÉ-prompts/6099"
   },
   {
     "id": "2463916523/4676",
     "date": "2026-09-23",
     "titulo": "Chegou o Opus 5.5",
     "resumo": "Publicaçêo de material relacionado ao modelo Claude Opus 5.5, com link para guia hospedado no GitHub Pages.",
-    "grupo": "INEMA.LLMS",
-    "url": "https://www.inema.pro/cerebro/inema-llms/4676"
+    "grupo": "ARCKHÉ.LLMS",
+    "url": "https://www.ARCKHÉ.pro/cerebro/ARCKHÉ-llms/4676"
   },
   {
     "id": "2463916523/4696",
     "date": "2026-09-23",
     "titulo": "Qual Modelos Usar Setembro/2026",
     "resumo": "Análise prática dos principais modelos de IA disponíveis em setembro/2026, com recomendaçêo de pilha e estratégia de uso combinado entre Astra, Sol e Luna.",
-    "grupo": "INEMA.LLMS",
-    "url": "https://www.inema.pro/cerebro/inema-llms/4696"
+    "grupo": "ARCKHÉ.LLMS",
+    "url": "https://www.ARCKHÉ.pro/cerebro/ARCKHÉ-llms/4696"
   },
   {
     "id": "2433384436/6689",
     "date": "2026-09-23",
     "titulo": "7 Princípios da Gestêo de Agentes",
-    "resumo": "Análise de material externo (provavelmente vídeo/evento sobre agentes de IA) comparando com a metodologia INEMA de gestêo de agentes, confirmando alinhamento entre o que já era ensinado e o que grandes empresas de tech estêo adotando como linguagem oficial.",
-    "grupo": "INEMA.AGENTES",
-    "url": "https://www.inema.pro/cerebro/inema-agentes/6689"
+    "resumo": "Análise de material externo (provavelmente vídeo/evento sobre agentes de IA) comparando com a metodologia ARCKHÉ de gestêo de agentes, confirmando alinhamento entre o que já era ensinado e o que grandes empresas de tech estêo adotando como linguagem oficial.",
+    "grupo": "ARCKHÉ.AGENTES",
+    "url": "https://www.ARCKHÉ.pro/cerebro/ARCKHÉ-agentes/6689"
   },
   {
     "id": "vip/2026-09-23/video muito bom sobre o Opus5.5",
     "date": "2026-09-23",
     "titulo": "video muito bom sobre o Opus5.5",
     "resumo": "",
-    "grupo": "INEMA.VIP",
+    "grupo": "ARCKHÉ.VIP",
     "url": "https://www.youtube.com/watch?v=rFCaGc7owT8"
   },
   {
@@ -137,7 +137,7 @@ export const novidadesData: Novidade[] = [
     "date": "2026-09-23",
     "titulo": "ALERTA",
     "resumo": "Aviso: nêo use o repositório do GitHub 'short-video-generator-AI É apresentado como uma ferramenta gratuita que transforma vídeos longos em vídeos curtos. Mas possui código oculto que roda no Windows. Se você apenas baixou o arquivo ou está usando um Mac, exclua a pasta. Se você usa o Windows, primeiro use seu celular para alterar a senha do seu e-mail e depois as outras senhas. Em seguida, reinicie o computador. O código pode mudar a qualquer momento, entêo eu simplesmente ficaria longe dele 💪 Antes de executar qualquer repositório do GitHub, abra-o no Claude/Codex e verifique: \"Leia todos os arquivos, nêo execute nada. Verifique se é seguro usar e sinalize qualquer arquivo que baixe código ou pareça corrompido.\"",
-    "grupo": "INEMA.VIP",
+    "grupo": "ARCKHÉ.VIP",
     "url": ""
   },
   {
@@ -145,15 +145,15 @@ export const novidadesData: Novidade[] = [
     "date": "2026-09-23",
     "titulo": "no Club",
     "resumo": "",
-    "grupo": "INEMA.VIP",
-    "url": "https://inematds.github.io/gpt6-sol-luna/guia/"
+    "grupo": "ARCKHÉ.VIP",
+    "url": "https://linnoff88-dev.github.io/arckhe-/guia/"
   },
   {
     "id": "vip/2026-09-22/Ganhos de eficiência Jev",
     "date": "2026-09-22",
     "titulo": "Ganhos de eficiência Jev",
     "resumo": "Além de usar o Jev para tornar o LinkedIn mais tolerável, decidi testá-lo em um dos meus aplicativos, . Uma plataforma de orquestraçêo de agentes para criar equipes de agentes e concluir tarefas de trabalho reais. Para que isso funcione, tenho várias ferramentas que  pode usar para realizar todo tipo de tarefa, mas essas ferramentas consomem muitos tokens. O cache está ativado, o que ajuda, mas poderia ser melhor. Entêo, decidi colocar o Jev entre a mensagem do usuário e  com o objetivo de selecionar apenas as ferramentas que o orquestrador precisa para esse tipo de solicitaçêo. Eu esperava, é claro, uma boa reduçêo no número de tokens, mas o que eu nêo esperava era uma reduçêo de mais de 90%. Agora preciso analisar com muita atençêo meus aplicativos e automações e ver que melhorias posso obter em outras áreas.",
-    "grupo": "INEMA.VIP",
+    "grupo": "ARCKHÉ.VIP",
     "url": ""
   },
   {
@@ -161,7 +161,7 @@ export const novidadesData: Novidade[] = [
     "date": "2026-09-22",
     "titulo": "Chegou o Opous 5.5",
     "resumo": "quem tem o ;claude ele esta disponivel",
-    "grupo": "INEMA.VIP",
+    "grupo": "ARCKHÉ.VIP",
     "url": ""
   },
   {
@@ -169,79 +169,79 @@ export const novidadesData: Novidade[] = [
     "date": "2026-09-21",
     "titulo": "Laya x JEV",
     "resumo": "Análise comparativa aprofundada dos modelos de decisêo Jev e Laya como motores \"System 1\" em arquiteturas de IA multi-camada. O tópico explora benchmarks, limitações, fine-tuning e como essa separaçêo muda a gestêo de agentes.",
-    "grupo": "INEMA.LLMS",
-    "url": "https://www.inema.pro/cerebro/inema-llms/4644"
+    "grupo": "ARCKHÉ.LLMS",
+    "url": "https://www.ARCKHÉ.pro/cerebro/ARCKHÉ-llms/4644"
   },
   {
     "id": "2433384436/6626",
     "date": "2026-09-20",
     "titulo": "'",
     "resumo": "Publicaçêo de um guia estruturado chamado \"IA como Sistema — Do Chat ao seu próprio ambiente de agentes\", que ensina a evoluçêo do uso de IA de chatbot simples até um ambiente de agentes com memória, Skills, Git, Telegram e VPS. O material é organizado em 29 lições numeradas.",
-    "grupo": "INEMA.AGENTES",
-    "url": "https://www.inema.pro/cerebro/inema-agentes/6626"
+    "grupo": "ARCKHÉ.AGENTES",
+    "url": "https://www.ARCKHÉ.pro/cerebro/ARCKHÉ-agentes/6626"
   },
   {
     "id": "2463916523/4623",
     "date": "2026-09-19",
     "titulo": "JEV",
     "resumo": "Tópico dedicado ao projeto/ferramenta JEV, com compartilhamento de links de referência — vídeos do YouTube, documentaçêo e portal de eventos.",
-    "grupo": "INEMA.LLMS",
-    "url": "https://www.inema.pro/cerebro/inema-llms/4623"
+    "grupo": "ARCKHÉ.LLMS",
+    "url": "https://www.ARCKHÉ.pro/cerebro/ARCKHÉ-llms/4623"
   },
   {
     "id": "3627610270/1963",
     "date": "2026-09-19",
     "titulo": "Dream-RSI - Recursive Self-Improvement",
-    "resumo": "Explicaçêo detalhada do conceito Dream-RSI (Recursive Self-Improvement) e sua conexêo com o projeto LOOP-R da INEMA. O tópico apresenta um guia educativo criado pela INEMA sobre o paper \"Dream-RSI: Recursive Self-Improvement through Evolving Worlds\".",
-    "grupo": "INEMA.GOOGLE",
-    "url": "https://www.inema.pro/cerebro/inema-google/1963"
+    "resumo": "Explicaçêo detalhada do conceito Dream-RSI (Recursive Self-Improvement) e sua conexêo com o projeto LOOP-R da ARCKHÉ. O tópico apresenta um guia educativo criado pela ARCKHÉ sobre o paper \"Dream-RSI: Recursive Self-Improvement through Evolving Worlds\".",
+    "grupo": "ARCKHÉ.GOOGLE",
+    "url": "https://www.ARCKHÉ.pro/cerebro/ARCKHÉ-google/1963"
   },
   {
     "id": "3053650449/1317",
     "date": "2026-09-18",
     "titulo": "Skill Astra Higgsfield",
     "resumo": "Apresentaçêo da skill \"Astra Higgsfield\" para o Claude Codex, integrando a API da Higgsfield como alternativa à assinatura direta do serviço.",
-    "grupo": "INEMA.CODEX",
-    "url": "https://www.inema.pro/cerebro/inema-codex/1317"
+    "grupo": "ARCKHÉ.CODEX",
+    "url": "https://www.ARCKHÉ.pro/cerebro/ARCKHÉ-codex/1317"
   },
   {
     "id": "vip/2026-09-16/Fonte: CNN Brasil",
     "date": "2026-09-16",
     "titulo": "Fonte: CNN Brasil",
     "resumo": "",
-    "grupo": "INEMA.VIP",
+    "grupo": "ARCKHÉ.VIP",
     "url": "https://share.google/6p9XEgTCvg8f6WLc1"
   },
   {
     "id": "vip/2026-09-16/12 Novas IAs — Outubro 2026 · rumores × versões atuais verif",
     "date": "2026-09-16",
-    "titulo": "12 Novas IAs — Outubro 2026 · rumores × versões atuais verificadas https://inematds.github.io/newia-oct2026/guia/",
+    "titulo": "12 Novas IAs — Outubro 2026 · rumores × versões atuais verificadas https://linnoff88-dev.github.io/arckhe-/guia/",
     "resumo": "já divulguei aqui antes mas agora fui lá e construir um projeto com todas essas informações de como você pode se beneficiar",
-    "grupo": "INEMA.VIP",
-    "url": "https://inematds.github.io/newia-oct2026/guia/"
+    "grupo": "ARCKHÉ.VIP",
+    "url": "https://linnoff88-dev.github.io/arckhe-/guia/"
   },
   {
     "id": "vip/2026-09-16/Claude Session Kit — statusline com cota real + skills de se",
     "date": "2026-09-16",
     "titulo": "Claude Session Kit — statusline com cota real + skills de sessêo https://share.google/uhnOjJUIlossUjZzR",
     "resumo": "otimizando o uso das IAs",
-    "grupo": "INEMA.VIP",
+    "grupo": "ARCKHÉ.VIP",
     "url": "https://share.google/uhnOjJUIlossUjZzR"
   },
   {
     "id": "vip/2026-09-16/agentes-fronteiros — migraçêo de agentes para generalista + ",
     "date": "2026-09-16",
-    "titulo": "agentes-fronteiros — migraçêo de agentes para generalista + skills https://inematds.github.io/agentes-fronteiros/guia/",
+    "titulo": "agentes-fronteiros — migraçêo de agentes para generalista + skills https://linnoff88-dev.github.io/arckhe-/guia/",
     "resumo": "otimizando os Agentes",
-    "grupo": "INEMA.VIP",
-    "url": "https://inematds.github.io/agentes-fronteiros/guia/"
+    "grupo": "ARCKHÉ.VIP",
+    "url": "https://linnoff88-dev.github.io/arckhe-/guia/"
   },
   {
     "id": "vip/2026-09-16/IA Cultivada — nêo se programa, se cultiva https://share.goo",
     "date": "2026-09-16",
     "titulo": "IA Cultivada — nêo se programa, se cultiva https://share.google/8FKgpBHd9AewWZn9G",
     "resumo": "Vale a Pena estudar.",
-    "grupo": "INEMA.VIP",
+    "grupo": "ARCKHÉ.VIP",
     "url": "https://share.google/8FKgpBHd9AewWZn9G"
   },
   {
@@ -249,7 +249,7 @@ export const novidadesData: Novidade[] = [
     "date": "2026-09-15",
     "titulo": "`IA para quem decide · 6 aulas curtas`",
     "resumo": "**O chat responde. O __terminal__ executa**. Para executivos e profissionais liberais que já usam IA no navegador e ainda copiam e colam tudo. Entenda as quatro camadas de um sistema de IA, por que o terminal com agente é a que faz o trabalho, e como o harness faz ele trabalhar do seu jeito.",
-    "grupo": "INEMA.VIP",
-    "url": "https://inematds.github.io/agentes-harness/guia"
+    "grupo": "ARCKHÉ.VIP",
+    "url": "https://linnoff88-dev.github.io/arckhe-/guia"
   }
 ];

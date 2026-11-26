@@ -4,8 +4,8 @@
   },
   "header": {
     "communityBadge": "Join the Community",
-    "proBadge": "Subscribe to INEMA.PRO",
-    "logo": "INEMA.CLUB Portal INEMA",
+    "proBadge": "Subscribe to ARCKHÉ.PRO",
+    "logo": "ARCKHÉ AI Portal ARCKHÉ",
     "tagline": "Learn Artificial Intelligence in practice: courses, agents, automation and community",
     "chipVisits": "visits",
     "chipUnique": "unique visitors",
@@ -23,21 +23,21 @@
     "projects": "🚀 Projects",
     "telegram": "💬 Telegram",
     "social": "📱 Social",
-    "pro": "⭐ INEMA.PRO (PT)"
+    "pro": "⭐ ARCKHÉ.PRO (PT)"
   },
   "hero": {
     "newsBadge": "LIVE",
     "newsText": "Today's AI news, curated",
-    "imageAlt": "INEMA.CLUB — Learn. Practice. Evolve. The ecosystem for mastering AI in practice.",
+    "imageAlt": "ARCKHÉ AI — Learn. Practice. Evolve. The ecosystem for mastering AI in practice.",
     "caption": "Learn. Practice. Evolve. — a solid AI knowledge base to apply at work, in projects and in your career.",
     "title": "Learn Artificial Intelligence in practice, from zero to advanced.",
-    "body": "INEMA Club is a hands-on learning ecosystem for people who want to master artificial intelligence and apply it at work, in projects and in their careers. The core idea is simple: learn, practice and evolve with AI continuously.",
+    "body": "ARCKHÉ Club is a hands-on learning ecosystem for people who want to master artificial intelligence and apply it at work, in projects and in their careers. The core idea is simple: learn, practice and evolve with AI continuously.",
     "body2": "Here you will find practical, to-the-point courses, real projects to get your hands dirty, paths organized for every level, an active community and a curated set of the best tools. All of it aimed at building a solid knowledge base — one that makes you more productive, more strategic and better prepared for the future of work.",
     "guideCta": "New here? Start with the guide (in Portuguese): how to learn AI from scratch →"
   },
   "search": {
     "title": "What do you want to learn today?",
-    "body": "Search INEMA's public courses by topic, tool or goal. Even without WebMCP you can browse the catalog manually.",
+    "body": "Search ARCKHÉ's public courses by topic, tool or goal. Even without WebMCP you can browse the catalog manually.",
     "label": "Topic or goal",
     "placeholder": "E.g.: WebMCP, agents, automation",
     "button": "Search courses",
@@ -47,16 +47,16 @@
     "gestao2027Alt": "Agent Management 2027 — the new role of companies. Same leadership, a new workforce: humans + agents = more value.",
     "agiAlt": "AGI has arrived — it is no longer about doing everything, it is about commanding agents. The era of super-agents has begun.",
     "content2videoAlt": "Content2Video — a link goes in, a video comes out",
-    "webmcpAlt": "WebMCP — INEMA event",
-    "musicavideoAlt": "INEMA MUSICAVIDEO — create songs and music videos at scale, from idea to hit",
-    "destaqueAlt": "INEMACCBOT course with Promoavatar",
-    "eventoAlt": "INEMA event",
+    "webmcpAlt": "WebMCP — ARCKHÉ event",
+    "musicavideoAlt": "ARCKHÉ MUSICAVIDEO — create songs and music videos at scale, from idea to hit",
+    "destaqueAlt": "ARCKHÉCCBOT course with Promoavatar",
+    "eventoAlt": "ARCKHÉ event",
     "musicavideoButton": "Discover MUSICAVIDEO →",
     "destaqueButton": "Watch the course →",
     "iaCultivadaAlt": "Cultivated AI — not programmed, grown. Same leadership, a new way to build agents: role, context, tools, rules, examples, memory, evaluation, feedback.",
-    "claudeCodexAlt": "Claude → Codex: migrate or stay model-agnostic. Separate the brain from the model — portable context, skills and handoffs. INEMA 2026 event.",
+    "claudeCodexAlt": "Claude → Codex: migrate or stay model-agnostic. Separate the brain from the model — portable context, skills and handoffs. ARCKHÉ 2026 event.",
     "codexClaudeAlt": "Codex + Claude — use both together. One plans, the other challenges; tests decide. Debate the plan, images, build and review, computer use, goal with a stop and handoff.",
-    "liveInematdsxAlt": "Live today on INEMATDSX — streaming on YouTube (in Portuguese).",
+    "livelinnoff88-devxAlt": "Live today on linnoff88-devX — streaming on YouTube (in Portuguese).",
     "opus55Alt": "Claude Opus 5.5 guide — Anthropic’s new king: cheaper than Opus 5 and ahead in almost everything. −20% price, 89.9 on SWE-bench Pro, 1M context.",
     "rsiAlt": "RSI arrived 2 years early: AI that improves AI. Forecast for 2028, arrived in 2026; LOOP-R in practice. Explore the study area.",
     "jevAlt": "JEV — AI decisions in practice. Explore the project, learn with the course: 20 practical cases, 36 lessons and 10 packages.",
@@ -123,7 +123,7 @@
     "title": "Latest News",
     "more": "Show more",
     "less": "Show less",
-    "readVip": "Read on INEMA.VIP →",
+    "readVip": "Read on ARCKHÉ.VIP →",
     "openLink": "Open link →",
     "ptNote": "Content in Portuguese."
   },
@@ -142,12 +142,12 @@
     "gestorAlt": "Manager and Leader — lead better with AI"
   },
   "proBanner": {
-    "alt": "INEMA.PRO — The platform for people who want to use AI to grow in practice"
+    "alt": "ARCKHÉ.PRO — The platform for people who want to use AI to grow in practice"
   },
   "trails": {
-    "title": "INEMA.PRO Learning Paths",
-    "subtitle": "Choose your path and move forward with focus — the full content of each path is on INEMA.PRO",
-    "ctaButton": "🧭 Access the full learning paths on INEMA.PRO",
+    "title": "ARCKHÉ.PRO Learning Paths",
+    "subtitle": "Choose your path and move forward with focus — the full content of each path is on ARCKHÉ.PRO",
+    "ctaButton": "🧭 Access the full learning paths on ARCKHÉ.PRO",
     "names": {
       "Trilha Profissional com IA": "Professional Path with AI",
       "Trilha Vibe Code": "Vibe Code Path",
@@ -162,7 +162,7 @@
       "Desenvolvedor IA": "AI Developer",
       "Transformaçêo Digital": "Digital Transformation",
       "Arquiteto de Agentes": "Agent Architect",
-      "Vídeos, Filmes e Cinema": "Videos, Films and Cinema",
+      "Vídeos, Filmes e CARCKHÉ": "Videos, Films and CARCKHÉ",
       "Frameworks & Assistentes": "Frameworks & Assistants",
       "Claude Code": "Claude Code",
       "Agentic OS": "Agentic OS",
@@ -176,46 +176,46 @@
   },
   "projects": {
     "title": "Projects",
-    "subtitle": "Projects built by INEMA — ready to download and use",
+    "subtitle": "Projects built by ARCKHÉ — ready to download and use",
     "ctaLine": "projects ready to download and use",
-    "ctaBody": "Apps, agents, skills and tools built by the INEMA community, with code and a usage guide.",
-    "ctaButton": "🚀 See the projects on INEMA.PRO"
+    "ctaBody": "Apps, agents, skills and tools built by the ARCKHÉ community, with code and a usage guide.",
+    "ctaButton": "🚀 See the projects on ARCKHÉ.PRO"
   },
   "translated": {
     "title": "Available in English",
-    "subtitle": "INEMA courses and projects already published in this language",
+    "subtitle": "ARCKHÉ courses and projects already published in this language",
     "empty": "We are translating the catalog. The first courses in this language will appear here as soon as they are published."
   },
   "banners": {
-    "clubAlt": "INEMA.CLUB",
+    "clubAlt": "ARCKHÉ AI",
     "teamAlt": "Build your team. Lead the future."
   },
   "telegram": {
     "title": "Telegram Groups and Channels",
     "subtitle": "Join our learning community",
-    "comingSoon": "English-speaking groups coming soon. Meanwhile, join through the INEMA.VIP community.",
+    "comingSoon": "English-speaking groups coming soon. Meanwhile, join through the ARCKHÉ.VIP community.",
     "ctaLabel": "Join on Telegram →"
   },
   "vip": {
-    "alt": "INEMA.VIP - You are invited to the community",
-    "title": "INEMA.VIP",
+    "alt": "ARCKHÉ.VIP - You are invited to the community",
+    "title": "ARCKHÉ.VIP",
     "description": "A space for self-directed learning and transformation with AI and Humanoids",
     "badge": "Sign up →"
   },
   "social": {
-    "title": "INEMA Social Media",
+    "title": "ARCKHÉ Social Media",
     "subtitle": "Follow us on the main platforms",
-    "comingSoon": "English profiles coming soon. Meanwhile, follow INEMA's main profiles."
+    "comingSoon": "English profiles coming soon. Meanwhile, follow ARCKHÉ's main profiles."
   },
   "coursesPage": {
     "metaTitle": "Artificial intelligence, agents and automation courses",
-    "metaDescription": "INEMA's public course catalog: courses already available in English first, then the full catalog in Portuguese.",
-    "ogTitle": "INEMA Courses",
+    "metaDescription": "ARCKHÉ's public course catalog: courses already available in English first, then the full catalog in Portuguese.",
+    "ogTitle": "ARCKHÉ Courses",
     "ogDescription": "Hands-on training in artificial intelligence, agents, automation and AI-assisted development.",
     "breadcrumbLabel": "Breadcrumb",
     "breadcrumb": "Courses",
     "title": "Courses to learn and apply AI in practice",
-    "intro": "Explore INEMA's public catalog. Courses already translated into English come first; the rest of the catalog is in Portuguese (PT).",
+    "intro": "Explore ARCKHÉ's public catalog. Courses already translated into English come first; the rest of the catalog is in Portuguese (PT).",
     "translatedTitle": "Available in English",
     "catalogTitle": "Full catalog (in Portuguese)",
     "searchLabel": "Search the catalog",
@@ -226,6 +226,6 @@
     "tagsLabel": "Course topics"
   },
   "footer": {
-    "copyright": "© 2025 Portal INEMA. All rights reserved."
+    "copyright": "© 2025 Portal ARCKHÉ. All rights reserved."
   }
 }

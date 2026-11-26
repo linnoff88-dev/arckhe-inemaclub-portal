@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // gen-courses-data.mjs — extrai os arrays de dados do catálogo (courses.ts + Portal.tsx)
-// e grava src/data/courses.data.json. Consumidores externos (inemabuscas/generate_cursos.mjs,
-// inemapro-mono gen-catalog.mjs) leem esse JSON — o parse/eval do TS fica confinado aqui,
+// e grava src/data/courses.data.json. Consumidores externos (ARCKHÉbuscas/generate_cursos.mjs,
+// ARCKHÉpro-mono gen-catalog.mjs) leem esse JSON — o parse/eval do TS fica confinado aqui,
 // no repo dono, rodando junto de quem edita o courses.ts.
 // Rode após editar courses.ts/Portal.tsx: `npm run gen:data`.
 import fs from 'fs';

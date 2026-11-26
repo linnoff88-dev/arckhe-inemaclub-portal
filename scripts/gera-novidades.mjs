@@ -1,22 +1,22 @@
 #!/usr/bin/env node
-// Gera src/data/novidades.ts a partir do tópico de anúncios do grupo INEMA.VIP
+// Gera src/data/novidades.ts a partir do tópico de anúncios do grupo ARCKHÉ.VIP
 // no Telegram. Roda toda madrugada (01:45), no fim da cadeia noturna: cada
 // novidade linka pra uma nota do Cérebro, que só existe depois do ciclo do
 // cerebro-vip (00:30 -> termina ~01:15) e do bake do PRO (01:30).
 //
 // Cadeia completa:
 //   23:20  telegramtopicosindex  -> out2/<grupo>/<topico>/{messages.json,content.txt}
-//   00:10  inemabuscas           -> out2/<grupo>/<topico>/resumo.md
+//   00:10  ARCKHÉbuscas           -> out2/<grupo>/<topico>/resumo.md
 //   00:30  cerebro-vip           -> content/ + docs/<slug>/<id>.html
-//   01:30  inemapro-mono         -> apps/pro/data/cerebro.json (bake da rota /cerebro)
+//   01:30  ARCKHÉpro-mono         -> apps/pro/data/cerebro.json (bake da rota /cerebro)
 //   01:45  ESTE script           -> portal/src/data/novidades.ts + commit/push
 //
-// O destino de cada novidade é a rota SAME-ORIGIN https://www.inema.pro/cerebro/
-// <slug>/<id>, e não o .html cru do cvip.inema.pro: o cvip responde 307 pra
-// inema.pro/ e o assinante perde o destino no meio do login. Por isso o item só
+// O destino de cada novidade é a rota SAME-ORIGIN https://www.ARCKHÉ.pro/cerebro/
+// <slug>/<id>, e não o .html cru do cvip.ARCKHÉ.pro: o cvip responde 307 pra
+// ARCKHÉ.pro/ e o assinante perde o destino no meio do login. Por isso o item só
 // sai quando a chave já existe no cerebro.json (bake das 01:30).
 //
-// O tópico 306 do INEMA.VIP já é um feed curado pelo Nei: cada anúncio é um
+// O tópico 306 do ARCKHÉ.VIP já é um feed curado pelo Nei: cada anúncio é um
 // bloco fechado por uma linha de "=====". Não tem LLM aqui — título, chamada e
 // link já vêm escritos por ele; o parágrafo sai do resumo.md que a cadeia
 // das 00:10 gerou. Custo zero.
@@ -31,7 +31,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const TTI = '/home/nmaldaner/projetos/telegramtopicosindex';
-const MONO = '/home/nmaldaner/projetos/inemapro-mono';
+const MONO = '/home/nmaldaner/projetos/ARCKHÉpro-mono';
 const PORTAL = path.resolve(new URL('..', import.meta.url).pathname);
 
 const GRUPO_VIP = '2405283087';
@@ -41,10 +41,10 @@ const MAX_ITENS = 30; // lista rolante no portal
 const GAP_ANUNCIO_MS = 2 * 3600e3; // Nei escrevendo 2 h+ depois do último membro = anúncio novo
 
 // Autores que representam o Nei no tópico de anúncios (ele posta como admin
-// anônimo -> "Desconhecido", ou pela conta do canal -> "INEMA"). Qualquer autor
+// anônimo -> "Desconhecido", ou pela conta do canal -> "ARCKHÉ"). Qualquer autor
 // NOMEADO é membro do grupo — ou o próprio bot. Ver AUTORES_NEI no README da
 // seção: é o que separa "fonte do Nei" de "conversa no grupo".
-const AUTORES_NEI = new Set(['Desconhecido', 'INEMA', null, undefined, '']);
+const AUTORES_NEI = new Set(['Desconhecido', 'ARCKHÉ', null, undefined, '']);
 const doNei = (m) => AUTORES_NEI.has(m.author);
 
 const SAIDA = path.join(PORTAL, 'src/data/novidades.ts');
@@ -60,17 +60,17 @@ const lerJSON = (p, fallback) => {
   }
 };
 
-/** grupo_id -> slug do cvip (INEMA.LLMS -> inema-llms), lido do MenusGrupos.md */
+/** grupo_id -> slug do cvip (ARCKHÉ.LLMS -> ARCKHÉ-llms), lido do MenusGrupos.md */
 function mapaGrupos() {
   const md = fs.readFileSync(path.join(TTI, 'MenusGrupos.md'), 'utf8');
   const m = new Map();
-  for (const [, label, id] of md.matchAll(/\|\s*(INEMA[.\w]*)\s*\|\s*https:\/\/t\.me\/c\/(\d+)\//g)) {
+  for (const [, label, id] of md.matchAll(/\|\s*(ARCKHÉ[.\w]*)\s*\|\s*https:\/\/t\.me\/c\/(\d+)\//g)) {
     m.set(id, { label, slug: label.toLowerCase().replace(/\./g, '-') });
   }
   return m;
 }
 
-/** Chaves "<slug>/<id>" já publicadas na rota /cerebro do inema.pro. */
+/** Chaves "<slug>/<id>" já publicadas na rota /cerebro do ARCKHÉ.pro. */
 const CEREBRO_TOPICOS = new Set(
   Object.keys(lerJSON(path.join(MONO, 'apps/pro/data/cerebro.json'), { topicos: {} }).topicos)
 );
@@ -121,7 +121,7 @@ function blocosFechados(msgs) {
 function montaItem(bloco, grupos) {
   // Membro que posta no tópico sem "=====" depois cola a conversa dele no
   // próximo anúncio do Nei (28/09: pergunta do arca 13:49 + anúncio do
-  // aventura.inema.club 22 h depois = bloco inteiro descartado como conversa).
+  // aventura.ARCKHÉ AI 22 h depois = bloco inteiro descartado como conversa).
   // Se o Nei só volta a escrever horas depois do último membro, o que vem
   // depois é anúncio novo, não resposta: descarta a conversa e fica com ele.
   const ultMembro = bloco.findLastIndex((m) => (m.text || '').trim() && !doNei(m));
@@ -165,12 +165,12 @@ function montaItem(bloco, grupos) {
       titulo,
       resumo: paragrafoDoResumo(gid, tid) || chamada,
       grupo: g.label,
-      url: `https://www.inema.pro/cerebro/${g.slug}/${tid}`,
+      url: `https://www.ARCKHÉ.pro/cerebro/${g.slug}/${tid}`,
     };
   }
 
   // Opção (b): bloco sem nota no Cérebro também vira novidade. Se houver um link
-  // externo (YouTube, inema.club...) ele é o destino; senão o item é só texto.
+  // externo (YouTube, ARCKHÉ AI...) ele é o destino; senão o item é só texto.
   const externo = juntos.match(URL_RE);
   // Sem link e sem parágrafo o card abre vazio — não é novidade, é só um título
   // solto. Fora.
@@ -180,7 +180,7 @@ function montaItem(bloco, grupos) {
     date,
     titulo,
     resumo: chamada,
-    grupo: 'INEMA.VIP',
+    grupo: 'ARCKHÉ.VIP',
     url: externo ? externo[0] : '',
   };
 }
@@ -238,8 +238,8 @@ function existentes() {
 
 function arquivoTS(lista) {
   return `// GERADO POR scripts/gera-novidades.mjs — NÃO EDITAR À MÃO.
-// Fonte: tópico ${TOPICO_FEED} do grupo INEMA.VIP no Telegram, todo dia às 01:45.
-// Cada item linka pra rota /cerebro do inema.pro (área do assinante).
+// Fonte: tópico ${TOPICO_FEED} do grupo ARCKHÉ.VIP no Telegram, todo dia às 01:45.
+// Cada item linka pra rota /cerebro do ARCKHÉ.pro (área do assinante).
 
 export type Novidade = {
   id: string;

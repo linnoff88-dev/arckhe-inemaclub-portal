@@ -12,7 +12,7 @@ Inventário dos arquivos únicos referenciados pela home, por idioma. Soma dos a
 
 | Arquivo original | Antes (KiB) | WebP (KiB) |
 |---|---:|---:|
-| conviteinemap.png | 191 | 18 |
+| conviteARCKHÉp.png | 191 | 18 |
 | oswork.png | 1803 | 138 |
 | jev.png | 1575 | 96 |
 | gestao-agentes-2027.png | 2103 | 210 |
@@ -23,6 +23,6 @@ Inventário dos arquivos únicos referenciados pela home, por idioma. Soma dos a
 | webmcp2.png | 1834 | 191 |
 | capa-musicavideo-v2.jpg | 350 | 214 |
 | vczero.png | 2291 | 218 |
-| inemaagenteshubv.jpg | 294 | 196 |
+| ARCKHÉagenteshubv.jpg | 294 | 196 |
 
 Manutençêo: ao substituir um original, executar `node scripts/optimize-banners.cjs` para renovar WebP PT/EN/ES. Os banners abaixo do topo usam loading="lazy"; o hero principal mantém carregamento imediato.

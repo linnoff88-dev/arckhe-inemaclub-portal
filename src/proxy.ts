@@ -5,7 +5,7 @@ import { webMcpKnowledge } from '@/data/webmcp-knowledge'
 const localKnowledgePaths = new Set(webMcpKnowledge.map((article) => `/conhecimento/${article.slug}/`))
 
 // F2 do programa AIV: base de conhecimento pública (AEO/GEO), hospedada como
-// GitHub Pages no repo NeiMaldaner/conhecimento, servida sob inema.club pra
+// GitHub Pages no repo NeiMaldaner/conhecimento, servida sob ARCKHÉ AI pra
 // concentrar autoridade. Usa o pathname original (com barra final intacta)
 // em vez do rewrite do next.config, que perde a barra ao reconstruir :path*.
 export function proxy(request: NextRequest) {

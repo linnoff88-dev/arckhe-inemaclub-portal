@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   // remove a barra final antes do rewrite rodar, e o GitHub Pages de destino
   // devolve um redirect pra re-adicionar a barra — vazando o domínio real
   // (neimaldaner.github.io) no Location em vez de ficar transparente em
-  // inema.club. Efeito colateral aceitável: rotas nativas como /stats
+  // ARCKHÉ AI. Efeito colateral aceitável: rotas nativas como /stats
   // passam a redirecionar /stats -> /stats/ (301), igual já fazia ao
   // contrário antes.
   trailingSlash: true,
@@ -39,10 +39,10 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       // Pós-pagamento Asaas: o successUrl do checkout precisa estar no domínio
-      // cadastrado na conta Asaas (inema.club) — daqui manda pro app do pay.
+      // cadastrado na conta Asaas (ARCKHÉ AI) — daqui manda pro app do pay.
       {
         source: '/bemvindo',
-        destination: 'https://pay.inema.pro/bemvindo',
+        destination: 'https://pay.ARCKHÉ.pro/bemvindo',
         permanent: false,
       },
     ]

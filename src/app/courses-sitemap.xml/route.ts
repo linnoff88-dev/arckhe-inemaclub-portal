@@ -7,7 +7,7 @@ function xmlEscape(value: string) {
 
 export function GET() {
   // Só as fichas com ementa real (scripts/extrai-syllabus.mjs). As outras continuam no ar e
-  // linkadas em /cursos/, mas ficam fora do sitemap até serem enriquecidas (ver inemaseo).
+  // linkadas em /cursos/, mas ficam fora do sitemap até serem enriquecidas (ver ARCKHÉseo).
   const enriched = courses.flatMap((course) => {
     const syllabus = getSyllabus(course.applicationUrl)
     return syllabus ? [{ course, lastmod: syllabus.enrichedAt }] : []
@@ -16,7 +16,7 @@ export function GET() {
   const urls = enriched
     .map(({ course, lastmod }) => `  <url><loc>${xmlEscape(course.canonicalUrl)}</loc><lastmod>${xmlEscape(lastmod)}</lastmod></url>`)
     .join('\n')
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>https://www.inema.club/cursos/</loc>${lastModified ? `<lastmod>${lastModified}</lastmod>` : ''}</url>\n${urls}\n</urlset>\n`
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>https://www.ARCKHÉ AI/cursos/</loc>${lastModified ? `<lastmod>${lastModified}</lastmod>` : ''}</url>\n${urls}\n</urlset>\n`
 
   return new Response(xml, {
     headers: {

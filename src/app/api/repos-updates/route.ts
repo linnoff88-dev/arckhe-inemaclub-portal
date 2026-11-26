@@ -32,7 +32,7 @@ export async function GET() {
     }
 
     const evRes = await fetch(
-      'https://api.github.com/users/inematds/events/public?per_page=100',
+      'https://api.github.com/users/linnoff88-dev/events/public?per_page=100',
       { headers, next: { revalidate: 1800 } }
     )
 
@@ -77,7 +77,7 @@ export async function GET() {
     const items = repoResults.map((res, i) => {
       const t = targets[i]
       const meta = res.status === 'fulfilled' ? res.value : null
-      const shortName = t.repo.replace(/^inematds\//, '')
+      const shortName = t.repo.replace(/^linnoff88-dev\//, '')
       const createdAt = meta?.created_at
       const ageDays = createdAt
         ? (now - new Date(createdAt).getTime()) / 86400000

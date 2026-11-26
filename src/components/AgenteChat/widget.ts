@@ -1,4 +1,4 @@
-// Widget do agente do INEMA.club (F3, programa AIV).
+// Widget do agente do ARCKHÉ AI (F3, programa AIV).
 // Vanilla TS, shadow DOM isolado — sem dependências, nêo conflita com o
 // resto do portal. O navegador nunca chama a API do modelo, só esta
 // Edge Function (que já esconde a chave OpenRouter no lado do servidor).
@@ -12,7 +12,7 @@ type ChatResponse = {
   error?: string;
 };
 
-const STORAGE_KEY = 'inema_agente_v1';
+const STORAGE_KEY = 'ARCKHÉ_agente_v1';
 // Projeto Supabase dedicado ao agente (F3) — separado do Supabase de
 // rastreamento de visitas usado no resto do portal.
 const FUNCTION_URL = `${process.env.NEXT_PUBLIC_SUPABASE_CHAT_URL}/functions/v1/chat`;
@@ -49,10 +49,10 @@ const WIDGET_TEXT: Record<WidgetLocale, { placeholder: string; serverError: stri
   pt: {
     placeholder: 'Pergunte alguma coisa...',
     serverError: 'Deu ruim aqui do nosso lado — tenta de novo em instantes.',
-    contactSaved: 'Contato registrado — alguém do INEMA vai falar com você.',
+    contactSaved: 'Contato registrado — alguém do ARCKHÉ vai falar com você.',
     navigating: 'Te levando pra lá...',
     offline: 'Sem conexêo com o agente agora — tenta de novo em instantes.',
-    ariaAgent: 'Agente guia do INEMA',
+    ariaAgent: 'Agente guia do ARCKHÉ',
     launcher: 'Me guie pelo site',
     close: 'Fechar o agente',
     send: 'Enviar',
@@ -61,10 +61,10 @@ const WIDGET_TEXT: Record<WidgetLocale, { placeholder: string; serverError: stri
   en: {
     placeholder: 'Ask me anything...',
     serverError: 'Something went wrong on our side — please try again in a moment.',
-    contactSaved: 'Contact saved — someone from INEMA will reach out to you.',
+    contactSaved: 'Contact saved — someone from ARCKHÉ will reach out to you.',
     navigating: 'Taking you there...',
     offline: 'No connection to the assistant right now — please try again in a moment.',
-    ariaAgent: 'INEMA site guide',
+    ariaAgent: 'ARCKHÉ site guide',
     launcher: 'Guide me through the site',
     close: 'Close the assistant',
     send: 'Send',
@@ -73,10 +73,10 @@ const WIDGET_TEXT: Record<WidgetLocale, { placeholder: string; serverError: stri
   es: {
     placeholder: 'Pregunta lo que quieras...',
     serverError: 'Algo falló de nuestro lado — inténtalo de nuevo en un momento.',
-    contactSaved: 'Contacto registrado — alguien de INEMA hablará contigo.',
+    contactSaved: 'Contacto registrado — alguien de ARCKHÉ hablará contigo.',
     navigating: 'Te llevo allí...',
     offline: 'Sin conexión con el asistente ahora — inténtalo de nuevo en un momento.',
-    ariaAgent: 'Agente guía de INEMA',
+    ariaAgent: 'Agente guía de ARCKHÉ',
     launcher: 'Guíame por el sitio',
     close: 'Cerrar el asistente',
     send: 'Enviar',
@@ -107,10 +107,10 @@ const STYLE = `
 .send:disabled { opacity: .5; cursor: default; }
 .typing { align-self: flex-start; display: flex; align-items: center; gap: 8px; color: #9a9284; font-size: 12px; padding: 6px 12px; }
 .typing .dots { display: inline-flex; gap: 4px; }
-.typing .dot { width: 6px; height: 6px; border-radius: 50%; background: #9a9284; animation: inema-blink 1.2s infinite; }
+.typing .dot { width: 6px; height: 6px; border-radius: 50%; background: #9a9284; animation: ARCKHÉ-blink 1.2s infinite; }
 .typing .dot:nth-child(2) { animation-delay: .2s; }
 .typing .dot:nth-child(3) { animation-delay: .4s; }
-@keyframes inema-blink { 0%, 80%, 100% { opacity: .25; } 40% { opacity: 1; } }
+@keyframes ARCKHÉ-blink { 0%, 80%, 100% { opacity: .25; } 40% { opacity: 1; } }
 @media (max-width: 640px) {
   .wrap { right: max(12px, env(safe-area-inset-right)); bottom: max(12px, env(safe-area-inset-bottom)); }
   .tab { width: 48px; height: 48px; justify-content: center; padding: 0; }
@@ -120,7 +120,7 @@ const STYLE = `
 `;
 
 export function mountAgenteChat() {
-  if (!ANON_KEY || document.getElementById('inema-agente-host')) return;
+  if (!ANON_KEY || document.getElementById('ARCKHÉ-agente-host')) return;
 
   const locale = detectLocale();
   const t = WIDGET_TEXT[locale];
@@ -133,7 +133,7 @@ export function mountAgenteChat() {
   }
 
   const host = document.createElement('div');
-  host.id = 'inema-agente-host';
+  host.id = 'ARCKHÉ-agente-host';
   document.body.appendChild(host);
   const root = host.attachShadow({ mode: 'open' });
 

@@ -1,4 +1,4 @@
-// F3 (programa AIV) — agente de chat do INEMA.club.
+// F3 (programa AIV) — agente de chat do ARCKHÉ AI.
 // v1 sem streaming (fallback previsto no plano) — o navegador nunca chama a
 // API do modelo, só esta funçêo. Cérebro: Claude Haiku via OpenRouter.
 import { createClient } from 'npm:@supabase/supabase-js@2';
@@ -27,7 +27,7 @@ const RE_VIU_POST = /instagram|insta\b|tik ?tok|reels?\b|youtube|v[ií]deo d[oe]
 const PALAVRAS_VAZIAS = new Set([
   'quero', 'queria', 'gostaria', 'preciso', 'precisava', 'como', 'onde', 'aonde', 'qual', 'quais',
   'tem', 'tenho', 'temos', 'vocês', 'voces', 'você', 'voce', 'sobre', 'algum', 'alguma', 'isso',
-  'esse', 'essa', 'aqui', 'site', 'inema', 'favor', 'obrigado', 'obrigada', 'sim', 'nêo', 'nao',
+  'esse', 'essa', 'aqui', 'site', 'ARCKHÉ', 'favor', 'obrigado', 'obrigada', 'sim', 'nêo', 'nao',
   'pode', 'posso', 'fazer', 'saber', 'encontro', 'encontrar', 'achar', 'acho', 'mostra', 'mostre',
   'manda', 'mande', 'link', 'ver', 'olá', 'ola', 'oi', 'bom', 'boa', 'dia', 'tarde', 'noite',
 ]);
@@ -66,8 +66,8 @@ async function callOpenRouter(messages: unknown[], tools: unknown[]) {
     headers: {
       Authorization: `Bearer ${OPENROUTER_API_KEY}`,
       'Content-Type': 'application/json',
-      'HTTP-Referer': 'https://inema.club',
-      'X-Title': 'INEMA Agente',
+      'HTTP-Referer': 'https://ARCKHÉ AI',
+      'X-Title': 'ARCKHÉ Agente',
     },
     body: JSON.stringify({
       model: MODEL_ID,
@@ -204,7 +204,7 @@ Deno.serve(async (req) => {
   if (conversation.turn_count >= MAX_TURNS_PER_CONVERSATION) {
     return jsonResponse({
       session_token: conversation.session_token,
-      reply: 'Essa conversa já foi longa demais por aqui — se quiser continuar, fala com o apoio do INEMA: Telegram @apoioinema (https://t.me/apoioinema) ou e-mail inemavip@gmail.com.',
+      reply: 'Essa conversa já foi longa demais por aqui — se quiser continuar, fala com o apoio do ARCKHÉ: Telegram @apoioARCKHÉ (https://t.me/apoioARCKHÉ) ou e-mail ARCKHÉvip@gmail.com.',
       navigate: null,
     }, 200, origin);
   }
@@ -376,7 +376,7 @@ Deno.serve(async (req) => {
       const pediu = toolCalls.some((c: { function: { name: string } }) => c.function.name === 'registrar_pedido');
       replyText = [
         navigate?.motivo,
-        pediu && 'Registrei seu pedido na fila de construçêo do INEMA. Se quiser ser avisado quando ficar pronto, me diga seu e-mail ou @ do Telegram.',
+        pediu && 'Registrei seu pedido na fila de construçêo do ARCKHÉ. Se quiser ser avisado quando ficar pronto, me diga seu e-mail ou @ do Telegram.',
       ].filter(Boolean).join(' ') || 'Beleza, vamos lá!';
     }
   }

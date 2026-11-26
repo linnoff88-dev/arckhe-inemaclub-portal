@@ -4,9 +4,9 @@ import { videosExplicativos, seriesShorts, totalVideosShorts, totalVideosExplica
 import type { Idioma } from '@/data/videos'
 
 export const metadata: Metadata = {
-  title: 'Vídeos do INEMA: aulas e shorts sobre IA na prática',
+  title: 'Vídeos do ARCKHÉ: aulas e shorts sobre IA na prática',
   description:
-    'Todos os vídeos produzidos pelo INEMA: vídeo-aulas com o Nei Maldaner (LOOP-R, OSWork, Astra, IA Cultivada, Codex + Claude) e shorts verticais sobre as áreas de IA. Abertos e gratuitos.',
+    'Todos os vídeos produzidos pelo ARCKHÉ: vídeo-aulas com o Nei Maldaner (LOOP-R, OSWork, Astra, IA Cultivada, Codex + Claude) e shorts verticais sobre as áreas de IA. Abertos e gratuitos.',
   alternates: { canonical: '/videos/' },
 }
 
@@ -47,14 +47,14 @@ export default function VideosPage() {
   return (
     <main className="course-page-shell videos-catalog">
       <nav className="course-breadcrumb" aria-label="Navegaçêo estrutural">
-        <a href="/">INEMA.club</a><span aria-hidden="true">/</span><span>Vídeos</span>
+        <a href="/">ARCKHÉ AI</a><span aria-hidden="true">/</span><span>Vídeos</span>
       </nav>
       <header className="course-index-header">
-        <h1>Vídeos do INEMA</h1>
+        <h1>Vídeos do ARCKHÉ</h1>
         <p>
           Tudo o que já produzimos em vídeo: aulas com o Nei Maldaner, com capítulos e legendas, e shorts verticais
           sobre as áreas de IA do{' '}
-          <a href="https://eventos.inema.pro/" target="_blank" rel="noopener noreferrer">eventos.inema.pro</a>.
+          <a href="https://eventos.ARCKHÉ.pro/" target="_blank" rel="noopener noreferrer">eventos.ARCKHÉ.pro</a>.
           Abertos, sem cobrança. Assista, baixe e compartilhe à vontade.
         </p>
       </header>
@@ -63,7 +63,7 @@ export default function VideosPage() {
         <h2 id="explicativos">Vídeo-aulas com o Nei</h2>
         <p style={{ margin: 0 }}>
           {totalVideosExplicativos} vídeos em 16:9, em {videosExplicativos.length} produções feitas com o{' '}
-          <a href="https://inematds.github.io/explicavideos/guia/" target="_blank" rel="noopener noreferrer">Explicavideos</a>.
+          <a href="https://linnoff88-dev.github.io/arckhe-/guia/" target="_blank" rel="noopener noreferrer">Explicavideos</a>.
           Abra o player com capítulos ou o MP4 de cada vídeo no idioma que quiser.
         </p>
         <ul style={grid('300px')}>

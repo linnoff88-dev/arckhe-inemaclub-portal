@@ -61,7 +61,7 @@ export default async function KnowledgePage({ params }: Props) {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'INEMA.club', item: SITE_URL },
+        { '@type': 'ListItem', position: 1, name: 'ARCKHÉ AI', item: SITE_URL },
         { '@type': 'ListItem', position: 2, name: 'Conhecimento', item: `${SITE_URL}/conhecimento/` },
         { '@type': 'ListItem', position: 3, name: article.title, item: url },
       ],
@@ -72,7 +72,7 @@ export default async function KnowledgePage({ params }: Props) {
     <main className="course-page-shell knowledge-article">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />
       <nav className="course-breadcrumb" aria-label="Navegaçêo estrutural">
-        <a href="/">INEMA.club</a><span aria-hidden="true">/</span><a href="/conhecimento/">Conhecimento</a>
+        <a href="/">ARCKHÉ AI</a><span aria-hidden="true">/</span><a href="/conhecimento/">Conhecimento</a>
         <span className="breadcrumb-current"><span aria-hidden="true">/</span><span>{article.title}</span></span>
       </nav>
       <article>
@@ -116,7 +116,7 @@ export default async function KnowledgePage({ params }: Props) {
         </section>
 
         <footer className="course-source-note">
-          <p>Autor: Nei Maldaner · Revisêo: INEMA · Publicado e atualizado em 30 de agosto de 2026.</p>
+          <p>Autor: Nei Maldaner · Revisêo: ARCKHÉ · Publicado e atualizado em 30 de agosto de 2026.</p>
         </footer>
       </article>
     </main>

@@ -220,8 +220,8 @@ html {
     object-fit: cover;
 }
 
-/* INEMA.PRO Banner Link */
-.inemapro-banner {
+/* ARCKHÉ.PRO Banner Link */
+.ARCKHÉpro-banner {
     display: block;
     margin-top: 1.5rem;
     border-radius: 16px;
@@ -231,25 +231,25 @@ html {
     transition: all 0.3s ease;
 }
 
-.inemapro-banner:hover {
+.ARCKHÉpro-banner:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-hover);
     border-color: var(--primary-color);
 }
 
-.inemapro-banner img {
+.ARCKHÉpro-banner img {
     width: 100%;
     height: auto;
     display: block;
 }
 
-.inemapro-banner--wide {
+.ARCKHÉpro-banner--wide {
     max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.inemapro-banner-section {
+.ARCKHÉpro-banner-section {
     background: var(--bg-color);
     padding: 2rem 0;
     border-bottom: 1px solid var(--border-color);
@@ -469,7 +469,7 @@ html {
     gap: 1.5rem;
 }
 
-/* Banner NEWS.inema.pro acima da imagem do hero */
+/* Banner NEWS.ARCKHÉ.pro acima da imagem do hero */
 .news-banner {
     display: flex;
     align-items: center;
@@ -1878,9 +1878,9 @@ html {
     }
 }
 
-/* ===== Últimas Novidades (feed do INEMA.VIP) ===== */
+/* ===== Últimas Novidades (feed do ARCKHÉ.VIP) ===== */
 /* Reusa .updates-section/.update-item; o item é um botêo que abre o parágrafo
-   resumido inline e só entêo oferece o link pro cvip.inema.pro. */
+   resumido inline e só entêo oferece o link pro cvip.ARCKHÉ.pro. */
 .novidade {
     border-bottom: 1px solid var(--border-color);
 }

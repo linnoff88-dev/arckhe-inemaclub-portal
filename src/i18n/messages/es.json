@@ -4,8 +4,8 @@
   },
   "header": {
     "communityBadge": "Únete a la Comunidad",
-    "proBadge": "Suscríbete a INEMA.PRO",
-    "logo": "INEMA.CLUB Portal INEMA",
+    "proBadge": "Suscríbete a ARCKHÉ.PRO",
+    "logo": "ARCKHÉ AI Portal ARCKHÉ",
     "tagline": "Aprende Inteligencia Artificial en la práctica: cursos, agentes, automatización y comunidad",
     "chipVisits": "accesos",
     "chipUnique": "visitantes únicos",
@@ -23,21 +23,21 @@
     "projects": "🚀 Proyectos",
     "telegram": "💬 Telegram",
     "social": "📱 Social",
-    "pro": "⭐ INEMA.PRO (PT)"
+    "pro": "⭐ ARCKHÉ.PRO (PT)"
   },
   "hero": {
     "newsBadge": "EN VIVO",
     "newsText": "Las noticias de IA del día, curadas",
-    "imageAlt": "INEMA.CLUB — Aprende. Practica. Evoluciona. El ecosistema para dominar la IA en la práctica.",
+    "imageAlt": "ARCKHÉ AI — Aprende. Practica. Evoluciona. El ecosistema para dominar la IA en la práctica.",
     "caption": "Aprende. Practica. Evoluciona. — una base sólida de conocimiento en IA para aplicar en el trabajo, en los proyectos y en la carrera.",
     "title": "Aprende Inteligencia Artificial en la práctica, de cero a avanzado.",
-    "body": "INEMA Club es un ecosistema de aprendizaje práctico para quienes quieren dominar la inteligencia artificial y aplicarla en el trabajo, en los proyectos y en la carrera. La idea central es simple: aprender, practicar y evolucionar con IA de forma continua.",
+    "body": "ARCKHÉ Club es un ecosistema de aprendizaje práctico para quienes quieren dominar la inteligencia artificial y aplicarla en el trabajo, en los proyectos y en la carrera. La idea central es simple: aprender, practicar y evolucionar con IA de forma continua.",
     "body2": "Aquí encuentras cursos prácticos y directos al grano, proyectos reales para poner manos a la obra, rutas organizadas para cada nivel, una comunidad activa y la curaduría de las mejores herramientas. Todo orientado a construir una base sólida de conocimiento — que te vuelve más productivo, más estratégico y mejor preparado para el futuro del trabajo.",
     "guideCta": "¿Nuevo aquí? Empieza por la guía (en portugués): cómo aprender IA desde cero →"
   },
   "search": {
     "title": "¿Qué quieres aprender hoy?",
-    "body": "Busca los cursos públicos de INEMA por tema, herramienta u objetivo. Incluso sin WebMCP puedes seguir manualmente por el catálogo.",
+    "body": "Busca los cursos públicos de ARCKHÉ por tema, herramienta u objetivo. Incluso sin WebMCP puedes seguir manualmente por el catálogo.",
     "label": "Tema u objetivo",
     "placeholder": "Ej.: WebMCP, agentes, automatización",
     "button": "Buscar cursos",
@@ -47,16 +47,16 @@
     "gestao2027Alt": "Gestión de Agentes 2027 — el nuevo papel de las empresas. El mismo liderazgo, una nueva fuerza de trabajo: humanos + agentes = más valor.",
     "agiAlt": "La AGI llegó — ya no se trata de hacerlo todo, sino de comandar agentes. La era de los superagentes ha comenzado.",
     "content2videoAlt": "Content2Video — entra un enlace, sale un video",
-    "webmcpAlt": "WebMCP — evento INEMA",
-    "musicavideoAlt": "INEMA MUSICAVIDEO — crea canciones y videoclips a escala, de la idea al hit",
-    "destaqueAlt": "Curso INEMACCBOT con Promoavatar",
-    "eventoAlt": "Evento INEMA",
+    "webmcpAlt": "WebMCP — evento ARCKHÉ",
+    "musicavideoAlt": "ARCKHÉ MUSICAVIDEO — crea canciones y videoclips a escala, de la idea al hit",
+    "destaqueAlt": "Curso ARCKHÉCCBOT con Promoavatar",
+    "eventoAlt": "Evento ARCKHÉ",
     "musicavideoButton": "Conoce MUSICAVIDEO →",
     "destaqueButton": "Mira el curso →",
     "iaCultivadaAlt": "IA Cultivada — no se programa, se cultiva. El mismo liderazgo, una nueva forma de crear agentes: función, contexto, herramientas, reglas, ejemplos, memoria, evaluación, feedback.",
-    "claudeCodexAlt": "Claude → Codex: migra o quédate agnóstico. Separa el cerebro del modelo — contexto, skills y handoffs portátiles. Evento INEMA 2026.",
+    "claudeCodexAlt": "Claude → Codex: migra o quédate agnóstico. Separa el cerebro del modelo — contexto, skills y handoffs portátiles. Evento ARCKHÉ 2026.",
     "codexClaudeAlt": "Codex + Claude — usa los dos juntos. Uno planifica, el otro desafía; las pruebas deciden. Debatir el plan, imagen, construir y revisar, computer use, meta con parada y handoff.",
-    "liveInematdsxAlt": "Hoy hay live en INEMATDSX — en vivo en YouTube (en portugués).",
+    "livelinnoff88-devxAlt": "Hoy hay live en linnoff88-devX — en vivo en YouTube (en portugués).",
     "opus55Alt": "Guía Claude Opus 5.5 — el nuevo rey de Anthropic: más barato que Opus 5 y por delante en casi todo. −20% en precio, 89,9 en SWE-bench Pro, 1M de contexto.",
     "rsiAlt": "El RSI llegó 2 años antes: la IA que mejora la IA. Previsto para 2028, llegó en 2026; LOOP-R en la práctica. Explora el área de estudio.",
     "jevAlt": "JEV — decisiones de IA en la práctica. Explora el proyecto, aprende en el curso: 20 casos prácticos, 36 lecciones y 10 paquetes.",
@@ -123,7 +123,7 @@
     "title": "Últimas Novedades",
     "more": "Ver más",
     "less": "Ver menos",
-    "readVip": "Leer en INEMA.VIP →",
+    "readVip": "Leer en ARCKHÉ.VIP →",
     "openLink": "Abrir enlace →",
     "ptNote": "Contenido en portugués."
   },
@@ -142,12 +142,12 @@
     "gestorAlt": "Gestor y Líder — lidera mejor con IA"
   },
   "proBanner": {
-    "alt": "INEMA.PRO — La plataforma para quienes quieren usar la IA para crecer en la práctica"
+    "alt": "ARCKHÉ.PRO — La plataforma para quienes quieren usar la IA para crecer en la práctica"
   },
   "trails": {
-    "title": "Rutas de Aprendizaje de INEMA.PRO",
-    "subtitle": "Elige tu camino y avanza con foco — el contenido completo de cada ruta está en INEMA.PRO",
-    "ctaButton": "🧭 Accede a las rutas completas en INEMA.PRO",
+    "title": "Rutas de Aprendizaje de ARCKHÉ.PRO",
+    "subtitle": "Elige tu camino y avanza con foco — el contenido completo de cada ruta está en ARCKHÉ.PRO",
+    "ctaButton": "🧭 Accede a las rutas completas en ARCKHÉ.PRO",
     "names": {
       "Trilha Profissional com IA": "Ruta Profesional con IA",
       "Trilha Vibe Code": "Ruta Vibe Code",
@@ -162,7 +162,7 @@
       "Desenvolvedor IA": "Desarrollador IA",
       "Transformaçêo Digital": "Transformación Digital",
       "Arquiteto de Agentes": "Arquitecto de Agentes",
-      "Vídeos, Filmes e Cinema": "Videos, Películas y Cine",
+      "Vídeos, Filmes e CARCKHÉ": "Videos, Películas y Cine",
       "Frameworks & Assistentes": "Frameworks & Asistentes",
       "Claude Code": "Claude Code",
       "Agentic OS": "Agentic OS",
@@ -176,46 +176,46 @@
   },
   "projects": {
     "title": "Proyectos",
-    "subtitle": "Proyectos desarrollados por INEMA — listos para descargar y usar",
+    "subtitle": "Proyectos desarrollados por ARCKHÉ — listos para descargar y usar",
     "ctaLine": "proyectos listos para descargar y usar",
-    "ctaBody": "Aplicaciones, agentes, skills y herramientas construidos por la comunidad INEMA, con código y guía de uso.",
-    "ctaButton": "🚀 Ver los proyectos en INEMA.PRO"
+    "ctaBody": "Aplicaciones, agentes, skills y herramientas construidos por la comunidad ARCKHÉ, con código y guía de uso.",
+    "ctaButton": "🚀 Ver los proyectos en ARCKHÉ.PRO"
   },
   "translated": {
     "title": "Disponible en español",
-    "subtitle": "Cursos y proyectos de INEMA ya publicados en este idioma",
+    "subtitle": "Cursos y proyectos de ARCKHÉ ya publicados en este idioma",
     "empty": "Estamos traduciendo el catálogo. Los primeros cursos en este idioma aparecerán aquí en cuanto se publiquen."
   },
   "banners": {
-    "clubAlt": "INEMA.CLUB",
+    "clubAlt": "ARCKHÉ AI",
     "teamAlt": "Crea tu equipo. Lidera el futuro."
   },
   "telegram": {
     "title": "Grupos y Canales de Telegram",
     "subtitle": "Únete a nuestra comunidad de aprendizaje",
-    "comingSoon": "Grupos en español muy pronto. Mientras tanto, entra por la comunidad INEMA.VIP.",
+    "comingSoon": "Grupos en español muy pronto. Mientras tanto, entra por la comunidad ARCKHÉ.VIP.",
     "ctaLabel": "Entrar en Telegram →"
   },
   "vip": {
-    "alt": "INEMA.VIP - Has sido invitado a la comunidad",
-    "title": "INEMA.VIP",
+    "alt": "ARCKHÉ.VIP - Has sido invitado a la comunidad",
+    "title": "ARCKHÉ.VIP",
     "description": "Un espacio de autoaprendizaje y transformación con IA y Humanoides",
     "badge": "Regístrate →"
   },
   "social": {
-    "title": "Redes Sociales INEMA",
+    "title": "Redes Sociales ARCKHÉ",
     "subtitle": "Síguenos en las principales plataformas",
-    "comingSoon": "Perfiles en español muy pronto. Mientras tanto, sigue los perfiles principales de INEMA."
+    "comingSoon": "Perfiles en español muy pronto. Mientras tanto, sigue los perfiles principales de ARCKHÉ."
   },
   "coursesPage": {
     "metaTitle": "Cursos de inteligencia artificial, agentes y automatización",
-    "metaDescription": "Catálogo público de cursos de INEMA: primero los cursos ya disponibles en español y después el catálogo completo en portugués.",
-    "ogTitle": "Cursos de INEMA",
+    "metaDescription": "Catálogo público de cursos de ARCKHÉ: primero los cursos ya disponibles en español y después el catálogo completo en portugués.",
+    "ogTitle": "Cursos de ARCKHÉ",
     "ogDescription": "Formación práctica en inteligencia artificial, agentes, automatización y desarrollo con IA.",
     "breadcrumbLabel": "Navegación estructural",
     "breadcrumb": "Cursos",
     "title": "Cursos para aprender y aplicar IA en la práctica",
-    "intro": "Explora el catálogo público de INEMA. Los cursos ya traducidos al español aparecen primero; el resto del catálogo está en portugués (PT).",
+    "intro": "Explora el catálogo público de ARCKHÉ. Los cursos ya traducidos al español aparecen primero; el resto del catálogo está en portugués (PT).",
     "translatedTitle": "Disponible en español",
     "catalogTitle": "Catálogo completo (en portugués)",
     "searchLabel": "Buscar en el catálogo",
@@ -226,6 +226,6 @@
     "tagsLabel": "Temas del curso"
   },
   "footer": {
-    "copyright": "© 2025 Portal INEMA. Todos los derechos reservados."
+    "copyright": "© 2025 Portal ARCKHÉ. Todos los derechos reservados."
   }
 }

@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Mensagem de boas-vindas no console
-    console.log('%c🎓 Portal INEMA ', 'background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 10px 20px; font-size: 16px; font-weight: bold; border-radius: 5px;');
+    console.log('%c🎓 Portal ARCKHÉ ', 'background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 10px 20px; font-size: 16px; font-weight: bold; border-radius: 5px;');
     console.log('Portal carregado com sucesso! 🚀');
     console.log(`Total de plataformas: ${platformsData.length}`);
 });
@@ -186,7 +186,7 @@ function addPlatform(platform) {
 }
 
 // Exportar funções para uso externo (se necessário)
-window.PortalINEMA = {
+window.PortalARCKHÉ = {
     addPlatform,
     renderCards,
     filterCards,

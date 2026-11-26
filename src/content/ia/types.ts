@@ -1,7 +1,7 @@
 /**
  * Modelo das páginas /ia/<slug>/ (respostas diretas sobre IA).
  * Texto aceita marcaçêo inline mínima: **negrito** e [texto](url).
- * Plano e checklist de qualidade: repo inematds/inemaseo.
+ * Plano e checklist de qualidade: repo linnoff88-dev/ARCKHÉseo.
  */
 export type IaSection = {
   heading: string
@@ -15,7 +15,7 @@ export type IaPage = {
   slug: string
   /** H1 da página */
   title: string
-  /** <title> (≤ 60 caracteres antes do " | INEMA.club") */
+  /** <title> (≤ 60 caracteres antes do " | ARCKHÉ AI") */
   metaTitle: string
   /** meta description (140–155 caracteres) */
   description: string
@@ -28,9 +28,9 @@ export type IaPage = {
   sections: IaSection[]
   /** FAQ real (perguntas que as pessoas fazem); vazio = sem FAQPage */
   faq: { question: string; answer: string }[]
-  /** URLs das aplicações dos cursos (inematds.github.io/...) — viram links pras fichas do club */
+  /** URLs das aplicações dos cursos (linnoff88-dev.github.io/arckhe-...) — viram links pras fichas do club */
   relatedCourses: string[]
-  /** "Leia também": caminhos internos do inema.club */
+  /** "Leia também": caminhos internos do ARCKHÉ AI */
   relatedPages: { path: string; title: string }[]
   /** pilar pai (breadcrumb + link de volta) */
   pillar: { path: string; title: string }

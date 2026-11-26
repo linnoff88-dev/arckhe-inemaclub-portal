@@ -55,7 +55,7 @@ export default function CoursesIndex({ locale }: { locale: Locale }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(listJsonLd).replace(/</g, '\\u003c') }}
       />
       <nav className="course-breadcrumb" aria-label={t.breadcrumbLabel}>
-        <a href={locale === 'pt' ? SITE_URL : localeHome(locale)}>INEMA.club</a><span aria-hidden="true">/</span><span>{t.breadcrumb}</span>
+        <a href={locale === 'pt' ? SITE_URL : localeHome(locale)}>ARCKHÉ AI</a><span aria-hidden="true">/</span><span>{t.breadcrumb}</span>
       </nav>
       <header className="course-index-header">
         <h1>{t.title}</h1>

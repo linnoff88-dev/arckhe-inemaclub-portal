@@ -62,7 +62,7 @@ const trailDefinitions = [
   ['Dados & IA', 'dados'],
   ['Desenvolvedor IA', 'desenvolv'],
   ['Transformaçêo Digital', 'transformacao digital'],
-  ['Vídeos, Filmes e Cinema', 'video'],
+  ['Vídeos, Filmes e CARCKHÉ', 'video'],
   ['Frameworks & Assistentes', 'assistente'],
   ['Claude Code', 'claude code'],
   ['Agentic OS', 'agentic os'],

@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 // Sincroniza o catálogo que o agente de chat consulta (tabela catalogo_fichas,
-// Supabase inema-agente) com o que o INEMA tem de verdade hoje.
+// Supabase ARCKHÉ-agente) com o que o ARCKHÉ tem de verdade hoje.
 //
 // Antes (até 2026-09-25) o agente só via as 54 fichas escritas à mão em
 // ~/projetos/aiv/catalogo, sincronizadas uma vez no lançamento — e respondia
 // "não tenho registro" pra Hermes, Agnes, API NVIDIA, avatar... que existem.
 //
 // Fontes (todas locais, geradas pela cadeia noturna):
-//   inemapro-mono/apps/pro/data/catalog.json  → cursos + projetos (links públicos github.io)
-//   inemapro-mono/apps/pro/data/wiki.json     → ferramentas, com apelidos (inema.pro, assinante)
-//   inemapro-mono/apps/pro/data/cerebro.json  → tópicos do Cérebro (inema.pro, assinante)
+//   ARCKHÉpro-mono/apps/pro/data/catalog.json  → cursos + projetos (links públicos github.io)
+//   ARCKHÉpro-mono/apps/pro/data/wiki.json     → ferramentas, com apelidos (ARCKHÉ.pro, assinante)
+//   ARCKHÉpro-mono/apps/pro/data/cerebro.json  → tópicos do Cérebro (ARCKHÉ.pro, assinante)
 //   portal/src/data/novidades.ts              → últimas novidades do feed do Nei
 //
 // As fichas curadas do aiv (slugs sem prefixo) NÃO são tocadas e têm
@@ -18,14 +18,14 @@
 // da fonte é apagado. O navigate_to ignora esses prefixos (chat/index.ts).
 //
 // Uso: node scripts/sync-agente-catalogo.mjs [--dry]
-// Cron: chamado no fim de inemapro-mono/scripts/sync-cerebro.sh (01:30).
+// Cron: chamado no fim de ARCKHÉpro-mono/scripts/sync-cerebro.sh (01:30).
 import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 
 const HOME = os.homedir();
 const PORTAL = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
-const PRO_DATA = path.join(HOME, 'projetos/inemapro-mono/apps/pro/data');
+const PRO_DATA = path.join(HOME, 'projetos/ARCKHÉpro-mono/apps/pro/data');
 const DRY = process.argv.includes('--dry');
 export const PREFIXOS = ['pro-', 'wiki-', 'cerebro-', 'novidade-'];
 
@@ -81,9 +81,9 @@ export function montarFichas() {
     const oQueE = (w.body ?? '').split(/\n## /)[0].replace(/^## O que é\s*/, '');
     out.push(ficha({
       slug: `wiki-${w.slug}`, tipo: 'ferramenta',
-      url: `https://www.inema.pro/cerebro/wiki/${w.slug}`,
+      url: `https://www.ARCKHÉ.pro/cerebro/wiki/${w.slug}`,
       titulo: `${w.nome}${w.aliases?.length ? ` (${w.aliases.slice(0, 6).join(', ')})` : ''}`,
-      resumo: `[INEMA.PRO] ${oQueE}`,
+      resumo: `[ARCKHÉ.PRO] ${oQueE}`,
     }));
   }
 
@@ -93,9 +93,9 @@ export function montarFichas() {
       .map(l => l.replace(/^\s+- /, '').replace(/\*\*/g, '')).join('; ');
     out.push(ficha({
       slug: `cerebro-${t.grupo_slug}-${t.topico}`, tipo: 'cerebro',
-      url: `https://www.inema.pro/cerebro/${t.grupo_slug}/${t.topico}`,
+      url: `https://www.ARCKHÉ.pro/cerebro/${t.grupo_slug}/${t.topico}`,
       titulo: `${t.grupo}: ${String(t.titulo ?? '').replace(/…$/, '')}`,
-      resumo: `[INEMA.PRO] ${t.resumo ?? ''} ${assuntos}`,
+      resumo: `[ARCKHÉ.PRO] ${t.resumo ?? ''} ${assuntos}`,
       atualizado_em: /^\d{4}-\d{2}-\d{2}$/.test(t.data ?? '') ? t.data : hoje,
     }));
   }

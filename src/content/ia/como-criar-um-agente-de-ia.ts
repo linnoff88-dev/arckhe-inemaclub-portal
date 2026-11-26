@@ -22,7 +22,7 @@ const page: IaPage = {
     {
       heading: 'Passo a passo: os 7 princípios para criar o agente',
       paragraphs: [
-        'No INEMA, todo agente começa por uma ficha com sete perguntas — os [7 Princípios da Gestêo de Agentes de IA](https://inematds.github.io/7pa/guia/). Elas valem para qualquer plataforma — Claude Code, Codex, n8n, um GPT personalizado ou um atendente de WhatsApp:',
+        'No ARCKHÉ, todo agente começa por uma ficha com sete perguntas — os [7 Princípios da Gestêo de Agentes de IA](https://linnoff88-dev.github.io/arckhe-/guia/). Elas valem para qualquer plataforma — Claude Code, Codex, n8n, um GPT personalizado ou um atendente de WhatsApp:',
       ],
       ordered: true,
       list: [
@@ -105,12 +105,12 @@ const page: IaPage = {
     },
   ],
   relatedCourses: [
-    'https://inematds.github.io/FEA-IA/',
-    'https://inematds.github.io/agenticbasico/',
-    'https://inematds.github.io/agentejax/',
-    'https://inematds.github.io/criaagentes/guia/',
-    'https://inematds.github.io/FEC/',
-    'https://inematds.github.io/skills-craft/',
+    'https://linnoff88-dev.github.io/arckhe-/',
+    'https://linnoff88-dev.github.io/arckhe-/',
+    'https://linnoff88-dev.github.io/arckhe-/',
+    'https://linnoff88-dev.github.io/arckhe-/guia/',
+    'https://linnoff88-dev.github.io/arckhe-/',
+    'https://linnoff88-dev.github.io/arckhe-/',
   ],
   relatedPages: [
     { path: '/aprender-inteligencia-artificial/', title: 'Como aprender Inteligência Artificial do zero ao avançado' },

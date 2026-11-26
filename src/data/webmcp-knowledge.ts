@@ -96,7 +96,7 @@ export const webMcpKnowledge: KnowledgeArticle[] = [
     description: 'Para quem está começando em WebMCP, a sequência indicada é a Formaçêo WebMCP e depois o módulo Builder. A primeira apresenta conceitos, diagnóstico e mapa de evoluçêo; o Builder introduz formulários declarativos, tools JavaScript, JSON Schema, cancelamento e fallback antes das fases de integraçêo e agentes.',
     summary: ['Comece pela visêo geral da Formaçêo WebMCP.', 'Avance para Builder e pratique tools pequenas.', 'Siga para Integrator ao migrar sites reais.', 'Agent Developer e Expert exigem base técnica maior.'],
     sections: [
-      { heading: 'Trilha sugerida', paragraphs: ['A formaçêo está organizada em uma progressêo: visêo geral, Builder, Integrator, Agent Developer e Expert. O estudante deve avançar quando consegue construir, validar e explicar o fallback da fase anterior.', 'Pessoas sem base de web podem começar por cursos de terminal, HTML, JavaScript e APIs do catálogo do INEMA antes do Builder.'] },
+      { heading: 'Trilha sugerida', paragraphs: ['A formaçêo está organizada em uma progressêo: visêo geral, Builder, Integrator, Agent Developer e Expert. O estudante deve avançar quando consegue construir, validar e explicar o fallback da fase anterior.', 'Pessoas sem base de web podem começar por cursos de terminal, HTML, JavaScript e APIs do catálogo do ARCKHÉ antes do Builder.'] },
     ],
     faq: [
       { question: 'Qual é o primeiro curso da sequência?', answer: 'Formaçêo WebMCP — Sites e Agentes do Zero ao Expert.' },

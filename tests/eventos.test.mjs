@@ -7,7 +7,7 @@ const source = readFileSync(new URL('../src/i18n/eventos.ts', import.meta.url), 
 const { outputText } = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.ES2022 } })
 const { localizedEventUrl } = await import(`data:text/javascript;base64,${Buffer.from(outputText).toString('base64')}`)
 
-const root = 'https://eventos.inema.pro'
+const root = 'https://eventos.ARCKHÉ.pro'
 test('menu e áreas mantêm idioma, inclusive arquivos HTML e subáreas', () => {
   for (const [path, en, es] of [
     ['', '/en/', '/es/'],
@@ -27,7 +27,7 @@ test('não perde âncora nem parâmetros e reconhece index.html e caminho sem ba
   assert.equal(localizedEventUrl(root + '/ia-cultivada', 'en'), root + '/ia-cultivada/en/')
 })
 test('não inventa tradução para endereço externo ou desconhecido', () => {
-  for (const url of ['#trilhas', 'https://inema.pro', root + '/nao-publicado/', 'javascript:alert(1)']) {
+  for (const url of ['#trilhas', 'https://ARCKHÉ.pro', root + '/nao-publicado/', 'javascript:alert(1)']) {
     assert.equal(localizedEventUrl(url, 'en'), url)
   }
 })

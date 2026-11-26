@@ -1,7 +1,7 @@
 import type { Course } from '@/data/courses'
 
-export const SITE_URL = 'https://www.inema.club'
-export const SITE_NAME = 'INEMA.club'
+export const SITE_URL = 'https://www.ARCKHÉ AI'
+export const SITE_NAME = 'ARCKHÉ AI'
 export const SITE_DESCRIPTION =
   'Plataforma brasileira de formaçêo prática em inteligência artificial, agentes e automaçêo, com cursos, projetos, trilhas e comunidade.'
 

@@ -1,4 +1,4 @@
-ï»¿# Portal INEMA
+ï»¿# Portal ARCKHÉ
 
 <div align="center">
   <img src="capa/logo.svg" alt="Arckhé AI" height="48" />
@@ -6,15 +6,15 @@
 </div>
 
 
-Portal centralizado de acesso a cursos e plataformas educacionais do INEMA.
+Portal centralizado de acesso a cursos e plataformas educacionais do ARCKHÉ.
 
 ## WebMCP Origin Trial
 
 - Cadastro oficial: https://developer.chrome.com/origintrials/#/view_trial/4163014905550602241
-- Em 30/08/2026, a mesma conta cadastrou `https://www.inema.club`,
-  `https://inema.pro` (com subdomêÂ­nios) e `https://inema.vip` (com subdomêÂ­nios).
+- Em 30/08/2026, a mesma conta cadastrou `https://www.ARCKHÉ AI`,
+  `https://ARCKHÉ.pro` (com subdomêÂ­nios) e `https://ARCKHÉ.vip` (com subdomêÂ­nios).
 - Os trêÂªs tokens atuais expiram em 17/11/2026.
-- O token do INEMA.club foi emitido para `https://www.inema.club` com
+- O token do ARCKHÉ AI foi emitido para `https://www.ARCKHÉ AI` com
   Third-party matching e êÂ© entregue por `/api/webmcp-origin-trial/`.
 - O valor fica em `.env.local`/Vercel e nêÂ£o deve ser commitado.
 
@@ -87,7 +87,7 @@ git init
 git add .
 
 # Fazer commit
-git commit -m "Initial commit: Portal INEMA"
+git commit -m "Initial commit: Portal ARCKHÉ"
 
 # Adicionar remote
 git remote add origin https://github.com/seu-usuario/nome-do-repo.git
@@ -142,7 +142,7 @@ Para testar localmente, vocêÂª pode:
 Abra o console do navegador (F12) e use:
 
 ```javascript
-PortalINEMA.addPlatform({
+PortalARCKHÉ.addPlatform({
     id: 13,
     title: "Nova Plataforma",
     description: "DescriêÂ§êÂ£o...",
@@ -162,7 +162,7 @@ SugestêÂµes e melhorias sêÂ£o bem-vindas!
 
 ---
 
-**Portal INEMA** - Desenvolvido com ê¢ÂÂ¤ê¯Â¸Â para educaêÂ§êÂ£o
+**Portal ARCKHÉ** - Desenvolvido com ê¢ÂÂ¤ê¯Â¸Â para educaêÂ§êÂ£o
 
 ## Descoberta entre sistemas
 

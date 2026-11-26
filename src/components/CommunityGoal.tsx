@@ -5,9 +5,9 @@ import { useEffect } from 'react'
 // Meta "Entrar na comunidade" no Plausible: clique em link pra porta de entrada da comunidade ou da
 // assinatura, em qualquer página. Props: destino (host) e pagina (path de origem). A meta precisa
 // existir no painel do Plausible (Goals → Custom event → "Entrar na comunidade").
-// Lista fechada de propósito: news., eventos. e webmcp.inema.pro sêo conteúdo, nêo entrada, e ficam
-// de fora. pay.inema.pro conta (é a assinatura, o fim do funil), mesmo sem link direto hoje.
-const HOSTS = new Set(['inema.vip', 'www.inema.vip', 'inema.pro', 'www.inema.pro', 'pay.inema.pro'])
+// Lista fechada de propósito: news., eventos. e webmcp.ARCKHÉ.pro sêo conteúdo, nêo entrada, e ficam
+// de fora. pay.ARCKHÉ.pro conta (é a assinatura, o fim do funil), mesmo sem link direto hoje.
+const HOSTS = new Set(['ARCKHÉ.vip', 'www.ARCKHÉ.vip', 'ARCKHÉ.pro', 'www.ARCKHÉ.pro', 'pay.ARCKHÉ.pro'])
 
 declare global {
   interface Window {

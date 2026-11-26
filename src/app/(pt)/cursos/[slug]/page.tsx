@@ -30,13 +30,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: course.canonicalPath,
       title: course.title,
       description: course.description,
-      images: ['/doc/inema-hero-aprenda-pratique-evolua.webp'],
+      images: ['/doc/ARCKHÉ-hero-aprenda-pratique-evolua.webp'],
     },
     twitter: {
       card: 'summary_large_image',
       title: course.title,
       description: course.description,
-      images: ['/doc/inema-hero-aprenda-pratique-evolua.webp'],
+      images: ['/doc/ARCKHÉ-hero-aprenda-pratique-evolua.webp'],
     },
   }
 }
@@ -57,7 +57,7 @@ export default async function CoursePage({ params }: Props) {
       name: course.title,
       description: course.description,
       url: course.canonicalUrl,
-      provider: { '@type': 'EducationalOrganization', '@id': ORG_ID, name: 'INEMA.club' },
+      provider: { '@type': 'EducationalOrganization', '@id': ORG_ID, name: 'ARCKHÉ AI' },
       author: authorRef,
       teaches: syllabus?.learn.length ? syllabus.learn : course.tags,
       ...(syllabus?.structure.length ? { syllabusSections: syllabus.structure.map((item) => ({ '@type': 'Syllabus', name: item.title, ...(item.detail ? { description: item.detail } : {}) })) } : {}),
@@ -76,7 +76,7 @@ export default async function CoursePage({ params }: Props) {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'INEMA.club', item: SITE_URL },
+        { '@type': 'ListItem', position: 1, name: 'ARCKHÉ AI', item: SITE_URL },
         { '@type': 'ListItem', position: 2, name: 'Cursos', item: `${SITE_URL}/cursos/` },
         { '@type': 'ListItem', position: 3, name: course.title, item: course.canonicalUrl },
       ],
@@ -90,7 +90,7 @@ export default async function CoursePage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
       <nav className="course-breadcrumb" aria-label="Navegaçêo estrutural">
-        <a href="/">INEMA.club</a><span aria-hidden="true">/</span><a href="/cursos/">Cursos</a>
+        <a href="/">ARCKHÉ AI</a><span aria-hidden="true">/</span><a href="/cursos/">Cursos</a>
         <span className="breadcrumb-current"><span aria-hidden="true">/</span><span>{course.title}</span></span>
       </nav>
       <article className="course-detail">

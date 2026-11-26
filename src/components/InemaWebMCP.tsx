@@ -32,7 +32,7 @@ async function getJson(path: string, params: Record<string, string | number | un
 
 const readOnlyAnnotations = { readOnlyHint: true, untrustedContentHint: false }
 
-export default function InemaWebMCP() {
+export default function ARCKHÉWebMCP() {
   useEffect(() => {
     const context = document.modelContext
     if (!context?.registerTool) return
@@ -41,8 +41,8 @@ export default function InemaWebMCP() {
     const tools: ToolDefinition[] = [
       {
         name: 'buscar_cursos',
-        title: 'Buscar cursos do INEMA',
-        description: 'Busca cursos do INEMA por tema, nível e objetivo de aprendizagem.',
+        title: 'Buscar cursos do ARCKHÉ',
+        description: 'Busca cursos do ARCKHÉ por tema, nível e objetivo de aprendizagem.',
         inputSchema: {
           type: 'object',
           properties: {
@@ -64,15 +64,15 @@ export default function InemaWebMCP() {
       },
       {
         name: 'listar_trilhas',
-        title: 'Listar trilhas do INEMA',
-        description: 'Lista as trilhas de aprendizagem e os cursos associados disponíveis no INEMA.',
+        title: 'Listar trilhas do ARCKHÉ',
+        description: 'Lista as trilhas de aprendizagem e os cursos associados disponíveis no ARCKHÉ.',
         inputSchema: { type: 'object', properties: {}, additionalProperties: false },
         annotations: readOnlyAnnotations,
         execute: (_input, { signal }) => getJson('/api/trails', {}, signal),
       },
       {
         name: 'detalhar_curso',
-        title: 'Detalhar um curso do INEMA',
+        title: 'Detalhar um curso do ARCKHÉ',
         description: 'Retorna descriçêo, tags, nível, página canônica e aplicaçêo de um curso pelo ID.',
         inputSchema: {
           type: 'object',
@@ -85,7 +85,7 @@ export default function InemaWebMCP() {
       },
       {
         name: 'comparar_cursos',
-        title: 'Comparar cursos do INEMA',
+        title: 'Comparar cursos do ARCKHÉ',
         description: 'Retorna até quatro cursos lado a lado para comparaçêo factual.',
         inputSchema: {
           type: 'object',
@@ -123,8 +123,8 @@ export default function InemaWebMCP() {
       },
       {
         name: 'buscar_conhecimento',
-        title: 'Buscar na base de conhecimento do INEMA',
-        description: 'Busca respostas factuais, cursos, projetos, serviços e perguntas frequentes na base pública do INEMA.',
+        title: 'Buscar na base de conhecimento do ARCKHÉ',
+        description: 'Busca respostas factuais, cursos, projetos, serviços e perguntas frequentes na base pública do ARCKHÉ.',
         inputSchema: {
           type: 'object',
           properties: {
@@ -142,8 +142,8 @@ export default function InemaWebMCP() {
       },
       {
         name: 'listar_projetos',
-        title: 'Listar projetos do INEMA',
-        description: 'Lista projetos e guias públicos do INEMA, com filtro opcional por tema.',
+        title: 'Listar projetos do ARCKHÉ',
+        description: 'Lista projetos e guias públicos do ARCKHÉ, com filtro opcional por tema.',
         inputSchema: {
           type: 'object',
           properties: {
@@ -160,8 +160,8 @@ export default function InemaWebMCP() {
       },
       {
         name: 'consultar_atualizacoes',
-        title: 'Consultar atualizações do INEMA',
-        description: 'Consulta as atualizações mais recentes de cursos e projetos do INEMA.',
+        title: 'Consultar atualizações do ARCKHÉ',
+        description: 'Consulta as atualizações mais recentes de cursos e projetos do ARCKHÉ.',
         inputSchema: {
           type: 'object',
           properties: {

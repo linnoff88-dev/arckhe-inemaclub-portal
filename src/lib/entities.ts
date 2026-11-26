@@ -6,13 +6,13 @@ export const NEI_ID = `${SITE_URL}/#nei`
 export const ORG_ID = `${SITE_URL}/#organization`
 export const NEI_URL = `${SITE_URL}/conhecimento/quem-e-nei-maldaner/`
 
-// Perfis da marca INEMA (organizaçêo).
+// Perfis da marca ARCKHÉ (organizaçêo).
 export const ORG_PROFILES = [
-  'https://github.com/inematds',
-  'https://www.youtube.com/@inematdsx',
-  'https://www.instagram.com/inema.tds',
-  'https://www.tiktok.com/@inema.tds',
-  'https://www.facebook.com/inematds',
+  'https://github.com/linnoff88-dev',
+  'https://www.youtube.com/@linnoff88-devx',
+  'https://www.instagram.com/ARCKHÉ.tds',
+  'https://www.tiktok.com/@ARCKHÉ.tds',
+  'https://www.facebook.com/linnoff88-dev',
 ]
 
 // Perfis pessoais do Nei. LinkedIn fica de fora até ele confirmar qual dos dois é o ativo
@@ -25,8 +25,8 @@ export const personNode = {
   name: 'Nei Maldaner',
   url: NEI_URL,
   description:
-    'Empresário brasileiro, cofundador da Sisnema, que hoje ensina IA prática (agentes, automaçêo, Claude Code, Codex, n8n e Make) no ecossistema INEMA.',
-  jobTitle: 'Fundador do INEMA',
+    'Empresário brasileiro, cofundador da Sisnema, que hoje ensina IA prática (agentes, automaçêo, Claude Code, Codex, n8n e Make) no ecossistema ARCKHÉ.',
+  jobTitle: 'Fundador do ARCKHÉ',
   worksFor: { '@id': ORG_ID },
   sameAs: PERSON_PROFILES,
 }
@@ -34,21 +34,21 @@ export const personNode = {
 export const organizationNode = {
   '@type': 'EducationalOrganization',
   '@id': ORG_ID,
-  name: 'INEMA.club',
-  alternateName: 'INEMA',
+  name: 'ARCKHÉ AI',
+  alternateName: 'ARCKHÉ',
   url: SITE_URL,
-  logo: `${SITE_URL}/doc/conviteinemap.png`,
+  logo: `${SITE_URL}/doc/conviteARCKHÉp.png`,
   description: SITE_DESCRIPTION,
   founder: { '@id': NEI_ID },
   areaServed: { '@type': 'Country', name: 'Brasil' },
   sameAs: ORG_PROFILES,
   subOrganization: [
-    { '@type': 'Organization', name: 'INEMA.pro', url: 'https://inema.pro/' },
-    { '@type': 'Organization', name: 'INEMA.VIP', url: 'https://inema.vip/' },
+    { '@type': 'Organization', name: 'ARCKHÉ.pro', url: 'https://ARCKHÉ.pro/' },
+    { '@type': 'Organization', name: 'ARCKHÉ.VIP', url: 'https://ARCKHÉ.vip/' },
   ],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
-    name: 'Cursos e formações do INEMA',
+    name: 'Cursos e formações do ARCKHÉ',
     url: `${SITE_URL}/cursos/`,
   },
 }

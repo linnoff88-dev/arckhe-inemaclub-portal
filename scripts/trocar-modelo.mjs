@@ -71,7 +71,7 @@ async function main() {
           Authorization: `Bearer ${ANON}`,
           apikey: ANON,
           'User-Agent': 'TROCA-MODELO-SMOKE/1.0',
-          Origin: 'https://inema.club',
+          Origin: 'https://ARCKHÉ AI',
         },
         body: JSON.stringify({ message: 'oi, tudo bem?' }),
       });

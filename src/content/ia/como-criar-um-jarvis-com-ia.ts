@@ -8,7 +8,7 @@ const page: IaPage = {
     'Como criar um Jarvis com IA na sua máquina: bot no Telegram, modelo local no Ollama, memória que aprende e agentes com Claude e Codex: o openpcbot v3.',
   keyword: 'como criar um Jarvis com IA',
   answer:
-    'Para criar um Jarvis com IA, junte quatro peças: um **canal** para falar com ele (um bot próprio no Telegram), um **modelo** que responde (local no Ollama, com nuvem só quando precisa), uma **memória** que guarda o que você disse e um **controle** do que ele pode fazer e gastar. O openpcbot v3, projeto aberto do INEMA, funciona assim.',
+    'Para criar um Jarvis com IA, junte quatro peças: um **canal** para falar com ele (um bot próprio no Telegram), um **modelo** que responde (local no Ollama, com nuvem só quando precisa), uma **memória** que guarda o que você disse e um **controle** do que ele pode fazer e gastar. O openpcbot v3, projeto aberto do ARCKHÉ, funciona assim.',
   published: '2026-09-24',
   updated: '2026-09-24',
   sections: [
@@ -22,7 +22,7 @@ const page: IaPage = {
     {
       heading: 'As peças de um Jarvis, no exemplo do openpcbot v3',
       paragraphs: [
-        'O [openpcbot v3](https://github.com/inematds/openpcbotv3) é o assistente pessoal que o INEMA roda no dia a dia, com código aberto no GitHub. Ele fala por Telegram, terminal e HTTP, e cada mensagem passa pelas mesmas peças:',
+        'O [openpcbot v3](https://github.com/linnoff88-dev/openpcbotv3) é o assistente pessoal que o ARCKHÉ roda no dia a dia, com código aberto no GitHub. Ele fala por Telegram, terminal e HTTP, e cada mensagem passa pelas mesmas peças:',
       ],
       table: {
         head: ['Peça', 'O que faz no openpcbot v3'],
@@ -79,7 +79,7 @@ const page: IaPage = {
       heading: 'O que roda local e o que vai para a nuvem',
       paragraphs: [
         'Um assistente pessoal com IA local nêo precisa ser 100 % local. O openpcbot v3 roda na **assinatura do Claude**, no **Codex** e com várias chaves de API, e roda **local com Ollama e Qwen**. O desenho é: local por padrêo, nuvem quando a tarefa pede, e só local quando o teto de orçamento é atingido.',
-        'Em volta dele há serviços locais que o Jarvis aciona, como o inemavox (transcrever, baixar, dublar e cortar vídeos) e o inemaimg. A parte local pede máquina: o modelo geral fixo na memória ocupa 17 GB de RAM, e na máquina do INEMA a RAM livre caiu de 57 para 35 GB quando ele ficou residente.',
+        'Em volta dele há serviços locais que o Jarvis aciona, como o ARCKHÉvox (transcrever, baixar, dublar e cortar vídeos) e o ARCKHÉimg. A parte local pede máquina: o modelo geral fixo na memória ocupa 17 GB de RAM, e na máquina do ARCKHÉ a RAM livre caiu de 57 para 35 GB quando ele ficou residente.',
       ],
       table: {
         head: ['Onde roda', 'Com o quê', 'Quando é usado'],
@@ -99,7 +99,7 @@ const page: IaPage = {
       ordered: true,
       list: [
         '**Aprender Jarvis do básico com o Intelecto:** o [INTELECTO Curso — Do Zero ao Expert em IA](/cursos/74-intelecto-curso-do-zero-ao-expert-em-ia/) cobre fundamentos, identidade e canais, segurança, memória e integrações, e termina com um projeto final: o seu Jarvis. Sêo 6 trilhas.',
-        '**Ver um Jarvis de produçêo por dentro:** o curso do openpcbot v3 mostra o assistente que o INEMA usa todo dia, com fila, memória e controle de gastos.',
+        '**Ver um Jarvis de produçêo por dentro:** o curso do openpcbot v3 mostra o assistente que o ARCKHÉ usa todo dia, com fila, memória e controle de gastos.',
         '**Ajustar ao seu dia a dia:** trocar modelos, persona, agentes e skills até ele fazer só o que você precisa.',
       ],
     },
@@ -122,9 +122,9 @@ const page: IaPage = {
       ],
     },
     {
-      heading: 'Outros caminhos para montar um Jarvis no INEMA',
+      heading: 'Outros caminhos para montar um Jarvis no ARCKHÉ',
       paragraphs: [
-        'O catálogo do INEMA tem 5 cursos com a tag Jarvis, incluindo o do openpcbot v3. Além do Intelecto, outros três caminhos:',
+        'O catálogo do ARCKHÉ tem 5 cursos com a tag Jarvis, incluindo o do openpcbot v3. Além do Intelecto, outros três caminhos:',
       ],
       list: [
         '**Construir o seu do zero, em TypeScript:** o [AgenteJAX](/cursos/84-agentejax-construa-seu-agente-de-ia-pessoal/) monta um agente pessoal no Telegram.',
@@ -135,7 +135,7 @@ const page: IaPage = {
     {
       heading: 'Por onde começar o seu Jarvis',
       paragraphs: [
-        'Para ver o projeto funcionando por dentro, o [guia de uso do openpcbot v3](https://inematds.github.io/openpcbotv3/guia/) mostra a instalaçêo e os comandos. Como criar um Jarvis com IA, no fim, é menos escolher o modelo e mais decidir o que ele pode lembrar, gastar e fazer sem te perguntar.',
+        'Para ver o projeto funcionando por dentro, o [guia de uso do openpcbot v3](https://linnoff88-dev.github.io/arckhe-/guia/) mostra a instalaçêo e os comandos. Como criar um Jarvis com IA, no fim, é menos escolher o modelo e mais decidir o que ele pode lembrar, gastar e fazer sem te perguntar.',
       ],
     },
   ],
@@ -157,12 +157,12 @@ const page: IaPage = {
     },
   ],
   relatedCourses: [
-    'https://inematds.github.io/intelecto-curso/',
-    'https://inematds.github.io/curso-openpcbotv3/',
-    'https://inematds.github.io/agentejax/',
-    'https://inematds.github.io/jarvis/',
-    'https://inematds.github.io/local-ai-masterclass/',
-    'https://inematds.github.io/agente-hermes-local/',
+    'https://linnoff88-dev.github.io/arckhe-/',
+    'https://linnoff88-dev.github.io/arckhe-/',
+    'https://linnoff88-dev.github.io/arckhe-/',
+    'https://linnoff88-dev.github.io/arckhe-/',
+    'https://linnoff88-dev.github.io/arckhe-/',
+    'https://linnoff88-dev.github.io/arckhe-/',
   ],
   relatedPages: [
     { path: '/ia/como-criar-um-agente-de-ia/', title: 'Como criar um agente de IA: do processo ao agente funcionando' },

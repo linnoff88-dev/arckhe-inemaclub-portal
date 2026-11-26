@@ -4,7 +4,7 @@
 //      node scripts/indexnow.mjs <url>...   → só as URLs passadas
 //      --dry                                → lista sem enviar
 // A chave é pública por design: fica servida em /<KEY>.txt (public/).
-const HOST = 'www.inema.club'
+const HOST = 'www.ARCKHÉ AI'
 const KEY = 'e64fc527b62b05dd4138d99659543fbc'
 const SITEMAPS = [`https://${HOST}/sitemap.xml`, `https://${HOST}/courses-sitemap.xml`]
 
