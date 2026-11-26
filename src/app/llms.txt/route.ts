@@ -6,7 +6,7 @@ export function GET() {
   const webMcpCourses = courses.filter((course) => course.tags.includes('WebMCP'))
   const content = `# INEMA.club
 
-> Plataforma brasileira de formação prática em inteligência artificial, agentes e automação, criada por Nei Maldaner.
+> Plataforma brasileira de formaçêo prática em inteligência artificial, agentes e automaçêo, criada por Nei Maldaner.
 
 ## Principais páginas
 
@@ -22,7 +22,7 @@ export function GET() {
 
 ${seoPages.map((page) => `- [${page.title}](https://www.inema.club${page.path}): ${page.description}`).join('\n')}
 
-## Formação WebMCP
+## Formaçêo WebMCP
 
 ${webMcpCourses.map((course) => `- [${course.title}](${course.canonicalUrl})`).join('\n')}
 
@@ -53,13 +53,13 @@ ${webMcpKnowledge.map((article) => `- [${article.title}](https://www.inema.club/
 
 ## Idiomas e ferramentas
 
-- [Homes PT/EN/ES](https://www.inema.club/): somente as homes estão traduzidas; catálogo e conhecimento permanecem em português.
-- [Ferramentas WebMCP declaradas](https://www.inema.club/inema.json): disponíveis na página quando o navegador suporta o registro; use as APIs JSON como alternativa de leitura. Este índice não comprova execução.
+- [Homes PT/EN/ES](https://www.inema.club/): somente as homes estêo traduzidas; catálogo e conhecimento permanecem em português.
+- [Ferramentas WebMCP declaradas](https://www.inema.club/inema.json): disponíveis na página quando o navegador suporta o registro; use as APIs JSON como alternativa de leitura. Este índice nêo comprova execuçêo.
 - [News PT](https://news.inema.pro/), [English](https://news.inema.pro/en/), [Español](https://news.inema.pro/es/): notícias.
 - [Eventos PT](https://eventos.inema.pro/), [English](https://eventos.inema.pro/en/), [Español](https://eventos.inema.pro/es/): agenda e páginas de eventos.
 - [WebMCP Readiness](https://webmcp.inema.pro/): análise passiva de sites.
 
-Índice gerado a partir do catálogo; datas de conteúdo estão nos registros e sitemaps quando conhecidas.
+Índice gerado a partir do catálogo; datas de conteúdo estêo nos registros e sitemaps quando conhecidas.
 `
 
   return new Response(content, {

@@ -19,7 +19,7 @@ type GhRepo = {
 }
 
 const MAX_ITEMS = 20
-const NEW_REPO_DAYS = 14 // dias desde criação para considerar "novo"
+const NEW_REPO_DAYS = 14 // dias desde criaçêo para considerar "novo"
 
 export async function GET() {
   try {
@@ -63,7 +63,7 @@ export async function GET() {
       if (targets.length >= MAX_ITEMS) break
     }
 
-    // Busca metadados do repo em paralelo (descrição + data de criação)
+    // Busca metadados do repo em paralelo (descriçêo + data de criaçêo)
     const repoResults = await Promise.allSettled(
       targets.map((t) =>
         fetch(`https://api.github.com/repos/${t.repo}`, {

@@ -46,7 +46,7 @@ const IDIOMA_NOME: Record<Idioma, string> = { pt: 'português', en: 'inglês', e
 export default function VideosPage() {
   return (
     <main className="course-page-shell videos-catalog">
-      <nav className="course-breadcrumb" aria-label="Navegação estrutural">
+      <nav className="course-breadcrumb" aria-label="Navegaçêo estrutural">
         <a href="/">INEMA.club</a><span aria-hidden="true">/</span><span>Vídeos</span>
       </nav>
       <header className="course-index-header">

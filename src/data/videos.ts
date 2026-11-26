@@ -7,7 +7,7 @@
 export const VIDEOS_UPDATED = '2026-09-29'
 
 // Vídeos explicativos 16:9 com avatar e voz do Nei; cada card abre o player publicado (capítulos e legendas)
-// e lista cada vídeo com link direto do MP4 por idioma (versão final v2 do release).
+// e lista cada vídeo com link direto do MP4 por idioma (versêo final v2 do release).
 export type Idioma = 'pt' | 'en' | 'es'
 export type VideoItem = { label: string; mp4: Partial<Record<Idioma, string>> }
 
@@ -25,7 +25,7 @@ const LOOP_R = rel('loop-r', 'video-v2.0.0')
 const OSWORK_V62 = rel('oswork-v62', 'video-v1.0.0')
 
 const loopR: [number, string][] = [
-  [1, 'Por que sua empresa não melhora'],
+  [1, 'Por que sua empresa nêo melhora'],
   [2, 'O método'],
   [3, 'Os assistentes do loop'],
   [4, 'Medir de verdade'],
@@ -48,7 +48,7 @@ export const videosExplicativos: VideoExplicativo[] = [
   {
     id: 'loop-r',
     title: 'LOOP-R em vídeo',
-    description: 'O método em cinco letras, trilha a trilha, com animação explicativa.',
+    description: 'O método em cinco letras, trilha a trilha, com animaçêo explicativa.',
     meta: '15 vídeos · 5 trilhas · ~17 min cada · PT, EN, ES',
     playerUrl: 'https://inematds.github.io/loop-r/videos/',
     videos: loopR.map(([n, nome]) => ({
@@ -82,7 +82,7 @@ export const videosExplicativos: VideoExplicativo[] = [
   {
     id: 'oswork-quick',
     title: 'OSWork Quick: as sete aulas',
-    description: 'A versão rápida do OSWork: contexto, tarefa e verificação em sete aulas.',
+    description: 'A versêo rápida do OSWork: contexto, tarefa e verificaçêo em sete aulas.',
     meta: '3 vídeos · 7 aulas · ~30 min · PT, EN, ES',
     playerUrl: 'https://inematds.github.io/oswork-quick/videos/',
     videos: [{
@@ -104,7 +104,7 @@ export const videosExplicativos: VideoExplicativo[] = [
   {
     id: 'iacultivada',
     title: 'IA Cultivada',
-    description: 'Não se programa, se cultiva: por que a sua IA repete o mesmo erro e como ela melhora.',
+    description: 'Nêo se programa, se cultiva: por que a sua IA repete o mesmo erro e como ela melhora.',
     meta: '1 vídeo · 10 min · PT',
     playerUrl: 'https://inematds.github.io/iacultivada/videos/',
     videos: [{ label: 'IA Cultivada', mp4: { pt: `${rel('iacultivada', 'video-v2.0.0')}iacultivada-pt.mp4` } }],
@@ -148,15 +148,15 @@ export type SerieShorts = {
 const EVENTOS_SHORTS_RELEASE = 'https://github.com/inematds/eventos-shorts/releases/download/v1.0.0/'
 
 const eventosShorts: [string, string, string, string][] = [
-  ['rsi', 'RSI', 'Sua empresa usa IA todo dia e não melhora. Porque essa IA termina ali: responde e esquece.', '40 s'],
+  ['rsi', 'RSI', 'Sua empresa usa IA todo dia e nêo melhora. Porque essa IA termina ali: responde e esquece.', '40 s'],
   ['ia-cultivada', 'IA Cultivada', 'Seu modelo de IA é o mesmo do concorrente. O que muda é o jardim.', '30 s'],
-  ['claude-codex', 'Claude → Codex', 'Você está preso ao seu modelo de IA e nem percebeu. Não migre o seu cérebro.', '31 s'],
+  ['claude-codex', 'Claude → Codex', 'Você está preso ao seu modelo de IA e nem percebeu. Nêo migre o seu cérebro.', '31 s'],
   ['codex-claude', 'Codex + Claude', 'Claude ou Codex? Pergunta errada. Um planeja, o outro critica.', '28 s'],
-  ['oswork', 'OSWork', 'Toda conversa com a IA começa do zero? Isso não é sistema de trabalho, é chat.', '30 s'],
-  ['jev', 'JEV', 'Sua IA decide e você não sabe por quê? Sem critério e sem avaliação, é aposta.', '33 s'],
-  ['gestao-ia', 'Gestão de IA', 'Criar agentes ficou fácil. Gerenciar, não. 2027 é o ano de gerenciar agentes.', '28 s'],
+  ['oswork', 'OSWork', 'Toda conversa com a IA começa do zero? Isso nêo é sistema de trabalho, é chat.', '30 s'],
+  ['jev', 'JEV', 'Sua IA decide e você nêo sabe por quê? Sem critério e sem avaliaçêo, é aposta.', '33 s'],
+  ['gestao-ia', 'Gestêo de IA', 'Criar agentes ficou fácil. Gerenciar, nêo. 2027 é o ano de gerenciar agentes.', '28 s'],
   ['agi-ready', 'AGI-ready', 'A IA parou de esperar ordens. Seu trabalho agora é comandar agentes.', '34 s'],
-  ['webmcp', 'WebMCP', 'O próximo visitante do seu site pode não ser uma pessoa. Rode o diagnóstico gratuito.', '29 s'],
+  ['webmcp', 'WebMCP', 'O próximo visitante do seu site pode nêo ser uma pessoa. Rode o diagnóstico gratuito.', '29 s'],
 ]
 
 export const seriesShorts: SerieShorts[] = [

@@ -1,7 +1,7 @@
-// Heurística simples de suspeita de prompt injection — não bloqueia nada
-// (o system prompt já é resistente por desenho), só sinaliza pra revisão
+// Heurística simples de suspeita de prompt injection — nêo bloqueia nada
+// (o system prompt já é resistente por desenho), só sinaliza pra revisêo
 // humana no loop da F4. Falso positivo é aceitável aqui; falso negativo
-// só custa uma revisão a menos.
+// só custa uma revisêo a menos.
 const PATTERNS: Array<{ motivo: string; regex: RegExp }> = [
   { motivo: 'pedido de ignorar instruções', regex: /ignor[ea].{0,20}(instru|regra|prompt)/i },
   { motivo: 'pedido de revelar system prompt', regex: /(revele|mostre|repita|copie).{0,20}(prompt|instru)/i },

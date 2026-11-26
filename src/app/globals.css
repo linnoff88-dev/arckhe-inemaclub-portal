@@ -1879,8 +1879,8 @@ html {
 }
 
 /* ===== Últimas Novidades (feed do INEMA.VIP) ===== */
-/* Reusa .updates-section/.update-item; o item é um botão que abre o parágrafo
-   resumido inline e só então oferece o link pro cvip.inema.pro. */
+/* Reusa .updates-section/.update-item; o item é um botêo que abre o parágrafo
+   resumido inline e só entêo oferece o link pro cvip.inema.pro. */
 .novidade {
     border-bottom: 1px solid var(--border-color);
 }
@@ -2341,7 +2341,7 @@ html {
   border-radius: 12px;
 }
 
-/* i18n — Telegram/redes sociais em EN/ES enquanto não há grupos/perfis por idioma */
+/* i18n — Telegram/redes sociais em EN/ES enquanto nêo há grupos/perfis por idioma */
 .locale-cta {
   max-width: 720px;
   margin: 0 auto;
@@ -2355,7 +2355,7 @@ html {
 .locale-cta p { margin: 0 0 .8rem; }
 .locale-cta-links { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; }
 
-/* Páginas de guia SEO (/aprender-inteligencia-artificial/ …): listas em prosa, não chips */
+/* Páginas de guia SEO (/aprender-inteligencia-artificial/ …): listas em prosa, nêo chips */
 .seo-list {
     display: grid;
     gap: 0.7rem;

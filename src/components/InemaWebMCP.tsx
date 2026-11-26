@@ -26,7 +26,7 @@ async function getJson(path: string, params: Record<string, string | number | un
     if (value !== undefined && String(value).trim()) query.set(key, String(value))
   }
   const response = await fetch(`${path}?${query}`, { signal })
-  if (!response.ok) throw new Error(`Não foi possível consultar ${path}.`)
+  if (!response.ok) throw new Error(`Nêo foi possível consultar ${path}.`)
   return response.json()
 }
 
@@ -73,7 +73,7 @@ export default function InemaWebMCP() {
       {
         name: 'detalhar_curso',
         title: 'Detalhar um curso do INEMA',
-        description: 'Retorna descrição, tags, nível, página canônica e aplicação de um curso pelo ID.',
+        description: 'Retorna descriçêo, tags, nível, página canônica e aplicaçêo de um curso pelo ID.',
         inputSchema: {
           type: 'object',
           properties: { id: { type: 'integer', minimum: 1 } },
@@ -86,7 +86,7 @@ export default function InemaWebMCP() {
       {
         name: 'comparar_cursos',
         title: 'Comparar cursos do INEMA',
-        description: 'Retorna até quatro cursos lado a lado para comparação factual.',
+        description: 'Retorna até quatro cursos lado a lado para comparaçêo factual.',
         inputSchema: {
           type: 'object',
           properties: {

@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from 'react'
 /** Só o que a lista usa: o catálogo completo ia inteiro (e duplicado) no HTML de /cursos/. */
 export type CatalogListItem = { canonicalPath: string; title: string; description: string; tags: string[] }
-/** Textos da interface (strings puras: o componente é client, não aceita função vinda do server). */
+/** Textos da interface (strings puras: o componente é client, nêo aceita funçêo vinda do server). */
 export type CatalogLabels = {
   searchLabel: string
   searchPlaceholder: string
@@ -15,7 +15,7 @@ export type CatalogLabels = {
 
 const PT_LABELS: CatalogLabels = {
   searchLabel: 'Buscar no catálogo',
-  searchPlaceholder: 'Ex.: WebMCP, agentes, automação',
+  searchPlaceholder: 'Ex.: WebMCP, agentes, automaçêo',
   countOne: 'curso encontrado',
   countMany: 'cursos encontrados',
   empty: 'Nenhum curso corresponde à busca. Tente um tema mais amplo.',

@@ -7,7 +7,7 @@ const TITLES: Record<Locale, { title: string; og: string; alt: string; descripti
     title: 'Aprender Inteligência Artificial na prática | INEMA.club',
     og: 'INEMA.club — Aprenda, pratique e evolua com IA',
     alt: 'INEMA.club — Aprenda, pratique e evolua com inteligência artificial',
-    description: 'Formação prática em inteligência artificial, agentes e automação.',
+    description: 'Formaçêo prática em inteligência artificial, agentes e automaçêo.',
   },
   en: {
     title: 'Learn Artificial Intelligence in practice | INEMA.club',

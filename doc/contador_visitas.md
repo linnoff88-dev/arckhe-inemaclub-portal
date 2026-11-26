@@ -118,7 +118,7 @@ useEffect(() => {
 
 ## Comportamento
 
-- **Mesmo usuário, vários reloads** → `total` sobe, `uniqueAnon` não (mesmo `session_id` no localStorage)
+- **Mesmo usuário, vários reloads** → `total` sobe, `uniqueAnon` nêo (mesmo `session_id` no localStorage)
 - **Usuário faz login** → próxima visita aparece em `uniqueLogged`
 - **Aba anônima / novo dispositivo** → novo `session_id` → `uniqueAnon` sobe
 - **Contagem SSR** → os chips já chegam com valores do servidor; a visita atual é registrada no cliente após o mount
@@ -129,5 +129,5 @@ useEffect(() => {
 
 - Leitura da tabela `visits` só via **service role** (server-side, nunca exposta ao browser)
 - RLS bloqueia SELECT para anon key — ninguém pode consultar quem visitou
-- INSERT é público por design (queremos registrar visitantes sem autenticação)
-- Não há proteção contra múltiplos inserts por reload (é intencional: `total` = pageviews)
+- INSERT é público por design (queremos registrar visitantes sem autenticaçêo)
+- Nêo há proteçêo contra múltiplos inserts por reload (é intencional: `total` = pageviews)

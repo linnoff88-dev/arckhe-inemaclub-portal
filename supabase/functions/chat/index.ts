@@ -1,6 +1,6 @@
 // F3 (programa AIV) — agente de chat do INEMA.club.
 // v1 sem streaming (fallback previsto no plano) — o navegador nunca chama a
-// API do modelo, só esta função. Cérebro: Claude Haiku via OpenRouter.
+// API do modelo, só esta funçêo. Cérebro: Claude Haiku via OpenRouter.
 import { createClient } from 'npm:@supabase/supabase-js@2';
 import { corsHeaders } from '../_shared/cors.ts';
 import { buildSystemPrompt, MAX_MESSAGE_LENGTH, MAX_TURNS_PER_CONVERSATION, RATE_LIMIT_WINDOW_SECONDS, RATE_LIMIT_MAX_MESSAGES } from '../_shared/prompts.ts';
@@ -21,13 +21,13 @@ const supabase = createClient(SUPABASE_URL, SERVICE_ROLE_KEY);
 
 // Espelha PREFIXOS em portal/scripts/sync-agente-catalogo.mjs.
 const PREFIXOS_GERADOS = ['pro-', 'wiki-', 'cerebro-', 'novidade-'];
-const RE_VIU_POST = /instagram|insta\b|tik ?tok|reels?\b|youtube|v[ií]deo d[oe]|no v[ií]deo|post(ou|agem)?\b|publica[çc][aã]o|publicou|anunci|lan[çc]ou|falou|mostrou|nova ia|ia nova|novidade|recente/i;
-// Palavras que não ajudam a achar nada (a config 'portuguese' já tira artigos
-// e preposições; estas são as de pedido/conversa).
+const RE_VIU_POST = /instagram|insta\b|tik ?tok|reels?\b|youtube|v[ií]deo d[oe]|no v[ií]deo|post(ou|agem)?\b|publica[çc][aê]o|publicou|anunci|lan[çc]ou|falou|mostrou|nova ia|ia nova|novidade|recente/i;
+// Palavras que nêo ajudam a achar nada (a config 'portuguese' já tira artigos
+// e preposições; estas sêo as de pedido/conversa).
 const PALAVRAS_VAZIAS = new Set([
   'quero', 'queria', 'gostaria', 'preciso', 'precisava', 'como', 'onde', 'aonde', 'qual', 'quais',
   'tem', 'tenho', 'temos', 'vocês', 'voces', 'você', 'voce', 'sobre', 'algum', 'alguma', 'isso',
-  'esse', 'essa', 'aqui', 'site', 'inema', 'favor', 'obrigado', 'obrigada', 'sim', 'não', 'nao',
+  'esse', 'essa', 'aqui', 'site', 'inema', 'favor', 'obrigado', 'obrigada', 'sim', 'nêo', 'nao',
   'pode', 'posso', 'fazer', 'saber', 'encontro', 'encontrar', 'achar', 'acho', 'mostra', 'mostre',
   'manda', 'mande', 'link', 'ver', 'olá', 'ola', 'oi', 'bom', 'boa', 'dia', 'tarde', 'noite',
 ]);
@@ -35,7 +35,7 @@ const PALAVRAS_VAZIAS = new Set([
 type Ficha = { slug: string; tipo: string; titulo: string; resumo: string; url: string; atualizado_em?: string };
 
 // 'onde encontro conteúdos do Hermes' → 'conteúdos:* | hermes:*'. Só letras e
-// dígitos entram, então o texto do visitante não injeta operador no tsquery.
+// dígitos entram, entêo o texto do visitante nêo injeta operador no tsquery.
 function montarConsulta(texto: string): string {
   const termos = [...new Set((texto.toLowerCase().match(/[\p{L}\p{N}]{3,}/gu) ?? []))]
     .filter(t => !PALAVRAS_VAZIAS.has(t))
@@ -106,7 +106,7 @@ async function callAgnes(messages: unknown[], tools: unknown[]) {
 
 // Chama o Agnes primeiro (custo US$ 0); em qualquer falha dura (rede/HTTP),
 // cai pro OpenRouter. Sem chave do Agnes, vai direto pro OpenRouter.
-// Atenção: o fallback só cobre INDISPONIBILIDADE do Agnes, não resposta fraca.
+// Atençêo: o fallback só cobre INDISPONIBILIDADE do Agnes, nêo resposta fraca.
 // `erros` coleta as falhas de modelo do turno, que o turno grava em
 // `messages` (role 'tool', 'erro_llm: ...') — é o que o radar semanal conta.
 async function callLLM(messages: unknown[], tools: unknown[], erros: string[]) {
@@ -227,7 +227,7 @@ Deno.serve(async (req) => {
   // Busca no catálogo inteiro (fichas curadas + cursos/projetos/ferramentas/
   // Cérebro/novidades sincronizados toda noite), termos em OR, ranqueada.
   // Usa as 2 últimas mensagens do visitante: "Sim" / "me mostra" sozinhos
-  // não carregam o assunto.
+  // nêo carregam o assunto.
   const { data: ultimasDoVisitante } = await supabase
     .from('messages')
     .select('content')
@@ -244,7 +244,7 @@ Deno.serve(async (req) => {
     if (error) console.error('buscar_fichas', error);
     candidatas = data ?? [];
   }
-  // No máximo 3 tópicos do Cérebro: eles são muitos e abafariam curso/projeto.
+  // No máximo 3 tópicos do Cérebro: eles sêo muitos e abafariam curso/projeto.
   let nCerebro = 0;
   const escolhidas = candidatas.filter(f => {
     if (f.tipo !== 'cerebro') return true;
@@ -267,18 +267,18 @@ Deno.serve(async (req) => {
   const fichasContexto = [
     escolhidas.map(formatarFicha).join('\n'),
     novidadesContexto && `Novidades recentes publicadas pelo Nei (o visitante pode estar falando de uma delas):\n${novidadesContexto}`,
-  ].filter(Boolean).join('\n\n') || '(nenhuma ficha do catálogo bateu com essa pergunta — diga que ainda não temos isso e ofereça registrar o pedido com registrar_pedido)';
+  ].filter(Boolean).join('\n\n') || '(nenhuma ficha do catálogo bateu com essa pergunta — diga que ainda nêo temos isso e ofereça registrar o pedido com registrar_pedido)';
 
   // Só fichas curadas têm página /conhecimento/<slug>/ — as geradas
   // (prefixos pro-, wiki-, cerebro-, novidade-) apontam pra fora.
-  // Filtra no banco: o PostgREST corta em 1000 linhas e as geradas são ~3 mil.
+  // Filtra no banco: o PostgREST corta em 1000 linhas e as geradas sêo ~3 mil.
   let consultaSlugs = supabase.from('catalogo_fichas').select('slug');
   for (const p of PREFIXOS_GERADOS) consultaSlugs = consultaSlugs.not('slug', 'like', `${p}%`);
   const { data: todosSlugs } = await consultaSlugs;
   const slugsConhecimento = (todosSlugs ?? []).map(r => r.slug);
   const tools = buildTools(slugsConhecimento);
 
-  // Histórico recente (só texto — tool calls não são replayados entre
+  // Histórico recente (só texto — tool calls nêo sêo replayados entre
   // turnos, cada turno decide de novo se precisa de ferramenta).
   const { data: historico } = await supabase
     .from('messages')
@@ -358,7 +358,7 @@ Deno.serve(async (req) => {
 
   let replyText = choice?.message?.content?.trim() ?? '';
 
-  // Se só houve tool_calls sem texto, pede uma frase curta de narração.
+  // Se só houve tool_calls sem texto, pede uma frase curta de narraçêo.
   if (!replyText && toolCalls.length > 0) {
     try {
       const followUp = await callLLM(
@@ -370,13 +370,13 @@ Deno.serve(async (req) => {
         errosLLM,
       );
       replyText = followUp.choices?.[0]?.message?.content?.trim() ?? '';
-    } catch { /* cai na narração montada abaixo */ }
+    } catch { /* cai na narraçêo montada abaixo */ }
     if (!replyText) {
       // Sem segunda resposta do modelo: narra com o que as próprias tools dizem.
       const pediu = toolCalls.some((c: { function: { name: string } }) => c.function.name === 'registrar_pedido');
       replyText = [
         navigate?.motivo,
-        pediu && 'Registrei seu pedido na fila de construção do INEMA. Se quiser ser avisado quando ficar pronto, me diga seu e-mail ou @ do Telegram.',
+        pediu && 'Registrei seu pedido na fila de construçêo do INEMA. Se quiser ser avisado quando ficar pronto, me diga seu e-mail ou @ do Telegram.',
       ].filter(Boolean).join(' ') || 'Beleza, vamos lá!';
     }
   }

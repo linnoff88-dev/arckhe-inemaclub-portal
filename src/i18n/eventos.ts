@@ -29,7 +29,7 @@ for (const page of PAGES) {
   }
 }
 
-/** Mantém query/hash, troca inclusive URLs já traduzidas e não inventa destinos. */
+/** Mantém query/hash, troca inclusive URLs já traduzidas e nêo inventa destinos. */
 export function localizedEventUrl(value: string, locale: Locale): string {
   let url: URL
   try { url = new URL(value) } catch { return value }

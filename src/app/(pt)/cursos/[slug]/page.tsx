@@ -89,7 +89,7 @@ export default async function CoursePage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
-      <nav className="course-breadcrumb" aria-label="Navegação estrutural">
+      <nav className="course-breadcrumb" aria-label="Navegaçêo estrutural">
         <a href="/">INEMA.club</a><span aria-hidden="true">/</span><a href="/cursos/">Cursos</a>
         <span className="breadcrumb-current"><span aria-hidden="true">/</span><span>{course.title}</span></span>
       </nav>
@@ -110,7 +110,7 @@ export default async function CoursePage({ params }: Props) {
             {(syllabus?.level || course.level) && <div><dt>Nível</dt><dd>{syllabus?.level ?? course.level}</dd></div>}
             {syllabus?.workload && <div><dt>Carga</dt><dd>{syllabus.workload}</dd></div>}
             <div><dt>Autor</dt><dd>Nei Maldaner</dd></div>
-            {course.lastUpdated && <div><dt>Atualização</dt><dd>{course.lastUpdated}</dd></div>}
+            {course.lastUpdated && <div><dt>Atualizaçêo</dt><dd>{course.lastUpdated}</dd></div>}
           </dl>
         </section>
 
@@ -173,13 +173,13 @@ export default async function CoursePage({ params }: Props) {
         <section aria-labelledby="continue">
           <h2 id="continue">Continue aprendendo</h2>
           <p>
-            Não sabe por onde começar? Veja o guia <a href="/aprender-inteligencia-artificial/">como aprender IA do zero ao avançado</a>,
+            Nêo sabe por onde começar? Veja o guia <a href="/aprender-inteligencia-artificial/">como aprender IA do zero ao avançado</a>,
             com a ordem recomendada dos cursos, ou as <a href="/ia/">respostas diretas sobre IA</a>.
           </p>
         </section>
 
         <footer className="course-source-note">
-          <p>{syllabus ? `Ementa extraída da página oficial do curso em ${syllabus.enrichedAt.split('-').reverse().join('/')}. ` : ''}Aplicação do curso: <a href={course.applicationUrl}>{course.applicationUrl}</a></p>
+          <p>{syllabus ? `Ementa extraída da página oficial do curso em ${syllabus.enrichedAt.split('-').reverse().join('/')}. ` : ''}Aplicaçêo do curso: <a href={course.applicationUrl}>{course.applicationUrl}</a></p>
         </footer>
       </article>
     </main>

@@ -7,7 +7,7 @@
 
 ## Resumo Executivo
 
-O portal INEMA possui uma base técnica sólida (Next.js, Supabase, componentes bem estruturados) e uma identidade visual funcional. Porém, quando comparado ao benchmark adapta.org — considerado o estado da arte do webdesign educacional brasileiro — há lacunas significativas em sofisticação visual, hierarquia tipográfica, identidade de marca e experiência do usuário.
+O portal INEMA possui uma base técnica sólida (Next.js, Supabase, componentes bem estruturados) e uma identidade visual funcional. Porém, quando comparado ao benchmark adapta.org — considerado o estado da arte do webdesign educacional brasileiro — há lacunas significativas em sofisticaçêo visual, hierarquia tipográfica, identidade de marca e experiência do usuário.
 
 **Nota geral atual:** 5.5/10
 **Potencial com as melhorias:** 8.5/10
@@ -17,7 +17,7 @@ O portal INEMA possui uma base técnica sólida (Next.js, Supabase, componentes 
 ## 1. Tipografia — Nota: 4/10
 
 ### Problema crítico
-O portal usa **system font stack** (`-apple-system, BlinkMacSystemFont, Segoe UI, Roboto`). Isso é a escolha padrão de quem não escolheu nenhuma fonte. Não há personalidade, não há voz de marca.
+O portal usa **system font stack** (`-apple-system, BlinkMacSystemFont, Segoe UI, Roboto`). Isso é a escolha padrêo de quem nêo escolheu nenhuma fonte. Nêo há personalidade, nêo há voz de marca.
 
 **Adapta.org usa:** Satoshi + Instrument Sans + Space Grotesk + Inter — 4 famílias curadas com papéis específicos. Isso é um design system maduro.
 
@@ -27,7 +27,7 @@ O portal usa **system font stack** (`-apple-system, BlinkMacSystemFont, Segoe UI
 - Implementar `-webkit-font-smoothing: antialiased` globalmente
 - Criar escala tipográfica formal: 12 / 14 / 16 / 18 / 24 / 32 / 48px
 
-### Exemplo de implementação
+### Exemplo de implementaçêo
 ```css
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
 
@@ -51,16 +51,16 @@ h1, h2, h3, h4 {
 ## 2. Paleta de Cores — Nota: 5/10
 
 ### Problema
-O ciano `#00d9ff` como cor única de acento é a escolha padrão de templates "dark tech/gaming". É genérica, overused e não comunica o posicionamento educacional/inovador do INEMA.
+O ciano `#00d9ff` como cor única de acento é a escolha padrêo de templates "dark tech/gaming". É genérica, overused e nêo comunica o posicionamento educacional/inovador do INEMA.
 
 **O problema real:** quando TUDO brilha em ciano (borders, shadows, logos, links, chips, cards), nada tem destaque. A hierarquia visual colapsa.
 
-### Comparação com Adapta
+### Comparaçêo com Adapta
 
 | Elemento | Portal INEMA | Adapta.org |
 |----------|-------------|------------|
 | Cor primária | `#00d9ff` ciano genérico | `#811def` roxo vibrante único |
-| Fundo | `#0a0e27` azul-escuro padrão | `#0e1513` preto-esmeralda incomum |
+| Fundo | `#0a0e27` azul-escuro padrêo | `#0e1513` preto-esmeralda incomum |
 | Fundo claro | — | `#f5f8f7` branco-frio sutil |
 | Gradiente CTA | linear 135deg (comum) | radial de baixo para cima (único) |
 | Paleta de acentos | 2 cores (ciano + roxo) | 5 famílias de cor com propósito |
@@ -94,15 +94,15 @@ O ciano `#00d9ff` como cor única de acento é a escolha padrão de templates "d
 ## 3. Espaçamento e Ritmo Visual — Nota: 4/10
 
 ### Problema crítico
-O portal usa padding de seção de `2rem–3rem`. O adapta.org usa `128px` (8rem). Isso é a diferença entre um site que "parece apertado" e um que "respira".
+O portal usa padding de seçêo de `2rem–3rem`. O adapta.org usa `128px` (8rem). Isso é a diferença entre um site que "parece apertado" e um que "respira".
 
-**Princípio:** espaço em branco não é espaço vazio — é hierarquia, é luxo, é confiança.
+**Princípio:** espaço em branco nêo é espaço vazio — é hierarquia, é luxo, é confiança.
 
-### Comparação de espaçamento
+### Comparaçêo de espaçamento
 
 | Elemento | Portal INEMA | Adapta.org | Recomendado |
 |----------|-------------|------------|-------------|
-| Padding de seção | 2–3rem (32–48px) | 8rem (128px) | 5–8rem |
+| Padding de seçêo | 2–3rem (32–48px) | 8rem (128px) | 5–8rem |
 | Gap entre cards | 2rem | 1.5rem (mas com mais padding interno) | 1.5rem |
 | Padding de card | 2rem | 2.5rem | 2.5rem |
 | Espaço entre header e conteúdo | 0.5rem | 3rem+ | 2rem |
@@ -131,8 +131,8 @@ O portal aplica `box-shadow: 0 0 40px rgba(0,217,255,0.1)` em TODOS os elementos
 ### O que fazer
 - Glow/brilho só em **um** elemento por contexto: o CTA primário
 - Cards usam sombra neutra (sem cor): `0 4px 24px rgba(0,0,0,0.4)`
-- Hover de card: elevação + leve borda colorida (sem glow explosivo)
-- Reservar glow para o botão de ação principal
+- Hover de card: elevaçêo + leve borda colorida (sem glow explosivo)
+- Reservar glow para o botêo de açêo principal
 
 ```css
 /* ERRADO — atual */
@@ -158,19 +158,19 @@ O portal aplica `box-shadow: 0 0 40px rgba(0,217,255,0.1)` em TODOS os elementos
 ## 5. Hierarquia Visual entre Seções — Nota: 5/10
 
 ### Problema
-Todas as seções têm o mesmo peso visual. Header, hero, trilha, cursos, github, telegram, social, footer — nenhuma seção se destaca como mais importante.
+Todas as seções têm o mesmo peso visual. Header, hero, trilha, cursos, github, telegram, social, footer — nenhuma seçêo se destaca como mais importante.
 
 **Adapta.org** usa contraste de fundos (escuro header → claro conteúdo → escuro especial → claro footer) para criar ritmo e hierarquia.
 
 ### O que fazer
-Definir hierarquia de peso por seção:
+Definir hierarquia de peso por seçêo:
 
-| Prioridade | Seção | Tratamento |
+| Prioridade | Seçêo | Tratamento |
 |-----------|-------|-----------|
-| ⭐⭐⭐ Hero/Banner | Máxima atenção | Full-width, gradiente, animação |
-| ⭐⭐⭐ Cursos | Ação principal | Padding generoso, cards destacados |
+| ⭐⭐⭐ Hero/Banner | Máxima atençêo | Full-width, gradiente, animaçêo |
+| ⭐⭐⭐ Cursos | Açêo principal | Padding generoso, cards destacados |
 | ⭐⭐ Trilha Iniciantes | Importante | Destaque visual, numbered steps |
-| ⭐⭐ INEMA.VIP CTA | Conversão | Gradiente signature, botão proeminente |
+| ⭐⭐ INEMA.VIP CTA | Conversêo | Gradiente signature, botêo proeminente |
 | ⭐ GitHub/Social/Telegram | Secundário | Layout compacto, fundo diferente |
 
 ---
@@ -178,7 +178,7 @@ Definir hierarquia de peso por seção:
 ## 6. Call-to-Actions — Nota: 5/10
 
 ### Problema
-O botão "Acessar plataforma" é um link de texto com seta (`→`). Não é um botão real. Em mobile, é difícil de clicar. Não há hierarquia clara entre CTAs primários e secundários.
+O botêo "Acessar plataforma" é um link de texto com seta (`→`). Nêo é um botêo real. Em mobile, é difícil de clicar. Nêo há hierarquia clara entre CTAs primários e secundários.
 
 ### O que fazer
 
@@ -207,12 +207,12 @@ O botão "Acessar plataforma" é um link de texto com seta (`→`). Não é um b
 
 ---
 
-## 7. Navegação — Nota: 3/10
+## 7. Navegaçêo — Nota: 3/10
 
 ### Problema grave
-**O portal não tem navegação**. Não há menu, não há links internos, não há forma do usuário saber o que existe na página antes de scrollar tudo.
+**O portal nêo tem navegaçêo**. Nêo há menu, nêo há links internos, nêo há forma do usuário saber o que existe na página antes de scrollar tudo.
 
-**Adapta.org:** navegação fixa no topo com links para todas as seções principais.
+**Adapta.org:** navegaçêo fixa no topo com links para todas as seções principais.
 
 ### O que fazer
 Adicionar uma navbar sticky minimalista:
@@ -229,38 +229,38 @@ Características:
 
 ---
 
-## 8. Seção de Cursos (Cards) — Nota: 6/10
+## 8. Seçêo de Cursos (Cards) — Nota: 6/10
 
 ### O que está bem
 - Grid responsivo funciona
-- Hover com elevação é correto
-- Tags são úteis
+- Hover com elevaçêo é correto
+- Tags sêo úteis
 - Busca funciona
 
 ### O que melhorar
 
 1. **Ícones**: emoji em `background: gradient` é visualmente fraco — considerar SVG icons ou fundo sólido sem gradient
 2. **Título do card**: `font-size: 1.5rem` é muito grande para cards em grid de 3
-3. **CTA**: Transformar "Acessar plataforma" em botão full-width no final do card
+3. **CTA**: Transformar "Acessar plataforma" em botêo full-width no final do card
 4. **Hover**: Reduzir `translateY(-8px)` para `-4px` — 8px é exagerado
 5. **Borda colorida no hover**: Funciona bem, manter
 
 ---
 
-## 9. Seção Telegram — Nota: 4/10
+## 9. Seçêo Telegram — Nota: 4/10
 
 ### Problema crítico
-Os itens do Telegram são **divs sem link**. Usuários que clicam não vão a lugar nenhum. Isso quebra a expectativa e frustra o usuário.
+Os itens do Telegram sêo **divs sem link**. Usuários que clicam nêo vêo a lugar nenhum. Isso quebra a expectativa e frustra o usuário.
 
 ```tsx
-// ATUAL — não clicável
+// ATUAL — nêo clicável
 <div className="telegram-btn">
 
 // DEVERIA SER — com link real
 <a href="https://t.me/inema_tds" className="telegram-btn" target="_blank">
 ```
 
-### Ação necessária
+### Açêo necessária
 Mapear todos os 27 grupos/canais para seus links do Telegram e adicionar no Portal.tsx.
 
 ---
@@ -276,10 +276,10 @@ Mapear todos os 27 grupos/canais para seus links do Telegram e adicionar no Port
 1. **Scroll-triggered animations**: elementos entram na viewport com fade+slide
 2. **Stagger animations**: cards aparecem em sequência (card1, card2, card3...)
 3. **Counter animation**: números de visitas animam de 0 ao valor real
-4. **Smooth scroll**: navegação por âncoras com scroll suave
+4. **Smooth scroll**: navegaçêo por âncoras com scroll suave
 5. **Loading skeleton**: enquanto dados carregam, mostrar placeholder animado
 
-### Implementação leve (sem biblioteca)
+### Implementaçêo leve (sem biblioteca)
 ```css
 /* Scroll reveal via CSS + JS minimal */
 .reveal {
@@ -333,14 +333,14 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
 ## 12. Identidade de Marca — Nota: 5/10
 
 ### Análise
-A identidade atual do portal é "dark tech genérico" — poderia ser qualquer plataforma de tecnologia. Não há elementos únicos que comuniquem especificamente o INEMA.
+A identidade atual do portal é "dark tech genérico" — poderia ser qualquer plataforma de tecnologia. Nêo há elementos únicos que comuniquem especificamente o INEMA.
 
-**Adapta.org** tem um gradiente radial signature tão reconhecível que você sabe que é a Adapta antes de ler o nome.
+**Adapta.org** tem um gradiente radial signature têo reconhecível que você sabe que é a Adapta antes de ler o nome.
 
 ### O que o INEMA precisa
 1. **Gradiente signature único** — proposta: roxo-índigo saindo de baixo (radial-gradient)
 2. **Fonte de título com personalidade** — Space Grotesk ou Sora
-3. **Elemento visual recorrente** — uma forma, um padrão, algo que apareça em todos os CTAs
+3. **Elemento visual recorrente** — uma forma, um padrêo, algo que apareça em todos os CTAs
 4. **Cor de acento quente** — âmbar/laranja para contrastar com o tech-frio e comunicar calor/comunidade brasileira
 
 ---
@@ -349,7 +349,7 @@ A identidade atual do portal é "dark tech genérico" — poderia ser qualquer p
 
 ### Problemas identificados
 - Links sem `aria-label` descritivo (ex: "Acessar plataforma" repetido em 30 cards)
-- Foco visual não estilizado (só o padrão do browser)
+- Foco visual nêo estilizado (só o padrêo do browser)
 - Contraste de `var(--text-secondary)` `#94a3b8` sobre `#1a1f3a` pode ser insuficiente (verificar WCAG AA)
 - Inputs sem `<label>` associado (busca)
 
@@ -388,7 +388,7 @@ A identidade atual do portal é "dark tech genérico" — poderia ser qualquer p
 2. **Telegram grid**: `1fr` em mobile com 27 itens = scroll infinito — considerar accordion ou tabs
 3. **Cards de cursos**: em mobile, 1 coluna com padding generoso funciona bem (OK)
 4. **Touch targets**: alguns botões têm menos de 44px de altura (mínimo recomendado Apple/Google)
-5. **Seção de redes sociais**: 4 plataformas em coluna única em mobile é longa — considerar tabs
+5. **Seçêo de redes sociais**: 4 plataformas em coluna única em mobile é longa — considerar tabs
 
 ---
 
@@ -396,16 +396,16 @@ A identidade atual do portal é "dark tech genérico" — poderia ser qualquer p
 
 ### 🔴 Crítico (impacto imediato na experiência)
 
-| # | Ação | Esforço | Impacto |
+| # | Açêo | Esforço | Impacto |
 |---|------|---------|---------|
 | 1 | Adicionar links reais nos botões Telegram | Baixo | Alto |
 | 2 | Trocar system fonts → Space Grotesk + Inter | Baixo | Alto |
 | 3 | Adicionar navbar sticky com scroll suave | Médio | Alto |
-| 4 | Transformar "Acessar plataforma" em botão real | Baixo | Médio |
+| 4 | Transformar "Acessar plataforma" em botêo real | Baixo | Médio |
 
-### 🟡 Importante (melhora percepção de qualidade)
+### 🟡 Importante (melhora percepçêo de qualidade)
 
-| # | Ação | Esforço | Impacto |
+| # | Açêo | Esforço | Impacto |
 |---|------|---------|---------|
 | 5 | Reduzir overuse de glow — reservar para CTAs | Médio | Alto |
 | 6 | Aumentar padding de seções para 5rem+ | Baixo | Alto |
@@ -415,12 +415,12 @@ A identidade atual do portal é "dark tech genérico" — poderia ser qualquer p
 
 ### 🟢 Enhancement (diferencial de elite)
 
-| # | Ação | Esforço | Impacto |
+| # | Açêo | Esforço | Impacto |
 |---|------|---------|---------|
 | 10 | Counter animation nos chips de visitas | Baixo | Médio |
 | 11 | Loading skeleton nos cards | Médio | Médio |
 | 12 | Adicionar aria-labels e melhorar acessibilidade | Médio | Médio |
-| 13 | Accordion/tabs para seção Telegram em mobile | Alto | Médio |
+| 13 | Accordion/tabs para seçêo Telegram em mobile | Alto | Médio |
 | 14 | Cursor customizado (sutil) | Baixo | Baixo |
 
 ---
@@ -429,22 +429,22 @@ A identidade atual do portal é "dark tech genérico" — poderia ser qualquer p
 
 1. **Gradiente radial de baixo para cima** nos CTAs — parece luz subindo, muito mais dinâmico que linear
 2. **Header fixo escuro** com conteúdo claro abaixo — contraste poderoso de identidade
-3. **Padding de seção generoso** — o "ar" é o que faz parecer premium
+3. **Padding de seçêo generoso** — o "ar" é o que faz parecer premium
 4. **Uma cor única de marca** muito forte — o roxo Adapta é inconfundível
 5. **Design system com tokens CSS** — escalabilidade e consistência
 6. **Tipografia curada** — Satoshi/Space Grotesk comunicam modernidade tech sem ser genérico
 
 ---
 
-## Conclusão
+## Conclusêo
 
-O portal INEMA tem **excelente conteúdo e estrutura técnica**. O gap com o Adapta.org não é de funcionalidade — é de **percepção de qualidade**. Um usuário que acessa os dois sites consecutivamente sente que o Adapta é "uma empresa séria" e o INEMA é "um portal de tecnologia".
+O portal INEMA tem **excelente conteúdo e estrutura técnica**. O gap com o Adapta.org nêo é de funcionalidade — é de **percepçêo de qualidade**. Um usuário que acessa os dois sites consecutivamente sente que o Adapta é "uma empresa séria" e o INEMA é "um portal de tecnologia".
 
-As mudanças de maior impacto e menor esforço são:
+As mudanças de maior impacto e menor esforço sêo:
 1. Tipografia nova (Space Grotesk + Inter)
 2. Aumentar espaçamento entre seções
 3. Reduzir overuse de glow ciano
 4. Criar um gradiente signature único para o INEMA
 5. Adicionar navbar
 
-Essas 5 ações sozinhas elevariam o portal de **5.5 para 7.5/10** em percepção de qualidade.
+Essas 5 ações sozinhas elevariam o portal de **5.5 para 7.5/10** em percepçêo de qualidade.

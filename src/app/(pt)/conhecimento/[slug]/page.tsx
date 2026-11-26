@@ -71,7 +71,7 @@ export default async function KnowledgePage({ params }: Props) {
   return (
     <main className="course-page-shell knowledge-article">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />
-      <nav className="course-breadcrumb" aria-label="Navegação estrutural">
+      <nav className="course-breadcrumb" aria-label="Navegaçêo estrutural">
         <a href="/">INEMA.club</a><span aria-hidden="true">/</span><a href="/conhecimento/">Conhecimento</a>
         <span className="breadcrumb-current"><span aria-hidden="true">/</span><span>{article.title}</span></span>
       </nav>
@@ -116,7 +116,7 @@ export default async function KnowledgePage({ params }: Props) {
         </section>
 
         <footer className="course-source-note">
-          <p>Autor: Nei Maldaner · Revisão: INEMA · Publicado e atualizado em 30 de agosto de 2026.</p>
+          <p>Autor: Nei Maldaner · Revisêo: INEMA · Publicado e atualizado em 30 de agosto de 2026.</p>
         </footer>
       </article>
     </main>

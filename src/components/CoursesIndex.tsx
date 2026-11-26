@@ -30,7 +30,7 @@ export function buildCoursesMetadata(locale: Locale): Metadata {
 
 /**
  * Catálogo de cursos. Em EN/ES o catálogo continua em PT (fichas canônicas só em PT);
- * no topo entram os cursos que já têm versão no idioma (translated-courses.ts).
+ * no topo entram os cursos que já têm versêo no idioma (translated-courses.ts).
  */
 export default function CoursesIndex({ locale }: { locale: Locale }) {
   const t = getDictionary(locale).coursesPage

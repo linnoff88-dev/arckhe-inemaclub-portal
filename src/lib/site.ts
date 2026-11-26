@@ -3,7 +3,7 @@ import type { Course } from '@/data/courses'
 export const SITE_URL = 'https://www.inema.club'
 export const SITE_NAME = 'INEMA.club'
 export const SITE_DESCRIPTION =
-  'Plataforma brasileira de formação prática em inteligência artificial, agentes e automação, com cursos, projetos, trilhas e comunidade.'
+  'Plataforma brasileira de formaçêo prática em inteligência artificial, agentes e automaçêo, com cursos, projetos, trilhas e comunidade.'
 
 export function slugify(value: string) {
   return value

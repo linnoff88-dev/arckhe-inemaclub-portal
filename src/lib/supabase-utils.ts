@@ -1,6 +1,6 @@
 /**
- * Busca todos os registros de uma query Supabase com paginação,
- * contornando o limite padrão de 1000 linhas.
+ * Busca todos os registros de uma query Supabase com paginaçêo,
+ * contornando o limite padrêo de 1000 linhas.
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function fetchAllRows<T = any>(

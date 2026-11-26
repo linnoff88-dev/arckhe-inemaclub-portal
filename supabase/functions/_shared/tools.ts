@@ -32,7 +32,7 @@ export function buildTools(conhecimentoSlugs: string[]) {
       type: 'function',
       function: {
         name: 'navigate_to',
-        description: 'Navega o visitante para uma página real do site durante o tour guiado. Use só quando fizer sentido mostrar a página, não para toda resposta.',
+        description: 'Navega o visitante para uma página real do site durante o tour guiado. Use só quando fizer sentido mostrar a página, nêo para toda resposta.',
         parameters: {
           type: 'object',
           properties: {
@@ -47,12 +47,12 @@ export function buildTools(conhecimentoSlugs: string[]) {
       type: 'function',
       function: {
         name: 'registrar_pedido',
-        description: 'Registra na fila de construção do INEMA algo que o visitante quer e que NÃO existe no catálogo (nenhuma ficha resolve). O time usa essa fila para construir o que foi pedido. Chame assim que ficar claro o que a pessoa quer e que não temos — o contato é opcional: ofereça avisar quando ficar pronto e, se a pessoa deixar e-mail ou Telegram, chame de novo com o contato. Não use para perguntas fora do tema IA/automação nem para testes.',
+        description: 'Registra na fila de construçêo do INEMA algo que o visitante quer e que NêO existe no catálogo (nenhuma ficha resolve). O time usa essa fila para construir o que foi pedido. Chame assim que ficar claro o que a pessoa quer e que nêo temos — o contato é opcional: ofereça avisar quando ficar pronto e, se a pessoa deixar e-mail ou Telegram, chame de novo com o contato. Nêo use para perguntas fora do tema IA/automaçêo nem para testes.',
         parameters: {
           type: 'object',
           properties: {
             pedido: { type: 'string', description: 'O que a pessoa quer que exista, em 1–2 frases objetivas (ex.: "sistema que publica vídeos de avatar no TikTok automaticamente para uma loja de cosméticos").' },
-            contexto: { type: 'string', description: 'Quem é a pessoa e o nível dela (profissão, negócio, se programa ou não), se ela disse.' },
+            contexto: { type: 'string', description: 'Quem é a pessoa e o nível dela (profissêo, negócio, se programa ou nêo), se ela disse.' },
             nome: { type: 'string' },
             email: { type: 'string' },
             telegram: { type: 'string', description: '@usuario do Telegram, se a pessoa deixar.' },
@@ -71,7 +71,7 @@ export function buildTools(conhecimentoSlugs: string[]) {
           properties: {
             nome: { type: 'string' },
             email: { type: 'string' },
-            interesse: { type: 'string', description: 'Resumo curto do que a pessoa procura (curso, imersão, singular, etc.)' },
+            interesse: { type: 'string', description: 'Resumo curto do que a pessoa procura (curso, imersêo, singular, etc.)' },
           },
           required: ['nome', 'email'],
         },

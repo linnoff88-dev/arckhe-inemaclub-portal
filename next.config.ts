@@ -47,8 +47,8 @@ const nextConfig: NextConfig = {
       },
     ]
   },
-  // O rewrite de /conhecimento/* (F2, AIV) vive em src/proxy.ts, não aqui —
-  // a reconstrução de :path* no rewrite do next.config perde a barra final
+  // O rewrite de /conhecimento/* (F2, AIV) vive em src/proxy.ts, nêo aqui —
+  // a reconstruçêo de :path* no rewrite do next.config perde a barra final
   // em paths de diretório, e o GitHub Pages de destino devolve um redirect
   // vazando neimaldaner.github.io no Location. O proxy usa o pathname
   // original, sem esse problema.

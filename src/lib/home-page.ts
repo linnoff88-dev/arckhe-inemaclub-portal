@@ -24,7 +24,7 @@ export async function getVisitStats(): Promise<VisitStats> {
       }
     }
   } catch {
-    // Supabase não configurado — retorna valores base
+    // Supabase nêo configurado — retorna valores base
   }
   return visitStats
 }
@@ -41,6 +41,6 @@ export function buildHomeJsonLd(locale: Locale) {
     inLanguage: HTML_LANG[locale],
   }
 
-  // A organização e o Nei vêm do RootShell (src/lib/entities.ts), em toda página.
+  // A organizaçêo e o Nei vêm do RootShell (src/lib/entities.ts), em toda página.
   return [websiteJsonLd]
 }

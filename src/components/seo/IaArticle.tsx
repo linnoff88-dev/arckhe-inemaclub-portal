@@ -70,7 +70,7 @@ export default function IaArticle({ page }: { page: IaPage }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(buildIaJsonLd(page)).replace(/</g, '\\u003c') }}
       />
-      <nav className="course-breadcrumb" aria-label="Navegação estrutural">
+      <nav className="course-breadcrumb" aria-label="Navegaçêo estrutural">
         <a href="/">INEMA.club</a><span aria-hidden="true">/</span><a href={page.pillar.path}>{page.pillar.title}</a>
         <span className="breadcrumb-current"><span aria-hidden="true">/</span><span>{page.title}</span></span>
       </nav>
@@ -122,7 +122,7 @@ export default function IaArticle({ page }: { page: IaPage }) {
         <section aria-labelledby="comunidade">
           <h2 id="comunidade">Aprenda junto com a comunidade</h2>
           <p>
-            Para tirar dúvidas, ver projetos de outros alunos e acompanhar as novidades, a formação contínua do INEMA fica no{' '}
+            Para tirar dúvidas, ver projetos de outros alunos e acompanhar as novidades, a formaçêo contínua do INEMA fica no{' '}
             <a href="https://inema.pro" target="_blank" rel="noopener noreferrer">INEMA.PRO</a>, que inclui a comunidade{' '}
             <a href="https://inema.vip" target="_blank" rel="noopener noreferrer">INEMA.VIP</a>.
           </p>

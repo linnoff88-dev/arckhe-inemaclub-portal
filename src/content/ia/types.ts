@@ -1,6 +1,6 @@
 /**
  * Modelo das páginas /ia/<slug>/ (respostas diretas sobre IA).
- * Texto aceita marcação inline mínima: **negrito** e [texto](url).
+ * Texto aceita marcaçêo inline mínima: **negrito** e [texto](url).
  * Plano e checklist de qualidade: repo inematds/inemaseo.
  */
 export type IaSection = {

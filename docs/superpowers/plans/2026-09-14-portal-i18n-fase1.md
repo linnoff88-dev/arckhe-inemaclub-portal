@@ -4,23 +4,23 @@
 
 **Goal:** Publicar `inema.club/en/` e `inema.club/es/` como versões da home com interface, metadados e chat no idioma do visitante, mantendo um único repo, um único deploy e os dados de cursos/projetos intocados.
 
-**Architecture:** A home continua sendo o `Portal.tsx`, que passa a receber `locale` e a ler os textos de interface de dicionários JSON (`src/i18n/messages/{pt,en,es}.json`). Como o `<html lang>` só pode ser trocado em root layout, o app passa a ter três root layouts via route groups (`app/(pt)`, `app/(en)/en`, `app/(es)/es`) compartilhando um `RootShell`. Os cursos e projetos seguem em português (modelo híbrido): cards ganham um selo "PT" nas versões EN/ES, e uma seção nova "Disponível em inglês/espanhol" lista os cursos já traduzidos (lista vazia no início, cresce nas fases seguintes).
+**Architecture:** A home continua sendo o `Portal.tsx`, que passa a receber `locale` e a ler os textos de interface de dicionários JSON (`src/i18n/messages/{pt,en,es}.json`). Como o `<html lang>` só pode ser trocado em root layout, o app passa a ter três root layouts via route groups (`app/(pt)`, `app/(en)/en`, `app/(es)/es`) compartilhando um `RootShell`. Os cursos e projetos seguem em português (modelo híbrido): cards ganham um selo "PT" nas versões EN/ES, e uma seçêo nova "Disponível em inglês/espanhol" lista os cursos já traduzidos (lista vazia no início, cresce nas fases seguintes).
 
 **Tech Stack:** Next.js 16.1.6 (App Router, `trailingSlash: true`), React 19, TypeScript 5, `node --test` (sem dependências novas), Supabase Edge Function (Deno) para o chat.
 
-**Spec:** A decisão de produto está na conversa de 2026-09-14 (portal único, rotas por idioma, opção 3 híbrida). Este plano é a especificação executável; não há documento separado.
+**Spec:** A decisêo de produto está na conversa de 2026-09-14 (portal único, rotas por idioma, opçêo 3 híbrida). Este plano é a especificaçêo executável; nêo há documento separado.
 
 ## Global Constraints
 
 - **Autor dos commits:** `NeiMaldaner <nei.maldaner2014@gmail.com>` (author e committer). Conferir `git config user.email` antes do primeiro commit. Mensagens no estilo do repo: `portal: <o que fez>`.
 - **`tools/gen-courses-data.mjs` extrai `communityProjects` do `Portal.tsx` por regex** (`const communityProjects: Array<{...}> = [`). Nenhuma tarefa pode renomear, mover ou retipar esse array. Toda tarefa que toca `Portal.tsx` termina com `npm run gen:data && git diff --exit-code src/data/courses.data.json` (saída vazia = nada mudou).
-- **Não editar** `src/data/courses.ts` nem `src/data/novidades.ts` (gerado). Não tocar `data.js`, `index.html`, `styles.css`, `script.js` (legado).
+- **Nêo editar** `src/data/courses.ts` nem `src/data/novidades.ts` (gerado). Nêo tocar `data.js`, `index.html`, `styles.css`, `script.js` (legado).
 - **Blocos sob `SHOW_DETALHES && (...)` ficam em português.** Só os textos visíveis com `SHOW_DETALHES = false` entram no dicionário.
-- **Nomes de cursos, projetos, grupos Telegram e handles sociais não se traduzem.** São nomes próprios do conteúdo (ex.: "Fundamentos de Engenharia de Prompts" é o nome do curso FEP).
+- **Nomes de cursos, projetos, grupos Telegram e handles sociais nêo se traduzem.** Sêo nomes próprios do conteúdo (ex.: "Fundamentos de Engenharia de Prompts" é o nome do curso FEP).
 - **URLs:** PT continua em `/`; EN em `/en/`; ES em `/es/`. Sem redirect automático por `Accept-Language`.
 - **Deploy do site = `git push` em `main`.** Deploy da Edge Function é passo separado: `npx supabase functions deploy chat`.
 - **Verificações disponíveis:** `npx tsc --noEmit`, `npm run build`, `npm test` (criado na Task 1), `npm run gen:data`.
-- **Versão:** bump `package.json` de `0.1.0` para `0.2.0` (minor: carrega o patch, não zera).
+- **Versêo:** bump `package.json` de `0.1.0` para `0.2.0` (minor: carrega o patch, nêo zera).
 
 ---
 
@@ -33,20 +33,20 @@
 | `src/i18n/dictionary.ts` | `getDictionary(locale)` tipado a partir do `pt.json`. |
 | `tests/i18n.test.mjs` | Paridade de chaves entre os três JSON e ausência de valores vazios. |
 | `src/components/RootShell.tsx` | `<html lang>` + `<head>` (origin trial, Plausible) + `<body>` com `InemaWebMCP` e `AgenteChat`. Usado pelos três root layouts. |
-| `src/lib/root-metadata.ts` | `buildRootMetadata(locale)` com título, descrição, OpenGraph, Twitter e `alternates.languages` (hreflang). |
+| `src/lib/root-metadata.ts` | `buildRootMetadata(locale)` com título, descriçêo, OpenGraph, Twitter e `alternates.languages` (hreflang). |
 | `src/lib/home-page.ts` | `getVisitStats()` e `buildHomeJsonLd(locale)` (extraídos do `page.tsx` atual). |
 | `src/components/HomePage.tsx` | Server component: busca stats, injeta JSON-LD, renderiza `<Portal locale=... />`. |
-| `src/app/(pt)/layout.tsx`, `src/app/(pt)/page.tsx`, `src/app/(pt)/cursos/**`, `src/app/(pt)/conhecimento/**`, `src/app/(pt)/stats/**` | Rotas PT (movidas; URLs não mudam). |
+| `src/app/(pt)/layout.tsx`, `src/app/(pt)/page.tsx`, `src/app/(pt)/cursos/**`, `src/app/(pt)/conhecimento/**`, `src/app/(pt)/stats/**` | Rotas PT (movidas; URLs nêo mudam). |
 | `src/app/(en)/en/layout.tsx`, `src/app/(en)/en/page.tsx` | Home EN. |
 | `src/app/(es)/es/layout.tsx`, `src/app/(es)/es/page.tsx` | Home ES. |
-| `src/app/globals.css` | Estilos do seletor de idioma, do selo PT e da seção "Disponível em". |
-| `src/components/Portal.tsx` | Recebe `locale`, usa `t = getDictionary(locale)`, seletor de idioma, selo PT, seção de cursos traduzidos. |
+| `src/app/globals.css` | Estilos do seletor de idioma, do selo PT e da seçêo "Disponível em". |
+| `src/components/Portal.tsx` | Recebe `locale`, usa `t = getDictionary(locale)`, seletor de idioma, selo PT, seçêo de cursos traduzidos. |
 | `src/data/translated-courses.ts` | Lista tipada de cursos/projetos já traduzidos (fora do `courses.ts`). Vazia na fase 1. |
 | `src/components/AgenteChat/widget.ts` | Textos do widget por idioma, `locale` no payload, prefixo `/en`/`/es` no `navigate_to`. |
 | `supabase/functions/_shared/prompts.ts`, `supabase/functions/chat/index.ts` | Prompt responde no idioma do visitante; `locale` aceito no body. |
-| `CLAUDE.md` | Seção "Idiomas (i18n)". |
+| `CLAUDE.md` | Seçêo "Idiomas (i18n)". |
 
-Ficam na raiz de `src/app/` (route handlers e arquivos de metadata não precisam de layout): `api/**`, `feed.xml/`, `llms.txt/`, `courses-sitemap.xml/`, `robots.ts`, `globals.css`.
+Ficam na raiz de `src/app/` (route handlers e arquivos de metadata nêo precisam de layout): `api/**`, `feed.xml/`, `llms.txt/`, `courses-sitemap.xml/`, `robots.ts`, `globals.css`.
 
 ---
 
@@ -64,7 +64,7 @@ Ficam na raiz de `src/app/` (route handlers e arquivos de metadata não precisam
 **Interfaces:**
 - Produces: `type Locale = 'pt' | 'en' | 'es'`; `LOCALES: readonly Locale[]`; `DEFAULT_LOCALE: 'pt'`; `HTML_LANG: Record<Locale, string>`; `OG_LOCALE: Record<Locale, string>`; `INTL_LOCALE: Record<Locale, string>`; `LOCALE_LABEL: Record<Locale, string>`; `localeHome(locale: Locale): string` (`'/'`, `'/en/'`, `'/es/'`); `getDictionary(locale: Locale): Dictionary`; `type Dictionary = typeof pt`.
 
-- [ ] **Step 1: Escrever o teste de paridade (falha porque os arquivos não existem)**
+- [ ] **Step 1: Escrever o teste de paridade (falha porque os arquivos nêo existem)**
 
 `tests/i18n.test.mjs`:
 
@@ -95,10 +95,10 @@ test('os três dicionários têm exatamente as mesmas chaves', () => {
   assert.deepEqual(keys.es, keys.pt, 'es.json diverge de pt.json')
 })
 
-test('nenhum valor vazio ou não-string', () => {
+test('nenhum valor vazio ou nêo-string', () => {
   for (const locale of LOCALES) {
     for (const [key, value] of flatten(load(locale))) {
-      assert.equal(typeof value, 'string', `${locale}:${key} não é string`)
+      assert.equal(typeof value, 'string', `${locale}:${key} nêo é string`)
       assert.ok(value.trim().length > 0, `${locale}:${key} está vazio`)
     }
   }
@@ -143,7 +143,7 @@ export function isLocale(value: string): value is Locale {
 
 - [ ] **Step 4: Criar `src/i18n/messages/pt.json`**
 
-Os valores são os textos que hoje estão hardcoded no `Portal.tsx` (linhas 428–2159, fora dos blocos `SHOW_DETALHES`), copiados sem alteração.
+Os valores sêo os textos que hoje estêo hardcoded no `Portal.tsx` (linhas 428–2159, fora dos blocos `SHOW_DETALHES`), copiados sem alteraçêo.
 
 ```json
 {
@@ -177,13 +177,13 @@ Os valores são os textos que hoje estão hardcoded no `Portal.tsx` (linhas 428�
     "title": "O que você quer aprender hoje?",
     "body": "Pesquise os cursos públicos do INEMA por tema, ferramenta ou objetivo. Mesmo sem WebMCP, você pode continuar manualmente pelo catálogo.",
     "label": "Tema ou objetivo",
-    "placeholder": "Ex.: WebMCP, agentes, automação",
+    "placeholder": "Ex.: WebMCP, agentes, automaçêo",
     "button": "Buscar cursos",
     "catalogNote": "O catálogo de cursos está em português."
   },
   "events": {
-    "gestao2027Alt": "Gestão de Agentes 2027 — o novo papel das empresas. Mesma liderança, uma nova força de trabalho: humanos + agentes = mais valor.",
-    "agiAlt": "AGI chegou — não é mais sobre fazer tudo, é sobre comandar agentes. A era dos super-agentes começou.",
+    "gestao2027Alt": "Gestêo de Agentes 2027 — o novo papel das empresas. Mesma liderança, uma nova força de trabalho: humanos + agentes = mais valor.",
+    "agiAlt": "AGI chegou — nêo é mais sobre fazer tudo, é sobre comandar agentes. A era dos super-agentes começou.",
     "content2videoAlt": "Content2Video — um link entra, um vídeo sai",
     "webmcpAlt": "WebMCP — evento INEMA",
     "musicavideoAlt": "INEMA MUSICAVIDEO — crie músicas e clipes em escala, de ideia ao hit",
@@ -193,7 +193,7 @@ Os valores são os textos que hoje estão hardcoded no `Portal.tsx` (linhas 428�
   "beginners": {
     "title": "Trilha para Iniciantes",
     "subtitle": "Comece sua jornada com os cursos essenciais, nesta ordem recomendada",
-    "body": "Não é uma lista aleatória: é uma progressão. Você começa aprendendo a falar com a IA (FEP), vê essas habilidades em ação (ATIA), constrói a base técnica de dados (FDB) e amplia para imagens (Vision). Só então entra nas ferramentas de agente de código — Claude Code e Codex — que juntam tudo isso na prática, antes de colocar um projeto real no ar (Do Zero ao Deploy) e fechar construindo seu próprio sistema de IA (INTELECTO). Pular etapas cria lacunas: os cursos mais à frente presumem a base dos anteriores.",
+    "body": "Nêo é uma lista aleatória: é uma progressêo. Você começa aprendendo a falar com a IA (FEP), vê essas habilidades em açêo (ATIA), constrói a base técnica de dados (FDB) e amplia para imagens (Vision). Só entêo entra nas ferramentas de agente de código — Claude Code e Codex — que juntam tudo isso na prática, antes de colocar um projeto real no ar (Do Zero ao Deploy) e fechar construindo seu próprio sistema de IA (INTELECTO). Pular etapas cria lacunas: os cursos mais à frente presumem a base dos anteriores.",
     "footer": "Após completar esta trilha, explore outros cursos conforme seu interesse abaixo",
     "guideButton": "📖 Veja o guia com a importância de cada curso",
     "ptPill": "PT",
@@ -217,7 +217,7 @@ Os valores são os textos que hoje estão hardcoded no `Portal.tsx` (linhas 428�
     "projectsTitle": "Últimas Atualizações de Projetos"
   },
   "perfis": {
-    "topoAlt": "Descubra como usar IA para evoluir na sua profissão",
+    "topoAlt": "Descubra como usar IA para evoluir na sua profissêo",
     "operacionalAlt": "Profissional Operacional — mais produtividade com IA",
     "empreendedorAlt": "Empreendedor Estratégico com IA",
     "liberalAlt": "Profissional Liberal Experiente com IA",
@@ -250,7 +250,7 @@ Os valores são os textos que hoje estão hardcoded no `Portal.tsx` (linhas 428�
   "vip": {
     "alt": "INEMA.VIP - Você foi convidado para a comunidade",
     "title": "INEMA.VIP",
-    "description": "Um espaço de autoaprendizado e transformação com IA e Humanoides",
+    "description": "Um espaço de autoaprendizado e transformaçêo com IA e Humanoides",
     "badge": "Faça seu Cadastro →"
   },
   "social": {
@@ -261,7 +261,7 @@ Os valores são os textos que hoje estão hardcoded no `Portal.tsx` (linhas 428�
 }
 ```
 
-Se, ao executar a Task 3, aparecer um texto visível em PT que não está aqui (o levantamento foi feito por regex e pode ter perdido parágrafos multilinha), **adicionar a chave nos três JSON** seguindo o mesmo agrupamento por seção. O teste de paridade garante que os três ficam sincronizados.
+Se, ao executar a Task 3, aparecer um texto visível em PT que nêo está aqui (o levantamento foi feito por regex e pode ter perdido parágrafos multilinha), **adicionar a chave nos três JSON** seguindo o mesmo agrupamento por seçêo. O teste de paridade garante que os três ficam sincronizados.
 
 - [ ] **Step 5: Criar `src/i18n/messages/en.json`**
 
@@ -516,7 +516,7 @@ export function getDictionary(locale: Locale): Dictionary {
 }
 ```
 
-`tsconfig.json` já tem `resolveJsonModule: true`. Como `en` e `es` são atribuídos a `Record<Locale, typeof pt>`, o TypeScript acusa chave faltando ou sobrando em tempo de compilação (segunda rede além do teste).
+`tsconfig.json` já tem `resolveJsonModule: true`. Como `en` e `es` sêo atribuídos a `Record<Locale, typeof pt>`, o TypeScript acusa chave faltando ou sobrando em tempo de compilaçêo (segunda rede além do teste).
 
 - [ ] **Step 8: Rodar teste e tsc**
 
@@ -553,7 +553,7 @@ git commit -m "portal: núcleo i18n (locales, dicionários PT/EN/ES, teste de pa
 - Consumes: `Locale`, `HTML_LANG`, `OG_LOCALE`, `localeHome`, `getDictionary` (Task 1).
 - Produces: `RootShell({ lang, children })`; `buildRootMetadata(locale): Metadata`; `getVisitStats(): Promise<VisitStats>`; `buildHomeJsonLd(locale): object[]`; `HomePage({ locale })`; `Portal({ visitStats, locale })` com `locale` opcional (default `'pt'`).
 
-Por que route groups: um layout aninhado (`app/en/layout.tsx`) não consegue trocar o `<html lang>`, e um `[locale]` na raiz moveria todas as rotas e exigiria middleware. Com três root layouts, as URLs PT não mudam, `src/proxy.ts` (matcher `/conhecimento/:path*`) continua igual, e a troca de idioma vira um reload completo de página (aceitável para um seletor de idioma).
+Por que route groups: um layout aninhado (`app/en/layout.tsx`) nêo consegue trocar o `<html lang>`, e um `[locale]` na raiz moveria todas as rotas e exigiria middleware. Com três root layouts, as URLs PT nêo mudam, `src/proxy.ts` (matcher `/conhecimento/:path*`) continua igual, e a troca de idioma vira um reload completo de página (aceitável para um seletor de idioma).
 
 - [ ] **Step 1: Criar `src/components/RootShell.tsx`** (o corpo do `layout.tsx` atual, parametrizado por `lang`)
 
@@ -595,7 +595,7 @@ export default function RootShell({ lang, children }: { lang: string; children: 
 }
 ```
 
-Antes de escrever, abrir `src/app/layout.tsx` e conferir que o `<head>`/`<body>` são exatamente esses (o trecho acima foi copiado em 2026-09-14; se houver algo a mais, trazer junto).
+Antes de escrever, abrir `src/app/layout.tsx` e conferir que o `<head>`/`<body>` sêo exatamente esses (o trecho acima foi copiado em 2026-09-14; se houver algo a mais, trazer junto).
 
 - [ ] **Step 2: Criar `src/lib/root-metadata.ts`**
 
@@ -606,9 +606,9 @@ import { OG_LOCALE, localeHome, type Locale } from '@/i18n/locales'
 
 const TITLES: Record<Locale, { title: string; og: string; description: string }> = {
   pt: {
-    title: 'INEMA.club — Cursos, projetos e formação prática em IA',
+    title: 'INEMA.club — Cursos, projetos e formaçêo prática em IA',
     og: 'INEMA.club — Aprenda, pratique e evolua com IA',
-    description: 'Formação prática em inteligência artificial, agentes e automação.',
+    description: 'Formaçêo prática em inteligência artificial, agentes e automaçêo.',
   },
   en: {
     title: 'INEMA.club — Courses, projects and hands-on AI training',
@@ -697,7 +697,7 @@ export async function getVisitStats(): Promise<VisitStats> {
       }
     }
   } catch {
-    // Supabase não configurado — retorna valores base
+    // Supabase nêo configurado — retorna valores base
   }
   return visitStats
 }
@@ -745,7 +745,7 @@ export function buildHomeJsonLd(locale: Locale) {
 }
 ```
 
-Nota: para `pt`, `localeHome` devolve `/`, então `@id` e `url` ficam `https://www.inema.club/#website` e `https://www.inema.club/`, idênticos aos de hoje.
+Nota: para `pt`, `localeHome` devolve `/`, entêo `@id` e `url` ficam `https://www.inema.club/#website` e `https://www.inema.club/`, idênticos aos de hoje.
 
 - [ ] **Step 4: Criar `src/components/HomePage.tsx`**
 
@@ -871,7 +871,7 @@ grep -rn "from '\.\./\|from '\./" "src/app/(pt)" | grep -v node_modules
 
 Expected: nenhuma linha (as rotas usam `@/...`). Se aparecer import relativo que subia até `src/app/`, trocar por alias `@/`.
 
-- [ ] **Step 11: Build e verificação de `<html lang>` por rota**
+- [ ] **Step 11: Build e verificaçêo de `<html lang>` por rota**
 
 ```bash
 npx tsc --noEmit && npm run build
@@ -949,7 +949,7 @@ Dentro de `<div className="header-content">`, depois de `<div className="visit-c
 
 - [ ] **Step 3: Substituir os textos do header e da nav**
 
-Mapa linha → chave (linhas de referência do arquivo em 2026-09-14; localizar pelo texto, não pelo número):
+Mapa linha → chave (linhas de referência do arquivo em 2026-09-14; localizar pelo texto, nêo pelo número):
 
 | Texto atual | Substituir por |
 |---|---|
@@ -960,7 +960,7 @@ Mapa linha → chave (linhas de referência do arquivo em 2026-09-14; localizar 
 | `title="acessos"` / `"visitantes únicos"` / `"logados"` | `title={t.header.chipVisits}` / `{t.header.chipUnique}` / `{t.header.chipLogged}` |
 | `🔍 Buscas` … `⭐ INEMA.PRO` (8 links da section-nav) | `{t.nav.search}`, `{t.nav.beginners}`, `{t.nav.courses}`, `{t.nav.trails}`, `{t.nav.projects}`, `{t.nav.telegram}`, `{t.nav.social}`, `{t.nav.pro}` |
 
-Os `label` passados ao `trackClick(...)` **não mudam** (são chaves de analytics, ficam em PT).
+Os `label` passados ao `trackClick(...)` **nêo mudam** (sêo chaves de analytics, ficam em PT).
 
 - [ ] **Step 4: Substituir hero, busca e eventos**
 
@@ -973,9 +973,9 @@ Os `label` passados ao `trackClick(...)` **não mudam** (são chaves de analytic
 | `<h2 id="webmcp-course-search-title">O que você quer aprender hoje?</h2>` | `<h2 id="webmcp-course-search-title">{t.search.title}</h2>` |
 | `<p>Pesquise os cursos públicos…</p>` | `<p>{t.search.body}{locale !== 'pt' && <> {t.search.catalogNote}</>}</p>` |
 | `<label htmlFor="home-course-search">Tema ou objetivo</label>` | `<label htmlFor="home-course-search">{t.search.label}</label>` |
-| `placeholder="Ex.: WebMCP, agentes, automação"` | `placeholder={t.search.placeholder}` |
+| `placeholder="Ex.: WebMCP, agentes, automaçêo"` | `placeholder={t.search.placeholder}` |
 | `<button type="submit">Buscar cursos</button>` | `<button type="submit">{t.search.button}</button>` |
-| `alt="Gestão de Agentes 2027 — …"` | `alt={t.events.gestao2027Alt}` |
+| `alt="Gestêo de Agentes 2027 — …"` | `alt={t.events.gestao2027Alt}` |
 | `alt="AGI chegou — …"` | `alt={t.events.agiAlt}` |
 | `alt="Content2Video — …"` | `alt={t.events.content2videoAlt}` |
 | `alt="WebMCP — evento INEMA"` | `alt={t.events.webmcpAlt}` |
@@ -991,7 +991,7 @@ Os atributos `toolname`, `tooldescription`, `toolparamdescription` do formulári
 |---|---|
 | `<h3>Trilha para Iniciantes</h3>` | `<h3>{t.beginners.title}</h3>` |
 | `<p>Comece sua jornada…</p>` | `<p>{t.beginners.subtitle}</p>` |
-| `<p style={{ maxWidth: '760px' … }}>Não é uma lista aleatória…</p>` | mesmo `<p style=…>` com `{t.beginners.body}` |
+| `<p style={{ maxWidth: '760px' … }}>Nêo é uma lista aleatória…</p>` | mesmo `<p style=…>` com `{t.beginners.body}` |
 | `<p>Após completar esta trilha…</p>` | `<p>{t.beginners.footer}</p>` |
 | `📖 Veja o guia com a importância de cada curso` | `{t.beginners.guideButton}` |
 | `<h3>🌱 Nunca usou IA? Comece pelo IA do Zero</h3>` | `<h3>{t.iaZero.title}</h3>` |
@@ -1004,7 +1004,7 @@ Selo PT: em **cada** `<a className="path-card …">` da Trilha para Iniciantes (
 {locale !== 'pt' && <span className="lang-pill" title={t.beginners.ptPillTitle}>{t.beginners.ptPill}</span>}
 ```
 
-Os `<h4>` e `<p>` desses cards (nomes e subtítulos dos cursos) **não mudam**.
+Os `<h4>` e `<p>` desses cards (nomes e subtítulos dos cursos) **nêo mudam**.
 
 - [ ] **Step 6: Novidades, atualizações, perfis, banners, trilhas, projetos, telegram, VIP, social, footer**
 
@@ -1041,7 +1041,7 @@ Os `<h4>` e `<p>` desses cards (nomes e subtítulos dos cursos) **não mudam**.
 | `<p>Siga-nos nas principais plataformas</p>` | `<p>{t.social.subtitle}</p>` |
 | `<p>&copy; 2025 Portal INEMA. Todos os direitos reservados.</p>` | `<p>{t.footer.copyright}</p>` |
 
-Os títulos das oito trilhas na grade `#trilhas` (ex.: "Trilha Profissional com IA"), os nomes dos grupos Telegram, os handles sociais e o botão da seção Projetos que aponta para o `inema.pro` ficam como estão. Se o botão de Projetos tiver texto PT visível, criar a chave `projects.ctaButton` nos três JSON e usar.
+Os títulos das oito trilhas na grade `#trilhas` (ex.: "Trilha Profissional com IA"), os nomes dos grupos Telegram, os handles sociais e o botêo da seçêo Projetos que aponta para o `inema.pro` ficam como estêo. Se o botêo de Projetos tiver texto PT visível, criar a chave `projects.ctaButton` nos três JSON e usar.
 
 - [ ] **Step 7: Varredura final por texto PT fora dos blocos `SHOW_DETALHES`**
 
@@ -1052,11 +1052,11 @@ let depth=0,skip=false;
 for(let i=428;i<L.length;i++){const l=L[i];
  if(/SHOW_DETALHES\s*&&\s*\(/.test(l)){skip=true;depth=0}
  if(skip){depth+=(l.match(/\(/g)||[]).length-(l.match(/\)/g)||[]).length;if(depth<=0)skip=false;continue}
- const m=l.match(/>([^<>{}]*[a-záéíóúãõç]{4,}[^<>{}]*)</i)||l.match(/(?:placeholder|title|alt)=\"([^\"]{4,})\"/);
+ const m=l.match(/>([^<>{}]*[a-záéíóúêõç]{4,}[^<>{}]*)</i)||l.match(/(?:placeholder|title|alt)=\"([^\"]{4,})\"/);
  if(m)console.log((i+1)+': '+m[1].trim())}"
 ```
 
-Expected: só nomes próprios (nomes de cursos dos cards, títulos das trilhas, nomes de grupos Telegram, handles) e o texto do botão de Projetos se ainda não tiver chave. Qualquer frase de interface que sobrar vira chave nova nos três JSON.
+Expected: só nomes próprios (nomes de cursos dos cards, títulos das trilhas, nomes de grupos Telegram, handles) e o texto do botêo de Projetos se ainda nêo tiver chave. Qualquer frase de interface que sobrar vira chave nova nos três JSON.
 
 - [ ] **Step 8: CSS do seletor e do selo** (append em `src/app/globals.css`)
 
@@ -1103,7 +1103,7 @@ Expected: só nomes próprios (nomes de cursos dos cards, títulos das trilhas, 
 }
 ```
 
-Se `globals.css` já definir `--text-primary`/`--text-secondary`, manter os nomes; se não, os fallbacks acima cobrem.
+Se `globals.css` já definir `--text-primary`/`--text-secondary`, manter os nomes; se nêo, os fallbacks acima cobrem.
 
 - [ ] **Step 9: Verificar**
 
@@ -1130,18 +1130,18 @@ git commit -m "portal: home lê dicionário por idioma, seletor PT/EN/ES e selo 
 
 ---
 
-### Task 4: Seção "Disponível em <idioma>" (lista de cursos traduzidos)
+### Task 4: Seçêo "Disponível em <idioma>" (lista de cursos traduzidos)
 
 **Files:**
 - Create: `src/data/translated-courses.ts`
-- Modify: `src/components/Portal.tsx` (inserir seção logo após `</section>` de `#trilha-iniciantes`, antes de `#ia-do-zero`)
+- Modify: `src/components/Portal.tsx` (inserir seçêo logo após `</section>` de `#trilha-iniciantes`, antes de `#ia-do-zero`)
 - Modify: `src/app/globals.css`
 - Modify: `tests/i18n.test.mjs` (um teste para a lista)
 
 **Interfaces:**
 - Produces: `type TranslatedItem = { id: number; kind: 'curso' | 'projeto'; locale: Exclude<Locale, 'pt'>; title: string; description: string; url: string; icon: string }`; `translatedCatalog: TranslatedItem[]`; `translatedFor(locale: Locale): TranslatedItem[]`.
 
-Fica fora de `courses.ts` de propósito: o `gen:data` não vê esse arquivo, e o `courses.data.json` que alimenta o PRO e o inemabuscas não muda. Nas fases seguintes, cada curso traduzido entra aqui com o `id` do curso original em `platformsData`.
+Fica fora de `courses.ts` de propósito: o `gen:data` nêo vê esse arquivo, e o `courses.data.json` que alimenta o PRO e o inemabuscas nêo muda. Nas fases seguintes, cada curso traduzido entra aqui com o `id` do curso original em `platformsData`.
 
 - [ ] **Step 1: Teste**
 
@@ -1156,7 +1156,7 @@ test('translated-courses.ts: ids únicos por locale e url github.io ou inema', (
     const key = `${locale}:${id}`
     assert.ok(!seen.has(key), `duplicado ${key}`)
     seen.add(key)
-    assert.match(url, /^https:\/\/(inematds\.github\.io|[a-z.]*inema\.(pro|club))\//, `url fora do padrão: ${url}`)
+    assert.match(url, /^https:\/\/(inematds\.github\.io|[a-z.]*inema\.(pro|club))\//, `url fora do padrêo: ${url}`)
   }
 })
 ```
@@ -1169,11 +1169,11 @@ Run: `npm test` → FAIL (`ENOENT translated-courses.ts`).
 import type { Locale } from '@/i18n/locales'
 
 /**
- * Cursos e guias de projeto que JÁ TÊM versão em outro idioma.
+ * Cursos e guias de projeto que JÁ TÊM versêo em outro idioma.
  * `id` = id do curso em platformsData (courses.ts) ou, para projetos, o índice
- * não importa: use o id do guia se houver, senão 0.
- * Fase 1: lista vazia — a seção mostra o aviso "estamos traduzindo".
- * Fases seguintes: cada tradução publicada entra aqui (uma linha por idioma).
+ * nêo importa: use o id do guia se houver, senêo 0.
+ * Fase 1: lista vazia — a seçêo mostra o aviso "estamos traduzindo".
+ * Fases seguintes: cada traduçêo publicada entra aqui (uma linha por idioma).
  */
 export type TranslatedItem = {
   id: number
@@ -1196,7 +1196,7 @@ export function translatedFor(locale: Locale): TranslatedItem[] {
 }
 ```
 
-- [ ] **Step 3: Renderizar a seção no `Portal.tsx`**
+- [ ] **Step 3: Renderizar a seçêo no `Portal.tsx`**
 
 Import: `import { translatedFor } from '@/data/translated-courses'`. Antes do `return`: `const translated = translatedFor(locale)`.
 
@@ -1260,7 +1260,7 @@ curl -s http://localhost:3111/en/ | grep -c 'id="translated"'
 curl -s http://localhost:3111/ | grep -c 'id="translated"'
 kill %1
 git add src/data/translated-courses.ts src/components/Portal.tsx src/app/globals.css tests/i18n.test.mjs
-git commit -m "portal: seção 'Disponível em EN/ES' com lista de cursos traduzidos (vazia na fase 1)"
+git commit -m "portal: seçêo 'Disponível em EN/ES' com lista de cursos traduzidos (vazia na fase 1)"
 ```
 
 Expected dos curls: `1` e `0`.
@@ -1278,7 +1278,7 @@ Expected dos curls: `1` e `0`.
 - Consumes: `document.documentElement.lang` (`pt-BR` | `en` | `es`, definido pelo `RootShell` da Task 2).
 - Produces: payload do chat ganha `locale: 'pt' | 'en' | 'es'`; `buildSystemPrompt(fichasContexto: string, locale: 'pt' | 'en' | 'es' = 'pt')`.
 
-Limitação conhecida, **não corrigir aqui**: `index.ts:186` faz `textSearch(..., { config: 'portuguese' })` nas fichas; pergunta em EN/ES casa pior com o catálogo. O modelo ainda responde no idioma certo com as fichas que encontrar.
+Limitaçêo conhecida, **nêo corrigir aqui**: `index.ts:186` faz `textSearch(..., { config: 'portuguese' })` nas fichas; pergunta em EN/ES casa pior com o catálogo. O modelo ainda responde no idioma certo com as fichas que encontrar.
 
 - [ ] **Step 1: Locale e textos do widget**
 
@@ -1300,7 +1300,7 @@ const WIDGET_TEXT: Record<WidgetLocale, { placeholder: string; serverError: stri
     serverError: 'Deu ruim aqui do nosso lado — tenta de novo em instantes.',
     contactSaved: 'Contato registrado — alguém do INEMA vai falar com você.',
     navigating: 'Te levando pra lá...',
-    offline: 'Sem conexão com o agente agora — tenta de novo em instantes.',
+    offline: 'Sem conexêo com o agente agora — tenta de novo em instantes.',
   },
   en: {
     placeholder: 'Ask me anything...',
@@ -1340,12 +1340,12 @@ body: JSON.stringify({
 }),
 ```
 
-Onde o widget aplica a navegação (perto da linha 227, após `addSystemNote(data.navigate.motivo || text.navigating)`), localizar a atribuição de `window.location` / `href` e prefixar âncoras da home:
+Onde o widget aplica a navegaçêo (perto da linha 227, após `addSystemNote(data.navigate.motivo || text.navigating)`), localizar a atribuiçêo de `window.location` / `href` e prefixar âncoras da home:
 
 ```ts
 function localizePath(path: string): string {
-  // PORTAL_ANCHORS da Edge Function são absolutas na raiz ('/#trilhas').
-  // Em /en/ e /es/ a home é outra rota: prefixa pra não jogar o visitante pro PT.
+  // PORTAL_ANCHORS da Edge Function sêo absolutas na raiz ('/#trilhas').
+  // Em /en/ e /es/ a home é outra rota: prefixa pra nêo jogar o visitante pro PT.
   if (locale !== 'pt' && (path === '/' || path.startsWith('/#'))) return `/${locale}${path}`;
   return path;
 }
@@ -1361,7 +1361,7 @@ e usar `localizePath(data.navigate.path)` (ou o nome do campo que o widget já l
 let body: { session_token?: string; message?: string; page_context?: string; locale?: string };
 ```
 
-Logo depois da validação de `message` (linha ~113), adicionar:
+Logo depois da validaçêo de `message` (linha ~113), adicionar:
 
 ```ts
 const locale: 'pt' | 'en' | 'es' =
@@ -1382,7 +1382,7 @@ e a última linha do template, hoje `Responda sempre em português do Brasil.`, 
 ${RESPONSE_LANGUAGE[locale]}`;
 ```
 
-com a constante, definida acima da função:
+com a constante, definida acima da funçêo:
 
 ```ts
 const RESPONSE_LANGUAGE = {
@@ -1397,10 +1397,10 @@ const RESPONSE_LANGUAGE = {
 ```bash
 npx tsc --noEmit      # widget.ts faz parte do projeto Next
 npm run build
-deno check supabase/functions/chat/index.ts   # se o deno estiver instalado; senão pular e confiar no deploy
+deno check supabase/functions/chat/index.ts   # se o deno estiver instalado; senêo pular e confiar no deploy
 ```
 
-- [ ] **Step 5: Commit e deploy da função**
+- [ ] **Step 5: Commit e deploy da funçêo**
 
 ```bash
 git add src/components/AgenteChat/widget.ts supabase/functions
@@ -1408,21 +1408,21 @@ git commit -m "portal: chat responde no idioma da página (locale no payload, pr
 npx supabase functions deploy chat
 ```
 
-O deploy da Edge Function **não acontece no push**; sem esse comando o prompt em produção continua "responda em português". Depois do deploy, abrir `inema.club/en/` (quando o Vercel publicar), mandar "what is INEMA?" no chat e conferir resposta em inglês.
+O deploy da Edge Function **nêo acontece no push**; sem esse comando o prompt em produçêo continua "responda em português". Depois do deploy, abrir `inema.club/en/` (quando o Vercel publicar), mandar "what is INEMA?" no chat e conferir resposta em inglês.
 
 ---
 
-### Task 6: Versão, documentação e push
+### Task 6: Versêo, documentaçêo e push
 
 **Files:**
 - Modify: `package.json` (`"version": "0.1.0"` → `"0.2.0"`)
-- Modify: `CLAUDE.md` (nova seção depois de "Home enxuta (2026-08-01)")
+- Modify: `CLAUDE.md` (nova seçêo depois de "Home enxuta (2026-08-01)")
 
-- [ ] **Step 1: Bump de versão**
+- [ ] **Step 1: Bump de versêo**
 
 Em `package.json`: `"version": "0.2.0"`.
 
-- [ ] **Step 2: Seção no `CLAUDE.md`**
+- [ ] **Step 2: Seçêo no `CLAUDE.md`**
 
 ```markdown
 ## Idiomas (i18n) — desde 2026-09-14
@@ -1430,15 +1430,15 @@ Em `package.json`: `"version": "0.2.0"`.
 Portal único, um idioma por rota: `/` (PT), `/en/`, `/es/`. Sem redirect por `Accept-Language`.
 
 - `src/i18n/locales.ts` — `Locale`, `HTML_LANG`, `OG_LOCALE`, `localeHome()`.
-- `src/i18n/messages/{pt,en,es}.json` — textos de interface da home. **Mesmas chaves nos três**; `npm test` (`tests/i18n.test.mjs`) e o `tsc` acusam divergência. Nomes de cursos, projetos, grupos e handles NÃO se traduzem.
-- `src/app/(pt)/`, `src/app/(en)/en/`, `src/app/(es)/es/` — três root layouts (é o único jeito de trocar `<html lang>`); todos usam `src/components/RootShell.tsx` e `buildRootMetadata()` (`src/lib/root-metadata.ts`, com hreflang). As rotas PT (`cursos`, `conhecimento`, `stats`) moram em `(pt)/`; URLs não mudaram.
+- `src/i18n/messages/{pt,en,es}.json` — textos de interface da home. **Mesmas chaves nos três**; `npm test` (`tests/i18n.test.mjs`) e o `tsc` acusam divergência. Nomes de cursos, projetos, grupos e handles NêO se traduzem.
+- `src/app/(pt)/`, `src/app/(en)/en/`, `src/app/(es)/es/` — três root layouts (é o único jeito de trocar `<html lang>`); todos usam `src/components/RootShell.tsx` e `buildRootMetadata()` (`src/lib/root-metadata.ts`, com hreflang). As rotas PT (`cursos`, `conhecimento`, `stats`) moram em `(pt)/`; URLs nêo mudaram.
 - `src/components/Portal.tsx` recebe `locale` e usa `t = getDictionary(locale)`. Blocos `SHOW_DETALHES` seguem em PT.
-- Modelo híbrido: catálogo continua em PT (selo "PT" nos cards em EN/ES) e a seção "Disponível em <idioma>" lista o que já foi traduzido — **`src/data/translated-courses.ts`**. Para publicar um curso traduzido: adicionar uma linha lá com o `id` do curso em `platformsData`, `locale`, título/descrição no idioma e a URL da versão traduzida. Não mexer no `courses.ts` por causa disso.
+- Modelo híbrido: catálogo continua em PT (selo "PT" nos cards em EN/ES) e a seçêo "Disponível em <idioma>" lista o que já foi traduzido — **`src/data/translated-courses.ts`**. Para publicar um curso traduzido: adicionar uma linha lá com o `id` do curso em `platformsData`, `locale`, título/descriçêo no idioma e a URL da versêo traduzida. Nêo mexer no `courses.ts` por causa disso.
 - Chat: o widget manda `locale` e a Edge Function responde nesse idioma (`_shared/prompts.ts`). Mudou o prompt? `npx supabase functions deploy chat`.
 - Fora do escopo por enquanto: `/cursos/`, `/conhecimento/`, `feed.xml`, `llms.txt` e as novidades ficam só em PT.
 ```
 
-- [ ] **Step 3: Verificação final e push**
+- [ ] **Step 3: Verificaçêo final e push**
 
 ```bash
 npx tsc --noEmit && npm test && npm run build
@@ -1449,14 +1449,14 @@ git commit -m "portal: v0.2.0 — i18n fase 1 (PT/EN/ES), docs"
 git push
 ```
 
-"Concluído" = push entrou no `origin`. O deploy no Vercel é automático e não é verificado por este plano. Depois que o site subir, o usuário confere `inema.club/en/` e `inema.club/es/` no navegador.
+"Concluído" = push entrou no `origin`. O deploy no Vercel é automático e nêo é verificado por este plano. Depois que o site subir, o usuário confere `inema.club/en/` e `inema.club/es/` no navegador.
 
 ---
 
 ## Self-Review
 
-**Cobertura:** rotas por idioma (Task 2), `<html lang>` e hreflang (Task 2), dicionário e seletor (Tasks 1 e 3), selo PT (Task 3), seção de traduzidos (Task 4), chat (Task 5), versão e docs (Task 6). Ficam explicitamente fora: `/cursos/` e `/conhecimento/` em EN/ES, novidades traduzidas, sitemap (correção de registro em 2026-09-19: havia `public/sitemap.xml`; a atualização de descoberta substituiu-o por `src/app/sitemap.ts`, com as homes PT/EN/ES), busca `textSearch` em português na Edge Function.
+**Cobertura:** rotas por idioma (Task 2), `<html lang>` e hreflang (Task 2), dicionário e seletor (Tasks 1 e 3), selo PT (Task 3), seçêo de traduzidos (Task 4), chat (Task 5), versêo e docs (Task 6). Ficam explicitamente fora: `/cursos/` e `/conhecimento/` em EN/ES, novidades traduzidas, sitemap (correçêo de registro em 2026-09-19: havia `public/sitemap.xml`; a atualizaçêo de descoberta substituiu-o por `src/app/sitemap.ts`, com as homes PT/EN/ES), busca `textSearch` em português na Edge Function.
 
 **Tipos consistentes:** `Locale` vem só de `src/i18n/locales.ts`; `getDictionary` (Task 1) é o que o `Portal` usa (Task 3); `Portal({ visitStats, locale })` definido na Task 2 e consumido pelo `HomePage`; `translatedFor(locale)` (Task 4); `buildSystemPrompt(fichas, locale)` (Task 5) com o mesmo union `'pt' | 'en' | 'es'`.
 
-**Risco principal:** Task 2, Step 6 (mover rotas para `(pt)`). Se o `next build` reclamar de root layout ausente para alguma rota, é porque um `page.tsx` ficou fora de um group; a lista do Step 6 cobre `page.tsx`, `cursos`, `conhecimento`, `stats`. Route handlers (`api`, `feed.xml`, `llms.txt`, `courses-sitemap.xml`) e `robots.ts` não precisam de layout.
+**Risco principal:** Task 2, Step 6 (mover rotas para `(pt)`). Se o `next build` reclamar de root layout ausente para alguma rota, é porque um `page.tsx` ficou fora de um group; a lista do Step 6 cobre `page.tsx`, `cursos`, `conhecimento`, `stats`. Route handlers (`api`, `feed.xml`, `llms.txt`, `courses-sitemap.xml`) e `robots.ts` nêo precisam de layout.

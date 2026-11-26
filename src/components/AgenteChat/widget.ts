@@ -1,5 +1,5 @@
 // Widget do agente do INEMA.club (F3, programa AIV).
-// Vanilla TS, shadow DOM isolado — sem dependências, não conflita com o
+// Vanilla TS, shadow DOM isolado — sem dependências, nêo conflita com o
 // resto do portal. O navegador nunca chama a API do modelo, só esta
 // Edge Function (que já esconde a chave OpenRouter no lado do servidor).
 
@@ -51,7 +51,7 @@ const WIDGET_TEXT: Record<WidgetLocale, { placeholder: string; serverError: stri
     serverError: 'Deu ruim aqui do nosso lado — tenta de novo em instantes.',
     contactSaved: 'Contato registrado — alguém do INEMA vai falar com você.',
     navigating: 'Te levando pra lá...',
-    offline: 'Sem conexão com o agente agora — tenta de novo em instantes.',
+    offline: 'Sem conexêo com o agente agora — tenta de novo em instantes.',
     ariaAgent: 'Agente guia do INEMA',
     launcher: 'Me guie pelo site',
     close: 'Fechar o agente',
@@ -126,8 +126,8 @@ export function mountAgenteChat() {
   const t = WIDGET_TEXT[locale];
 
   function localizePath(path: string): string {
-    // PORTAL_ANCHORS da Edge Function são absolutas na raiz ('/#trilhas').
-    // Em /en/ e /es/ a home é outra rota: prefixa pra não jogar o visitante pro PT.
+    // PORTAL_ANCHORS da Edge Function sêo absolutas na raiz ('/#trilhas').
+    // Em /en/ e /es/ a home é outra rota: prefixa pra nêo jogar o visitante pro PT.
     if (locale !== 'pt' && (path === '/' || path.startsWith('/#'))) return `/${locale}${path}`;
     return path;
   }
@@ -267,7 +267,7 @@ export function mountAgenteChat() {
     const parts = splitReply(reply);
     for (const part of parts) {
       const typing = makeTyping();
-      // pausa proporcional ao tamanho da parte, como digitação real
+      // pausa proporcional ao tamanho da parte, como digitaçêo real
       await wait(Math.min(350 + part.length * 14, 1800));
       typing.remove();
       state.messages.push({ role: 'assistant', content: part });

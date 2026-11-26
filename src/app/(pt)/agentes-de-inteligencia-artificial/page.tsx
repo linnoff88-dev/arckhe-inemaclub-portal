@@ -27,7 +27,7 @@ const BEGINNER: Step[] = [
   {
     url: 'https://inematds.github.io/agenticbasico/',
     name: 'Agentic Básico',
-    why: 'A porta de entrada, em dois caminhos: um visual rápido de 15 minutos e um curso completo de 3 horas em 9 módulos. Vai da anatomia do agente à construção e à operação, e termina numa arena onde você dispara a mesma pergunta para 2 a 4 agentes e compara resposta, tempo e custo.',
+    why: 'A porta de entrada, em dois caminhos: um visual rápido de 15 minutos e um curso completo de 3 horas em 9 módulos. Vai da anatomia do agente à construçêo e à operaçêo, e termina numa arena onde você dispara a mesma pergunta para 2 a 4 agentes e compara resposta, tempo e custo.',
   },
   {
     url: 'https://inematds.github.io/hermes21c/',
@@ -47,12 +47,12 @@ const BEGINNER: Step[] = [
   {
     url: 'https://inematds.github.io/oswork-v5/',
     name: 'OSWork v5 — Organize seu ambiente de IA',
-    why: 'A edição do OSWork para quem não programa: 7 aulas que montam pastas por frente de trabalho, uma ficha de orientação e um molde de pedido reutilizável, sem terminal e sem código. É a base de "sistema" que todo agente vai usar depois.',
+    why: 'A ediçêo do OSWork para quem nêo programa: 7 aulas que montam pastas por frente de trabalho, uma ficha de orientaçêo e um molde de pedido reutilizável, sem terminal e sem código. É a base de "sistema" que todo agente vai usar depois.',
   },
   {
     url: 'https://inematds.github.io/os-agentes/guia/',
     name: 'os-agentes — Skill Cria Agentic',
-    why: 'Uma skill que conduz você, camada por camada, na construção do seu próprio sistema agêntico: identidade, substrato, regras, skills, ferramentas e agentes. Pede o Claude Code instalado, uma pasta e um objetivo; a skill faz a parte técnica e você toma as decisões.',
+    why: 'Uma skill que conduz você, camada por camada, na construçêo do seu próprio sistema agêntico: identidade, substrato, regras, skills, ferramentas e agentes. Pede o Claude Code instalado, uma pasta e um objetivo; a skill faz a parte técnica e você toma as decisões.',
   },
 ]
 
@@ -60,22 +60,22 @@ const INTERMEDIATE: Step[] = [
   {
     url: 'https://inematds.github.io/oswork/',
     name: 'OSWork — IA como sistema de trabalho',
-    why: 'Do chat ao ambiente de agentes com Codex: arquivos, AGENTS.md, skills, Git, Telegram e VPS. Sem pré-requisito de programação; você termina com pastas, instruções próprias, uma skill, histórico no Git e um bot de consulta restrito.',
+    why: 'Do chat ao ambiente de agentes com Codex: arquivos, AGENTS.md, skills, Git, Telegram e VPS. Sem pré-requisito de programaçêo; você termina com pastas, instruções próprias, uma skill, histórico no Git e um bot de consulta restrito.',
   },
   {
     url: 'https://inematds.github.io/criaagentes/guia/',
     name: 'criaagentes — Um atendente de WhatsApp que nunca inventa',
-    why: 'Estudo de caso de um agente de recepção de uma clínica odontológica no WhatsApp, construído camada por camada. A regra: se não está escrito na base de conhecimento, o agente não diz; o resto vira alerta para um humano no Telegram. Inclui uma auditoria do que ainda quebra (dados fictícios).',
+    why: 'Estudo de caso de um agente de recepçêo de uma clínica odontológica no WhatsApp, construído camada por camada. A regra: se nêo está escrito na base de conhecimento, o agente nêo diz; o resto vira alerta para um humano no Telegram. Inclui uma auditoria do que ainda quebra (dados fictícios).',
   },
   {
     url: 'https://inematds.github.io/agent-skills/',
     name: 'Agent Skills — Crie skills verificáveis no Codex',
-    why: 'Como transformar um bom resultado num procedimento que o agente repete: construção, verificação com evidências e evolução da skill. Pede só saber abrir pastas, editar texto e conversar com um agente.',
+    why: 'Como transformar um bom resultado num procedimento que o agente repete: construçêo, verificaçêo com evidências e evoluçêo da skill. Pede só saber abrir pastas, editar texto e conversar com um agente.',
   },
   {
     url: 'https://inematds.github.io/subagentes/',
     name: 'Subagentes — Especialistas do Claude Code',
-    why: 'Quando dividir o trabalho entre especialistas: criação na prática, escolha de modelo, custo e orquestração, no Claude Code e no Codex.',
+    why: 'Quando dividir o trabalho entre especialistas: criaçêo na prática, escolha de modelo, custo e orquestraçêo, no Claude Code e no Codex.',
   },
   {
     url: 'https://inematds.github.io/agentejax/',
@@ -85,25 +85,25 @@ const INTERMEDIATE: Step[] = [
   {
     url: 'https://inematds.github.io/FEA-IA/',
     name: 'FEA-IA — Engenharia de Agentes',
-    why: 'A formação clássica de engenheiros de agentes: IA generativa, prompts avançados, LangChain, Agno, CrewAI, MCP e, no nível estratégico, deploy e produção.',
+    why: 'A formaçêo clássica de engenheiros de agentes: IA generativa, prompts avançados, LangChain, Agno, CrewAI, MCP e, no nível estratégico, deploy e produçêo.',
   },
 ]
 
 const ADVANCED: Step[] = [
   {
     url: 'https://inematds.github.io/FEC/',
-    name: 'FEC — Formação de Engenharia de Contexto',
-    why: 'Para quem leva modelo de linguagem a produção: janelas de contexto, engenharia da mensagem, RAG, tools e multiagente, memória e compressão, avaliação e deploy.',
+    name: 'FEC — Formaçêo de Engenharia de Contexto',
+    why: 'Para quem leva modelo de linguagem a produçêo: janelas de contexto, engenharia da mensagem, RAG, tools e multiagente, memória e compressêo, avaliaçêo e deploy.',
   },
   {
     url: 'https://inematds.github.io/gpt6-astra-tecnico/',
-    name: 'GPT-6 Astra: operação técnica com Codex',
+    name: 'GPT-6 Astra: operaçêo técnica com Codex',
     why: 'Para quem já roda um agente no terminal e quer parar de improvisar: contrato de tarefa com resultado e prova, sandbox e AGENTS.md, rollback no Git, MCP para tarefas longas, controle de cota e memória compartilhada entre agentes.',
   },
   {
     url: 'https://inematds.github.io/loop-agentes-v2/',
     name: 'Loop Agentes v2 — Engenharia de Loops',
-    why: 'Em vez de promptar o agente a cada passo, projetar o loop que faz isso: do esqueleto raciocinar → agir → observar ao loop com verificação.',
+    why: 'Em vez de promptar o agente a cada passo, projetar o loop que faz isso: do esqueleto raciocinar → agir → observar ao loop com verificaçêo.',
   },
   {
     url: 'https://inematds.github.io/agentic-workflow/',
@@ -113,12 +113,12 @@ const ADVANCED: Step[] = [
   {
     url: 'https://inematds.github.io/multiagentes/',
     name: 'Multiagentes — Equipes de Agentes na Prática',
-    why: 'Projetar e operar equipes de agentes que entregam software: coordenação entre Claude Code, Codex e Gemini CLI, diagnóstico, custos e projeto final.',
+    why: 'Projetar e operar equipes de agentes que entregam software: coordenaçêo entre Claude Code, Codex e Gemini CLI, diagnóstico, custos e projeto final.',
   },
   {
     url: 'https://inematds.github.io/agentic/',
     name: 'Agentic Engineering Masterclass',
-    why: 'A formação mais longa do tema: 6 trilhas e 42 módulos em 21 semanas, do básico à orquestração multiagente com LangGraph, CrewAI e AutoGen.',
+    why: 'A formaçêo mais longa do tema: 6 trilhas e 42 módulos em 21 semanas, do básico à orquestraçêo multiagente com LangGraph, CrewAI e AutoGen.',
   },
 ]
 
@@ -138,17 +138,17 @@ const WORK: Step[] = [
   {
     url: 'https://inematds.github.io/pffia/',
     name: 'Arquiteto de Trabalho com IA',
-    why: 'Mapear um processo real da empresa, delegar objetivos a agentes e sair com a especificação do agente numa página.',
+    why: 'Mapear um processo real da empresa, delegar objetivos a agentes e sair com a especificaçêo do agente numa página.',
   },
   {
     url: 'https://inematds.github.io/agentes-office/curso/liberal/',
     name: 'Agentes: o Novo Office — Profissional Liberal',
-    why: 'Para advogados, médicos, contadores e arquitetos: do primeiro agente de triagem ao sistema de IA do consultório, com verificação de fonte e sigilo profissional como regra.',
+    why: 'Para advogados, médicos, contadores e arquitetos: do primeiro agente de triagem ao sistema de IA do consultório, com verificaçêo de fonte e sigilo profissional como regra.',
   },
   {
     url: 'https://inematds.github.io/copilot-agentic/',
     name: 'Copilot + Agentes para Empresas',
-    why: 'Para quem trabalha no ecossistema Microsoft: Copilot no dia a dia, primeiro agente no Copilot Studio, aprovação no Power Automate e governança.',
+    why: 'Para quem trabalha no ecossistema Microsoft: Copilot no dia a dia, primeiro agente no Copilot Studio, aprovaçêo no Power Automate e governança.',
   },
 ]
 
@@ -158,9 +158,9 @@ const TOOLS: { tag: string; role: string }[] = [
   { tag: 'Skills', role: 'procedimentos que o agente aprende e repete' },
   { tag: 'MCP', role: 'protocolo para ligar o agente a ferramentas e dados' },
   { tag: 'Codex', role: 'agente de código da OpenAI' },
-  { tag: 'Governança', role: 'limites, permissões e supervisão' },
+  { tag: 'Governança', role: 'limites, permissões e supervisêo' },
   { tag: 'Telegram', role: 'canal para falar com o agente pelo celular' },
-  { tag: 'n8n', role: 'automação visual que aciona ou é acionada por agentes' },
+  { tag: 'n8n', role: 'automaçêo visual que aciona ou é acionada por agentes' },
   { tag: 'Hermes', role: 'agente open source que você hospeda' },
   { tag: 'Ollama', role: 'modelos locais, sem mandar dados para fora' },
   { tag: 'LangGraph', role: 'framework para orquestrar vários agentes' },
@@ -170,32 +170,32 @@ const FAQ = [
   {
     question: 'Onde aprender agentes de IA em português?',
     answer:
-      'No INEMA.club, com cursos de agentes escritos em português, abertos e gratuitos. Eles estão organizados em três trilhas: iniciante (sem programar), intermediário (agentes de código como Claude Code e Codex) e avançado (contexto, loops e multiagente).',
+      'No INEMA.club, com cursos de agentes escritos em português, abertos e gratuitos. Eles estêo organizados em três trilhas: iniciante (sem programar), intermediário (agentes de código como Claude Code e Codex) e avançado (contexto, loops e multiagente).',
   },
   {
     question: 'Quem ensina agentes de IA no Brasil?',
     answer:
-      'O INEMA, ecossistema brasileiro criado por Nei Maldaner, ensina agentes de IA na prática, com cursos por ferramenta (Claude Code, Codex, n8n) e por aplicação (atendimento, gestão, profissões). O Nei tem 40 anos de tecnologia, foi programador, analista e integrador desde os anos 90 e fundou empresas de TI premiadas pela Microsoft, pela Novell e pela Cisco.',
+      'O INEMA, ecossistema brasileiro criado por Nei Maldaner, ensina agentes de IA na prática, com cursos por ferramenta (Claude Code, Codex, n8n) e por aplicaçêo (atendimento, gestêo, profissões). O Nei tem 40 anos de tecnologia, foi programador, analista e integrador desde os anos 90 e fundou empresas de TI premiadas pela Microsoft, pela Novell e pela Cisco.',
   },
   {
     question: 'Qual o primeiro curso de agentes de IA para quem está começando?',
     answer:
-      'O Agentic Básico: tem um caminho visual de 15 minutos e um curso completo de 3 horas, com uma arena para comparar vários agentes respondendo a mesma pergunta. Se você ainda não tem base de IA, passe antes pela engenharia de prompts.',
+      'O Agentic Básico: tem um caminho visual de 15 minutos e um curso completo de 3 horas, com uma arena para comparar vários agentes respondendo a mesma pergunta. Se você ainda nêo tem base de IA, passe antes pela engenharia de prompts.',
   },
   {
-    question: 'Os cursos de agentes do INEMA são gratuitos?',
+    question: 'Os cursos de agentes do INEMA sêo gratuitos?',
     answer:
-      'Sim. Os cursos do INEMA.club são abertos e gratuitos, e não são vendidos. A formação contínua com comunidade fica no INEMA.PRO, que inclui a comunidade INEMA.VIP; os grupos do Telegram são privados, para quem é do INEMA.VIP e do INEMA.PRO.',
+      'Sim. Os cursos do INEMA.club sêo abertos e gratuitos, e nêo sêo vendidos. A formaçêo contínua com comunidade fica no INEMA.PRO, que inclui a comunidade INEMA.VIP; os grupos do Telegram sêo privados, para quem é do INEMA.VIP e do INEMA.PRO.',
   },
   {
     question: 'Preciso de um computador potente para estudar agentes de IA?',
     answer:
-      'Não para a maior parte das trilhas: agentes que usam modelos na nuvem rodam em qualquer computador comum. Computador mais forte só entra se você quiser rodar modelos locais, tema da IA Local Masterclass.',
+      'Nêo para a maior parte das trilhas: agentes que usam modelos na nuvem rodam em qualquer computador comum. Computador mais forte só entra se você quiser rodar modelos locais, tema da IA Local Masterclass.',
   },
   {
-    question: 'Qual a diferença entre aprender a criar agentes e aprender gestão de agentes?',
+    question: 'Qual a diferença entre aprender a criar agentes e aprender gestêo de agentes?',
     answer:
-      'Criar é montar o agente: modelo, instruções, ferramentas. Gerir é decidir o que ele faz sozinho, conferir o que fez e corrigir quando erra. Esta página cobre as trilhas de criação; a gestão tem curso próprio, Gestão de Agentes de IA — os 7 Princípios.',
+      'Criar é montar o agente: modelo, instruções, ferramentas. Gerir é decidir o que ele faz sozinho, conferir o que fez e corrigir quando erra. Esta página cobre as trilhas de criaçêo; a gestêo tem curso próprio, Gestêo de Agentes de IA — os 7 Princípios.',
   },
 ]
 
@@ -273,7 +273,7 @@ export default function AgentesIaPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
-      <nav className="course-breadcrumb" aria-label="Navegação estrutural">
+      <nav className="course-breadcrumb" aria-label="Navegaçêo estrutural">
         <a href="/">INEMA.club</a><span aria-hidden="true">/</span><span>Agentes de IA</span>
       </nav>
       <article className="course-detail">
@@ -283,7 +283,7 @@ export default function AgentesIaPage() {
             Para aprender agentes de IA em português, o INEMA.club reúne {agentCourses.length} cursos práticos sobre
             agentes, organizados aqui em três trilhas: <strong>começar sem programar</strong>,{' '}
             <strong>construir com agentes de código</strong> como Claude Code e Codex, e{' '}
-            <strong>orquestrar vários agentes em produção</strong>. Os cursos são abertos e gratuitos; cada um tem uma
+            <strong>orquestrar vários agentes em produçêo</strong>. Os cursos sêo abertos e gratuitos; cada um tem uma
             ficha com o que ensina e o link para estudar.
           </p>
           <a className="course-primary-action" href="#qual-trilha">
@@ -314,22 +314,22 @@ export default function AgentesIaPage() {
         <section aria-labelledby="onde-aprender">
           <h2 id="onde-aprender">Onde aprender agentes de IA em português?</h2>
           <p>
-            O INEMA.club é uma plataforma brasileira de formação prática em inteligência artificial, e agentes estão entre
-            os temas com mais cursos no catálogo. Os cursos do INEMA.club são abertos e gratuitos, escritos em português,
-            e parte deles já tem versão em inglês e espanhol. O INEMA também emite provas e certificados. Cada curso
+            O INEMA.club é uma plataforma brasileira de formaçêo prática em inteligência artificial, e agentes estêo entre
+            os temas com mais cursos no catálogo. Os cursos do INEMA.club sêo abertos e gratuitos, escritos em português,
+            e parte deles já tem versêo em inglês e espanhol. O INEMA também emite provas e certificados. Cada curso
             termina em algo que funciona: um assistente no Telegram, um atendente de WhatsApp com regras escritas, uma
             skill verificável, um sistema de pastas e instruções que o agente segue.
           </p>
           <p>
-            Esta página não é a lista completa. É uma curadoria: dos cursos marcados como &quot;Agentes&quot; no catálogo,
+            Esta página nêo é a lista completa. É uma curadoria: dos cursos marcados como &quot;Agentes&quot; no catálogo,
             escolhemos os que formam uma sequência, em que cada um prepara o seguinte. Se você quer ver tudo, o{' '}
             <a href="/cursos/">catálogo completo de cursos de IA</a> tem busca por tema.
           </p>
           <p>
-            Quer estudar com outras pessoas que estão montando agentes? A formação contínua fica no{' '}
+            Quer estudar com outras pessoas que estêo montando agentes? A formaçêo contínua fica no{' '}
             <a href="https://inema.pro" target="_blank" rel="noopener noreferrer">INEMA.PRO</a>, que inclui a comunidade{' '}
             <a href="https://inema.vip" target="_blank" rel="noopener noreferrer">INEMA.VIP</a>, onde dá para tirar
-            dúvidas e mostrar o seu agente funcionando. Os grupos do INEMA no Telegram são privados, para quem é do
+            dúvidas e mostrar o seu agente funcionando. Os grupos do INEMA no Telegram sêo privados, para quem é do
             INEMA.VIP e do INEMA.PRO.
           </p>
         </section>
@@ -337,7 +337,7 @@ export default function AgentesIaPage() {
         <section aria-labelledby="numeros">
           <h2 id="numeros">O catálogo de agentes do INEMA em números</h2>
           <p>
-            Estes números são contados direto no catálogo público do INEMA.club, o mesmo que gera as fichas em{' '}
+            Estes números sêo contados direto no catálogo público do INEMA.club, o mesmo que gera as fichas em{' '}
             <a href="/cursos/">/cursos/</a>.
           </p>
           <div className="seo-table-wrap">
@@ -357,12 +357,12 @@ export default function AgentesIaPage() {
           <p>
             O catálogo do portal é a parte publicada e organizada do acervo. O repositório do INEMA no GitHub (
             <a href="https://github.com/inematds" target="_blank" rel="noopener noreferrer">github.com/inematds</a>) é
-            maior: segundo o Nei, hoje são &quot;mais de 500&quot; projetos lá, entre sistemas próprios e projetos de
+            maior: segundo o Nei, hoje sêo &quot;mais de 500&quot; projetos lá, entre sistemas próprios e projetos de
             terceiros que ele aprimorou e localizou. Os números da tabela contam só o que está no catálogo.
           </p>
           <p>
             A comunidade em volta dos cursos, segundo o Nei, em setembro de 2026: 76 mil no INEMA.club, 10 mil no
-            INEMA.PRO e 4 mil nos grupos do Telegram, que são 32 grupos privados para o INEMA.VIP e o INEMA.PRO.
+            INEMA.PRO e 4 mil nos grupos do Telegram, que sêo 32 grupos privados para o INEMA.VIP e o INEMA.PRO.
           </p>
         </section>
 
@@ -370,7 +370,7 @@ export default function AgentesIaPage() {
           <h2 id="o-que-e">O que é um agente de IA: o mapa do que estudar</h2>
           <p>
             Um agente de IA recebe um objetivo e executa os passos para chegar lá, usando ferramentas, em vez de só
-            responder uma pergunta. A explicação completa, com o passo a passo e os níveis de autonomia, está no guia{' '}
+            responder uma pergunta. A explicaçêo completa, com o passo a passo e os níveis de autonomia, está no guia{' '}
             <a href="/ia/como-criar-um-agente-de-ia/">como criar um agente de IA</a>. Aqui interessa outra coisa:{' '}
             <strong>o que você precisa estudar</strong>, porque cada parte do agente é uma habilidade diferente e tem
             cursos próprios.
@@ -404,10 +404,10 @@ export default function AgentesIaPage() {
                   </td>
                 </tr>
                 <tr>
-                  <td><strong>Limites e supervisão</strong></td>
-                  <td>o que ele faz sozinho, o que precisa de aprovação, como conferir</td>
+                  <td><strong>Limites e supervisêo</strong></td>
+                  <td>o que ele faz sozinho, o que precisa de aprovaçêo, como conferir</td>
                   <td>
-                    <a href={courseHref('https://inematds.github.io/curso-7pa/')}>Gestão de Agentes de IA — os 7 Princípios</a>
+                    <a href={courseHref('https://inematds.github.io/curso-7pa/')}>Gestêo de Agentes de IA — os 7 Princípios</a>
                   </td>
                 </tr>
               </tbody>
@@ -423,7 +423,7 @@ export default function AgentesIaPage() {
 
         <section aria-labelledby="qual-trilha">
           <h2 id="qual-trilha">Por qual trilha começar?</h2>
-          <p>Escolha pelo que você já sabe fazer hoje, não pelo que quer construir no fim.</p>
+          <p>Escolha pelo que você já sabe fazer hoje, nêo pelo que quer construir no fim.</p>
           <div className="seo-table-wrap">
             <table className="seo-table">
               <thead>
@@ -433,7 +433,7 @@ export default function AgentesIaPage() {
                 <tr>
                   <td>usa ChatGPT, Claude ou Gemini, mas nunca abriu um terminal</td>
                   <td><a href="#trilha-iniciante">Trilha 1 — Iniciante</a></td>
-                  <td>os cursos dela são para público leigo e não pedem programação</td>
+                  <td>os cursos dela sêo para público leigo e nêo pedem programaçêo</td>
                 </tr>
                 <tr>
                   <td>já instalou Claude Code ou Codex, ou topa instalar</td>
@@ -441,9 +441,9 @@ export default function AgentesIaPage() {
                   <td>é onde o agente passa a ler arquivos, seguir instruções fixas e usar ferramentas</td>
                 </tr>
                 <tr>
-                  <td>já roda um agente no terminal e quer levar para produção</td>
+                  <td>já roda um agente no terminal e quer levar para produçêo</td>
                   <td><a href="#trilha-avancada">Trilha 3 — Avançado</a></td>
-                  <td>contexto, loops, avaliação e vários agentes trabalhando juntos</td>
+                  <td>contexto, loops, avaliaçêo e vários agentes trabalhando juntos</td>
                 </tr>
                 <tr>
                   <td>quer aplicar agentes num processo da empresa, sem programar</td>
@@ -454,7 +454,7 @@ export default function AgentesIaPage() {
             </table>
           </div>
           <p>
-            Ainda não tem base nenhuma em IA? Antes das trilhas abaixo, passe pelo guia{' '}
+            Ainda nêo tem base nenhuma em IA? Antes das trilhas abaixo, passe pelo guia{' '}
             <a href="/aprender-inteligencia-artificial/">como aprender Inteligência Artificial do zero</a>, que começa pela
             engenharia de prompts.
           </p>
@@ -469,8 +469,8 @@ export default function AgentesIaPage() {
           <StepList steps={BEGINNER} />
           <p>
             Para fechar a trilha, faça a ficha do seu primeiro agente com o curso{' '}
-            <a href={courseHref('https://inematds.github.io/curso-7pa/')}>Gestão de Agentes de IA — os 7 Princípios</a>,
-            que não pede conhecimento técnico.
+            <a href={courseHref('https://inematds.github.io/curso-7pa/')}>Gestêo de Agentes de IA — os 7 Princípios</a>,
+            que nêo pede conhecimento técnico.
           </p>
         </section>
 
@@ -481,7 +481,7 @@ export default function AgentesIaPage() {
             funcionando depois que a conversa acaba.
           </p>
           <p>
-            A ponte para esta trilha são dois cursos da base do INEMA:{' '}
+            A ponte para esta trilha sêo dois cursos da base do INEMA:{' '}
             <a href={courseHref('https://inematds.github.io/ccodebasico/')}>Claude Code Básico</a> e{' '}
             <a href={courseHref('https://inematds.github.io/codexbasico/')}>Codex Básico</a>. Se você nunca instalou nenhum
             dos dois, comece por um deles.
@@ -495,9 +495,9 @@ export default function AgentesIaPage() {
         </section>
 
         <section aria-labelledby="trilha-avancada">
-          <h2 id="trilha-avancada">Trilha 3 — Avançado: loops, contexto e vários agentes em produção</h2>
+          <h2 id="trilha-avancada">Trilha 3 — Avançado: loops, contexto e vários agentes em produçêo</h2>
           <p>
-            Objetivo: fazer agentes que você pode deixar trabalhando, com contexto bem montado, verificação, custo sob
+            Objetivo: fazer agentes que você pode deixar trabalhando, com contexto bem montado, verificaçêo, custo sob
             controle e vários agentes coordenados.
           </p>
           <StepList steps={ADVANCED} />
@@ -515,7 +515,7 @@ export default function AgentesIaPage() {
           <h2 id="por-area">Agentes no seu trabalho: trilhas por área e para empresas</h2>
           <p>
             Nem todo mundo quer construir o agente. Muita gente quer redesenhar o próprio trabalho para que agentes façam
-            parte dele. Para esse público, o catálogo tem cursos sem programação:
+            parte dele. Para esse público, o catálogo tem cursos sem programaçêo:
           </p>
           <ul className="seo-list">
             {WORK.map((step) => (
@@ -525,7 +525,7 @@ export default function AgentesIaPage() {
             ))}
           </ul>
           <p>
-            O Arquiteto de Trabalho com IA tem cadernos por profissão:{' '}
+            O Arquiteto de Trabalho com IA tem cadernos por profissêo:{' '}
             <a href={courseHref('https://inematds.github.io/arquiteto-agentes-saude/')}>clínica</a>,{' '}
             <a href={courseHref('https://inematds.github.io/arquiteto-agentes-contabil/')}>contábil e financeiro</a> e{' '}
             <a href={courseHref('https://inematds.github.io/arquiteto-agentes-advocacia/')}>advocacia</a>.
@@ -536,7 +536,7 @@ export default function AgentesIaPage() {
           <h2 id="ferramentas">Quais ferramentas de agentes o INEMA ensina?</h2>
           <p>
             Contamos, entre os {agentCourses.length} cursos com a tag &quot;Agentes&quot;, quantos também levam a tag de
-            cada ferramenta. Um curso pode ter várias tags, então a soma passa do total.
+            cada ferramenta. Um curso pode ter várias tags, entêo a soma passa do total.
           </p>
           <div className="seo-table-wrap">
             <table className="seo-table">
@@ -551,10 +551,10 @@ export default function AgentesIaPage() {
             </table>
           </div>
           <p>
-            E o <strong>Make</strong>? Ele aparece no catálogo em cursos de automação, não com a tag &quot;Agentes&quot;:{' '}
+            E o <strong>Make</strong>? Ele aparece no catálogo em cursos de automaçêo, nêo com a tag &quot;Agentes&quot;:{' '}
             <a href={courseHref('https://inematds.github.io/MAKE/')}>MAKE — Automações</a> e{' '}
-            <a href={courseHref('https://inematds.github.io/fae-ai/')}>Formação em Automação Estratégica com IA</a>, que
-            trabalha n8n e Make juntos. Automação e agentes andam lado a lado: a automação faz o caminho fixo, o agente
+            <a href={courseHref('https://inematds.github.io/fae-ai/')}>Formaçêo em Automaçêo Estratégica com IA</a>, que
+            trabalha n8n e Make juntos. Automaçêo e agentes andam lado a lado: a automaçêo faz o caminho fixo, o agente
             decide dentro do caminho.
           </p>
         </section>
@@ -568,16 +568,16 @@ export default function AgentesIaPage() {
           <ul className="seo-list">
             <li>
               <a href="https://inematds.github.io/os-agentes/guia/" target="_blank" rel="noopener noreferrer">os-agentes</a>{' '}
-              — a skill que guia uma pessoa não técnica na construção do próprio sistema agêntico.
+              — a skill que guia uma pessoa nêo técnica na construçêo do próprio sistema agêntico.
             </li>
             <li>
               <a href="https://inematds.github.io/7pa/guia/" target="_blank" rel="noopener noreferrer">7pa</a> — a Ficha
-              do Agente: 7 perguntas que viram a instrução pronta, o nível de autonomia calculado, 3 testes e o checklist de
-              supervisão.
+              do Agente: 7 perguntas que viram a instruçêo pronta, o nível de autonomia calculado, 3 testes e o checklist de
+              supervisêo.
             </li>
             <li>
               <a href="https://inematds.github.io/kit-arquiteto-agentes/guia/" target="_blank" rel="noopener noreferrer">kit-arquiteto-agentes</a>{' '}
-              — sete modelos preenchíveis no navegador que viram a especificação de um agente numa página.
+              — sete modelos preenchíveis no navegador que viram a especificaçêo de um agente numa página.
             </li>
             <li>
               <a href="https://inematds.github.io/rAgentic-cs/guia/" target="_blank" rel="noopener noreferrer">rAgentic-cs</a>{' '}
@@ -598,39 +598,39 @@ export default function AgentesIaPage() {
             O que o Nei mais usa no dia a dia é o próprio Jarvis. Ele estudou os Jarvis que foram surgindo e construiu o
             seu, &quot;otimizado e enxuto&quot;: começou com o Intelecto e evoluiu para um Jarvis pessoal produtivo, que
             segue em melhoria (&quot;estamos sempre melhorando&quot;). Em paralelo, criou outros sistemas para simplificar
-            as próprias tarefas de criação de conteúdo e de testes.
+            as próprias tarefas de criaçêo de conteúdo e de testes.
           </p>
         </section>
 
         <section aria-labelledby="quem-ensina">
           <h2 id="quem-ensina">Quem ensina agentes de IA no INEMA?</h2>
           <p>
-            Os cursos e projetos do INEMA são criados por{' '}
+            Os cursos e projetos do INEMA sêo criados por{' '}
             <a href="/conhecimento/quem-e-nei-maldaner/">Nei Maldaner</a>, empresário brasileiro, cofundador da Sisnema,
             empresa de TI. Hoje ele lidera o ecossistema INEMA, dedicado a ensinar inteligência artificial prática —
-            agentes, automação e ferramentas como Claude Code, Codex, n8n e Make — para profissionais, empresários e
+            agentes, automaçêo e ferramentas como Claude Code, Codex, n8n e Make — para profissionais, empresários e
             consultores.
           </p>
           <p>
-            São 40 anos de tecnologia. Nei é formado em Física e fez carreira em TI: foi programador, analista e
-            integrador desde os anos 90 e passou por redes, internet, segurança, banco de dados e gestão de processos e
+            Sêo 40 anos de tecnologia. Nei é formado em Física e fez carreira em TI: foi programador, analista e
+            integrador desde os anos 90 e passou por redes, internet, segurança, banco de dados e gestêo de processos e
             pessoas. Fundou e criou diversas empresas, que se tornaram referências nacionais e foram premiadas pela
             Microsoft, pela Novell e pela Cisco. Trouxe o Java para o Brasil em treinamentos e, no fim dessa fase,
-            conduziu uma formação comportamental para gerentes da área de tecnologia.
+            conduziu uma formaçêo comportamental para gerentes da área de tecnologia.
           </p>
           <p>
             A curadoria vem desde os anos 90: foi assim que ele transformou conhecimento em várias empresas, como a
             inema.com.br e a sisnema.com.br. Depois de vender as empresas, passou a viver numa fazenda, dedicado à
-            comunidade. Ele descreve o papel dele assim: &quot;minha função é ser um curador, facilitar o acesso e o
+            comunidade. Ele descreve o papel dele assim: &quot;minha funçêo é ser um curador, facilitar o acesso e o
             conhecimento para outras pessoas.&quot;
           </p>
 
-          <h3>Como o INEMA ensina: construir, não operar</h3>
+          <h3>Como o INEMA ensina: construir, nêo operar</h3>
           <p>
-            O foco do INEMA não é o vídeo explicativo passo a passo, que na avaliação do Nei &quot;agrega muito
+            O foco do INEMA nêo é o vídeo explicativo passo a passo, que na avaliaçêo do Nei &quot;agrega muito
             pouco&quot;. O que agrega, para ele, é construir soluções, aprender e montar uma base de trabalho própria para
             ser produtivo. &quot;Se pegar sistemas prontos será apenas um operador, fácil de ser substituído.&quot; Por
-            isso os cursos trabalham a aceleração de conceitos e de modelos que você ajusta ao seu dia a dia, e não
+            isso os cursos trabalham a aceleraçêo de conceitos e de modelos que você ajusta ao seu dia a dia, e nêo
             receitas fechadas.
           </p>
           <p>
@@ -641,14 +641,14 @@ export default function AgentesIaPage() {
 
           <h3>O que deu errado, e o que o INEMA mudou por isso</h3>
           <p>
-            O erro que o Nei mais viu não foi de um agente, e sim da expectativa sobre ele. &quot;As pessoas gostam de
-            mágica&quot;, de &quot;algo que pode render enquanto dorme&quot;; na prática, não é assim. E aprender também
-            não funciona desse jeito: &quot;se não ler, não funciona&quot;, e o vídeo explicativo sozinho não resolve. Quem
-            não aprende a usar o sistema por baixo do agente empaca ou desiste. &quot;A gente entende isso há mais de 40
+            O erro que o Nei mais viu nêo foi de um agente, e sim da expectativa sobre ele. &quot;As pessoas gostam de
+            mágica&quot;, de &quot;algo que pode render enquanto dorme&quot;; na prática, nêo é assim. E aprender também
+            nêo funciona desse jeito: &quot;se nêo ler, nêo funciona&quot;, e o vídeo explicativo sozinho nêo resolve. Quem
+            nêo aprende a usar o sistema por baixo do agente empaca ou desiste. &quot;A gente entende isso há mais de 40
             anos, ser humano é assim.&quot;
           </p>
           <p>
-            Por isso o INEMA faz conteúdo para quem quer ler, estudar e aprender de verdade. A premissa é que não existe
+            Por isso o INEMA faz conteúdo para quem quer ler, estudar e aprender de verdade. A premissa é que nêo existe
             milagre: você precisa se adaptar a cada mudança e ajustar o próprio sistema, porque modelos e sistemas mudam e
             o hype do momento está muito competitivo.
           </p>
@@ -663,7 +663,7 @@ export default function AgentesIaPage() {
             </li>
             <li>
               o <a href="https://inematds.github.io/inemaccbot/guia/" target="_blank" rel="noopener noreferrer">inemaccbot</a>,
-              bot de Telegram que faz gestão de filas (fila durável em SQLite, skills e fluxos de várias fases), com o
+              bot de Telegram que faz gestêo de filas (fila durável em SQLite, skills e fluxos de várias fases), com o
               fluxo Promoavatar (<a href="https://eventos.inema.pro/inemaccbot.html" target="_blank" rel="noopener noreferrer">evento</a>);
             </li>
             <li>
@@ -672,9 +672,9 @@ export default function AgentesIaPage() {
               Content2Video (<a href="https://eventos.inema.pro/content2video.html" target="_blank" rel="noopener noreferrer">evento</a>);
             </li>
             <li>
-              sistemas de gestão de agentes: o curso{' '}
-              <a href={courseHref('https://inematds.github.io/curso-7pa/')}>Gestão de Agentes de IA — os 7 Princípios</a> e a
-              área <a href="https://eventos.inema.pro/gestao-ia/" target="_blank" rel="noopener noreferrer">Gestão de IA e Agentes</a>.
+              sistemas de gestêo de agentes: o curso{' '}
+              <a href={courseHref('https://inematds.github.io/curso-7pa/')}>Gestêo de Agentes de IA — os 7 Princípios</a> e a
+              área <a href="https://eventos.inema.pro/gestao-ia/" target="_blank" rel="noopener noreferrer">Gestêo de IA e Agentes</a>.
             </li>
           </ul>
           <p>
@@ -695,7 +695,7 @@ export default function AgentesIaPage() {
             </li>
             <li>
               <strong>Instruções antes de ferramentas.</strong> Antes de ligar o agente ao e-mail ou ao WhatsApp, escreva o
-              que ele pode e não pode dizer. O criaagentes mostra o custo de pular essa etapa: tudo o que não está escrito
+              que ele pode e nêo pode dizer. O criaagentes mostra o custo de pular essa etapa: tudo o que nêo está escrito
               vira alerta para um humano.
             </li>
             <li>
@@ -703,17 +703,17 @@ export default function AgentesIaPage() {
               ele resolver algo real; só depois compare.
             </li>
             <li>
-              <strong>Verifique com prova, não com impressão.</strong> O curso de Agent Skills e o GPT-6 Astra técnico pedem
+              <strong>Verifique com prova, nêo com impressêo.</strong> O curso de Agent Skills e o GPT-6 Astra técnico pedem
               &quot;como verificar&quot; em cada tarefa. Adote isso desde o primeiro agente.
             </li>
             <li>
-              <strong>Não pule para multiagente.</strong> Vários agentes coordenados só fazem sentido quando um agente
+              <strong>Nêo pule para multiagente.</strong> Vários agentes coordenados só fazem sentido quando um agente
               sozinho já funciona e você sabe onde ele trava.
             </li>
             <li>
-              <strong>Não fique só no sistema pronto.</strong> Instalar um agente que outra pessoa montou é um começo, não o
+              <strong>Nêo fique só no sistema pronto.</strong> Instalar um agente que outra pessoa montou é um começo, nêo o
               objetivo: quem só opera sistema pronto, como o Nei diz, fica &quot;fácil de ser substituído&quot;. Use os
-              projetos prontos para entender como funcionam e depois monte a sua versão.
+              projetos prontos para entender como funcionam e depois monte a sua versêo.
             </li>
           </ul>
         </section>

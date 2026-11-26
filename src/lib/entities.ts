@@ -1,12 +1,12 @@
 import { SITE_DESCRIPTION, SITE_URL } from '@/lib/site'
 
 // Entidades únicas do site (schema.org). O RootShell publica as duas em toda página;
-// as páginas só apontam pra elas por @id — assim autor e organização são o mesmo nó em todo lugar.
+// as páginas só apontam pra elas por @id — assim autor e organizaçêo sêo o mesmo nó em todo lugar.
 export const NEI_ID = `${SITE_URL}/#nei`
 export const ORG_ID = `${SITE_URL}/#organization`
 export const NEI_URL = `${SITE_URL}/conhecimento/quem-e-nei-maldaner/`
 
-// Perfis da marca INEMA (organização).
+// Perfis da marca INEMA (organizaçêo).
 export const ORG_PROFILES = [
   'https://github.com/inematds',
   'https://www.youtube.com/@inematdsx',
@@ -16,7 +16,7 @@ export const ORG_PROFILES = [
 ]
 
 // Perfis pessoais do Nei. LinkedIn fica de fora até ele confirmar qual dos dois é o ativo
-// (ver /conhecimento/quem-e-nei-maldaner/, seção "Canais oficiais").
+// (ver /conhecimento/quem-e-nei-maldaner/, seçêo "Canais oficiais").
 export const PERSON_PROFILES = ['https://github.com/NeiMaldaner']
 
 export const personNode = {
@@ -25,7 +25,7 @@ export const personNode = {
   name: 'Nei Maldaner',
   url: NEI_URL,
   description:
-    'Empresário brasileiro, cofundador da Sisnema, que hoje ensina IA prática (agentes, automação, Claude Code, Codex, n8n e Make) no ecossistema INEMA.',
+    'Empresário brasileiro, cofundador da Sisnema, que hoje ensina IA prática (agentes, automaçêo, Claude Code, Codex, n8n e Make) no ecossistema INEMA.',
   jobTitle: 'Fundador do INEMA',
   worksFor: { '@id': ORG_ID },
   sameAs: PERSON_PROFILES,

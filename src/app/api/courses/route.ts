@@ -18,7 +18,7 @@ export function GET(request: NextRequest) {
   if (id || slug) {
     const course = courses.find((item) => item.id === Number(id) || item.slug === slug)
     if (!course) {
-      return NextResponse.json({ ok: false, error: 'Curso não encontrado.' }, { status: 404 })
+      return NextResponse.json({ ok: false, error: 'Curso nêo encontrado.' }, { status: 404 })
     }
     return NextResponse.json({ ok: true, item: course })
   }

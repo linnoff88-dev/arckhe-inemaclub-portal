@@ -123,7 +123,7 @@
         "detail": ""
       },
       {
-        "title": "Nível Aplicação 22-27 horas | Intermediário",
+        "title": "Nível Aplicaçêo 22-27 horas | Intermediário",
         "detail": ""
       },
       {
@@ -143,7 +143,7 @@
         "detail": ""
       },
       {
-        "title": "Módulo 7: Deploy e Produção",
+        "title": "Módulo 7: Deploy e Produçêo",
         "detail": ""
       },
       {
@@ -155,7 +155,7 @@
       "criar sistemas de agentes inteligentes que resolvem problemas reais",
       "Base sólida em IA Generativa, Prompts Avançados e LangChain",
       "Frameworks modernos e sistemas multi-agente. Agno, CrewAI e MCP para aplicações reais.",
-      "Deploy em produção, DevOps, monitoramento e todo o ecossistema de ferramentas profissionais."
+      "Deploy em produçêo, DevOps, monitoramento e todo o ecossistema de ferramentas profissionais."
     ],
     "audience": [
       "Perfeito para quem está começando."
@@ -164,7 +164,7 @@
       "sistemas de agentes inteligentes que resolvem problemas reais"
     ],
     "prerequisites": [
-      "Não precisa de experiência prévia."
+      "Nêo precisa de experiência prévia."
     ],
     "workload": null,
     "level": null,
@@ -177,14 +177,14 @@
     "structure": [
       {
         "title": "Fundamentos de Contexto",
-        "detail": "Janela, atenção, \"lost in the middle\", tokens, custo, limites por modelo."
+        "detail": "Janela, atençêo, \"lost in the middle\", tokens, custo, limites por modelo."
       },
       {
         "title": "Engenharia da Mensagem",
         "detail": "System prompt, few-shot, XML/JSON, ancoragem, versionamento, eval primer."
       },
       {
-        "title": "RAG e Recuperação",
+        "title": "RAG e Recuperaçêo",
         "detail": "Chunking, embeddings, BM25/híbrido, reranking, contextual retrieval, citações."
       },
       {
@@ -192,12 +192,12 @@
         "detail": "Function calling, ReAct, planner/executor, MCP, padrões multi-agente."
       },
       {
-        "title": "Memória e Compressão",
-        "detail": "Memória curto/longo prazo, summarização hierárquica, prompt caching, distillation."
+        "title": "Memória e Compressêo",
+        "detail": "Memória curto/longo prazo, summarizaçêo hierárquica, prompt caching, distillation."
       },
       {
-        "title": "Avaliação e Produção",
-        "detail": "Golden sets, LLM-as-judge, tracing, prompt injection, custo, A/B em produção."
+        "title": "Avaliaçêo e Produçêo",
+        "detail": "Golden sets, LLM-as-judge, tracing, prompt injection, custo, A/B em produçêo."
       }
     ],
     "learn": [
@@ -205,7 +205,7 @@
       "a disciplina de projetar, montar, comprimir, persistir e avaliar a janela de contexto que um modelo recebe."
     ],
     "audience": [
-      "Engenharia de Contexto para quem leva LLM a produção."
+      "Engenharia de Contexto para quem leva LLM a produçêo."
     ],
     "build": [
       "projetos cumulativos"
@@ -262,7 +262,7 @@
         "detail": ""
       },
       {
-        "title": "Orquestração & RAG",
+        "title": "Orquestraçêo & RAG",
         "detail": ""
       },
       {
@@ -274,7 +274,7 @@
         "detail": ""
       },
       {
-        "title": "Risco e Avaliação",
+        "title": "Risco e Avaliaçêo",
         "detail": ""
       },
       {
@@ -333,11 +333,11 @@
         "detail": ""
       },
       {
-        "title": "Mód 1: Introdução à IA Criativa",
+        "title": "Mód 1: Introduçêo à IA Criativa",
         "detail": ""
       },
       {
-        "title": "Mód 2: Criação de Imagens",
+        "title": "Mód 2: Criaçêo de Imagens",
         "detail": ""
       },
       {
@@ -345,7 +345,7 @@
         "detail": ""
       },
       {
-        "title": "Mód 4: Edição e Pós-Produção",
+        "title": "Mód 4: Ediçêo e Pós-Produçêo",
         "detail": ""
       },
       {
@@ -371,8 +371,8 @@
     ],
     "learn": [
       "Do zero ao profissional autônomo",
-      "Criação de Imagens Midjourney V8.1, FLUX.2 Pro, Stable Diffusion 3.5 e Leonardo AI para imagens profissionais.",
-      "Produção de Vídeos Kling 3.0 (4K nativo), Runway Gen-4.5, Hailuo, Seedance 2.0, Google Veo 3.1, Pika 2.5 e Luma Ray3.",
+      "Criaçêo de Imagens Midjourney V8.1, FLUX.2 Pro, Stable Diffusion 3.5 e Leonardo AI para imagens profissionais.",
+      "Produçêo de Vídeos Kling 3.0 (4K nativo), Runway Gen-4.5, Hailuo, Seedance 2.0, Google Veo 3.1, Pika 2.5 e Luma Ray3.",
       "Áudio e Música ElevenLabs ElevenMusic (lançado abril/2026), Suno v5.5, Udio v4 — voz, música e SFX."
     ],
     "audience": [],
@@ -395,15 +395,15 @@
         "detail": "Transforme um bom resultado em um processo ensinável."
       },
       {
-        "title": "Construção",
+        "title": "Construçêo",
         "detail": "Dê à skill um trabalho claro e a liberdade certa."
       },
       {
-        "title": "Verificação",
+        "title": "Verificaçêo",
         "detail": "Troque a confiança no discurso por evidências."
       },
       {
-        "title": "Evolução",
+        "title": "Evoluçêo",
         "detail": "Reduza custo, incorpore feedback e entregue sua skill."
       }
     ],
@@ -411,7 +411,7 @@
       "Transforme um bom resultado em um processo ensinável.",
       "Entenda o que uma skill ensina / Comece pelo resultado aprovado",
       "Construa uma skill com um trabalho claro / Calibre a liberdade do agente",
-      "Verifique com evidências / Faça uma revisão visual de verdade",
+      "Verifique com evidências / Faça uma revisêo visual de verdade",
       "Compare qualidade, custo e esforço / Evolua e entregue sua primeira skill",
       "aprender com o uso entrada → procedimento → saída → evidência"
     ],
@@ -420,14 +420,14 @@
       "Uma skill com um trabalho claro",
       "Evidências",
       "Um relatório que prova de onde vieram os números.",
-      "Um projeto que transforma um CSV de vendas em relatório semanal, com cálculo exato, validação de entrada e evidências.",
+      "Um projeto que transforma um CSV de vendas em relatório semanal, com cálculo exato, validaçêo de entrada e evidências.",
       "Um segundo caso acompanha o processo visual de transformar vídeo em artigo."
     ],
     "prerequisites": [
       "saber abrir pastas",
       "editar texto",
       "conversar com um agente",
-      "Conceitos de YAML, Markdown, testes e avaliação são explicados ao longo do percurso."
+      "Conceitos de YAML, Markdown, testes e avaliaçêo sêo explicados ao longo do percurso."
     ],
     "workload": null,
     "level": null,
@@ -447,7 +447,7 @@
         "detail": ""
       },
       {
-        "title": "Produção",
+        "title": "Produçêo",
         "detail": ""
       }
     ],
@@ -456,7 +456,7 @@
       "Chave de modelo (LLM) | A credencial pra falar com Claude, GPT, DeepSeek ou Ollama local. Pode trocar a quente.",
       "Bootstrap do projeto | Node 20+, TypeScript, package.json, estrutura de pastas e o primeiro \"olá mundo\".",
       "Memória de curto prazo | Buffer SQLite das últimas N mensagens + fatos centrais sobre você (nome, fuso, metas).",
-      "Memória semântica (vetorial) | Indexa todo histórico em vetores (Pinecone ou local) e recupera por similaridade, não por recência."
+      "Memória semântica (vetorial) | Indexa todo histórico em vetores (Pinecone ou local) e recupera por similaridade, nêo por recência."
     ],
     "audience": [
       "Você vai depender desse agente em tarefas críticas",
@@ -496,11 +496,11 @@
     "structure": [
       {
         "title": "Entrando no mundo dos agentes",
-        "detail": "O que é um agente (sem jargão), e o que no SEU trabalho pode virar um."
+        "detail": "O que é um agente (sem jargêo), e o que no SEU trabalho pode virar um."
       },
       {
         "title": "Prompt como comando de trabalho",
-        "detail": "Prompt não é frase bonita — é ordem de serviço com 8 blocos."
+        "detail": "Prompt nêo é frase bonita — é ordem de serviço com 8 blocos."
       },
       {
         "title": "Seu primeiro agente simples",
@@ -516,7 +516,7 @@
       },
       {
         "title": "Claude Code e agentes de desenvolvimento",
-        "detail": "A IA constrói sob a sua direção: você tem a planta, dá a ordem, confere a parede."
+        "detail": "A IA constrói sob a sua direçêo: você tem a planta, dá a ordem, confere a parede."
       },
       {
         "title": "APIs, MCP e ferramentas",
@@ -530,9 +530,9 @@
     "learn": [
       "você monta seu ambiente de trabalho com agentes",
       "a montar funcionários digitais que executam tarefas suas, do seu jeito, todos os dias",
-      "a montar agentes com missão fixa: e-mail, proposta, parecer, reunião",
+      "a montar agentes com missêo fixa: e-mail, proposta, parecer, reuniêo",
       "base de conhecimento com OS SEUS modelos, casos e processos",
-      "Resultado no seu padrão, pronto para revisar e assinar",
+      "Resultado no seu padrêo, pronto para revisar e assinar",
       "horas de volta, toda semana, medíveis"
     ],
     "audience": [
@@ -563,11 +563,11 @@
         "detail": ""
       },
       {
-        "title": "Construção",
+        "title": "Construçêo",
         "detail": ""
       },
       {
-        "title": "Operação",
+        "title": "Operaçêo",
         "detail": ""
       },
       {
@@ -575,7 +575,7 @@
         "detail": ""
       },
       {
-        "title": "Modo orquestração (pipeline encadeado)",
+        "title": "Modo orquestraçêo (pipeline encadeado)",
         "detail": ""
       },
       {
@@ -583,7 +583,7 @@
         "detail": ""
       },
       {
-        "title": "Demo do bot com botão \"▶ próxima fala\"",
+        "title": "Demo do bot com botêo \"▶ próxima fala\"",
         "detail": ""
       },
       {
@@ -598,7 +598,7 @@
     "learn": [
       "Cadastre quantos agentes quiser, selecione 2 a 4 e dispare a mesma pergunta pra todos ao mesmo tempo",
       "Compare respostas, tempo e custo lado a lado",
-      "Ou ative o modo orquestração pra encadear em pipeline"
+      "Ou ative o modo orquestraçêo pra encadear em pipeline"
     ],
     "audience": [],
     "build": [
@@ -655,7 +655,7 @@
       },
       {
         "title": "INEMA.CLUB T1 Fundamentos",
-        "detail": "3 · Geração PPTX · DOCX · PNG"
+        "detail": "3 · Geraçêo PPTX · DOCX · PNG"
       },
       {
         "title": "Nível 1 · Aprendiz",
@@ -680,7 +680,7 @@
     ],
     "learn": [],
     "audience": [
-      "Para quem quer entrar na área de IA e de consultoria e sair com algo que dá para mostrar e vender. Não exige ser dev — você orquestra tudo pelo Claude Code.",
+      "Para quem quer entrar na área de IA e de consultoria e sair com algo que dá para mostrar e vender. Nêo exige ser dev — você orquestra tudo pelo Claude Code.",
       "quer um caminho rápido, mas completo.",
       "quer um entregável e uma oferta de verdade.",
       "quer aplicar na própria empresa."
@@ -792,11 +792,11 @@
     "structure": [
       {
         "title": "Fundamentos e contrato",
-        "detail": "O que é computer use, por que o Astra mudou o jogo, onde ele entra (navegador, desktop, celular) e o contrato de prompt em quatro partes que faz qualquer fluxo dar prova de conclusão."
+        "detail": "O que é computer use, por que o Astra mudou o jogo, onde ele entra (navegador, desktop, celular) e o contrato de prompt em quatro partes que faz qualquer fluxo dar prova de conclusêo."
       },
       {
         "title": "Escrever o contrato de quatro partes",
-        "detail": "App exato, resultado, escopo e prova de conclusão. O molde que todos os cinco prompts seguem."
+        "detail": "App exato, resultado, escopo e prova de conclusêo. O molde que todos os cinco prompts seguem."
       },
       {
         "title": "Transformar uma busca repetida em ferramenta",
@@ -811,16 +811,16 @@
         "detail": "Reproduzir a falha do seu app pela interface real, ligar ao código e retestar no mesmo teste."
       },
       {
-        "title": "Levar a edição de vídeo até a entrega",
+        "title": "Levar a ediçêo de vídeo até a entrega",
         "detail": "Esperar o render, subir no editor, aplicar a limpeza conservadora, conferir o arquivo exportado."
       },
       {
         "title": "Operar o celular pelo computador",
-        "detail": "Aplicar uma configuração no app móvel pela janela de espelhamento e provar que persistiu."
+        "detail": "Aplicar uma configuraçêo no app móvel pela janela de espelhamento e provar que persistiu."
       },
       {
         "title": "Os cinco fluxos",
-        "detail": "Busca que vira ferramenta, teste de MCP dentro do app, um agente testando outro, edição de vídeo até a entrega e o celular operado pelo computador. Cada um com prompt pronto e prova de conclusão."
+        "detail": "Busca que vira ferramenta, teste de MCP dentro do app, um agente testando outro, ediçêo de vídeo até a entrega e o celular operado pelo computador. Cada um com prompt pronto e prova de conclusêo."
       }
     ],
     "learn": [
@@ -828,11 +828,11 @@
       "Transformar uma busca repetida em ferramenta",
       "Testar seu MCP ou skill como usuário novo",
       "Colocar um agente para testar outro",
-      "Levar a edição de vídeo até a entrega",
+      "Levar a ediçêo de vídeo até a entrega",
       "Operar o celular pelo computador"
     ],
     "audience": [
-      "que quer usar o navegador interno e o controle de desktop com critério, não por tentativa.",
+      "que quer usar o navegador interno e o controle de desktop com critério, nêo por tentativa.",
       "e precisa simular o primeiro uso de outra pessoa antes de lançar.",
       "que renderiza, edita e entrega vídeo toda semana e quer o trecho manual reduzido.",
       "e quer um agente externo auditando o computer use do próprio app."
@@ -854,27 +854,27 @@
       },
       {
         "title": "A Nova Realidade",
-        "detail": "Fundação. Decifra o estudo IBM. Cenário Brasil. Mitos. Mapeia sua posição no gap."
+        "detail": "Fundaçêo. Decifra o estudo IBM. Cenário Brasil. Mitos. Mapeia sua posiçêo no gap."
       },
       {
         "title": "Os Dois Caminhos",
-        "detail": "Path A (consultor) vs Path B (AI-native interno). Autoavaliação. Erros fatais."
+        "detail": "Path A (consultor) vs Path B (AI-native interno). Autoavaliaçêo. Erros fatais."
       },
       {
         "title": "As 6 Skills Core",
-        "detail": "Fluência conceitual, prompt aplicado a negócio, automação, governança, storytelling, change."
+        "detail": "Fluência conceitual, prompt aplicado a negócio, automaçêo, governança, storytelling, change."
       },
       {
         "title": "Posicionamento e Marketing Pessoal",
-        "detail": "Thesis pública, build in public corporativo, pitch interno e externo, reputação composta."
+        "detail": "Thesis pública, build in public corporativo, pitch interno e externo, reputaçêo composta."
       },
       {
-        "title": "Playbooks por Função",
+        "title": "Playbooks por Funçêo",
         "detail": "Marketing, Finanças, RH, Operações, Vendas, Jurídico — AI-native do seu jeito."
       },
       {
         "title": "Plano de 12 Semanas",
-        "detail": "Descoberta, primeiro projeto, ampliação, pedido (promoção ou proposta). Métricas que importam."
+        "detail": "Descoberta, primeiro projeto, ampliaçêo, pedido (promoçêo ou proposta). Métricas que importam."
       }
     ],
     "learn": [],
@@ -901,7 +901,7 @@
         "detail": "Instale, abra e dê os primeiros comandos — sem travar, mesmo sem nunca ter usado nada parecido com um terminal."
       },
       {
-        "title": "Estruturação de projetos",
+        "title": "Estruturaçêo de projetos",
         "detail": "Organize arquivos e pastas do jeito que o Claude Code entende, pra trabalhar com ele em qualquer projeto real seu."
       },
       {
@@ -917,7 +917,7 @@
         "detail": "Divida tarefas grandes entre vários ajudantes especializados de IA que trabalham em paralelo por você."
       },
       {
-        "title": "Construção e publicação de projetos",
+        "title": "Construçêo e publicaçêo de projetos",
         "detail": "Saia de uma ideia solta e chegue a um projeto pronto, publicado e funcionando, do começo ao fim."
       },
       {
@@ -929,7 +929,7 @@
         "detail": "Coloque vários agentes de IA trabalhando juntos em automações que rodam sozinhas, sem você precisar estar lá."
       },
       {
-        "title": "Otimização e encerramento",
+        "title": "Otimizaçêo e encerramento",
         "detail": "Ajuste e revise o que você construiu, com um plano claro pra continuar sozinho depois do curso."
       }
     ],
@@ -957,16 +957,16 @@
   "https://inematds.github.io/ccodebasico/": {
     "structure": [
       {
-        "title": "Básico & Instalação",
+        "title": "Básico & Instalaçêo",
         "detail": "Do zero ao primeiro projeto: instalar no Windows/macOS/Linux, login, comandos essenciais, modo plano, permissões e o CLAUDE.md."
       },
       {
         "title": "Construindo do Zero",
-        "detail": "A série dia-a-dia do canal: do primeiro app ao planejador de workflows, dashboards e projetos reais (Leilão, PETS, Build Anything)."
+        "detail": "A série dia-a-dia do canal: do primeiro app ao planejador de workflows, dashboards e projetos reais (Leilêo, PETS, Build Anything)."
       },
       {
         "title": "Contexto & Comandos",
-        "detail": "Domine o contexto: /loop, /fork, modo plano, gestão de tokens, os 6 pilares, 32 hacks e as 15 dicas do criador do Claude Code."
+        "detail": "Domine o contexto: /loop, /fork, modo plano, gestêo de tokens, os 6 pilares, 32 hacks e as 15 dicas do criador do Claude Code."
       },
       {
         "title": "Skills, Plugins & Memória",
@@ -978,7 +978,7 @@
       },
       {
         "title": "Agentes & Cowork",
-        "detail": "Multiagentes e automação: times de agentes, orquestração, Claude Cowork, segundo cérebro (Obsidian + RAG) e projetos aplicados."
+        "detail": "Multiagentes e automaçêo: times de agentes, orquestraçêo, Claude Cowork, segundo cérebro (Obsidian + RAG) e projetos aplicados."
       }
     ],
     "learn": [],
@@ -996,11 +996,11 @@
     "structure": [
       {
         "title": "Codex Básico",
-        "detail": "Do zero ao avançado com o agente de codificação da OpenAI. Instalação, skills, subagentes e projetos reais."
+        "detail": "Do zero ao avançado com o agente de codificaçêo da OpenAI. Instalaçêo, skills, subagentes e projetos reais."
       },
       {
         "title": "Terminal e Interface",
-        "detail": "Instalação completa, uso do terminal, configuração de ambiente e interface gráfica do Codex App para Windows."
+        "detail": "Instalaçêo completa, uso do terminal, configuraçêo de ambiente e interface gráfica do Codex App para Windows."
       },
       {
         "title": "Agent Builder",
@@ -1020,7 +1020,7 @@
       }
     ],
     "learn": [
-      "Do zero ao avançado com o agente de codificação da OpenAI. Instalação, skills, subagentes e projetos reais."
+      "Do zero ao avançado com o agente de codificaçêo da OpenAI. Instalaçêo, skills, subagentes e projetos reais."
     ],
     "audience": [],
     "build": [
@@ -1041,31 +1041,31 @@
     "structure": [
       {
         "title": "Fundamentos",
-        "detail": "O trabalho por trás do rótulo: a janela de mercado, a restrição real, a pirâmide de soluções e quando NÃO usar IA."
+        "detail": "O trabalho por trás do rótulo: a janela de mercado, a restriçêo real, a pirâmide de soluções e quando NêO usar IA."
       },
       {
         "title": "Mapear",
-        "detail": "Descobrir a restrição real: entrevistas, mapeamento de processos, catálogo de oportunidades e a matriz valor × viabilidade."
+        "detail": "Descobrir a restriçêo real: entrevistas, mapeamento de processos, catálogo de oportunidades e a matriz valor × viabilidade."
       },
       {
         "title": "Auditar",
-        "detail": "Prontidão, dados e risco: readiness assessment, modelos de maturidade, auditoria de dados e governança (NIST AI RMF, ISO 42001)."
+        "detail": "Prontidêo, dados e risco: readiness assessment, modelos de maturidade, auditoria de dados e governança (NIST AI RMF, ISO 42001)."
       },
       {
-        "title": "Planos de execução",
+        "title": "Planos de execuçêo",
         "detail": "Da oportunidade ao business case: ROI, roadmap por ondas, escolher o nível da pirâmide e desenhar pilotos com métricas de sucesso."
       },
       {
         "title": "Entrega & Negócio",
-        "detail": "O negócio da consultoria: escopo e proposta, precificação, kit de entregáveis e como conduzir a adoção e escalar a prática."
+        "detail": "O negócio da consultoria: escopo e proposta, precificaçêo, kit de entregáveis e como conduzir a adoçêo e escalar a prática."
       }
     ],
     "learn": [
-      "a mapear oportunidades, auditar a prontidão e montar planos de execução",
-      "quando subir a pirâmide de soluções e quando a melhor resposta não tem IA nenhuma",
-      "o trabalho por trás do rótulo: a janela de mercado, a restrição real e a pirâmide de soluções",
-      "descobrir a restrição real: entrevistas, mapeamento de processos e catálogo de oportunidades",
-      "prontidão, dados e risco: readiness assessment, modelos de maturidade e governança"
+      "a mapear oportunidades, auditar a prontidêo e montar planos de execuçêo",
+      "quando subir a pirâmide de soluções e quando a melhor resposta nêo tem IA nenhuma",
+      "o trabalho por trás do rótulo: a janela de mercado, a restriçêo real e a pirâmide de soluções",
+      "descobrir a restriçêo real: entrevistas, mapeamento de processos e catálogo de oportunidades",
+      "prontidêo, dados e risco: readiness assessment, modelos de maturidade e governança"
     ],
     "audience": [],
     "build": [],
@@ -1102,7 +1102,7 @@
       },
       {
         "title": "Regras · rules/",
-        "detail": "Uma regra é uma placa escrita \"não entre\". Hook tranca/porta; alerta do Telegram dispara sozinho"
+        "detail": "Uma regra é uma placa escrita \"nêo entre\". Hook tranca/porta; alerta do Telegram dispara sozinho"
       },
       {
         "title": "Skills · skills/",
@@ -1114,11 +1114,11 @@
       },
       {
         "title": "Agente · agents/",
-        "detail": "A skill é a ferramenta, o agente é o cozinheiro. Portão de revisão de cinco perguntas antes de responder"
+        "detail": "A skill é a ferramenta, o agente é o cozinheiro. Portêo de revisêo de cinco perguntas antes de responder"
       },
       {
         "title": "Claude Code",
-        "detail": "Onde as camadas são construídas e onde o agente roda"
+        "detail": "Onde as camadas sêo construídas e onde o agente roda"
       }
     ],
     "learn": [],
@@ -1135,7 +1135,7 @@
   "https://inematds.github.io/cultura-inovacao/": {
     "structure": [
       {
-        "title": "Fundamentos da Cultura de Inovação",
+        "title": "Fundamentos da Cultura de Inovaçêo",
         "detail": "O alicerce. O que e cultura de inovacao, seus pilares, modelos de referencia, mindset de crescimento, o papel da lideranca, as barreiras comuns e como medir."
       },
       {
@@ -1178,11 +1178,11 @@
   "https://inematds.github.io/curso-7pa/": {
     "structure": [
       {
-        "title": "Da virada ao agente em produção",
+        "title": "Da virada ao agente em produçêo",
         "detail": ""
       },
       {
-        "title": "01 Intenção o que e por quê",
+        "title": "01 Intençêo o que e por quê",
         "detail": ""
       },
       {
@@ -1202,11 +1202,11 @@
         "detail": ""
       },
       {
-        "title": "06 Observação relatório e falhas",
+        "title": "06 Observaçêo relatório e falhas",
         "detail": ""
       },
       {
-        "title": "07 Supervisão humana o ciclo que evolui intenção → contexto → dados → critério → autonomia → observação → supervisão ↺",
+        "title": "07 Supervisêo humana o ciclo que evolui intençêo → contexto → dados → critério → autonomia → observaçêo → supervisêo ↺",
         "detail": ""
       }
     ],
@@ -1220,7 +1220,7 @@
     ],
     "build": [
       "A ficha do seu primeiro agente, testada e supervisionada",
-      "um agente em produção"
+      "um agente em produçêo"
     ],
     "prerequisites": [
       "nenhum conhecimento técnico",
@@ -1245,7 +1245,7 @@
       },
       {
         "title": "Fundamentos",
-        "detail": "Os três níveis de migração"
+        "detail": "Os três níveis de migraçêo"
       },
       {
         "title": "Fundamentos",
@@ -1253,7 +1253,7 @@
       },
       {
         "title": "Fundamentos",
-        "detail": "Donos da informação"
+        "detail": "Donos da informaçêo"
       },
       {
         "title": "Fundamentos",
@@ -1261,33 +1261,33 @@
       },
       {
         "title": "TRILHA 2",
-        "detail": "Mão na massa"
+        "detail": "Mêo na massa"
       },
       {
-        "title": "Mão na massa",
+        "title": "Mêo na massa",
         "detail": "Diagnóstico do ambiente"
       },
       {
-        "title": "Mão na massa",
+        "title": "Mêo na massa",
         "detail": "Instalar o núcleo portátil"
       },
       {
-        "title": "Mão na massa",
+        "title": "Mêo na massa",
         "detail": "Skills canônicas com polyskill"
       },
       {
-        "title": "Mão na massa",
-        "detail": "Readback: provar em sessão nova"
+        "title": "Mêo na massa",
+        "detail": "Readback: provar em sessêo nova"
       },
       {
-        "title": "Mão na massa",
+        "title": "Mêo na massa",
         "detail": "Handoff e prime: o ciclo diário"
       }
     ],
     "learn": [
       "Separar o cérebro do modelo em Markdown portátil",
       "Handoff e prime: o ciclo diário",
-      "Readback: provar em sessão nova",
+      "Readback: provar em sessêo nova",
       "Audit antes de implement",
       "Skills canônicas com polyskill",
       "Instalar o núcleo portátil"
@@ -1296,13 +1296,13 @@
     "build": [
       "um núcleo portátil (AGENTS.md, context/, tasks/, handoffs/, skills canônicas)",
       "adaptadores pequenos pra cada ferramenta",
-      "um teste de continuidade que prova, em sessão nova",
+      "um teste de continuidade que prova, em sessêo nova",
       "um sistema de workspace independente de modelo"
     ],
     "prerequisites": [
       "Já usar o Claude Code ou o Codex CLI em pelo menos um projeto (a Trilha 1 define cada termo do zero, mas a Trilha 2 roda comandos de verdade).",
       "Um terminal com git, bash e python3. Node só para o polyskill (módulo 2.4).",
-      "Disposição para fazer faxina nas suas pastas antes de migrar. É a parte que ninguém pula."
+      "Disposiçêo para fazer faxina nas suas pastas antes de migrar. É a parte que ninguém pula."
     ],
     "workload": null,
     "level": null,
@@ -1323,7 +1323,7 @@
       },
       {
         "title": "3 Contratar modelos e agentes",
-        "detail": "Parecer de seleção com versão, limitações e alternativa."
+        "detail": "Parecer de seleçêo com versêo, limitações e alternativa."
       },
       {
         "title": "4 Treinar com contexto e Skills",
@@ -1331,11 +1331,11 @@
       },
       {
         "title": "5 Dar ferramentas e integrações",
-        "detail": "Contrato de duas ferramentas e plano de integração."
+        "detail": "Contrato de duas ferramentas e plano de integraçêo."
       },
       {
         "title": "6 Definir autonomia e permissões",
-        "detail": "Política de autonomia e checklist de promoção."
+        "detail": "Política de autonomia e checklist de promoçêo."
       },
       {
         "title": "7 Criar equipes multiagentes",
@@ -1347,29 +1347,29 @@
       },
       {
         "title": "9 Evals, KPIs, custos e ROI",
-        "detail": "Relatório de avaliação e parecer econômico, com planilha de cálculo."
+        "detail": "Relatório de avaliaçêo e parecer econômico, com planilha de cálculo."
       },
       {
         "title": "10 LOOP-R e melhoria contínua",
-        "detail": "Dossiê LOOP-R e plano de 30 dias da operação."
+        "detail": "Dossiê LOOP-R e plano de 30 dias da operaçêo."
       }
     ],
     "learn": [
       "Escolher e mapear um processo com baseline e meta mensurável.",
       "Escrever cargos digitais e justificar o uso de um ou vários agentes.",
-      "Comparar modelos em uma avaliação própria, incluindo custo e restrições.",
+      "Comparar modelos em uma avaliaçêo própria, incluindo custo e restrições.",
       "Organizar conhecimento, Skills, memória e ferramentas com limites claros.",
-      "Desenhar autonomia progressiva e decisões humanas por ação e risco.",
+      "Desenhar autonomia progressiva e decisões humanas por açêo e risco.",
       "Operar uma fila de exceções e reconstruir o histórico de um caso."
     ],
     "audience": [
       "gestores de áreas",
       "donos de pequenas e médias empresas",
       "líderes de operações",
-      "profissionais que implantarão IA nas empresas"
+      "profissionais que implantarêo IA nas empresas"
     ],
     "build": [
-      "uma operação híbrida revisável",
+      "uma operaçêo híbrida revisável",
       "cargos digitais",
       "política de memória",
       "matriz de autonomia",
@@ -1377,7 +1377,7 @@
     ],
     "prerequisites": [
       "acesso autorizado a um processo e a seu responsável",
-      "conhecimento básico da operação",
+      "conhecimento básico da operaçêo",
       "dados anonimizados ou sintéticos para os exercícios",
       "disponibilidade para medir o estado atual"
     ],
@@ -1513,7 +1513,7 @@
       },
       {
         "title": "O motor por dentro: as 3 camadas",
-        "detail": "Desenhe as 3 camadas de qualquer automação profissional — e identifique a que falta em qualquer proposta."
+        "detail": "Desenhe as 3 camadas de qualquer automaçêo profissional — e identifique a que falta em qualquer proposta."
       },
       {
         "title": "Seu motor de conteúdo",
@@ -1533,7 +1533,7 @@
       },
       {
         "title": "Agentes que trabalham enquanto você dorme",
-        "detail": "Quanta liberdade dar a um agente de IA — e onde fica o botão de parar de cada tarefa."
+        "detail": "Quanta liberdade dar a um agente de IA — e onde fica o botêo de parar de cada tarefa."
       },
       {
         "title": "Vendendo para empresas grandes",
@@ -1542,16 +1542,16 @@
     ],
     "learn": [
       "Saia com 3 oportunidades reais mapeadas e um plano de 30 dias para o primeiro trabalho pago.",
-      "Desenhe as 3 camadas de qualquer automação profissional — e identifique a que falta em qualquer proposta.",
+      "Desenhe as 3 camadas de qualquer automaçêo profissional — e identifique a que falta em qualquer proposta.",
       "Um pedido de conteúdo testado que transforma 1 texto seu em publicações para 2 redes diferentes.",
       "Os 5 jeitos como um atendente de voz falha — e o que exigir antes de colocar um na frente de cliente.",
       "Um gabarito de 5 perguntas do seu trabalho para dizer, com número, se a IA está pronta.",
       "O manual que faz qualquer assistente de IA responder do seu jeito desde a primeira pergunta."
     ],
     "audience": [
-      "Você é contador(a), advogado(a), corretor(a) de imóveis, assistente administrativa — ou outra profissão liberal ou de escritório — e quer uma renda nova com IA.",
-      "Você usa bem o computador no dia a dia, mas nunca programou — e não pretende programar.",
-      "Você tem de 30 minutos a 1 hora por sessão e prefere aprender fazendo.",
+      "Você é contador(a), advogado(a), corretor(a) de imóveis, assistente administrativa — ou outra profissêo liberal ou de escritório — e quer uma renda nova com IA.",
+      "Você usa bem o computador no dia a dia, mas nunca programou — e nêo pretende programar.",
+      "Você tem de 30 minutos a 1 hora por sessêo e prefere aprender fazendo.",
       "Você quer um curso de vídeo-aulas tradicional — aqui o formato é leitura guiada com prática."
     ],
     "build": [
@@ -1573,7 +1573,7 @@
     "structure": [
       {
         "title": "Fundamentos",
-        "detail": "Mentalidade de automação estratégica: por que automatizar, onde a IA cria valor e o mapa das 5 etapas."
+        "detail": "Mentalidade de automaçêo estratégica: por que automatizar, onde a IA cria valor e o mapa das 5 etapas."
       },
       {
         "title": "Auditoria & Mapeamento",
@@ -1584,12 +1584,12 @@
         "detail": "Do processo ao blueprint: arquitetura, escolha de ferramentas e modelos, lógica e prompts."
       },
       {
-        "title": "Construção",
-        "detail": "Setup do ambiente, primeira automação ponta a ponta, integrações e confiabilidade."
+        "title": "Construçêo",
+        "detail": "Setup do ambiente, primeira automaçêo ponta a ponta, integrações e confiabilidade."
       },
       {
-        "title": "Comercialização",
-        "detail": "Empacotar a automação como serviço, precificar com base no ROI do cliente, entregar e escalar."
+        "title": "Comercializaçêo",
+        "detail": "Empacotar a automaçêo como serviço, precificar com base no ROI do cliente, entregar e escalar."
       },
       {
         "title": "Prática",
@@ -1597,11 +1597,11 @@
       }
     ],
     "learn": [
-      "Identificar tarefas repetitivas com alto retorno de automação dentro de qualquer negócio.",
+      "Identificar tarefas repetitivas com alto retorno de automaçêo dentro de qualquer negócio.",
       "Auditar e diagramar processos, calculando o ganho de tempo e o ROI.",
-      "Desenhar a arquitetura da solução e escolher as ferramentas certas.",
-      "Construir automações confiáveis com IA, do trigger à ação.",
-      "Empacotar e vender a automação como um serviço de alto valor.",
+      "Desenhar a arquitetura da soluçêo e escolher as ferramentas certas.",
+      "Construir automações confiáveis com IA, do trigger à açêo.",
+      "Empacotar e vender a automaçêo como um serviço de alto valor.",
       "Aplicar tudo com exercícios, prompts e skills prontas para usar hoje."
     ],
     "audience": [],
@@ -1617,16 +1617,16 @@
   "https://inematds.github.io/gpt6-astra-tecnico/": {
     "structure": [
       {
-        "title": "Setup e operação",
+        "title": "Setup e operaçêo",
         "detail": ""
       },
       {
-        "title": "GPT-6 Astra: operação técnica",
+        "title": "GPT-6 Astra: operaçêo técnica",
         "detail": "Delegar, verificar, iterar e escalar com Codex, computer use, skills e MCP"
       },
       {
         "title": "Escrever contratos de tarefa verificáveis",
-        "detail": "Resultado, onde e prova de conclusão"
+        "detail": "Resultado, onde e prova de conclusêo"
       },
       {
         "title": "Ativar o Astra nas três superfícies",
@@ -1634,7 +1634,7 @@
       },
       {
         "title": "Usar computer use sem publicar besteira",
-        "detail": "Extensão vinculada, rascunho obrigatório e prova visual"
+        "detail": "Extensêo vinculada, rascunho obrigatório e prova visual"
       },
       {
         "title": "Iterar num projeto real com rollback",
@@ -1658,11 +1658,11 @@
       },
       {
         "title": "Construir e escalar",
-        "detail": "Skills (Remotion e biblioteca de gosto), MCP, cota, orquestração e memória compartilhada"
+        "detail": "Skills (Remotion e biblioteca de gosto), MCP, cota, orquestraçêo e memória compartilhada"
       }
     ],
     "learn": [
-      "Resultado, onde e prova de conclusão.",
+      "Resultado, onde e prova de conclusêo.",
       "O molde que todos os prompts do curso seguem.",
       "Ativar o Astra nas três superfícies.",
       "Usar computer use sem publicar besteira.",
@@ -1727,11 +1727,11 @@
       },
       {
         "title": "Segurança Zero-Trust",
-        "detail": "Prompt injection, Fernet + PBKDF2, WASM Sandbox, gates de aprovação e audit trail completo."
+        "detail": "Prompt injection, Fernet + PBKDF2, WASM Sandbox, gates de aprovaçêo e audit trail completo."
       },
       {
         "title": "Memória e Integrações",
-        "detail": "OpenRouter (100+ modelos), Ollama local, Google Workspace, GitHub e automação com webhooks."
+        "detail": "OpenRouter (100+ modelos), Ollama local, Google Workspace, GitHub e automaçêo com webhooks."
       },
       {
         "title": "Arquiteturas Avançadas",
@@ -1739,7 +1739,7 @@
       },
       {
         "title": "Projeto Final: Seu Jarvis",
-        "detail": "Planejamento, geração do ingredients.md, deploy Docker, monitoramento e roadmap Phase 2."
+        "detail": "Planejamento, geraçêo do ingredients.md, deploy Docker, monitoramento e roadmap Phase 2."
       }
     ],
     "learn": [
@@ -1768,7 +1768,7 @@
   "https://inematds.github.io/jev-curso/": {
     "structure": [
       {
-        "title": "Abrir meu roteiro de decisão",
+        "title": "Abrir meu roteiro de decisêo",
         "detail": "Materiais e laboratórios"
       },
       {
@@ -1785,21 +1785,21 @@
       },
       {
         "title": "O que você terá ao final",
-        "detail": "Uma decisão especificada, casos de fronteira, uma referência humana separada do ajuste e uma política de observação."
+        "detail": "Uma decisêo especificada, casos de fronteira, uma referência humana separada do ajuste e uma política de observaçêo."
       }
     ],
     "learn": [
       "Aprenda a escolher onde usar Jev",
       "desenhar critérios claros",
       "testar o resultado antes de automatizar",
-      "Leve uma decisão do seu trabalho do primeiro exemplo ao projeto final",
+      "Leve uma decisêo do seu trabalho do primeiro exemplo ao projeto final",
       "Comece sem código nas trilhas 1 e 2",
       "A trilha 3 usa JSON, terminal e Python"
     ],
     "audience": [
       "Comece sem código nas trilhas 1 e 2",
       "A trilha 3 usa JSON, terminal e Python",
-      "Não há prova bloqueando a próxima aula."
+      "Nêo há prova bloqueando a próxima aula."
     ],
     "build": [
       "Integre, compare alternativas",
@@ -1826,15 +1826,15 @@
         "detail": ""
       },
       {
-        "title": "Aplicação prática",
+        "title": "Aplicaçêo prática",
         "detail": ""
       },
       {
-        "title": "Qualidade e evolução",
+        "title": "Qualidade e evoluçêo",
         "detail": ""
       },
       {
-        "title": "Instalação e primeira inferência",
+        "title": "Instalaçêo e primeira inferência",
         "detail": ""
       },
       {
@@ -1842,19 +1842,19 @@
         "detail": ""
       },
       {
-        "title": "Integração com agentes e processos",
+        "title": "Integraçêo com agentes e processos",
         "detail": ""
       },
       {
-        "title": "Especialização e projeto final",
+        "title": "Especializaçêo e projeto final",
         "detail": ""
       }
     ],
     "learn": [
-      "Entenda os motores de decisão",
+      "Entenda os motores de decisêo",
       "rode o Laya em português",
       "construa uma triagem que você consegue avaliar",
-      "Entenda o que a decisão resolve antes de instalar qualquer modelo",
+      "Entenda o que a decisêo resolve antes de instalar qualquer modelo",
       "Saia do esquema no papel para uma inferência real em português",
       "Transforme previsões em uma mesa de triagem verificável"
     ],
@@ -1863,7 +1863,7 @@
       "Você consegue exportar/importar JSON"
     ],
     "build": [
-      "Uma mesa local de atendimento com interface, API, execução pelo terminal e avaliação em tickets rotulados",
+      "Uma mesa local de atendimento com interface, API, execuçêo pelo terminal e avaliaçêo em tickets rotulados",
       "A mesa local de atendimento",
       "Uma mesa de triagem verificável"
     ],
@@ -1885,11 +1885,11 @@
         "detail": "7 lives · bloco estratégico"
       },
       {
-        "title": "Live 01 · Negociação",
+        "title": "Live 01 · Negociaçêo",
         "detail": "Anatomia de três negociações reais"
       },
       {
-        "title": "Live 02 · Precificação",
+        "title": "Live 02 · Precificaçêo",
         "detail": "Abandone a cobrança por hora"
       },
       {
@@ -1910,7 +1910,7 @@
       },
       {
         "title": "Live 07 · Venda",
-        "detail": "O cliente não pediu IA — e é por isso que você vende mais"
+        "detail": "O cliente nêo pediu IA — e é por isso que você vende mais"
       }
     ],
     "learn": [
@@ -1942,12 +1942,12 @@
         "detail": "Categorias de hardware, o que cabe na sua máquina, SO/drivers e rede privada com Tailscale."
       },
       {
-        "title": "Instalação & Técnicas",
-        "detail": "Ollama, interface tipo ChatGPT, GGUF/quantização, parâmetros, API local e RAG. O hands-on de verdade."
+        "title": "Instalaçêo & Técnicas",
+        "detail": "Ollama, interface tipo ChatGPT, GGUF/quantizaçêo, parâmetros, API local e RAG. O hands-on de verdade."
       },
       {
         "title": "Avançado & Agentes 24/7",
-        "detail": "Orquestração, agentes sempre-on e três soluções passo a passo: scanner de segurança, vigia da web e seu buddy local."
+        "detail": "Orquestraçêo, agentes sempre-on e três soluções passo a passo: scanner de segurança, vigia da web e seu buddy local."
       }
     ],
     "learn": [
@@ -1955,8 +1955,8 @@
       "o que é de verdade",
       "a anatomia de um LLM",
       "categorias de hardware, o que cabe na sua máquina",
-      "Ollama, interface tipo ChatGPT, GGUF/quantização, parâmetros, API local e RAG",
-      "Orquestração, agentes sempre-on"
+      "Ollama, interface tipo ChatGPT, GGUF/quantizaçêo, parâmetros, API local e RAG",
+      "Orquestraçêo, agentes sempre-on"
     ],
     "audience": [],
     "build": [
@@ -1976,27 +1976,27 @@
     "structure": [
       {
         "title": "Mercado & Mentalidade",
-        "detail": "Por que PME precisa de IA agora, a nova profissão de Consultor de Soluções e a virada mental: problema do cliente > coleção de ferramentas."
+        "detail": "Por que PME precisa de IA agora, a nova profissêo de Consultor de Soluções e a virada mental: problema do cliente > coleçêo de ferramentas."
       },
       {
         "title": "Venda Consultiva de IA",
-        "detail": "Prospecção em PME, abordagem, explicar IA sem assustar, vender o diagnóstico, vencer as 6 objeções clássicas e apresentar ROI simples."
+        "detail": "Prospecçêo em PME, abordagem, explicar IA sem assustar, vender o diagnóstico, vencer as 6 objeções clássicas e apresentar ROI simples."
       },
       {
         "title": "Diagnóstico DICA — D",
-        "detail": "Roteiro de entrevista com o dono, mapa das 5 áreas (atendimento, vendas, marketing, gestão, financeiro), extração de conhecimento implícito."
+        "detail": "Roteiro de entrevista com o dono, mapa das 5 áreas (atendimento, vendas, marketing, gestêo, financeiro), extraçêo de conhecimento implícito."
       },
       {
-        "title": "Implementação DICA — I",
-        "detail": "Playbooks operacionais, aprovação humana por níveis, os 5 pacotes prontos (atendimento, propostas, conteúdo, follow-up, operação) com WhatsApp + Sheets + n8n."
+        "title": "Implementaçêo DICA — I",
+        "detail": "Playbooks operacionais, aprovaçêo humana por níveis, os 5 pacotes prontos (atendimento, propostas, conteúdo, follow-up, operaçêo) com WhatsApp + Sheets + n8n."
       },
       {
-        "title": "Capacitação & Sustentação — C+A",
-        "detail": "Treinar o cliente, escolher o responsável interno, rotina de uso, indicadores simples, expansão e venda recorrente."
+        "title": "Capacitaçêo & Sustentaçêo — C+A",
+        "detail": "Treinar o cliente, escolher o responsável interno, rotina de uso, indicadores simples, expansêo e venda recorrente."
       },
       {
         "title": "Escala do Profissional",
-        "detail": "Padronizar entrega, precificação, portfólio, comunidade, certificação e projeto final com cliente real ou simulado."
+        "detail": "Padronizar entrega, precificaçêo, portfólio, comunidade, certificaçêo e projeto final com cliente real ou simulado."
       },
       {
         "title": "O Método DICA",
@@ -2007,7 +2007,7 @@
       "transformar IA em serviço vendável para pequenas empresas",
       "Do posicionamento mental à venda consultiva",
       "do diagnóstico operacional ao desenho de assistentes",
-      "da capacitação do cliente à escala do seu negócio",
+      "da capacitaçêo do cliente à escala do seu negócio",
       "a vender o diagnóstico e apresentar ROI simples",
       "a implementar assistentes personalizados"
     ],
@@ -2015,7 +2015,7 @@
     "build": [
       "um diagnóstico operacional",
       "desenho de assistentes",
-      "capacitação do cliente",
+      "capacitaçêo do cliente",
       "escala do seu negócio"
     ],
     "prerequisites": [],
@@ -2045,7 +2045,7 @@
         "detail": ""
       },
       {
-        "title": "Vendas e Retenção",
+        "title": "Vendas e Retençêo",
         "detail": ""
       },
       {
@@ -2063,7 +2063,7 @@
     "audience": [
       "É pra você se",
       "Você é jovem ou está começando e tem fome de vencer",
-      "Quer entender o jogo real, não a versão LinkedIn",
+      "Quer entender o jogo real, nêo a versêo LinkedIn",
       "Está disposto a fazer trabalho braçal de verdade"
     ],
     "build": [
@@ -2091,11 +2091,11 @@
       },
       {
         "title": "TRILHA 2 Influência Social Conformidade",
-        "detail": "Conformidade (Asch), obediência (Milgram), persuasão (Cialdini) e dark patterns. Por que seguimos o grupo. 3 módulos"
+        "detail": "Conformidade (Asch), obediência (Milgram), persuasêo (Cialdini) e dark patterns. Por que seguimos o grupo. 3 módulos"
       },
       {
         "title": "TRILHA 3 Neurociência do Comportamento",
-        "detail": "Neuroplasticidade, dopamina, sistema de recompensa, amígdala e aversão à perda. O hardware por trás das decisões. 3 módulos"
+        "detail": "Neuroplasticidade, dopamina, sistema de recompensa, amígdala e aversêo à perda. O hardware por trás das decisões. 3 módulos"
       },
       {
         "title": "TRILHA 4 Economia Comportamental",
@@ -2103,11 +2103,11 @@
       },
       {
         "title": "TRILHA 5 Filosofia da Mente",
-        "detail": "Livre-arbítrio (Libet), o problema difícil da consciência (Chalmers), semiótica e imaginação (Bruzzo). 3 módulos"
+        "detail": "Livre-arbítrio (Libet), o problema difícil da consciência (Chalmers), semiótica e imaginaçêo (Bruzzo). 3 módulos"
       },
       {
         "title": "TRILHA 6 IA, Vieses e Ética",
-        "detail": "Vieses algorítmicos, bolhas epistêmicas, polarização digital e o espaço humano na era da automação. 3 módulos"
+        "detail": "Vieses algorítmicos, bolhas epistêmicas, polarizaçêo digital e o espaço humano na era da automaçêo. 3 módulos"
       }
     ],
     "learn": [
@@ -2136,7 +2136,7 @@
       },
       {
         "title": "As seis camadas, de baixo pra cima",
-        "detail": "A Identidade é a fundação, o Substrato (os bastidores) é a maior camada, e os Agentes ficam no topo."
+        "detail": "A Identidade é a fundaçêo, o Substrato (os bastidores) é a maior camada, e os Agentes ficam no topo."
       },
       {
         "title": "Instale a skill",
@@ -2164,14 +2164,14 @@
       }
     ],
     "learn": [
-      "a construção do seu próprio OS agêntico",
+      "a construçêo do seu próprio OS agêntico",
       "Identidade, Substrato, Regras, Skills, Ferramentas e Agentes na ordem que realmente funciona",
-      "a refinação com você nas primeiras perguntas",
+      "a refinaçêo com você nas primeiras perguntas",
       "um sistema de arquivos que entende o seu objetivo e trabalha por você",
-      "a fazer auditoria com pontuação das seis camadas e três próximos movimentos"
+      "a fazer auditoria com pontuaçêo das seis camadas e três próximos movimentos"
     ],
     "audience": [
-      "Você não precisa saber programar; a skill faz o trabalho técnico, você só toma as decisões."
+      "Você nêo precisa saber programar; a skill faz o trabalho técnico, você só toma as decisões."
     ],
     "build": [
       "os arquivos e pastas de verdade pra você",
@@ -2249,7 +2249,7 @@
         "detail": ""
       },
       {
-        "title": "OSWORK REVISÃO",
+        "title": "OSWORK REVISêO",
         "detail": ""
       },
       {
@@ -2265,7 +2265,7 @@
         "detail": "Guarde decisões e recupere versões."
       },
       {
-        "title": "Operação",
+        "title": "Operaçêo",
         "detail": "Leve uma rotina do computador ao serviço supervisionado."
       }
     ],
@@ -2276,7 +2276,7 @@
       "Leve uma rotina do computador ao serviço supervisionado."
     ],
     "audience": [
-      "Sem pré-requisito de programação."
+      "Sem pré-requisito de programaçêo."
     ],
     "build": [
       "Você termina com uma estrutura de pastas, instruções próprias, uma Skill, histórico Git e um bot de consulta restrito.",
@@ -2284,7 +2284,7 @@
       "A última trilha ensina a planejar e operar esse serviço numa VPS."
     ],
     "prerequisites": [
-      "Sem pré-requisito de programação."
+      "Sem pré-requisito de programaçêo."
     ],
     "workload": null,
     "level": null,
@@ -2318,11 +2318,11 @@
         "detail": ""
       },
       {
-        "title": "Diagnóstico e Condução da Sala",
+        "title": "Diagnóstico e Conduçêo da Sala",
         "detail": ""
       },
       {
-        "title": "Jornada de Transformação e Oferta",
+        "title": "Jornada de Transformaçêo e Oferta",
         "detail": ""
       },
       {
@@ -2353,15 +2353,15 @@
       },
       {
         "title": "Conhecimento",
-        "detail": "Informação que você consegue conferir. Transforme documentos em conhecimento organizado, com evidências e mapas legíveis."
+        "detail": "Informaçêo que você consegue conferir. Transforme documentos em conhecimento organizado, com evidências e mapas legíveis."
       },
       {
-        "title": "Produção",
-        "detail": "Dê forma às suas decisões. Crie interfaces e imagens úteis e compare modelos sem perder controle da configuração."
+        "title": "Produçêo",
+        "detail": "Dê forma às suas decisões. Crie interfaces e imagens úteis e compare modelos sem perder controle da configuraçêo."
       },
       {
         "title": "Entrega",
-        "detail": "O projeto precisa funcionar fora da conversa. Audite a informação, construa uma central de pedidos e prepare uma entrega que pode ser continuada."
+        "detail": "O projeto precisa funcionar fora da conversa. Audite a informaçêo, construa uma central de pedidos e prepare uma entrega que pode ser continuada."
       }
     ],
     "learn": [
@@ -2370,7 +2370,7 @@
     ],
     "audience": [
       "Você precisa apenas de um navegador e familiaridade básica com arquivos.",
-      "As práticas de código podem ser feitas com um assistente de programação."
+      "As práticas de código podem ser feitas com um assistente de programaçêo."
     ],
     "build": [
       "uma central de pedidos",
@@ -2380,7 +2380,7 @@
     ],
     "prerequisites": [
       "Você precisa apenas de um navegador e familiaridade básica com arquivos.",
-      "As práticas de código podem ser feitas com um assistente de programação."
+      "As práticas de código podem ser feitas com um assistente de programaçêo."
     ],
     "workload": null,
     "level": null,
@@ -2472,7 +2472,7 @@
         "detail": ""
       },
       {
-        "title": "Empreender pela automação",
+        "title": "Empreender pela automaçêo",
         "detail": ""
       },
       {
@@ -2481,18 +2481,18 @@
       },
       {
         "title": "Despertar",
-        "detail": "Fundamento → Prática → Aplicação → Síntese → Projeto."
+        "detail": "Fundamento → Prática → Aplicaçêo → Síntese → Projeto."
       },
       {
         "title": "Fundamento",
-        "detail": "Prática → Aplicação → Síntese → Projeto."
+        "detail": "Prática → Aplicaçêo → Síntese → Projeto."
       },
       {
         "title": "Prática",
-        "detail": "Aplicação → Síntese → Projeto."
+        "detail": "Aplicaçêo → Síntese → Projeto."
       },
       {
-        "title": "Aplicação",
+        "title": "Aplicaçêo",
         "detail": "Síntese → Projeto."
       },
       {
@@ -2501,7 +2501,7 @@
       },
       {
         "title": "Projeto",
-        "detail": "agente, automação ou manifesto pessoal."
+        "detail": "agente, automaçêo ou manifesto pessoal."
       }
     ],
     "learn": [
@@ -2509,17 +2509,17 @@
       "dialogar com agentes",
       "Alavancagem com IA, n8n",
       "casos de solopreneurs, precificar e vender automações",
-      "caráter, empatia, antecipação",
-      "formação de times e legado humano"
+      "caráter, empatia, antecipaçêo",
+      "formaçêo de times e legado humano"
     ],
     "audience": [
-      "Você sai com algo concreto: agente, automação ou manifesto pessoal."
+      "Você sai com algo concreto: agente, automaçêo ou manifesto pessoal."
     ],
     "build": [
       "um agente",
-      "uma automação",
+      "uma automaçêo",
       "um manifesto pessoal",
-      "caráter, empatia e antecipação"
+      "caráter, empatia e antecipaçêo"
     ],
     "prerequisites": [],
     "workload": null,
@@ -2540,59 +2540,59 @@
         "detail": "A habilidade base. Briefing, contexto, julgamento. A diferença entre pedir e comandar IA com critério."
       },
       {
-        "title": "Agentes e Automação",
-        "detail": "Sai do chat. Constrói fluxos que executam: pesquisa, redação, planilhas, e-mail, dashboard, integrações."
+        "title": "Agentes e Automaçêo",
+        "detail": "Sai do chat. Constrói fluxos que executam: pesquisa, redaçêo, planilhas, e-mail, dashboard, integrações."
       },
       {
-        "title": "Aplicação Profissional",
+        "title": "Aplicaçêo Profissional",
         "detail": "Trilha bifurcada por perfil: jovem, CLT, inovador ou empreendedor. Mesma base, casos diferentes."
       },
       {
         "title": "Projeto Certificador",
-        "detail": "Você sai com sistema rodando, caso real entregue e narrativa pública. Não é certificado, é prova."
+        "detail": "Você sai com sistema rodando, caso real entregue e narrativa pública. Nêo é certificado, é prova."
       },
       {
         "title": "Especializações (Imersões)",
         "detail": "Builder, Enterprise, Operations. Imersões presenciais que elevam você a CAIP Specialist — e depois a Master."
       },
       {
-        "title": "Modo comando, não execução",
+        "title": "Modo comando, nêo execuçêo",
         "detail": ""
       },
       {
         "title": "Contexto antes de prompt",
-        "detail": "A maior parte do resultado vem do contexto que você alimenta. Memória organizacional, documentação, exemplos. Sem isso, a IA chuta."
+        "detail": "A maior parte do resultado vem do contexto que você alimenta. Memória organizacional, documentaçêo, exemplos. Sem isso, a IA chuta."
       },
       {
         "title": "Julgamento é a nova competência",
         "detail": "A IA produz opções. Você decide o que presta. Curadoria, gosto, critério técnico — o human premium mora aqui."
       },
       {
-        "title": "Fluxo, não tarefa",
-        "detail": "Uma tarefa repetitiva vira fluxo automatizado. Você projeta sistemas, não responde e-mails. Multiplica seu tempo por 10."
+        "title": "Fluxo, nêo tarefa",
+        "detail": "Uma tarefa repetitiva vira fluxo automatizado. Você projeta sistemas, nêo responde e-mails. Multiplica seu tempo por 10."
       },
       {
-        "title": "Entrega real, não certificado",
-        "detail": "O CAIP exige um projeto real entregue. Aumento, MVP, automação que devolve horas — algo verificável no mundo."
+        "title": "Entrega real, nêo certificado",
+        "detail": "O CAIP exige um projeto real entregue. Aumento, MVP, automaçêo que devolve horas — algo verificável no mundo."
       }
     ],
     "learn": [
       "comandar IA com critério",
       "briefing, contexto e julgamento",
-      "construir fluxos que executam: pesquisa, redação, planilhas, e-mail, dashboard, integrações",
-      "memória organizacional, documentação e exemplos para alimentar o contexto"
+      "construir fluxos que executam: pesquisa, redaçêo, planilhas, e-mail, dashboard, integrações",
+      "memória organizacional, documentaçêo e exemplos para alimentar o contexto"
     ],
     "audience": [
       "Para quem se recusa a virar obsoleto",
       "para quem trabalha no computador — independente da área"
     ],
     "build": [
-      "fluxos que executam: pesquisa, redação, planilhas, e-mail, dashboard, integrações",
+      "fluxos que executam: pesquisa, redaçêo, planilhas, e-mail, dashboard, integrações",
       "sistema rodando, caso real entregue e narrativa pública",
       "um sistema pessoal rodando no trabalho"
     ],
     "prerequisites": [
-      "não exige uma linha de código"
+      "nêo exige uma linha de código"
     ],
     "workload": null,
     "level": null,
@@ -2604,7 +2604,7 @@
   "https://inematds.github.io/profissional2027x": {
     "structure": [
       {
-        "title": "Fundamentos + os 4 passos do método DPIA + a Aplicação no mercado real.",
+        "title": "Fundamentos + os 4 passos do método DPIA + a Aplicaçêo no mercado real.",
         "detail": ""
       },
       {
@@ -2628,15 +2628,15 @@
         "detail": "n8n, WhatsApp Business API, ERPs brasileiros, HITL, observabilidade."
       },
       {
-        "title": "Aplicação",
-        "detail": "Venda do diagnóstico, contrato anti-lock-in, manutenção mensal."
+        "title": "Aplicaçêo",
+        "detail": "Venda do diagnóstico, contrato anti-lock-in, manutençêo mensal."
       },
       {
         "title": "Método DPIA",
-        "detail": "Quatro passos sequenciais + Acompanhamento como loop externo de manutenção."
+        "detail": "Quatro passos sequenciais + Acompanhamento como loop externo de manutençêo."
       },
       {
-        "title": "7 princípios não-negociáveis",
+        "title": "7 princípios nêo-negociáveis",
         "detail": ""
       },
       {
@@ -2644,12 +2644,12 @@
         "detail": "A ferramenta muda toda semana. O processo configurado sobrevive à troca de modelo."
       },
       {
-        "title": "Diagnóstico antes de implementação.",
-        "detail": "Sem baseline assinado pelo cliente, não existe projeto. É só venda de ferramenta."
+        "title": "Diagnóstico antes de implementaçêo.",
+        "detail": "Sem baseline assinado pelo cliente, nêo existe projeto. É só venda de ferramenta."
       },
       {
         "title": "Mercado tripartite.",
-        "detail": "Diagnóstico pago + projeto fixo + manutenção recorrente. Os três sustentam o profissional."
+        "detail": "Diagnóstico pago + projeto fixo + manutençêo recorrente. Os três sustentam o profissional."
       }
     ],
     "learn": [
@@ -2680,15 +2680,15 @@
     "structure": [
       {
         "title": "Trilha 1 · Fundamentos",
-        "detail": "Dados de mercado, a evolução da IA e das profissões, e a habilidade de virar a pessoa de IA."
+        "detail": "Dados de mercado, a evoluçêo da IA e das profissões, e a habilidade de virar a pessoa de IA."
       },
       {
         "title": "Trilha 2 · Carreiras",
-        "detail": "Diagnóstico, aceleração de produção, gosto & critério e blindagem com múltiplas rendas."
+        "detail": "Diagnóstico, aceleraçêo de produçêo, gosto & critério e blindagem com múltiplas rendas."
       },
       {
         "title": "Trilha 3 · Avançado",
-        "detail": "A pirâmide prompt → vibe code → contexto → agentic → arquitetura, a intenção e o seu Jarvis."
+        "detail": "A pirâmide prompt → vibe code → contexto → agentic → arquitetura, a intençêo e o seu Jarvis."
       },
       {
         "title": "1 · Seja a Pessoa de IA",
@@ -2696,14 +2696,14 @@
       },
       {
         "title": "2 · Gosto & Critério",
-        "detail": "Decidir o que merece o seu nome — não confiar no 1º output."
+        "detail": "Decidir o que merece o seu nome — nêo confiar no 1º output."
       },
       {
         "title": "3 · Engenharia de Contexto",
         "detail": "Prompt é como você pede; contexto é o que a IA sabe."
       },
       {
-        "title": "4 · Velocidade de Iteração",
+        "title": "4 · Velocidade de Iteraçêo",
         "detail": "Quem itera mais rápido, sem perder qualidade, vence."
       },
       {
@@ -2712,11 +2712,11 @@
       },
       {
         "title": "6 · Blindagem & Múltiplas Rendas",
-        "detail": "Sua apólice: várias fontes de renda de uma só paixão."
+        "detail": "Sua apólice: várias fontes de renda de uma só paixêo."
       },
       {
         "title": "Despertar",
-        "detail": "Integrar a IA na profissão que você já tem."
+        "detail": "Integrar a IA na profissêo que você já tem."
       },
       {
         "title": "Implementar",
@@ -2724,21 +2724,21 @@
       },
       {
         "title": "Liderar & Monetizar",
-        "detail": "Consultor, CAIO e certificação."
+        "detail": "Consultor, CAIO e certificaçêo."
       }
     ],
     "learn": [
       "Vire a referência do seu círculo — sem trocar de carreira.",
-      "Decidir o que merece o seu nome — não confiar no 1º output.",
+      "Decidir o que merece o seu nome — nêo confiar no 1º output.",
       "Prompt é como você pede; contexto é o que a IA sabe.",
       "Quem itera mais rápido, sem perder qualidade, vence.",
       "Agente × workflow: sistemas que rodam sozinhos a seu favor.",
-      "Sua apólice: várias fontes de renda de uma só paixão."
+      "Sua apólice: várias fontes de renda de uma só paixêo."
     ],
     "audience": [],
     "build": [
       "Agente × workflow: sistemas que rodam sozinhos a seu favor.",
-      "Sua apólice: várias fontes de renda de uma só paixão."
+      "Sua apólice: várias fontes de renda de uma só paixêo."
     ],
     "prerequisites": [],
     "workload": null,
@@ -2760,11 +2760,11 @@
       },
       {
         "title": "Skills no Claude Code",
-        "detail": "O que é uma Skill, o arquivo SKILL.md, name + description, divulgação progressiva e onde elas vivem. O conteúdo do vídeo, por escrito."
+        "detail": "O que é uma Skill, o arquivo SKILL.md, name + description, divulgaçêo progressiva e onde elas vivem. O conteúdo do vídeo, por escrito."
       },
       {
         "title": "Pipeline: HTML → MP4",
-        "detail": "Como criar um vídeo no HyperFrames: setup, roteiro, narração TTS local, composição de cenas, GSAP, lint, inspect e render nos dois formatos."
+        "detail": "Como criar um vídeo no HyperFrames: setup, roteiro, narraçêo TTS local, composiçêo de cenas, GSAP, lint, inspect e render nos dois formatos."
       },
       {
         "title": "Por dentro do skill",
@@ -2780,11 +2780,11 @@
       },
       {
         "title": "Você dá um assunto",
-        "detail": "O Claude escreve o roteiro em 6–9 cenas, gera a narração em PT-BR com TTS local (Kokoro) e mede as durações reais."
+        "detail": "O Claude escreve o roteiro em 6–9 cenas, gera a narraçêo em PT-BR com TTS local (Kokoro) e mede as durações reais."
       },
       {
         "title": "Vira HTML animado",
-        "detail": "Um gerador monta cada cena em HTML + GSAP, com áudio e animação batidos pelo mesmo array de tempos. Dark premium, accent âmbar."
+        "detail": "Um gerador monta cada cena em HTML + GSAP, com áudio e animaçêo batidos pelo mesmo array de tempos. Dark premium, accent âmbar."
       },
       {
         "title": "Renderiza em MP4",
@@ -2792,11 +2792,11 @@
       }
     ],
     "learn": [
-      "O que é uma Skill, o arquivo SKILL.md, name + description, divulgação progressiva e onde elas vivem. O conteúdo do vídeo, por escrito.",
-      "Como criar um vídeo no HyperFrames: setup, roteiro, narração TTS local, composição de cenas, GSAP, lint, inspect e render nos dois formatos.",
+      "O que é uma Skill, o arquivo SKILL.md, name + description, divulgaçêo progressiva e onde elas vivem. O conteúdo do vídeo, por escrito.",
+      "Como criar um vídeo no HyperFrames: setup, roteiro, narraçêo TTS local, composiçêo de cenas, GSAP, lint, inspect e render nos dois formatos.",
       "Como o skill video-explicativo foi construído e o que ele faz: estrutura de arquivos, house style, o gerador build-index.mjs e as armadilhas resolvidas.",
       "Onde usar a ferramenta: YouTube, Shorts/Reels, onboarding de produto, aulas, lançamentos. Com biblioteca de prompts prontos pra colar no Claude Code.",
-      "O Claude escreve o roteiro em 6–9 cenas, gera a narração em PT-BR com TTS local (Kokoro) e mede as durações reais.",
+      "O Claude escreve o roteiro em 6–9 cenas, gera a narraçêo em PT-BR com TTS local (Kokoro) e mede as durações reais.",
       "HyperFrames roda Chrome headless + FFmpeg e exporta o vídeo em 16:9 (YouTube) e 9:16 (Shorts/Reels)."
     ],
     "audience": [],
@@ -2804,7 +2804,7 @@
       "Do conceito de Skill até a sua biblioteca de vídeos rodando no Reels.",
       "Transforme HTML em vídeo com o Claude Code.",
       "Vídeos explicativos narrados, animados e renderizados localmente — sem chave de API.",
-      "Um vídeo no HyperFrames: setup, roteiro, narração TTS local, composição de cenas, GSAP, lint, inspect e render nos dois formatos.",
+      "Um vídeo no HyperFrames: setup, roteiro, narraçêo TTS local, composiçêo de cenas, GSAP, lint, inspect e render nos dois formatos.",
       "A biblioteca de prompts prontos pra colar no Claude Code."
     ],
     "prerequisites": [],
@@ -2863,7 +2863,7 @@
       },
       {
         "title": "Qualidade & As Melhores",
-        "detail": "Como ler sinais de qualidade (installs, fonte, descrição) e uma vitrine das melhores skills por grupo, com exemplos reais."
+        "detail": "Como ler sinais de qualidade (installs, fonte, descriçêo) e uma vitrine das melhores skills por grupo, com exemplos reais."
       },
       {
         "title": "Anatomia de uma Skill",
@@ -2871,7 +2871,7 @@
       },
       {
         "title": "Como Criar (o loop)",
-        "detail": "Do intent ao primeiro draft, e o loop de testar → avaliar → iterar com evals e otimização de description."
+        "detail": "Do intent ao primeiro draft, e o loop de testar → avaliar → iterar com evals e otimizaçêo de description."
       },
       {
         "title": "O Que Pensar",
@@ -2918,7 +2918,7 @@
       },
       {
         "title": "Dominar e estender",
-        "detail": "Ler o relatório HTML, confiar no sistema de verificação, customizar lentes (a 6ª lente)."
+        "detail": "Ler o relatório HTML, confiar no sistema de verificaçêo, customizar lentes (a 6ª lente)."
       },
       {
         "title": "Fundamentos",
@@ -3010,11 +3010,11 @@
       },
       {
         "title": "Para Leigos",
-        "detail": "Para empreendedores, PMs e não-técnicos. Do primeiro app à monetização sem saber programar."
+        "detail": "Para empreendedores, PMs e nêo-técnicos. Do primeiro app à monetizaçêo sem saber programar."
       },
       {
         "title": "Para Executivos",
-        "detail": "Para líderes e gestores. ROI, estratégia de adoção, governança e criação de dashboards, fluxos e assistentes."
+        "detail": "Para líderes e gestores. ROI, estratégia de adoçêo, governança e criaçêo de dashboards, fluxos e assistentes."
       },
       {
         "title": "Para Técnicos",
@@ -3024,20 +3024,20 @@
     "learn": [
       "Desenvolver software descrevendo o que você quer em linguagem natural para uma IA, que gera o código automaticamente.",
       "Em português mesmo, com exemplos de requisitos como “Quero um dashboard com os dados dessa planilha, com filtros por mês.”",
-      "Testar o resultado, não cada linha de código.",
+      "Testar o resultado, nêo cada linha de código.",
       "Pedir ajustes em linguagem natural até o resultado estar exatamente como você quer."
     ],
     "audience": [
       "Para todos os perfis.",
-      "Para empreendedores, PMs e não-técnicos.",
+      "Para empreendedores, PMs e nêo-técnicos.",
       "Para líderes e gestores.",
       "Para desenvolvedores e engenheiros."
     ],
     "build": [
       "construir software usando linguagem natural.",
       "O primeiro projeto.",
-      "Do primeiro app à monetização sem saber programar.",
-      "criação de dashboards, fluxos e assistentes."
+      "Do primeiro app à monetizaçêo sem saber programar.",
+      "criaçêo de dashboards, fluxos e assistentes."
     ],
     "prerequisites": [],
     "workload": null,

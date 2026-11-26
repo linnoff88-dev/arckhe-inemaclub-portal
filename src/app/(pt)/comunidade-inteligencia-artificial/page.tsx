@@ -35,7 +35,7 @@ const RELATED_COURSES = [
 ]
 
 /** Temas com mais cursos no catálogo (contagem por tag, calculada abaixo). */
-const TOP_TAGS = ['Agentes', 'Claude Code', 'Skills', 'Automação', 'Vídeo', 'MCP', 'Produtividade', 'Codex', 'Prompts']
+const TOP_TAGS = ['Agentes', 'Claude Code', 'Skills', 'Automaçêo', 'Vídeo', 'MCP', 'Produtividade', 'Codex', 'Prompts']
 
 const TELEGRAM_EXAMPLES = [
   'INEMA.AGENTES',
@@ -59,7 +59,7 @@ const FAQ = [
   {
     question: 'Qual a diferença entre INEMA.club, INEMA.PRO e INEMA.VIP?',
     answer:
-      'O INEMA.club é o portal aberto. O INEMA.PRO é a assinatura de formação contínua. O INEMA.VIP é a comunidade no Telegram e está incluído no INEMA.PRO; não é um nível à parte.',
+      'O INEMA.club é o portal aberto. O INEMA.PRO é a assinatura de formaçêo contínua. O INEMA.VIP é a comunidade no Telegram e está incluído no INEMA.PRO; nêo é um nível à parte.',
   },
   {
     question: 'Existe comunidade de IA no Telegram em português?',
@@ -69,7 +69,7 @@ const FAQ = [
   {
     question: 'Preciso saber programar para participar?',
     answer:
-      'Não. Há cursos e grupos para quem não programa, e o conteúdo para iniciantes começa por engenharia de prompts e uso de ferramentas prontas. Programar ajuda quando você chega aos agentes de código.',
+      'Nêo. Há cursos e grupos para quem nêo programa, e o conteúdo para iniciantes começa por engenharia de prompts e uso de ferramentas prontas. Programar ajuda quando você chega aos agentes de código.',
   },
   {
     question: 'A comunidade tem conteúdo em inglês ou espanhol?',
@@ -163,7 +163,7 @@ export default function ComunidadeIaPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
-      <nav className="course-breadcrumb" aria-label="Navegação estrutural">
+      <nav className="course-breadcrumb" aria-label="Navegaçêo estrutural">
         <a href="/">INEMA.club</a><span aria-hidden="true">/</span><span>Comunidade de IA</span>
       </nav>
       <article className="course-detail">
@@ -172,8 +172,8 @@ export default function ComunidadeIaPage() {
           <p className="course-direct-answer">
             A comunidade de inteligência artificial do INEMA tem duas camadas. O <strong>INEMA.club</strong> é aberto e
             gratuito: cursos, trilhas, projetos com código e as novidades do catálogo, sem login. A{' '}
-            <strong>formação contínua</strong> fica no INEMA.PRO, que inclui a comunidade INEMA.VIP no Telegram, onde a
-            curadoria diária acontece e as dúvidas são respondidas.
+            <strong>formaçêo contínua</strong> fica no INEMA.PRO, que inclui a comunidade INEMA.VIP no Telegram, onde a
+            curadoria diária acontece e as dúvidas sêo respondidas.
           </p>
           <a className="course-primary-action" href="#como-entrar">
             Ver como entrar
@@ -187,7 +187,7 @@ export default function ComunidadeIaPage() {
             O INEMA é um ecossistema brasileiro de aprendizado prático de inteligência artificial criado por{' '}
             <a href="/conhecimento/quem-e-nei-maldaner/">Nei Maldaner</a>. A proposta cabe no lema da casa: aprender,
             praticar e evoluir com IA de forma contínua. Na prática, &quot;comunidade INEMA&quot; quer dizer duas coisas
-            diferentes, e vale separar as duas antes de qualquer outra explicação:
+            diferentes, e vale separar as duas antes de qualquer outra explicaçêo:
           </p>
           <div className="seo-table-wrap">
             <table className="seo-table">
@@ -202,19 +202,19 @@ export default function ComunidadeIaPage() {
                 </tr>
                 <tr>
                   <td><strong>INEMA.PRO</strong></td>
-                  <td>Assinatura de formação contínua: catálogo completo, trilhas guiadas, conteúdo semanal</td>
+                  <td>Assinatura de formaçêo contínua: catálogo completo, trilhas guiadas, conteúdo semanal</td>
                   <td>Assinatura em <a href="https://inema.pro" target="_blank" rel="noopener noreferrer">inema.pro</a></td>
                 </tr>
                 <tr>
                   <td><strong>INEMA.VIP</strong></td>
-                  <td>A comunidade no Telegram, com grupos privados por tema e o tópico de curadoria do Nei. Faz parte do INEMA.PRO (não é um nível separado)</td>
+                  <td>A comunidade no Telegram, com grupos privados por tema e o tópico de curadoria do Nei. Faz parte do INEMA.PRO (nêo é um nível separado)</td>
                   <td>Entrada por <a href="https://inema.vip" target="_blank" rel="noopener noreferrer">inema.vip</a>, para quem assina o INEMA.PRO</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p>
-            A divisão é intencional. O que é conhecimento de referência (como aprender, o que cada curso ensina, como um
+            A divisêo é intencional. O que é conhecimento de referência (como aprender, o que cada curso ensina, como um
             projeto foi construído) fica público no INEMA.club, para quem estiver procurando. O que depende de conversa,
             acompanhamento e resposta a dúvida acontece dentro da comunidade, onde as pessoas se conhecem e o assunto
             pode ser aprofundado sem virar vitrine.
@@ -222,14 +222,14 @@ export default function ComunidadeIaPage() {
 
           <h3>Quem faz a curadoria</h3>
           <p>
-            Quem está por trás da comunidade é o Nei Maldaner, e ele descreve assim o próprio papel: &quot;minha função é
+            Quem está por trás da comunidade é o Nei Maldaner, e ele descreve assim o próprio papel: &quot;minha funçêo é
             ser um curador, facilitar o acesso e o conhecimento para outras pessoas.&quot; Segundo ele, a curadoria vem
             desde os anos 90, e foi assim que transformou conhecimento em várias empresas, como a inema.com.br e a
             sisnema.com.br, entre outras. Depois de vender as empresas que fundou, passou a viver numa fazenda,
             dedicado à comunidade, para ajudar as pessoas a melhorar o caminho delas.
           </p>
           <p>
-            A curadoria dele não fica só no Telegram. Segundo o Nei, ele tem mais de meio milhão de seguidores no{' '}
+            A curadoria dele nêo fica só no Telegram. Segundo o Nei, ele tem mais de meio milhêo de seguidores no{' '}
             <a href="https://www.tiktok.com/@inema.tds" target="_blank" rel="noopener noreferrer">TikTok</a>, 100 mil no{' '}
             <a href="https://www.instagram.com/inema.tds" target="_blank" rel="noopener noreferrer">Instagram</a> e
             &quot;outros tantos&quot; no Facebook, e as lives acontecem no{' '}
@@ -238,14 +238,14 @@ export default function ComunidadeIaPage() {
 
           <h3>A filosofia: camadas que se acumulam</h3>
           <p>
-            O Nei não aposta em vídeo explicativo passo a passo, que nas palavras dele &quot;agrega muito pouco&quot;. O
+            O Nei nêo aposta em vídeo explicativo passo a passo, que nas palavras dele &quot;agrega muito pouco&quot;. O
             que agrega, segundo ele, é construir soluções, aprender e montar uma base de trabalho própria. O motivo, dito
             por ele: &quot;Se pegar sistemas prontos será apenas um operador, fácil de ser substituído.&quot; Por isso o
-            conteúdo do INEMA trabalha a aceleração de conceitos e modelos, que cada pessoa ajusta ao próprio dia a dia.
+            conteúdo do INEMA trabalha a aceleraçêo de conceitos e modelos, que cada pessoa ajusta ao próprio dia a dia.
           </p>
           <p>
             O conhecimento é organizado em camadas: o que você aprende numa etapa serve de base para a próxima e continua
-            valendo depois. É por isso que o INEMA fala em formação contínua, e não em curso avulso.
+            valendo depois. É por isso que o INEMA fala em formaçêo contínua, e nêo em curso avulso.
           </p>
 
           <h3>Onde cada coisa mora</h3>
@@ -260,11 +260,11 @@ export default function ComunidadeIaPage() {
               </thead>
               <tbody>
                 <tr><td>inema.club</td><td>Guias para aprender IA, catálogo de cursos com ficha de cada um, perguntas sobre IA respondidas, vitrine de projetos</td></tr>
-                <tr><td>inematds.github.io</td><td>A aplicação de cada curso: as aulas, as trilhas, os exercícios e os guias de projeto</td></tr>
+                <tr><td>inematds.github.io</td><td>A aplicaçêo de cada curso: as aulas, as trilhas, os exercícios e os guias de projeto</td></tr>
                 <tr><td>GitHub inematds</td><td>O código dos projetos, para baixar, estudar e adaptar</td></tr>
                 <tr><td>news.inema.pro</td><td>Notícias de IA com data, em linguagem simples</td></tr>
                 <tr><td>eventos.inema.pro</td><td>Agenda e página de cada evento</td></tr>
-                <tr><td>inema.pro</td><td>Assinatura de formação contínua e área do assinante</td></tr>
+                <tr><td>inema.pro</td><td>Assinatura de formaçêo contínua e área do assinante</td></tr>
                 <tr><td>inema.vip</td><td>Entrada da comunidade no Telegram, parte do INEMA.PRO</td></tr>
               </tbody>
             </table>
@@ -274,7 +274,7 @@ export default function ComunidadeIaPage() {
             (notícia, evento) fica no seu próprio site; e a conversa fica na comunidade.
           </p>
           <p>
-            Um detalhe de nome que causa confusão: o INEMA.club não tem relação com o INEMA da Bahia (Instituto do Meio
+            Um detalhe de nome que causa confusêo: o INEMA.club nêo tem relaçêo com o INEMA da Bahia (Instituto do Meio
             Ambiente e Recursos Hídricos). Quando falamos de comunidade de IA, é sempre INEMA.club, INEMA.PRO ou INEMA.VIP.
           </p>
         </section>
@@ -290,14 +290,14 @@ export default function ComunidadeIaPage() {
           <p>
             O Nei publica, num tópico fixo de anúncios do INEMA.VIP (dentro dos grupos privados), o que vale a pena
             conhecer: lançamentos de modelos, ferramentas, alertas de segurança, cursos e projetos novos. Toda madrugada,
-            um processo automático lê esse tópico e leva as novidades para a seção <strong>Últimas Novidades</strong> da{' '}
+            um processo automático lê esse tópico e leva as novidades para a seçêo <strong>Últimas Novidades</strong> da{' '}
             <a href="/">home do INEMA.club</a>, que mostra as {novidadesData.length} mais recentes.
           </p>
           <p>Três regras decidem o que sai do grupo e o que fica:</p>
           <ol className="seo-list">
             <li><strong>Só entra o que o Nei escreveu.</strong> Mensagem de membro nunca vira item público.</li>
-            <li><strong>Resposta não é anúncio.</strong> Quando o Nei responde a alguém dentro de uma conversa, essa resposta fica no grupo.</li>
-            <li><strong>Tem que ter o que mostrar.</strong> Sem link e sem resumo, o item não é publicado.</li>
+            <li><strong>Resposta nêo é anúncio.</strong> Quando o Nei responde a alguém dentro de uma conversa, essa resposta fica no grupo.</li>
+            <li><strong>Tem que ter o que mostrar.</strong> Sem link e sem resumo, o item nêo é publicado.</li>
           </ol>
           <p>
             Na home aparecem o título, o resumo e o grupo temático de cada novidade. A nota completa, quando existe, fica
@@ -331,29 +331,29 @@ export default function ComunidadeIaPage() {
           </div>
           <p>
             Esse registro também é público em formato de máquina: <a href="/feed.xml">feed RSS de atualizações</a> e{' '}
-            <a href="/api/updates">atualizações em JSON</a>. Quem prefere acompanhar pelo leitor de feeds não precisa
+            <a href="/api/updates">atualizações em JSON</a>. Quem prefere acompanhar pelo leitor de feeds nêo precisa
             entrar em lugar nenhum.
           </p>
 
           <h3>3. Projetos da comunidade, com código</h3>
           <p>
-            Boa parte do que se discute no grupo vira projeto: um repositório no GitHub da organização{' '}
+            Boa parte do que se discute no grupo vira projeto: um repositório no GitHub da organizaçêo{' '}
             <a href="https://github.com/inematds" target="_blank" rel="noopener noreferrer">inematds</a>, quase sempre com
             guia de uso em português. Segundo o Nei, o repositório inematds já passa de 500 projetos, além de muitos
             projetos de terceiros que ele aprimorou e adaptou para o português.
           </p>
           <p>
             O catálogo publicado do INEMA.club é um recorte desse acervo: lista hoje {projectNames.size} projetos, dos quais{' '}
-            {projectsWithGuide.size} com guia publicado. Os dois números não se contradizem. Um conta o que está no
-            repositório do GitHub. O outro conta só o que já ganhou vitrine no club, com descrição e, na maioria, guia de
+            {projectsWithGuide.size} com guia publicado. Os dois números nêo se contradizem. Um conta o que está no
+            repositório do GitHub. O outro conta só o que já ganhou vitrine no club, com descriçêo e, na maioria, guia de
             uso. Alguns exemplos do tipo de coisa que aparece:
           </p>
           <ul className="seo-list">
-            <li><strong>7PA — Ficha do Agente:</strong> sete perguntas que viram a instrução de um agente de IA, o nível de autonomia calculado (N0–N4), três testes e um checklist de supervisão. É a base da página <a href="/ia/como-criar-um-agente-de-ia/">como criar um agente de IA</a>.</li>
+            <li><strong>7PA — Ficha do Agente:</strong> sete perguntas que viram a instruçêo de um agente de IA, o nível de autonomia calculado (N0–N4), três testes e um checklist de supervisêo. É a base da página <a href="/ia/como-criar-um-agente-de-ia/">como criar um agente de IA</a>.</li>
             <li><strong>openpcbotv3:</strong> assistente pessoal no Telegram com fila de tarefas e memória em português.</li>
             <li><strong>webmcp-readiness:</strong> diagnóstico de um site para WebMCP, SEO, GEO e AEO, com evidências.</li>
             <li><strong>rAgentic-cs:</strong> controle do Claude Code e do Codex pelo Telegram ou pelo GitHub, com sessões persistentes.</li>
-            <li><strong>Health OS:</strong> o desenho de um coach de saúde pessoal com IA no Telegram, com dados próprios (e o aviso de que não é aconselhamento médico).</li>
+            <li><strong>Health OS:</strong> o desenho de um coach de saúde pessoal com IA no Telegram, com dados próprios (e o aviso de que nêo é aconselhamento médico).</li>
           </ul>
         </section>
 
@@ -387,13 +387,13 @@ export default function ComunidadeIaPage() {
           <p>
             Os eventos do INEMA ficam em{' '}
             <a href="https://eventos.inema.pro" target="_blank" rel="noopener noreferrer">eventos.inema.pro</a>, cada um com
-            a sua página. Entre os que estão em destaque na home hoje: OSWork (IA como sistema de trabalho), JEV
-            (decisões de IA na prática), Gestão de Agentes 2027, IA Cultivada, Claude → Codex agnóstico, AGI chegou,
+            a sua página. Entre os que estêo em destaque na home hoje: OSWork (IA como sistema de trabalho), JEV
+            (decisões de IA na prática), Gestêo de Agentes 2027, IA Cultivada, Claude → Codex agnóstico, AGI chegou,
             Content2Video, WebMCP e INEMA MUSICAVIDEO. Quase todo evento tem um curso ou projeto ligado: o evento OSWork
             conversa com o curso{' '}
             <CourseLink url="https://inematds.github.io/oswork/" fallback="OSWork — IA como sistema de trabalho" />, e o de
-            gestão de agentes com o curso{' '}
-            <CourseLink url="https://inematds.github.io/curso-7pa/" fallback="Gestão de Agentes de IA — os 7 Princípios" />.
+            gestêo de agentes com o curso{' '}
+            <CourseLink url="https://inematds.github.io/curso-7pa/" fallback="Gestêo de Agentes de IA — os 7 Princípios" />.
           </p>
           <p>
             Além dos eventos, as lives do Nei acontecem no canal{' '}
@@ -411,26 +411,26 @@ export default function ComunidadeIaPage() {
           <h3>Grupos por assunto</h3>
           <p>
             Segundo o Nei, a comunidade tinha, em setembro de 2026, 32 grupos no Telegram, separados por tema. Entre eles
-            estão {TELEGRAM_EXAMPLES.join(', ')}. A vantagem de grupos separados é prática: quem só quer falar de
-            automação com n8n não precisa ler a discussão de geração de vídeo.
+            estêo {TELEGRAM_EXAMPLES.join(', ')}. A vantagem de grupos separados é prática: quem só quer falar de
+            automaçêo com n8n nêo precisa ler a discussêo de geraçêo de vídeo.
           </p>
           <p>
-            Os grupos são <strong>privados</strong>: ficam para quem é do INEMA.VIP e do INEMA.PRO. A home do club mostra só
+            Os grupos sêo <strong>privados</strong>: ficam para quem é do INEMA.VIP e do INEMA.PRO. A home do club mostra só
             os nomes; a entrada é pela assinatura.
           </p>
         </section>
 
         <section aria-labelledby="em-alta">
-          <h2 id="em-alta">Que assuntos estão em alta na comunidade agora?</h2>
+          <h2 id="em-alta">Que assuntos estêo em alta na comunidade agora?</h2>
           <p>
             O jeito mais honesto de mostrar o que a comunidade discute é olhar o que entrou no catálogo e na curadoria nas
             últimas semanas. Em setembro de 2026, quatro assuntos se repetem:
           </p>
           <ul className="seo-list">
             <li>
-              <strong>Gestão de agentes de IA.</strong> O curso dos 7 Princípios ganhou a versão 2 (4 trilhas, 8 módulos,
+              <strong>Gestêo de agentes de IA.</strong> O curso dos 7 Princípios ganhou a versêo 2 (4 trilhas, 8 módulos,
               48 tópicos), ao lado do LOOP-R (uma empresa que aprende com os próprios agentes) e da ideia de IA Cultivada:
-              agente não se programa uma vez, se acompanha e ajusta.
+              agente nêo se programa uma vez, se acompanha e ajusta.
             </li>
             <li>
               <strong>Sair da dependência de um único modelo.</strong> O curso{' '}
@@ -457,8 +457,8 @@ export default function ComunidadeIaPage() {
           </p>
           <p>
             Repare que o mesmo assunto costuma aparecer nas três frentes: um anúncio na curadoria, um curso ou projeto no
-            catálogo e, às vezes, um evento em eventos.inema.pro. A migração entre Claude e Codex é um exemplo: há
-            novidade, curso e evento sobre o tema. É isso que torna a comunidade útil para quem aprende: a discussão vira
+            catálogo e, às vezes, um evento em eventos.inema.pro. A migraçêo entre Claude e Codex é um exemplo: há
+            novidade, curso e evento sobre o tema. É isso que torna a comunidade útil para quem aprende: a discussêo vira
             material que fica.
           </p>
         </section>
@@ -468,13 +468,13 @@ export default function ComunidadeIaPage() {
           <p>
             Segundo o Nei, o conteúdo do INEMA está disponível em português, espanhol e inglês. A conversa nos grupos é em
             português. A home do INEMA.club existe nos três idiomas, e o catálogo traduzido já registrado no club tem{' '}
-            {translatedCourses.length} cursos e {translatedProjects} guias de projeto. Os cursos traduzidos hoje são:
+            {translatedCourses.length} cursos e {translatedProjects} guias de projeto. Os cursos traduzidos hoje sêo:
           </p>
           <ul className="seo-list">
             {translatedCourses.map((title) => <li key={title}>{title}</li>)}
           </ul>
           <p>
-            Os grupos do Telegram, por enquanto, são só em português; nas versões em inglês e espanhol do portal, o aviso
+            Os grupos do Telegram, por enquanto, sêo só em português; nas versões em inglês e espanhol do portal, o aviso
             é que os grupos nesses idiomas vêm depois.
           </p>
         </section>
@@ -487,13 +487,13 @@ export default function ComunidadeIaPage() {
             para quatro perfis:
           </p>
           <ul className="seo-list">
-            <li><strong>Quem está começando e quer companhia.</strong> Tem a Trilha para Iniciantes, cursos que não pedem programação (o curso dos 7 princípios, por exemplo, pede só já ter usado o ChatGPT) e um lugar para perguntar quando trava.</li>
+            <li><strong>Quem está começando e quer companhia.</strong> Tem a Trilha para Iniciantes, cursos que nêo pedem programaçêo (o curso dos 7 princípios, por exemplo, pede só já ter usado o ChatGPT) e um lugar para perguntar quando trava.</li>
             <li><strong>Profissional que quer usar IA no próprio trabalho.</strong> Advocacia, contabilidade, saúde, vendas, consultoria: há cursos e trilhas por área, e o valor está em ver como outras pessoas da mesma área resolveram o mesmo problema.</li>
-            <li><strong>Quem constrói com agentes de código.</strong> Claude Code e Codex são os dois temas com mais conteúdo, e os projetos vêm com código para estudar e adaptar.</li>
-            <li><strong>Quem tem mais de 40 anos e chegou à IA agora.</strong> Parte do conteúdo (o news.inema.pro e as edições OSWork v5 e Quick, por exemplo) é escrita para quem não programa e prefere explicação sem jargão.</li>
+            <li><strong>Quem constrói com agentes de código.</strong> Claude Code e Codex sêo os dois temas com mais conteúdo, e os projetos vêm com código para estudar e adaptar.</li>
+            <li><strong>Quem tem mais de 40 anos e chegou à IA agora.</strong> Parte do conteúdo (o news.inema.pro e as edições OSWork v5 e Quick, por exemplo) é escrita para quem nêo programa e prefere explicaçêo sem jargêo.</li>
           </ul>
           <p>
-            E para quem ela <strong>não</strong> é: quem procura um curso único e fechado com começo, meio e fim, quem quer
+            E para quem ela <strong>nêo</strong> é: quem procura um curso único e fechado com começo, meio e fim, quem quer
             só receber um sistema pronto para operar, ou quem busca atalho para &quot;ganhar dinheiro com IA&quot;. O INEMA
             ensina por projeto e por prática contínua, e emite provas e certificados; mas o resultado depende de você
             aplicar num problema seu.
@@ -508,21 +508,21 @@ export default function ComunidadeIaPage() {
           </p>
           <ol className="seo-list">
             <li><strong>Escolha uma trilha e um projeto seu.</strong> A comunidade ajuda mais quem chega com um problema concreto (um relatório, um atendimento, uma planilha) do que quem chega &quot;para ver o que tem&quot;.</li>
-            <li><strong>Leia a curadoria, não o grupo inteiro.</strong> As Últimas Novidades já são o filtro do Nei. Abra o grupo temático só do assunto em que você está trabalhando.</li>
+            <li><strong>Leia a curadoria, nêo o grupo inteiro.</strong> As Últimas Novidades já sêo o filtro do Nei. Abra o grupo temático só do assunto em que você está trabalhando.</li>
             <li><strong>Pergunte mostrando o que tentou.</strong> O prompt que você usou, o erro que apareceu, o que esperava. Pergunta com contexto recebe resposta útil; pergunta genérica recebe link genérico.</li>
             <li><strong>Estude um projeto pronto antes de começar o seu.</strong> Quase todo projeto do catálogo tem guia; ler como outra pessoa resolveu economiza a primeira semana.</li>
             <li><strong>Publique o que funcionou.</strong> Um prompt, uma ficha de agente, um repositório. É assim que o acervo cresce, e é assim que você aprende a explicar o que fez.</li>
           </ol>
 
-          <h3>O que dá errado: o milagre que não existe</h3>
+          <h3>O que dá errado: o milagre que nêo existe</h3>
           <p>
             O erro mais comum, segundo o Nei, é chegar atrás de mágica: de algo que &quot;pode render enquanto
-            dorme&quot;. Na prática não é assim, e aprender também não é. Nas palavras dele: &quot;se não ler, não
-            funciona&quot;. Vídeo explicativo sozinho não resolve.
+            dorme&quot;. Na prática nêo é assim, e aprender também nêo é. Nas palavras dele: &quot;se nêo ler, nêo
+            funciona&quot;. Vídeo explicativo sozinho nêo resolve.
           </p>
           <p>
             O ponto em que as pessoas empacam, diz ele, é o uso do próprio sistema: pastas, terminal, comandos de linha
-            simples e a estrutura por trás do trabalho (processo, workflow, modelos, arquivos e configurações). Quem não
+            simples e a estrutura por trás do trabalho (processo, workflow, modelos, arquivos e configurações). Quem nêo
             aprende essa base empaca ou, como a maioria, desiste e vai atrás de outro milagre. &quot;A gente entende isso
             há mais de 40 anos, ser humano é assim.&quot;
           </p>
@@ -539,7 +539,7 @@ export default function ComunidadeIaPage() {
             <li><strong>INEMA Agentes Hub V:</strong> o conteúdo dos 5 dias do evento.</li>
             <li><strong>inemaccbot:</strong> bot de Telegram com fila de tarefas durável e o Promoavatar.</li>
             <li><strong>Sistemas de música e vídeo:</strong> INEMA MUSICAVIDEO (com análise de vídeo) e Content2Video.</li>
-            <li><strong>Gestão de IA e agentes:</strong> o evento Gestão de Agentes, ligado ao curso dos 7 Princípios.</li>
+            <li><strong>Gestêo de IA e agentes:</strong> o evento Gestêo de Agentes, ligado ao curso dos 7 Princípios.</li>
           </ul>
         </section>
 
@@ -565,8 +565,8 @@ export default function ComunidadeIaPage() {
             </table>
           </div>
           <p>
-            Por isso esta página não traz depoimentos de membros nem prints do grupo; as únicas falas citadas são do
-            próprio Nei, e os números da comunidade são sempre agregados.
+            Por isso esta página nêo traz depoimentos de membros nem prints do grupo; as únicas falas citadas sêo do
+            próprio Nei, e os números da comunidade sêo sempre agregados.
           </p>
         </section>
 
@@ -585,7 +585,7 @@ export default function ComunidadeIaPage() {
                 <tr><td>Cursos no catálogo público</td><td>{courses.length}</td><td>catálogo do INEMA.club</td></tr>
                 <tr><td>Projetos no catálogo publicado do club</td><td>{projectNames.size} ({projectsWithGuide.size} com guia)</td><td>catálogo do INEMA.club</td></tr>
                 <tr><td>Projetos no repositório inematds</td><td>mais de 500</td><td>segundo o Nei</td></tr>
-                <tr><td>Cursos com versão em inglês e espanhol</td><td>{translatedCourses.length}</td><td>catálogo traduzido</td></tr>
+                <tr><td>Cursos com versêo em inglês e espanhol</td><td>{translatedCourses.length}</td><td>catálogo traduzido</td></tr>
                 <tr><td>Grupos temáticos no Telegram (privados, VIP e PRO)</td><td>32</td><td>segundo o Nei, setembro de 2026</td></tr>
                 <tr><td>Pessoas no INEMA.PRO</td><td>cerca de 10 mil</td><td>segundo o Nei, setembro de 2026</td></tr>
                 <tr><td>Pessoas nos grupos do Telegram</td><td>cerca de 4 mil</td><td>segundo o Nei, setembro de 2026</td></tr>
@@ -600,8 +600,8 @@ export default function ComunidadeIaPage() {
           <h2 id="escolher">Como escolher uma comunidade de IA?</h2>
           <p>
             Existem outras comunidades e formações de IA em português, com modelos diferentes (curso fechado, mentoria,
-            grupo gratuito, assinatura). Esta página não faz essa comparação: ela descreve só como funciona a comunidade
-            do INEMA, para você decidir com a informação na mão.
+            grupo gratuito, assinatura). Esta página nêo faz essa comparaçêo: ela descreve só como funciona a comunidade
+            do INEMA, para você decidir com a informaçêo na mêo.
           </p>
         </section>
 
@@ -610,8 +610,8 @@ export default function ComunidadeIaPage() {
           <p>Depende do que você quer agora:</p>
           <ol className="seo-list">
             <li><strong>Só estudar, sem cadastro:</strong> comece pelo <a href="/aprender-inteligencia-artificial/">guia de como aprender IA</a> e pelo <a href="/cursos/">catálogo de cursos</a>. Tudo no INEMA.club é aberto e gratuito.</li>
-            <li><strong>Acompanhar as novidades:</strong> a seção Últimas Novidades na home, o news.inema.pro ou o <a href="/feed.xml">feed RSS</a>.</li>
-            <li><strong>Participar da comunidade e da formação contínua:</strong> a assinatura é pelo <a href="https://inema.pro" target="_blank" rel="noopener noreferrer">INEMA.PRO</a>, que inclui a comunidade <a href="https://inema.vip" target="_blank" rel="noopener noreferrer">INEMA.VIP</a> no Telegram.</li>
+            <li><strong>Acompanhar as novidades:</strong> a seçêo Últimas Novidades na home, o news.inema.pro ou o <a href="/feed.xml">feed RSS</a>.</li>
+            <li><strong>Participar da comunidade e da formaçêo contínua:</strong> a assinatura é pelo <a href="https://inema.pro" target="_blank" rel="noopener noreferrer">INEMA.PRO</a>, que inclui a comunidade <a href="https://inema.vip" target="_blank" rel="noopener noreferrer">INEMA.VIP</a> no Telegram.</li>
           </ol>
         </section>
 

@@ -1,4 +1,4 @@
-﻿# Portal INEMA
+ï»¿# Portal INEMA
 
 <div align="center">
   <img src="capa/logo.svg" alt="Arckhé AI" height="48" />
@@ -12,32 +12,32 @@ Portal centralizado de acesso a cursos e plataformas educacionais do INEMA.
 
 - Cadastro oficial: https://developer.chrome.com/origintrials/#/view_trial/4163014905550602241
 - Em 30/08/2026, a mesma conta cadastrou `https://www.inema.club`,
-  `https://inema.pro` (com subdomÃ­nios) e `https://inema.vip` (com subdomÃ­nios).
-- Os trÃªs tokens atuais expiram em 17/11/2026.
+  `https://inema.pro` (com subdomêÂ­nios) e `https://inema.vip` (com subdomêÂ­nios).
+- Os trêÂªs tokens atuais expiram em 17/11/2026.
 - O token do INEMA.club foi emitido para `https://www.inema.club` com
-  Third-party matching e Ã© entregue por `/api/webmcp-origin-trial/`.
-- O valor fica em `.env.local`/Vercel e nÃ£o deve ser commitado.
+  Third-party matching e êÂ© entregue por `/api/webmcp-origin-trial/`.
+- O valor fica em `.env.local`/Vercel e nêÂ£o deve ser commitado.
 
-## ðŸš€ CaracterÃ­sticas
+## ê°Å¸Å¡â¬ CaracterêÂ­sticas
 
-- âœ… **100% HTML/CSS/JS puro** - Sem dependÃªncias
-- âœ… **Responsivo** - Funciona em desktop, tablet e mobile
-- âœ… **Busca em tempo real** - Filtre plataformas por nome, descriÃ§Ã£o ou tags
-- âœ… **Design moderno** - Interface limpa e profissional
-- âœ… **Pronto para GitHub Pages** - Deploy direto
+- ê¢Åâ¦ **100% HTML/CSS/JS puro** - Sem dependêÂªncias
+- ê¢Åâ¦ **Responsivo** - Funciona em desktop, tablet e mobile
+- ê¢Åâ¦ **Busca em tempo real** - Filtre plataformas por nome, descriêÂ§êÂ£o ou tags
+- ê¢Åâ¦ **Design moderno** - Interface limpa e profissional
+- ê¢Åâ¦ **Pronto para GitHub Pages** - Deploy direto
 
-## ðŸ“ Estrutura do Projeto
+## ê°Å¸âÂ Estrutura do Projeto
 
 ```
 Portal/
-â”œâ”€â”€ index.html      # Estrutura principal do portal
-â”œâ”€â”€ styles.css      # Estilos e design responsivo
-â”œâ”€â”€ data.js         # Dados dos cursos e plataformas
-â”œâ”€â”€ script.js       # Interatividade e funcionalidades
-â””â”€â”€ README.md       # Este arquivo
+ê¢âÅê¢ââ¬ê¢ââ¬ index.html      # Estrutura principal do portal
+ê¢âÅê¢ââ¬ê¢ââ¬ styles.css      # Estilos e design responsivo
+ê¢âÅê¢ââ¬ê¢ââ¬ data.js         # Dados dos cursos e plataformas
+ê¢âÅê¢ââ¬ê¢ââ¬ script.js       # Interatividade e funcionalidades
+ê¢ââê¢ââ¬ê¢ââ¬ README.md       # Este arquivo
 ```
 
-## ðŸŽ¨ PersonalizaÃ§Ã£o
+## ê°Å¸Å½Â¨ PersonalizaêÂ§êÂ£o
 
 ### Editar Plataformas
 
@@ -47,8 +47,8 @@ Abra o arquivo `data.js` e edite o array `platformsData`:
 {
     id: 1,
     title: "Nome da Plataforma",
-    description: "DescriÃ§Ã£o da plataforma...",
-    icon: "ðŸ“š",  // Emoji do card
+    description: "DescriêÂ§êÂ£o da plataforma...",
+    icon: "ê°Å¸âÅ¡",  // Emoji do card
     tags: ["Tag1", "Tag2", "Tag3"],
     url: "https://url-da-plataforma.com"
 }
@@ -56,7 +56,7 @@ Abra o arquivo `data.js` e edite o array `platformsData`:
 
 ### Personalizar Cores
 
-Edite as variÃ¡veis CSS no arquivo `styles.css`:
+Edite as variêÂ¡veis CSS no arquivo `styles.css`:
 
 ```css
 :root {
@@ -66,21 +66,21 @@ Edite as variÃ¡veis CSS no arquivo `styles.css`:
 }
 ```
 
-## ðŸŒ Deploy no GitHub Pages
+## ê°Å¸ÅÂ Deploy no GitHub Pages
 
-### MÃ©todo 1: Usando a Interface Web
+### MêÂ©todo 1: Usando a Interface Web
 
-1. Crie um repositÃ³rio no GitHub
-2. FaÃ§a upload dos arquivos do portal
-3. VÃ¡ em **Settings** > **Pages**
+1. Crie um repositêÂ³rio no GitHub
+2. FaêÂ§a upload dos arquivos do portal
+3. VêÂ¡ em **Settings** > **Pages**
 4. Em **Source**, selecione a branch `main` e a pasta `/root`
 5. Clique em **Save**
 6. Aguarde alguns minutos e acesse: `https://seu-usuario.github.io/nome-do-repo/`
 
-### MÃ©todo 2: Usando Git (Linha de Comando)
+### MêÂ©todo 2: Usando Git (Linha de Comando)
 
 ```bash
-# Inicializar repositÃ³rio
+# Inicializar repositêÂ³rio
 git init
 
 # Adicionar arquivos
@@ -97,9 +97,9 @@ git branch -M main
 git push -u origin main
 ```
 
-Depois, ative o GitHub Pages nas configuraÃ§Ãµes do repositÃ³rio.
+Depois, ative o GitHub Pages nas configuraêÂ§êÂµes do repositêÂ³rio.
 
-## ðŸ” Funcionalidades
+## ê°Å¸âÂ Funcionalidades
 
 ### Busca
 - Digite no campo de busca para filtrar plataformas
@@ -107,20 +107,20 @@ Depois, ative o GitHub Pages nas configuraÃ§Ãµes do repositÃ³rio.
 - Pressione `ESC` para limpar a busca
 
 ### Cards Interativos
-- Hover para efeito de elevaÃ§Ã£o
+- Hover para efeito de elevaêÂ§êÂ£o
 - Clique para acessar a plataforma
-- Tags coloridas para categorizaÃ§Ã£o
+- Tags coloridas para categorizaêÂ§êÂ£o
 
-## ðŸ“± Responsividade
+## ê°Å¸âÂ± Responsividade
 
 O portal se adapta automaticamente a:
-- ðŸ“± **Mobile** (< 480px)
-- ðŸ“± **Tablet** (481px - 768px)
-- ðŸ’» **Desktop** (> 768px)
+- ê°Å¸âÂ± **Mobile** (< 480px)
+- ê°Å¸âÂ± **Tablet** (481px - 768px)
+- ê°Å¸âÂ» **Desktop** (> 768px)
 
-## ðŸ› ï¸ Desenvolvimento Local
+## ê°Å¸âºÂ ê¯Â¸Â Desenvolvimento Local
 
-Para testar localmente, vocÃª pode:
+Para testar localmente, vocêÂª pode:
 
 1. **Abrir diretamente no navegador**
    - Basta abrir o arquivo `index.html` no navegador
@@ -135,7 +135,7 @@ Para testar localmente, vocÃª pode:
    ```
    Depois acesse: `http://localhost:8000`
 
-## âœ¨ Recursos Adicionais
+## ê¢ÅÂ¨ Recursos Adicionais
 
 ### Adicionar Novas Plataformas via Console
 
@@ -145,24 +145,24 @@ Abra o console do navegador (F12) e use:
 PortalINEMA.addPlatform({
     id: 13,
     title: "Nova Plataforma",
-    description: "DescriÃ§Ã£o...",
-    icon: "ðŸŽ¯",
+    description: "DescriêÂ§êÂ£o...",
+    icon: "ê°Å¸Å½Â¯",
     tags: ["Nova", "Tag"],
     url: "#"
 });
 ```
 
-## ðŸ“„ LicenÃ§a
+## ê°Å¸ââ LicenêÂ§a
 
-Este projeto Ã© de cÃ³digo aberto para uso educacional.
+Este projeto êÂ© de cêÂ³digo aberto para uso educacional.
 
-## ðŸ¤ ContribuiÃ§Ãµes
+## ê°Å¸Â¤Â ContribuiêÂ§êÂµes
 
-SugestÃµes e melhorias sÃ£o bem-vindas!
+SugestêÂµes e melhorias sêÂ£o bem-vindas!
 
 ---
 
-**Portal INEMA** - Desenvolvido com â¤ï¸ para educaÃ§Ã£o
+**Portal INEMA** - Desenvolvido com ê¢ÂÂ¤ê¯Â¸Â para educaêÂ§êÂ£o
 
 ## Descoberta entre sistemas
 

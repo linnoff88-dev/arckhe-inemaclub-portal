@@ -1,5 +1,5 @@
 // Origem do portal na allowlist — o widget só roda em inema.club (e localhost
-// em dev). Qualquer outra origem não recebe os headers CORS necessários.
+// em dev). Qualquer outra origem nêo recebe os headers CORS necessários.
 const ALLOWED_ORIGINS = new Set([
   'https://inema.club',
   'https://www.inema.club',

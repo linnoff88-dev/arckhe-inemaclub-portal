@@ -24,9 +24,9 @@ export const metadata: Metadata = {
 const BEGINNER_STEPS = [
   { url: 'https://inematds.github.io/FEP/', name: 'FEP — Fundamentos de Engenharia de Prompts', why: 'Aprender a conversar com a IA: dar contexto, pedir formato, iterar. É a habilidade que todas as outras usam.' },
   { url: 'https://inematds.github.io/ATIA/', name: 'ATIA — AI Tools in Action', why: 'Ver os prompts funcionando em ferramentas reais e entender o que cada tipo de IA resolve.' },
-  { url: 'https://inematds.github.io/FDB/', name: 'FDB — Fundamentos de Banco de Dados', why: 'A base técnica de dados: quase todo projeto com IA lê, guarda ou organiza informação.' },
+  { url: 'https://inematds.github.io/FDB/', name: 'FDB — Fundamentos de Banco de Dados', why: 'A base técnica de dados: quase todo projeto com IA lê, guarda ou organiza informaçêo.' },
   { url: 'https://inematds.github.io/VISION/', name: 'Vision — Processamento de Imagens com IA', why: 'Levar a IA para além do texto, trabalhando com imagens.' },
-  { url: 'https://inematds.github.io/ccodebasico/', name: 'Claude Code do Zero', why: 'Primeiro agente de código: instalação, comandos, skills e MCP.' },
+  { url: 'https://inematds.github.io/ccodebasico/', name: 'Claude Code do Zero', why: 'Primeiro agente de código: instalaçêo, comandos, skills e MCP.' },
   { url: 'https://inematds.github.io/codexbasico/', name: 'Codex CLI em 6 trilhas', why: 'O outro grande agente de código, para comparar e escolher o seu fluxo.' },
   { url: 'https://inematds.github.io/do-zero-ao-deploy/', name: 'Do Zero ao Deploy', why: 'Colocar um projeto real no ar, da primeira linha no terminal ao seu assistente de IA.' },
   { url: 'https://inematds.github.io/intelecto-curso/', name: 'INTELECTO — Do Zero ao Expert em IA', why: 'Fechar a base construindo o seu próprio sistema de IA.' },
@@ -36,7 +36,7 @@ const FAQ = [
   {
     question: 'Preciso saber programar para aprender IA?',
     answer:
-      'Não para começar. Prompts, ferramentas prontas e boa parte da automação não exigem código. Programação passa a ajudar quando você chega aos agentes de código (Claude Code, Codex) e quer colocar projetos no ar — e esses agentes justamente reduzem a barreira de programar.',
+      'Nêo para começar. Prompts, ferramentas prontas e boa parte da automaçêo nêo exigem código. Programaçêo passa a ajudar quando você chega aos agentes de código (Claude Code, Codex) e quer colocar projetos no ar — e esses agentes justamente reduzem a barreira de programar.',
   },
   {
     question: 'Por onde começar a aprender inteligência artificial?',
@@ -46,12 +46,12 @@ const FAQ = [
   {
     question: 'Quanto tempo leva para aprender IA?',
     answer:
-      'Depende do objetivo. Usar IA no dia a dia com bons resultados é questão de semanas de prática. Construir agentes e sistemas próprios leva meses de projetos. O que acelera é praticar em problemas reais, não acumular cursos.',
+      'Depende do objetivo. Usar IA no dia a dia com bons resultados é questêo de semanas de prática. Construir agentes e sistemas próprios leva meses de projetos. O que acelera é praticar em problemas reais, nêo acumular cursos.',
   },
   {
-    question: 'Os cursos do INEMA são gratuitos?',
+    question: 'Os cursos do INEMA sêo gratuitos?',
     answer:
-      'Sim. Os cursos do INEMA.club são abertos e gratuitos: cada ficha leva direto à aplicação do curso. A formação contínua, com trilhas completas, provas, certificados e a comunidade INEMA.VIP, faz parte do INEMA.PRO.',
+      'Sim. Os cursos do INEMA.club sêo abertos e gratuitos: cada ficha leva direto à aplicaçêo do curso. A formaçêo contínua, com trilhas completas, provas, certificados e a comunidade INEMA.VIP, faz parte do INEMA.PRO.',
   },
   {
     question: 'Qual a diferença entre usar IA e construir com IA?',
@@ -108,7 +108,7 @@ export default function AprenderIaPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
-      <nav className="course-breadcrumb" aria-label="Navegação estrutural">
+      <nav className="course-breadcrumb" aria-label="Navegaçêo estrutural">
         <a href="/">INEMA.club</a><span aria-hidden="true">/</span><span>Aprender IA</span>
       </nav>
       <article className="course-detail">
@@ -129,8 +129,8 @@ export default function AprenderIaPage() {
         <section aria-labelledby="por-onde-comecar">
           <h2 id="por-onde-comecar">Por onde começar: a Trilha para Iniciantes</h2>
           <p>
-            Esta é a progressão que o INEMA recomenda para quem está começando. Não é uma lista aleatória: você aprende a
-            falar com a IA, vê essas habilidades em ação, ganha base técnica e só então entra nos agentes de código, que
+            Esta é a progressêo que o INEMA recomenda para quem está começando. Nêo é uma lista aleatória: você aprende a
+            falar com a IA, vê essas habilidades em açêo, ganha base técnica e só entêo entra nos agentes de código, que
             juntam tudo na prática.
           </p>
           <ol className="seo-list">
@@ -168,7 +168,7 @@ export default function AprenderIaPage() {
           <h2 id="como-estudar">Como estudar IA sem se perder</h2>
           <ul className="seo-list">
             <li>Pratique em um problema seu desde o primeiro dia — um relatório, um atendimento, uma planilha.</li>
-            <li>Aprenda uma ferramenta por vez até ela resolver algo real; só então passe para a próxima.</li>
+            <li>Aprenda uma ferramenta por vez até ela resolver algo real; só entêo passe para a próxima.</li>
             <li>Guarde o que funcionou: prompts, instruções e erros viram o seu material de consulta.</li>
             <li>Troque o &quot;chat solto&quot; por um sistema: pastas, instruções fixas e memória para os seus agentes.</li>
             <li>Estude em grupo: perguntar e ver o projeto dos outros encurta meses de tentativa e erro.</li>
@@ -209,7 +209,7 @@ export default function AprenderIaPage() {
           <h2 id="comunidade">Aprender junto: a comunidade do INEMA</h2>
           <p>
             Aprender IA sozinho é possível, mas lento. No INEMA você tem cursos práticos, projetos com código aberto para
-            estudar e uma comunidade para tirar dúvidas e acompanhar as novidades. A formação contínua fica no{' '}
+            estudar e uma comunidade para tirar dúvidas e acompanhar as novidades. A formaçêo contínua fica no{' '}
             <a href="https://inema.pro" target="_blank" rel="noopener noreferrer">INEMA.PRO</a>, que inclui a comunidade{' '}
             <a href="https://inema.vip" target="_blank" rel="noopener noreferrer">INEMA.VIP</a>.
           </p>

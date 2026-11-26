@@ -2,7 +2,7 @@ import syllabusData from '@/data/courses.syllabus.json'
 
 /**
  * Ementa real dos cursos prioritários, extraída da página de cada curso por
- * scripts/extrai-syllabus.mjs (extrativo + validado). Chave = URL da aplicação.
+ * scripts/extrai-syllabus.mjs (extrativo + validado). Chave = URL da aplicaçêo.
  */
 export type Syllabus = {
   structure: { title: string; detail: string }[]

@@ -1,8 +1,8 @@
 # Peso das imagens da home — 2026-09-21
 
-Inventário dos arquivos únicos referenciados pela home, por idioma. Soma dos arquivos, não medição de transferência inicial nem de Core Web Vitals. WebP qualidade 85, dimensões preservadas; originais mantidos para edição.
+Inventário dos arquivos únicos referenciados pela home, por idioma. Soma dos arquivos, nêo mediçêo de transferência inicial nem de Core Web Vitals. WebP qualidade 85, dimensões preservadas; originais mantidos para ediçêo.
 
-| Idioma | Antes (MiB) | Depois (MiB) | Redução |
+| Idioma | Antes (MiB) | Depois (MiB) | Reduçêo |
 |---|---:|---:|---:|
 | pt | 19.44 | 3.24 | 83.3% |
 | en | 19.83 | 3.34 | 83.2% |
@@ -25,4 +25,4 @@ Inventário dos arquivos únicos referenciados pela home, por idioma. Soma dos a
 | vczero.png | 2291 | 218 |
 | inemaagenteshubv.jpg | 294 | 196 |
 
-Manutenção: ao substituir um original, executar `node scripts/optimize-banners.cjs` para renovar WebP PT/EN/ES. Os banners abaixo do topo usam loading="lazy"; o hero principal mantém carregamento imediato.
+Manutençêo: ao substituir um original, executar `node scripts/optimize-banners.cjs` para renovar WebP PT/EN/ES. Os banners abaixo do topo usam loading="lazy"; o hero principal mantém carregamento imediato.

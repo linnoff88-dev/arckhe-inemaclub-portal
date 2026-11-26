@@ -13,10 +13,10 @@ const page: IaPage = {
   updated: '2026-09-24',
   sections: [
     {
-      heading: 'O que é um Jarvis de IA (e o que muda em relação a um chatbot)',
+      heading: 'O que é um Jarvis de IA (e o que muda em relaçêo a um chatbot)',
       paragraphs: [
         'Um "Jarvis" é um assistente pessoal que fica ligado o tempo todo, fala com você por um canal que você já usa, lembra do que você contou ontem e consegue fazer coisas por você: criar lembrete, ler a agenda, rodar uma tarefa no computador. Um chatbot comum só responde e esquece.',
-        'Por baixo, um Jarvis é um agente de IA com três coisas a mais: **canal fixo**, **memória de longo prazo** e **rotina própria** (tarefas agendadas, resumo diário, alertas). Se você ainda não montou nenhum agente, comece por [como criar um agente de IA](/ia/como-criar-um-agente-de-ia/): intenção, limites e níveis de autonomia valem igual aqui.',
+        'Por baixo, um Jarvis é um agente de IA com três coisas a mais: **canal fixo**, **memória de longo prazo** e **rotina própria** (tarefas agendadas, resumo diário, alertas). Se você ainda nêo montou nenhum agente, comece por [como criar um agente de IA](/ia/como-criar-um-agente-de-ia/): intençêo, limites e níveis de autonomia valem igual aqui.',
       ],
     },
     {
@@ -40,7 +40,7 @@ const page: IaPage = {
       heading: 'Como criar um Jarvis com IA: o passo a passo do openpcbot v3',
       paragraphs: [
         'O caminho abaixo é o do projeto real, na ordem em que o [curso openpcbot v3: seu Jarvis local](/cursos/274-openpcbot-v3-seu-jarvis-local-instalar-usar-e-configurar/) ensina (aberto, 4 trilhas e 48 tópicos). Ele pede Linux com systemd de usuário, Node 20 ou mais novo, o Ollama rodando como serviço e o CLI do Claude instalado.',
-        'Um aviso antes de começar: o v3 foi feito para rodar ao lado da versão anterior, o openpcbot v2, e o curso lista o .env do v2 como pré-requisito, porque é de lá que vêm as chaves compartilhadas e o chat permitido. Quem começa do zero precisa preparar isso também, ou partir de um caminho montado do zero, como o Intelecto ou o AgenteJAX (mais abaixo).',
+        'Um aviso antes de começar: o v3 foi feito para rodar ao lado da versêo anterior, o openpcbot v2, e o curso lista o .env do v2 como pré-requisito, porque é de lá que vêm as chaves compartilhadas e o chat permitido. Quem começa do zero precisa preparar isso também, ou partir de um caminho montado do zero, como o Intelecto ou o AgenteJAX (mais abaixo).',
       ],
       ordered: true,
       list: [
@@ -56,7 +56,7 @@ const page: IaPage = {
       heading: 'Como falar com o seu Jarvis no Telegram',
       paragraphs: ['No ar, quase tudo se faz por mensagem:'],
       list: [
-        '/tarefa add amanhã 9h revisar proposta: cria um lembrete; /tarefa lista mostra as pendentes.',
+        '/tarefa add amanhê 9h revisar proposta: cria um lembrete; /tarefa lista mostra as pendentes.',
         '/daily: resumo com tarefas, o que foi feito nas últimas 24 horas e estado da fila.',
         '/memoria buscar, /memoria salvar e /memoria esquecer: consultar e corrigir o que ele lembra.',
         '/usage: o uso de modelos no dia, na semana e no mês, por tier e por agente.',
@@ -66,25 +66,25 @@ const page: IaPage = {
     {
       heading: 'Como o Jarvis lembra de você',
       paragraphs: [
-        'A memória é o que separa um Jarvis de um chatbot, e também onde é mais fácil errar. No openpcbot v3 ela funciona em quatro camadas. No contexto de cada resposta entram no máximo 600 tokens de memória, para o prompt não inchar.',
+        'A memória é o que separa um Jarvis de um chatbot, e também onde é mais fácil errar. No openpcbot v3 ela funciona em quatro camadas. No contexto de cada resposta entram no máximo 600 tokens de memória, para o prompt nêo inchar.',
       ],
       list: [
         '**Toda mensagem sua com mais de 20 caracteres** vira uma memória, marcada como durável ("prefiro", "moro em", "sempre") ou passageira. Pergunta nunca vira fato.',
         '**Importância que decai:** cada memória começa com peso 1,0, sobe 0,1 a cada uso e perde 0,5 % ao dia (durável) ou 2 % ao dia (passageira).',
-        '**Consolidação às 4h da manhã,** no modelo local: junta duplicatas, marca contradições (a informação antiga fica registrada, não é apagada) e gera até 3 resumos por chat.',
+        '**Consolidaçêo às 4h da manhê,** no modelo local: junta duplicatas, marca contradições (a informaçêo antiga fica registrada, nêo é apagada) e gera até 3 resumos por chat.',
         '**Cofre curado:** o bot propõe fatos para os arquivos MEMORY.md e USER.md, mas nada entra sem você aprovar com /memoria aprovar.',
       ],
     },
     {
       heading: 'O que roda local e o que vai para a nuvem',
       paragraphs: [
-        'Um assistente pessoal com IA local não precisa ser 100 % local. O openpcbot v3 roda na **assinatura do Claude**, no **Codex** e com várias chaves de API, e roda **local com Ollama e Qwen**. O desenho é: local por padrão, nuvem quando a tarefa pede, e só local quando o teto de orçamento é atingido.',
+        'Um assistente pessoal com IA local nêo precisa ser 100 % local. O openpcbot v3 roda na **assinatura do Claude**, no **Codex** e com várias chaves de API, e roda **local com Ollama e Qwen**. O desenho é: local por padrêo, nuvem quando a tarefa pede, e só local quando o teto de orçamento é atingido.',
         'Em volta dele há serviços locais que o Jarvis aciona, como o inemavox (transcrever, baixar, dublar e cortar vídeos) e o inemaimg. A parte local pede máquina: o modelo geral fixo na memória ocupa 17 GB de RAM, e na máquina do INEMA a RAM livre caiu de 57 para 35 GB quando ele ficou residente.',
       ],
       table: {
         head: ['Onde roda', 'Com o quê', 'Quando é usado'],
         rows: [
-          ['Local', 'Ollama com Qwen (qwen3.8:27b)', 'padrão para conversa, resumo, tradução e memória'],
+          ['Local', 'Ollama com Qwen (qwen3.8:27b)', 'padrêo para conversa, resumo, traduçêo e memória'],
           ['Nuvem por chave de API', 'OpenRouter (Claude Haiku)', 'raciocínio longo ou Ollama sem RAM livre'],
           ['Assinatura, pelo CLI', 'Claude (e Codex)', 'trabalho de agente com ferramentas'],
         ],
@@ -93,13 +93,13 @@ const page: IaPage = {
     {
       heading: 'Do Intelecto ao openpcbot v3: como o Nei construiu o próprio Jarvis',
       paragraphs: [
-        'O openpcbot v3 não nasceu pronto. Conforme os primeiros Jarvis foram surgindo, o Nei Maldaner estudou esses sistemas e construiu o seu próprio, otimizado e enxuto. Começou pelo Intelecto e evoluiu para um Jarvis pessoal produtivo, que é o openpcbot. No caminho, criou sistemas paralelos para simplificar as próprias tarefas de criação de conteúdo e de testes. "Estamos sempre melhorando", resume.',
+        'O openpcbot v3 nêo nasceu pronto. Conforme os primeiros Jarvis foram surgindo, o Nei Maldaner estudou esses sistemas e construiu o seu próprio, otimizado e enxuto. Começou pelo Intelecto e evoluiu para um Jarvis pessoal produtivo, que é o openpcbot. No caminho, criou sistemas paralelos para simplificar as próprias tarefas de criaçêo de conteúdo e de testes. "Estamos sempre melhorando", resume.',
         'Construir a própria base em vez de só instalar um sistema pronto é uma escolha. "Se pegar sistemas prontos será apenas um operador, fácil de ser substituído", diz o Nei. Por isso o caminho sugerido é o mesmo que ele fez:',
       ],
       ordered: true,
       list: [
-        '**Aprender Jarvis do básico com o Intelecto:** o [INTELECTO Curso — Do Zero ao Expert em IA](/cursos/74-intelecto-curso-do-zero-ao-expert-em-ia/) cobre fundamentos, identidade e canais, segurança, memória e integrações, e termina com um projeto final: o seu Jarvis. São 6 trilhas.',
-        '**Ver um Jarvis de produção por dentro:** o curso do openpcbot v3 mostra o assistente que o INEMA usa todo dia, com fila, memória e controle de gastos.',
+        '**Aprender Jarvis do básico com o Intelecto:** o [INTELECTO Curso — Do Zero ao Expert em IA](/cursos/74-intelecto-curso-do-zero-ao-expert-em-ia/) cobre fundamentos, identidade e canais, segurança, memória e integrações, e termina com um projeto final: o seu Jarvis. Sêo 6 trilhas.',
+        '**Ver um Jarvis de produçêo por dentro:** o curso do openpcbot v3 mostra o assistente que o INEMA usa todo dia, com fila, memória e controle de gastos.',
         '**Ajustar ao seu dia a dia:** trocar modelos, persona, agentes e skills até ele fazer só o que você precisa.',
       ],
     },
@@ -107,18 +107,18 @@ const page: IaPage = {
       heading: 'O que deu errado construindo o nosso Jarvis',
       paragraphs: ['O projeto registra cada falha real. Três mostram onde um Jarvis caseiro quebra:'],
       list: [
-        '**Servidor aberto na rede sem senha.** O HTTP subiu sem token e aberto na rede: qualquer aparelho do mesmo Wi-Fi poderia disparar um agente com permissões. A revisão pegou antes de virar incidente; agora ele escuta só na própria máquina.',
-        '**Primeira conversa falhou por uma aspa.** O tempo de permanência do modelo estava como texto "-1" no arquivo de configuração, e o Ollama só aceita -1 como número.',
-        '**O botão de interromper não parava o agente.** O comando de interrupção cancelava a resposta direta em andamento, mas não o agente rodando na fila, que é o caso comum. Corrigido na versão 3.2.2.',
+        '**Servidor aberto na rede sem senha.** O HTTP subiu sem token e aberto na rede: qualquer aparelho do mesmo Wi-Fi poderia disparar um agente com permissões. A revisêo pegou antes de virar incidente; agora ele escuta só na própria máquina.',
+        '**Primeira conversa falhou por uma aspa.** O tempo de permanência do modelo estava como texto "-1" no arquivo de configuraçêo, e o Ollama só aceita -1 como número.',
+        '**O botêo de interromper nêo parava o agente.** O comando de interrupçêo cancelava a resposta direta em andamento, mas nêo o agente rodando na fila, que é o caso comum. Corrigido na versêo 3.2.2.',
       ],
     },
     {
       heading: 'Limitações que o projeto admite',
       list: [
-        'A memória guarda a frase inteira, não um fato extraído dela.',
-        'WhatsApp ainda não funciona no v3; Slack está desligado.',
-        'O modo steer não consegue mudar um agente que já está rodando: a mensagem nova só entra quando ele termina.',
-        'Voz no Telegram e ferramentas MCP no caminho local estão planejadas, não prontas.',
+        'A memória guarda a frase inteira, nêo um fato extraído dela.',
+        'WhatsApp ainda nêo funciona no v3; Slack está desligado.',
+        'O modo steer nêo consegue mudar um agente que já está rodando: a mensagem nova só entra quando ele termina.',
+        'Voz no Telegram e ferramentas MCP no caminho local estêo planejadas, nêo prontas.',
       ],
     },
     {
@@ -135,7 +135,7 @@ const page: IaPage = {
     {
       heading: 'Por onde começar o seu Jarvis',
       paragraphs: [
-        'Para ver o projeto funcionando por dentro, o [guia de uso do openpcbot v3](https://inematds.github.io/openpcbotv3/guia/) mostra a instalação e os comandos. Como criar um Jarvis com IA, no fim, é menos escolher o modelo e mais decidir o que ele pode lembrar, gastar e fazer sem te perguntar.',
+        'Para ver o projeto funcionando por dentro, o [guia de uso do openpcbot v3](https://inematds.github.io/openpcbotv3/guia/) mostra a instalaçêo e os comandos. Como criar um Jarvis com IA, no fim, é menos escolher o modelo e mais decidir o que ele pode lembrar, gastar e fazer sem te perguntar.',
       ],
     },
   ],

@@ -3,22 +3,22 @@
 
 ---
 
-## Visão Geral
+## Visêo Geral
 
 Este sistema faz três coisas:
 1. **Conta toda visita** à página (pageviews)
 2. **Identifica visitantes únicos** por dispositivo/browser (sem login)
-3. **Rastreia cliques** em links externos com indicação de qual seção da página
+3. **Rastreia cliques** em links externos com indicaçêo de qual seçêo da página
 4. **Exibe tudo** em um painel em `/stats` com gráficos e tabelas
 
-Não usa cookies. Não precisa de login. Funciona com qualquer usuário anônimo.
+Nêo usa cookies. Nêo precisa de login. Funciona com qualquer usuário anônimo.
 
 ---
 
 ## Stack necessária
 
-- **Next.js** (App Router) — versão 14 ou superior
-- **Supabase** — banco de dados PostgreSQL gerenciado + autenticação opcional
+- **Next.js** (App Router) — versêo 14 ou superior
+- **Supabase** — banco de dados PostgreSQL gerenciado + autenticaçêo opcional
 - Nenhuma biblioteca de gráfico necessária (CSS puro)
 
 ---
@@ -52,7 +52,7 @@ create table clicks (
   session_id text not null,
   url        text not null,
   label      text,     -- texto do link clicado
-  section    text,     -- nome da seção onde estava o link
+  section    text,     -- nome da seçêo onde estava o link
   created_at timestamptz default now()
 );
 
@@ -74,7 +74,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=sua_anon_key
 SUPABASE_SERVICE_ROLE_KEY=sua_service_role_key
 ```
 
-Em produção (Vercel, Netlify, etc.), adicionar essas três variáveis no painel de configuração da plataforma.
+Em produçêo (Vercel, Netlify, etc.), adicionar essas três variáveis no painel de configuraçêo da plataforma.
 
 ---
 
@@ -177,14 +177,14 @@ export default async function Home() {
       }
     }
   } catch {
-    // Supabase não configurado — retorna zeros
+    // Supabase nêo configurado — retorna zeros
   }
 
   return <MeuComponente visitStats={visitStats} />
 }
 ```
 
-> **Nota:** Se o site já existia antes do sistema ser instalado e você quiser que os contadores reflitam um histórico anterior, some constantes fixas ao `total` e ao `uniqueAnon` antes de passar para o componente. Isso é uma decisão de negócio — tecnicamente o banco só conta a partir do dia que foi instalado.
+> **Nota:** Se o site já existia antes do sistema ser instalado e você quiser que os contadores reflitam um histórico anterior, some constantes fixas ao `total` e ao `uniqueAnon` antes de passar para o componente. Isso é uma decisêo de negócio — tecnicamente o banco só conta a partir do dia que foi instalado.
 
 ---
 
@@ -233,7 +233,7 @@ export default function MeuComponente({ visitStats }: { visitStats: VisitStats }
     trackVisit()
   }, [])
 
-  // ── Função para rastrear cliques ──
+  // ── Funçêo para rastrear cliques ──
   function trackClick(url: string, label: string, section: string) {
     const sid = localStorage.getItem('meu_site_sid') ?? 'unknown'
     fetch('/api/click', {
@@ -310,7 +310,7 @@ export default async function StatsPage() {
     return d.toISOString().slice(0, 10)
   })
 
-  // ── Cliques por seção ──
+  // ── Cliques por seçêo ──
   const bySection: Record<string, number> = {}
   for (const c of clicks) {
     const sec = c.section ?? 'outros'
@@ -391,11 +391,11 @@ export default async function StatsPage() {
           </div>
         </div>
 
-        {/* Cliques por seção — barras horizontais */}
+        {/* Cliques por seçêo — barras horizontais */}
         <div style={{ background: '#1e293b', borderRadius: 12, padding: '1.5rem',
                       border: '1px solid #334155', marginBottom: '1.5rem' }}>
           <h2 style={{ fontSize: '1rem', fontWeight: 600, marginBottom: '1.25rem' }}>
-            Cliques por seção
+            Cliques por seçêo
           </h2>
           {sectionData.length === 0
             ? <p style={{ color: '#475569', fontSize: '.85rem' }}>Nenhum clique ainda.</p>
@@ -428,7 +428,7 @@ export default async function StatsPage() {
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '.85rem' }}>
             <thead>
               <tr style={{ borderBottom: '1px solid #334155' }}>
-                {['#', 'Link', 'Seção', 'Cliques'].map(h => (
+                {['#', 'Link', 'Seçêo', 'Cliques'].map(h => (
                   <th key={h} style={{ padding: '.5rem .75rem', color: '#64748b',
                                        textAlign: h === 'Cliques' ? 'right' : 'left', fontWeight: 600 }}>
                     {h}
@@ -470,7 +470,7 @@ export default async function StatsPage() {
 Usuário abre o site
   │
   ├─ Browser verifica localStorage por "meu_site_sid"
-  │    ├─ Não existe → gera UUID → salva → usa
+  │    ├─ Nêo existe → gera UUID → salva → usa
   │    └─ Existe → reutiliza o mesmo
   │
   ├─ POST /api/visit { session_id }
@@ -482,7 +482,7 @@ Usuário abre o site
 
 Servidor (a cada 60s ou a cada request)
   └─ SELECT * FROM visits → calcula total e únicos
-  └─ SELECT * FROM clicks → calcula por seção e top links
+  └─ SELECT * FROM clicks → calcula por seçêo e top links
   └─ Passa para o componente via props
 ```
 
@@ -490,11 +490,11 @@ Servidor (a cada 60s ou a cada request)
 
 ## Conceitos-chave
 
-**Visitante único:** identificado pelo `session_id` no `localStorage`. Enquanto o usuário não limpar o storage do browser, o mesmo ID é reutilizado — conta como um único visitante independente de quantas vezes recarregar.
+**Visitante único:** identificado pelo `session_id` no `localStorage`. Enquanto o usuário nêo limpar o storage do browser, o mesmo ID é reutilizado — conta como um único visitante independente de quantas vezes recarregar.
 
 **Visualizações (pageviews):** total de linhas na tabela `visits`. Sobe a cada reload, mesmo do mesmo visitante. É o equivalente ao "pageview" do Google Analytics.
 
-**Seção do clique:** string livre que você define no `onClick` de cada link (`'cursos'`, `'header'`, `'github'`, etc.). Permite saber qual parte da página gera mais engajamento.
+**Seçêo do clique:** string livre que você define no `onClick` de cada link (`'cursos'`, `'header'`, `'github'`, etc.). Permite saber qual parte da página gera mais engajamento.
 
 **Segurança:** a tabela só aceita INSERT de qualquer usuário (RLS policy). SELECT é bloqueado para a chave anônima — apenas o `SUPABASE_SERVICE_ROLE_KEY` (usado server-side, nunca no browser) consegue ler os dados.
 
@@ -509,6 +509,6 @@ Servidor (a cada 60s ou a cada request)
 - [ ] Copiar `src/app/api/click/route.ts`
 - [ ] Copiar `src/app/stats/page.tsx`
 - [ ] No `page.tsx` principal: buscar visitas e passar como props
-- [ ] No componente cliente: adicionar `useEffect` com `trackVisit()` e função `trackClick()`
-- [ ] Adicionar `onClick={() => trackClick(url, label, 'seção')}` nos links que quiser monitorar
-- [ ] Configurar as 3 variáveis de ambiente (local e em produção)
+- [ ] No componente cliente: adicionar `useEffect` com `trackVisit()` e funçêo `trackClick()`
+- [ ] Adicionar `onClick={() => trackClick(url, label, 'seçêo')}` nos links que quiser monitorar
+- [ ] Configurar as 3 variáveis de ambiente (local e em produçêo)

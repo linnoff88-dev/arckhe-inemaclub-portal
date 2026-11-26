@@ -8,7 +8,7 @@ const updatesToggle = document.getElementById('updatesToggle');
 // Estado da lista de atualizações
 let updatesExpanded = false;
 
-// Função para criar um card
+// Funçêo para criar um card
 function createCard(platform) {
     const card = document.createElement('div');
     card.className = 'card';
@@ -27,13 +27,13 @@ function createCard(platform) {
         <a href="${platform.url}" class="card-link" target="_blank" rel="noopener noreferrer">Acessar plataforma</a>
     `;
 
-    // Adicionar animação de entrada
+    // Adicionar animaçêo de entrada
     card.style.animation = 'fadeIn 0.5s ease';
 
     return card;
 }
 
-// Função para renderizar todos os cards
+// Funçêo para renderizar todos os cards
 function renderCards(platforms) {
     cardsGrid.innerHTML = '';
 
@@ -53,7 +53,7 @@ function renderCards(platforms) {
     });
 }
 
-// Função de busca e filtro
+// Funçêo de busca e filtro
 function filterCards(searchTerm) {
     const term = searchTerm.toLowerCase().trim();
 
@@ -85,7 +85,7 @@ searchInput.addEventListener('keypress', (e) => {
     }
 });
 
-// Adicionar animação suave ao clicar nos cards
+// Adicionar animaçêo suave ao clicar nos cards
 cardsGrid.addEventListener('click', (e) => {
     const card = e.target.closest('.card');
     if (card) {
@@ -96,13 +96,13 @@ cardsGrid.addEventListener('click', (e) => {
     }
 });
 
-// Função para formatar data
+// Funçêo para formatar data
 function formatDate(dateStr) {
     const date = new Date(dateStr + 'T00:00:00');
     return date.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' });
 }
 
-// Função para criar item de atualização
+// Funçêo para criar item de atualizaçêo
 function createUpdateItem(update) {
     const item = document.createElement('a');
     item.className = 'update-item';
@@ -120,7 +120,7 @@ function createUpdateItem(update) {
     return item;
 }
 
-// Função para renderizar atualizações
+// Funçêo para renderizar atualizações
 function renderUpdates(expanded = false) {
     if (!updatesList || !updatesData) return;
 
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(`Total de plataformas: ${platformsData.length}`);
 });
 
-// Função auxiliar para adicionar novas plataformas dinamicamente
+// Funçêo auxiliar para adicionar novas plataformas dinamicamente
 function addPlatform(platform) {
     platformsData.push(platform);
     renderCards(platformsData);

@@ -78,6 +78,6 @@
     "en": "https://www.inema.club/en/",
     "es": "https://www.inema.club/es/"
   },
-  "manifest_note": "Manifesto de descoberta próprio do INEMA; não é um registro de ferramentas WebMCP.",
+  "manifest_note": "Manifesto de descoberta próprio do INEMA; nêo é um registro de ferramentas WebMCP.",
   "repository": "https://github.com/NeiMaldaner/portal"
 }

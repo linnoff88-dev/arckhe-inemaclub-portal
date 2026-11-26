@@ -70,7 +70,7 @@ export default async function StatsPage() {
   }))
   const maxVisitDay = Math.max(...visitDayData.map((d) => d.count), 1)
 
-  // Cliques por seção
+  // Cliques por seçêo
   const clicksBySection = groupBy(clicks, (c) => c.section ?? 'outros')
   const sectionData = Object.entries(clicksBySection)
     .map(([section, items]) => ({ section, count: items.length }))
@@ -156,10 +156,10 @@ export default async function StatsPage() {
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '1.5rem' }}>
 
-          {/* Cliques por seção */}
+          {/* Cliques por seçêo */}
           <div style={{ background: '#1e293b', borderRadius: 12, padding: '1.5rem', border: '1px solid #334155' }}>
             <h2 style={{ margin: '0 0 1.25rem', fontSize: '1rem', fontWeight: 600, color: '#cbd5e1' }}>
-              Cliques por seção
+              Cliques por seçêo
             </h2>
             {sectionData.length === 0 ? (
               <p style={{ color: '#475569', fontSize: '0.85rem' }}>Nenhum clique registrado ainda.</p>
@@ -217,7 +217,7 @@ export default async function StatsPage() {
                   <tr style={{ borderBottom: '1px solid #334155' }}>
                     <th style={{ textAlign: 'left', padding: '0.5rem 0.75rem', color: '#64748b', fontWeight: 600 }}>#</th>
                     <th style={{ textAlign: 'left', padding: '0.5rem 0.75rem', color: '#64748b', fontWeight: 600 }}>Link</th>
-                    <th style={{ textAlign: 'left', padding: '0.5rem 0.75rem', color: '#64748b', fontWeight: 600 }}>Seção</th>
+                    <th style={{ textAlign: 'left', padding: '0.5rem 0.75rem', color: '#64748b', fontWeight: 600 }}>Seçêo</th>
                     <th style={{ textAlign: 'right', padding: '0.5rem 0.75rem', color: '#64748b', fontWeight: 600 }}>Cliques</th>
                   </tr>
                 </thead>
